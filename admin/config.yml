@@ -1,11 +1,6 @@
 backend:
-  name: github
-  repo: dinasrees/jagannathsebangan
-​branch: main
-base_url: https://jagannathsebangan.netlify.app
-auth_type: implicit
-client_id: 0v23liP0udCmJu8AfZuE
-
+  name: git-gateway
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -15,8 +10,6 @@ collections:
     label: "Blog"
     folder: "content/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
