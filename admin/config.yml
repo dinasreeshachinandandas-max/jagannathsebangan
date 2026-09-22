@@ -2,7 +2,6 @@ backend:
   name: github
   repo: dinasrees/jagannathsebangan
 ​branch: main
-base_url: https://jagannathsebangan.netlify.app
 
 
 media_folder: "images/uploads"
