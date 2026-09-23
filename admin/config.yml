@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: dinasreeshachinandandas-max/jagannathsebangan
   branch: main
 
 media_folder: "images/uploads"
