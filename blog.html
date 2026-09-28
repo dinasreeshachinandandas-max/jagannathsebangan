@@ -15,7 +15,11 @@
     <header class="bg-amber-900 text-amber-100 py-4 px-6 shadow-md">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 class="text-xl sm:text-2xl font-bold">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
-            <a href="/" class="text-sm bg-amber-800 hover:bg-amber-700 px-3 py-1.5 rounded-lg transition">← মূল ওয়েবসাইট</a>
+            <div class="flex items-center gap-3">
+                <!-- গুগল ট্রান্সলেট বাটন -->
+                <div id="google_translate_element"></div>
+                <a href="/" class="text-sm bg-amber-800 hover:bg-amber-700 px-3 py-1.5 rounded-lg transition">← মূল ওয়েবসাইট</a>
+            </div>
         </div>
     </header>
 
@@ -40,7 +44,7 @@
             </div>
         </article>
 
-        <!-- ২. নিচে যাবে: শ্রদ্ধাস্পদ গোপী দাস বৈষ্ণব (এখানে সঠিক ছবি 1000068292.jpg দেওয়া হলো) -->
+        <!-- ২. নিচে যাবে: শ্রদ্ধাস্পদ গোপী দাস বৈষ্ণব -->
         <article class="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-amber-100">
             <h2 class="text-2xl sm:text-3xl font-bold text-amber-900 mb-4">শ্রদ্ধাস্পদ নিত্যধামগত শ্রীযুক্ত গোপী দাস বৈষ্ণব</h2>
             
@@ -66,6 +70,14 @@
     <footer class="bg-amber-950 text-amber-200/80 text-center py-6 text-sm mt-12">
         <p>© শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ মন্দির</p>
     </footer>
+
+    <!-- গুগল ট্রান্সলেট স্ক্রিপ্ট -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'bn', includedLanguages: 'en,bn,hi,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
