@@ -28,7 +28,7 @@
             background: linear-gradient(135deg, #8b4513, #a0522d);
             color: #fff;
             text-align: center;
-            padding: 25px 15px;
+            padding: 20px 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             position: relative;
         }
@@ -40,7 +40,6 @@
             object-fit: cover;
             background: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
         }
         h1 {
             font-size: 24px;
@@ -89,23 +88,24 @@
             margin: 10px 0;
             border-radius: 4px;
         }
+        .donor-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .donor-list li {
+            background: #faedcd;
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #582f0e;
+        }
         .certificate-img {
             width: 100%;
-            max-width: 500px;
+            max-width: 100%;
             border-radius: 8px;
             border: 2px solid var(--secondary-color);
             margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        /* Google Translate Styling */
-        .translate-box {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 12px;
         }
         .btn-enlarge {
             display: inline-block;
@@ -121,27 +121,15 @@
         .btn-enlarge:hover {
             background-color: #a0522d;
         }
-        /* Grid Buttons Style */
-        .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .menu-btn {
-            background-color: #8b4513;
-            color: #fff;
-            padding: 12px 10px;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: background 0.3s;
-        }
-        .menu-btn:hover {
-            background-color: #a0522d;
+        /* Google Translate Styling */
+        .translate-box {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
         }
         footer {
             text-align: center;
@@ -156,44 +144,20 @@
 <body>
 
     <header>
-        <!-- গুগল ট্রান্সলেট উইজেট -->
+        <!-- Google Translate Widget -->
         <div class="translate-box" id="google_translate_element"></div>
-        
         <div class="logo-container">
             <!-- মন্দিরের মনোগ্রাম ছবি -->
-            <img src="/1000058168.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.style.display='none'">
+            <img src="/1000058168.jpg" alt="মন্দিরের মনোগ্রাম">
         </div>
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
-        <div class="established">স্থাপিত: ১৩৮০ বঙ্গাব্দ | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ</div>
+        <div class="established">স্থাপিত: ১৩৮০ বঙ্গাব্দ | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী</div>
     </header>
 
     <div class="container">
 
-        <!-- মূল পরিচিতি কার্ড -->
-        <div class="card" style="text-align: center; background: linear-gradient(to bottom, #fff, #fff9f0);">
-            <p style="text-align: center; font-weight: 500;">
-                শ্রীধাম বৃন্দাবনস্থিত পবিত্র কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জ-এর শাখা মন্দির এবং আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ কর্তৃক বিশ্বব্যাপী সনাতন ধর্ম প্রচার, ভক্তি সাধনা ও আর্তমানবতার সেবায় পরিচালিত একটি পবিত্র তীর্থপীঠ।
-            </p>
-            <p style="text-align: center; font-style: italic; color: #8b4513; font-weight: bold;">
-                "স্বপ্নের শ্রীবৃন্দাবন নির্মাণে আন্তর্জাতিক সহযোগিতা ও সনাতন সংস্কৃতির বিশ্বজনীন প্রচারেই আমাদের অঙ্গীকার।"
-            </p>
-        </div>
-
-        <!-- নেভিগেশন বা মেনু বোতামসমূহ -->
-        <div class="card">
-            <h2 style="text-align: center; border-bottom: none; margin-bottom: 5px;">প্রয়োজনীয় লিংকসমূহ</h2>
-            <div class="btn-grid">
-                <a href="#committee" class="menu-btn"><i class="fas fa-users"></i> পরিচালনা পরিষদ</a>
-                <a href="#certificate" class="menu-btn"><i class="fas fa-certificate"></i> ট্রাস্ট রেজিস্ট্রেশন</a>
-                <a href="#history" class="menu-btn"><i class="fas fa-history"></i> ইতিহাস ও পরিক্রমা</a>
-                <a href="#guru" class="menu-btn"><i class="fas fa-om"></i> গুরুদেবের মহিমা</a>
-                <a href="#donors" class="menu-btn"><i class="fas fa-hand-holding-heart"></i> ভূমি দাতাগণ</a>
-                <a href="/blog.html" class="menu-btn"><i class="fas fa-bullhorn"></i> সংবাদ ও বার্তা</a>
-            </div>
-        </div>
-
-        <!-- ১. সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ সেকশন -->
-        <div class="card" id="certificate" style="text-align: center;">
+        <!-- ১. সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ -->
+        <div class="card" style="text-align: center;">
             <h2><i class="fas fa-certificate"></i> সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ</h2>
             <div>
                 <img src="/IMG_20260928_102421.jpg" alt="রেজিস্ট্রেশন সার্টিফিকেট" class="certificate-img">
@@ -204,38 +168,24 @@
             </a>
         </div>
 
-        <!-- ২. গুরুদেবের মহিমা ও কৃপা -->
-        <div class="card" id="guru">
+        <!-- ২. হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন -->
+        <div class="card">
+            <h2><i class="fas fa-landmark"></i> হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন</h2>
+            <p>আমাদের এই পবিত্র তীর্থপীঠ ও সেবাঙ্গন পরিচালনার ক্ষেত্রে দেশের প্রচলিত আইন ও ট্রাস্টের বিধিমালা অনুসরণ করা হয়। বাংলাদেশ সরকারের <strong>হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট</strong> ও সংশ্লিষ্ট দপ্তরের নীতিমালা অনুযায়ী আমাদের কার্যক্রম পরিচালিত ও নিবন্ধিত রয়েছে।</p>
+            <div style="background: #e8f5e9; border: 1px solid #c8e6c9; color: #2e7d32; padding: 10px 15px; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 5px;">
+                ✅ বৈধ ও নিবন্ধিত সেবামূলক প্রতিষ্ঠান
+            </div>
+        </div>
+
+        <!-- ৩. শ্রীগুরুপাদপদ্ম ও গুরুদেবের মহিমা -->
+        <div class="card">
             <h2><i class="fas fa-om"></i> শ্রীগুরুপাদপদ্ম ও গুরুদেবের মহিমা</h2>
             <p>
                 গুরু কৃপা হি কেবলাম। পরম আরাধ্য গুরুদেব ও বৈষ্ণববৃন্দের অহেতুক কৃপা ছাড়া ভক্তিপথ অর্জন অসম্ভব। আমাদের এই সেবাঙ্গনের প্রতিটি ধূলিকণা ও নিত্য সেবা গুরুদেবের দিব্য আদেশ এবং পবিত্র আশীর্বাদের ওপর প্রতিষ্ঠিত। ভক্ত হৃদয়ে ভক্তি জাগরণের মাধ্যমে মানবকল্যাণ ও কৃষ্ণসেবা প্রদানই আমাদের গুরুপরম্পরার মূল শিক্ষা।
             </p>
         </div>
 
-        <!-- ৩. মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা -->
-        <div class="card" id="history">
-            <h2><i class="fas fa-history"></i> মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা</h2>
-            <p>
-                তিন পুকুরিয়া শ্রী শ্রী জগন্নাথ মন্দিরের প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমন্ত প্রতীক, প্রাচীন মহাত্মা পরম বৈষ্ণব শ্রীযুক্ত গোপী দাস বৈষ্ণব ১৩৮০ বাংলায় খুব ছোট পরিসরে উক্ত মন্দির প্রতিষ্ঠা করে এবং চিত্রপটে সেবা-অর্চণ শুরু করেন।
-            </p>
-            <p>
-                বর্তমান সেবায়েত যখন দ্বিতীয় শ্রেণীতে পড়েন, তখন একদিন রাতের অন্ধকারে অলৌকিক উপায়ে স্বপ্নাদেশ প্রাপ্ত হয়ে এবং বিগ্রহ এনে মন্দিরে সেবা-অর্চণ শুরু হয়। পরবর্তীতে জায়গা সংকুলান না থাকায় তৎকালীন পরিচালনা পর্ষদের সিদ্ধান্ত অনুযায়ী এবং মহানুভব ভূমিদাতাগণের ঐকান্তিক সহযোগিতায় বর্তমান ঠিকানায় মন্দির স্থানান্তরিত ও পুনর্নির্মিত হয়।
-            </p>
-        </div>
-
-        <!-- ৪. ভূমি দাতাদের নাম ও কৃতজ্ঞতা প্রকাশ -->
-        <div class="card" id="donors">
-            <h2><i class="fas fa-hand-holding-heart"></i> ভূমি দাতাগণের নাম ও বিশেষ কৃতজ্ঞতা</h2>
-            <p>বর্তমান সেবাঙ্গন ও তীর্থক্ষেত্র প্রতিষ্ঠার জন্য যাঁরা নিঃস্বার্থভাবে পবিত্র ভূমি দান করে অমর হয়ে আছেন, তাঁদের প্রতি চিরকৃতজ্ঞতা প্রকাশ করছি:</p>
-            <div class="address-box" style="background: #fff8f0;">
-                <ul style="margin: 0; padding-left: 20px; font-size: 16px;">
-                    <li style="margin-bottom: 6px;"><strong>৩০ শতাংশ পবিত্র ভূমি দানকারী মহানুভব ভূমিদাতাগণ</strong> (যাঁদের অসামান্য দানে আজকের এই সেবাঙ্গন ও মন্দির স্থায়ী রূপ লাভ করেছে)।</li>
-                    <li style="margin-bottom: 6px;">সকল দাতা, শুভানুধ্যায়ী ও ভক্তপ্রাণ জনসাধারণের প্রতি সেবাঙ্গনের পক্ষ থেকে গভীর কৃতজ্ঞতা ও সশ্রদ্ধ প্রণাম জ্ঞাপন করা হচ্ছে।</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ৫. মন্দিরের ঠিকানা -->
+        <!-- ৪. মন্দিরের ঠিকানা -->
         <div class="card">
             <h2><i class="fas fa-map-marker-alt"></i> মন্দিরের ঠিকানা</h2>
             <div class="address-box">
@@ -246,8 +196,29 @@
             </div>
         </div>
 
-        <!-- ৬. মন্দির পরিচালনা পরিষদ -->
-        <div class="card" id="committee">
+        <!-- ৫. মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা -->
+        <div class="card">
+            <h2><i class="fas fa-history"></i> মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা</h2>
+            <p>
+                তিন পুকুরিয়া শ্রী শ্রী জগন্নাথ মন্দিরের প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমন্ত প্রতীক, প্রাচীন মহাত্মা পরম বৈষ্ণব শ্রীযুক্ত গোপী দাস বৈষ্ণব ১৩৮০ বাংলায় খুব ছোট পরিসরে উক্ত মন্দির প্রতিষ্ঠা করে এবং চিত্রপটে সেবা-অর্চণ শুরু করেন।
+            </p>
+            <p>
+                বর্তমান সেবায়েত যখন দ্বিতীয় শ্রেণীতে পড়েন, তখন একদিন রাতের অন্ধকারে অলৌকিক উপায়ে স্বপ্নাদেশ প্রাপ্ত হয়ে এবং বিগ্রহ এনে মন্দিরে সেবা-অর্চণ শুরু হয়। পরবর্তীতে জায়গা সংকুলান না থাকায় তৎকালীন পরিচালনা পর্ষদের সিদ্ধান্ত অনুযায়ী এবং মহানুভব ভূমিদাতাগণের ৩০ শতাংশ ভূমি দানের মাধ্যমে বর্তমান ঠিকানায় মন্দির স্থানান্তরিত ও পুনর্নির্মিত হয়।
+            </p>
+        </div>
+
+        <!-- ৬. ভূমি দাতাদের নাম ও কৃতজ্ঞতা প্রকাশ -->
+        <div class="card">
+            <h2><i class="fas fa-hand-holding-heart"></i> ভূমি দাতাগণের নাম ও বিশেষ কৃতজ্ঞতা</h2>
+            <p>বর্তমান সেবাঙ্গন ও তীর্থক্ষেত্র প্রতিষ্ঠার জন্য যাঁরা নিঃস্বার্থভাবে পবিত্র ভূমি দান করে অমর হয়ে আছেন, তাঁদের প্রতি চিরকৃতজ্ঞতা প্রকাশ করছি:</p>
+            <ul class="donor-list">
+                <li>৩০ শতাংশ পবিত্র ভূমি দানকারী মহানুভব ভূমিদাতাগণ (যাঁদের অসামান্য দানে আজকের এই সেবাঙ্গন ও মন্দির স্থায়ী রূপ লাভ করেছে)।</li>
+                <li>সকল দাতা, শুভানুধ্যায়ী ও ভক্তপ্রাণ জনসাধারণের প্রতি সেবাঙ্গনের পক্ষ থেকে গভীর কৃতজ্ঞতা ও সশ্রদ্ধ প্রণাম জ্ঞাপন করা হচ্ছে।</li>
+            </ul>
+        </div>
+
+        <!-- ৭. মন্দির পরিচালনা পরিষদ -->
+        <div class="card">
             <h2><i class="fas fa-users"></i> মন্দির পরিচালনা পরিষদ</h2>
             <div class="address-box">
                 <strong>সভাপতি:</strong> শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা (01717-300520)
@@ -260,7 +231,7 @@
             </div>
         </div>
 
-        <!-- ৭. অনুদান পাঠানোর মাধ্যম -->
+        <!-- ৮. অনুদান পাঠানোর মাধ্যম -->
         <div class="card">
             <h2><i class="fas fa-donate"></i> অনুদান পাঠানোর মাধ্যম</h2>
             <ul style="padding-left: 20px; font-size: 16px;">
@@ -276,7 +247,7 @@
         <p>© ১৩৮০ বঙ্গাব্দ থেকে পরিচালিত শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</p>
     </footer>
 
-    <!-- গুগল ট্রান্সলেট স্ক্রিপ্ট -->
+    <!-- Google Translate Script -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'bn', includedLanguages: 'en,bn,hi,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
