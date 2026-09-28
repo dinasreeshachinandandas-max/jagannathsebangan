@@ -1,276 +1,589 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ | Global Portal</title>
+    <!-- Tailwind CSS CDN for modern responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Hind Siliguri Bengali & Inter typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QR Code Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
-        :root {
-            --primary-color: #8b4513;
-            --secondary-color: #d4a373;
-            --bg-color: #fffaf0;
-            --card-bg: #ffffff;
-            --text-color: #2c2c2c;
-            --accent-color: #b05714;
-        }
         body {
-            font-family: 'Tiro Bangla', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #2d2d2d;
         }
-        header {
-            background: linear-gradient(135deg, #8b4513, #a0522d);
-            color: #fff;
-            text-align: center;
-            padding: 25px 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .logo-container img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            object-fit: cover;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
-        }
-        h1 {
-            font-size: 24px;
-            margin: 10px 0 5px;
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        .established {
-            background-color: #d4a373;
-            color: #4a2511;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
-            border: 1px solid #faedcd;
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-top: 0;
-            font-size: 20px;
-        }
-        p {
-            text-align: justify;
-            font-size: 16px;
-        }
-        .address-box {
-            background: #fefae0;
-            padding: 12px;
-            border-left: 4px solid var(--primary-color);
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-        .certificate-img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 8px;
-            border: 2px solid var(--secondary-color);
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        /* Google Translate Styling */
-        .translate-box {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-        .donor-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .donor-table th, .donor-table td {
-            border: 1px solid #d4a373;
-            padding: 10px;
-            text-align: left;
-            font-size: 15px;
-        }
-        .donor-table th {
-            background-color: #fefae0;
-            color: #8b4513;
-        }
-        .btn-enlarge {
-            display: inline-block;
-            background-color: #8b4513;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 12px;
-            transition: background 0.3s;
-        }
-        .btn-enlarge:hover {
-            background-color: #a0522d;
-        }
-        .nav-btn {
-            display: inline-block;
-            background-color: #d4a373;
-            color: #4a2511;
-            padding: 6px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #4a2511;
-            color: #fffaf0;
-            font-size: 14px;
-            margin-top: 30px;
+        .hero-pattern {
+            background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fdfbf7 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-    <header>
-        <!-- গুগল ট্রান্সলেট উইজেট -->
-        <div class="translate-box" id="google_translate_element"></div>
-        
-        <div class="logo-container">
-            <!-- মন্দিরের মনোগ্রাম ছবি -->
-            <img src="/1000058168.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.style.display='none'">
+    <header class="bg-amber-950 text-amber-50 shadow-lg py-4 px-4 sm:px-8 sticky top-0 z-50 flex flex-wrap justify-between items-center border-b border-amber-800">
+        <div class="flex items-center space-x-3">
+            <span class="text-base sm:text-xl font-bold tracking-wide">🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন (Global Portal)</span>
         </div>
-        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
-        <div class="established">স্থাপিত: ১৩৮০ বঙ্গাব্দ | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী</div>
+        <!-- Google Translate Widget for multi-language support across the globe -->
+        <div id="google_translate_element" class="mt-2 sm:mt-0 text-xs sm:text-sm"></div>
     </header>
 
-    <div class="container">
-
-        <!-- সংবাদ ও বার্তা পেজ লিংক -->
-        <div style="text-align: right;">
-            <a href="/blog.html" class="nav-btn"><i class="fas id-card fa-bullhorn"></i> সংবাদ ও বার্তা দেখুন →</a>
+    <section class="hero-pattern bg-gradient-to-b from-amber-100/80 via-amber-50 to-white py-14 sm:py-20 px-4 sm:px-6 text-center border-b border-amber-200">
+        <div class="max-w-5xl mx-auto">
+            <!-- Temple Logo / Monogram Symbol -->
+            <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 rounded-full bg-amber-900 text-amber-100 flex items-center justify-center text-4xl sm:text-5xl shadow-xl border-4 border-amber-300">
+                🛕
+            </div>
+            <div class="inline-block bg-amber-800 text-amber-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-4 shadow-sm">
+                🌟 International Sanatan Spiritual & Humanitarian Hub
+            </div>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-amber-950 mb-4 leading-tight">
+                শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
+            </h1>
+            <p class="text-base sm:text-xl text-amber-900 font-bold mb-3 bg-amber-100/80 inline-block px-4 py-1.5 rounded-xl border border-amber-300 shadow-xs">
+                স্থাপিত: <span class="text-rose-800 font-extrabold text-lg sm:text-2xl tracking-wide underline decoration-amber-500">১৩৮০ বঙ্গাব্দ</span> | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ
+            </p>
+            <div class="bg-white/95 border-2 border-amber-300 p-5 sm:p-6 rounded-2xl shadow-md max-w-4xl mx-auto mb-8 text-xs sm:text-sm md:text-base text-amber-950 font-medium leading-relaxed">
+                <p class="mb-2">
+                    শ্রীধাম বৃন্দাবনস্থিত পবিত্র <strong>কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জ</strong>-এর শাখা মন্দির এবং <strong>আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ</strong> কর্তৃক বিশ্বব্যাপী সনাতন ধর্ম প্রচার, ভক্তি সাধনা ও আর্তমানবতার সেবায় পরিচালিত একটি পবিত্র তীর্থপীঠ।
+                </p>
+                <p class="text-xs sm:text-sm text-amber-800 italic">
+                    "স্বপ্নের শ্রীবৃন্দাবন নির্মাণে আন্তর্জাতিক সহযোগিতা ও সনাতন সংস্কৃতির বিশ্বজনীন প্রচারই আমাদের অঙ্গীকার।"
+                </p>
+            </div>
+            
+            <!-- Quick Navigation Hub Links -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+                <a href="#committee" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">👥 পরিচালনা পর্ষদ</a>
+                <a href="#patrons-advisors" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌟 পৃষ্ঠপোষক ও উপদেষ্টা মন্ডলী</a>
+                <a href="#registration" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📜 ট্রাস্ট রেজিস্ট্রেশন</a>
+                <a href="#international-funding" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌍 আন্তর্জাতিক অনুদান ও FD-7</a>
+                <a href="#daily-seba" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">✨ নিত্য সেবা</a>
+                <a href="#annual-festivals" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌸 বাৎসরিক উৎসব</a>
+                <a href="#constitution" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📜 গঠনতন্ত্র</a>
+                <a href="#all-links" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🔗 সমস্ত অফিশিয়াল লিংক হাব</a>
+                <a href="#map-section" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🗺️ গুগল ম্যাপ লোকেশন</a>
+                <a href="#donation-section" class="bg-rose-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-800 transition">🙏 ডোনেশন ও QR</a>
+                <a href="#contact-section" class="bg-amber-950 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-black transition">📞 যোগাযোগ ও সোশ্যাল QR</a>
+            </div>
         </div>
+    </section>
 
-        <!-- ১. রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ সেকশন -->
-        <div class="card" style="text-align: center;">
-            <h2><i class="fas fa-certificate"></i> সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ</h2>
+    <section id="committee" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-400">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
+                মন্দিরের নব নির্বাচিত পরিচালনা পর্ষদ (Managing Committee)
+            </h2>
+            <p class="text-gray-700 text-center text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+                শ্রী শ্রী জগন্নাথ সেবাঙ্গনের সার্বিক উন্নয়ন, সেবা কার্যক্রম পরিচালনা ও আন্তর্জাতিক পরিমণ্ডলে একে এগিয়ে নিয়ে যাওয়ার জন্য গঠিত নবনির্বাচিত সুযোগ্য কার্যনির্বাহী পর্ষদ:
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- President Card -->
+                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-300 shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-amber-900 text-white flex items-center justify-center text-2xl font-bold shadow">
+                        👨‍💼
+                    </div>
+                    <span class="inline-block bg-amber-200 text-amber-950 text-xs font-bold px-3 py-1 rounded-full mb-2">সভাপতি (President)</span>
+                    <h3 class="text-xl font-extrabold text-amber-950 mb-1">শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা</h3>
+                    <p class="text-sm text-gray-700 mb-3">মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801717300520" class="text-rose-700 font-bold hover:underline">+880 1717-300520</a></p>
+                    <p class="text-xs text-amber-900 italic">"মন্দিরের সেবায় ও ভক্তবৃন্দের কল্যাণে সার্বিক দিকনির্দেশনায় নিয়োজিত।"</p>
+                </div>
+                <!-- General Secretary Card -->
+                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-300 shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-amber-900 text-white flex items-center justify-center text-2xl font-bold shadow">
+                        🤝
+                    </div>
+                    <span class="inline-block bg-amber-200 text-amber-950 text-xs font-bold px-3 py-1 rounded-full mb-2">সাধারণ সম্পাদক (General Secretary)</span>
+                    <h3 class="text-xl font-extrabold text-amber-950 mb-1">শ্রীযুক্ত বাবু শংকর মজুমদার</h3>
+                    <p class="text-sm text-gray-700 mb-3">মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801836188118" class="text-rose-700 font-bold hover:underline">+880 1836-188118</a></p>
+                    <p class="text-xs text-amber-900 italic">"সেবা কার্যক্রম বাস্তবায়ন ও প্রশাসনিক ব্যবস্থাপনায় নিবেদিতপ্রাণ।"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="patrons-advisors" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-400">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 text-center border-b-2 border-amber-200 pb-3">
+                পৃষ্ঠপোষক মন্ডলী ও উপদেষ্টা মন্ডলী (Patrons & Advisory Board)
+            </h2>
+            <p class="text-gray-700 text-center text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+                শ্রী শ্রী জগন্নাথ সেবাঙ্গনের আধ্যাত্মিক সাধনা, নীতি-নির্ধারণী সিদ্ধান্ত এবং আন্তর্জাতিক সম্প্রসারণে যাঁদের সুচিন্তিত পরামর্শ ও পৃষ্ঠপোষকতা আমাদের পথপ্রদর্শক:
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Advisory Board -->
+                <div class="bg-amber-50/70 p-6 rounded-2xl border border-amber-300">
+                    <h3 class="text-lg font-bold text-amber-950 mb-4 flex items-center gap-2 border-b border-amber-200 pb-2">
+                        🌟 উপদেষ্টা মন্ডলী (Advisory Committee)
+                    </h3>
+                    <ul class="space-y-3 text-sm text-gray-800">
+                        <li class="flex items-start gap-2 bg-white p-3 rounded-xl shadow-xs border border-amber-100">
+                            <span class="text-amber-700 font-bold">•</span>
+                            <div>
+                                <strong class="text-amber-950">আন্তর্জাতিক মঠ ও সংঘ প্রতিনিধিগণ:</strong> শ্রীধাম বৃন্দাবন কেশীঘাট কুঞ্জ ও আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘের প্রবীণ সাধু ও মহারাজবৃন্দ।
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white p-3 rounded-xl shadow-xs border border-amber-100">
+                            <span class="text-amber-700 font-bold">•</span>
+                            <div>
+                                <strong class="text-amber-950">স্থানীয় গুণীজন ও শিক্ষাবিদবৃন্দ:</strong> সেনবাগ ও নোয়াখালীর বিশিষ্ট সনাতন সমাজসেবক, বুদ্ধিজীবী ও আইনি পরামর্শকগণ।
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white p-3 rounded-xl shadow-xs border border-amber-100">
+                            <span class="text-amber-700 font-bold">•</span>
+                            <div>
+                                <strong class="text-amber-950">প্রবাসীবৃন্দ ও আইটি উপদেষ্টা:</strong> যুক্তরাষ্ট্র, ইউরোপ ও মধ্যপ্রাচ্যের প্রবাসী সনাতন ধর্মাবলম্বী দাতা ও প্রযুক্তি বিশেষজ্ঞগণ।
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Patrons Board -->
+                <div class="bg-amber-50/70 p-6 rounded-2xl border border-amber-300">
+                    <h3 class="text-lg font-bold text-amber-950 mb-4 flex items-center gap-2 border-b border-amber-200 pb-2">
+                        🏛️ পৃষ্ঠপোষক মন্ডলী (Patrons Board)
+                    </h3>
+                    <ul class="space-y-3 text-sm text-gray-800">
+                        <li class="flex items-start gap-2 bg-white p-3 rounded-xl shadow-xs border border-amber-100">
+                            <span class="text-amber-700 font-bold">•</span>
+                            <div>
+                                <strong class="text-amber-950">প্রধান দাতা ও শুভানুধ্যায়ীবৃন্দ:</strong> যাঁদের বদান্যতা ও আর্থিক অনুদানে মন্দিরের স্থায়ী অবকাঠামো ও সেবামূলক প্রজেক্টগুলো দাঁড়িয়ে আছে।
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2 bg-white p-3 rounded-xl shadow-xs border border-amber-100">
+                            <span class="text-amber-700 font-bold">•</span>
+                            <div>
+                                <strong class="text-amber-950">তীর্থ ও সেবা ট্রাস্টিবৃন্দ:</strong> সনাতন ধর্মীয় কল্যাণ ট্রাস্টের সহযোগী ব্যক্তিবর্গ ও হিতৈষী ব্যক্তিবর্গ।
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registration" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
+                আইনি স্বীকৃতি ও ট্রাস্ট রেজিস্ট্রেশন (Legal & Trust Certification)
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div class="bg-amber-50/70 p-6 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-900 text-lg mb-3">🏛️ হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন</h3>
+                    <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+                        আমাদের এই পবিত্র তীর্থপীঠ ও সেবাঙ্গন পরিচালনার ক্ষেত্রে দেশের প্রচলিত আইন ও ট্রাস্টের বিধিমালা অনুসরণ করা হয়। বাংলাদেশ সরকারের **হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট** ও সংশ্লিষ্ট দপ্তরের নীতিমালা অনুযায়ী আমাদের কার্যক্রম পরিচালিত ও নিবন্ধিত রয়েছে।
+                    </p>
+                    <div class="inline-block bg-green-100 text-green-900 text-xs font-bold px-3 py-1.5 rounded-lg border border-green-300">
+                        ✅ বৈধ ও নিবন্ধিত সেবামূলক প্রতিষ্ঠান
+                    </div>
+                </div>
+                <div class="bg-amber-100/50 p-6 rounded-2xl border-2 border-dashed border-amber-400 text-center flex flex-col justify-center items-center min-h-[220px]">
+                    <div class="text-4xl mb-2">📜</div>
+                    <h4 class="font-bold text-amber-950 text-base mb-1">রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ</h4>
+                    <p class="text-xs text-gray-600 mb-3">সনদপত্র ও মনograms-এর অফিশিয়াল কপি এখানে সংযুক্ত রয়েছে।</p>
+                    <span class="text-xs bg-amber-900 text-amber-100 px-4 py-2 rounded-xl shadow font-semibold">অফিশিয়াল ডকুমেন্ট যাচাইকৃত</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="international-funding" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-gradient-to-br from-amber-950 to-amber-900 text-amber-50 p-6 sm:p-10 rounded-3xl shadow-xl border border-amber-700">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center border-b border-amber-700 pb-3">
+                🌍 আন্তর্জাতিক দাতা সংস্থা ও NGOAB / FD-7 ফরম (Vision 2030)
+            </h2>
+            <p class="text-amber-200 text-sm sm:text-base mb-6 text-center max-w-3xl mx-auto leading-relaxed">
+                আপনার স্বপ্নের শ্রীবৃন্দাবন ও মানবসেবা প্রকল্পগুলোকে বিশ্বদরবারে প্রতিষ্ঠিত করতে এবং আন্তর্জাতিক দাতা সংস্থা বা প্রবাসীদের কাছ থেকে স্বচ্ছতার সাথে অনুদান গ্রহণ করার জন্য কৌশলগত স্তম্ভসমূহ:
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-8 text-amber-950">
+                <div class="bg-white p-5 rounded-2xl shadow">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">১. NGOAB / FD-7 ফরম ও অনুমতিপত্র</h3>
+                    <p class="text-xs text-gray-700">বিদেশি অনুদান বা দাতা সংস্থার ফান্ড গ্রহণের জন্য এনজিও বিষয়ক ব্যুরো (NGO Affairs Bureau)-এর প্রজেক্ট ভিত্তিক অনুমোদন বা FD-7 ফরমের মাধ্যমে আইনগত অনুমোদন নিশ্চিতকরণ।</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">২. প্রজেক্ট প্রপোজাল ও বার্ষিক অডিট</h3>
+                    <p class="text-xs text-gray-700">গৌশালা, অন্নক্ষেত্র, বৃদ্ধাশ্রম বা বেদ পাঠশালা চালুর সুনির্দিষ্ট প্রজেক্ট প্রপোজাল এবং আন্তর্জাতিক মানদণ্ডের বার্ষিক আর্থিক অডিট রিপোর্ট যা দাতাদের আস্থা শতভাগ বৃদ্ধি করে।</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">৩. ডিজিটাল ট্রান্সপারেন্সি ও লাইভ স্ট্রিমিং</h3>
+                    <p class="text-xs text-gray-700">ইউটিউব ও ফেসবুক লাইভ আরতি, পেমেন্ট গেটওয়ে এবং রিয়েল-টাইম ইমপ্যাক্ট রিপোর্টিংয়ের মাধ্যমে বৈশ্বিক ভক্তদের সাথে নিবিড় সংযোগ।</p>
+                </div>
+            </div>
+            <!-- Spiritual & Expert Recommendation Box -->
+            <div class="bg-amber-900/90 border border-amber-600 p-6 rounded-2xl text-center">
+                <h3 class="text-lg font-bold text-amber-100 mb-2">🪷 প্রবীণ সাধু ও আন্তর্জাতিক মঠের প্রশংসাপত্র (Endorsement)</h3>
+                <p class="text-sm text-amber-200 italic max-w-3xl mx-auto leading-relaxed">
+                    "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ—শ্রীধাম বৃন্দাবনের কেশীঘাট কুঞ্জের সরাসরি আদর্শে পরিচালিত একটি পরম পবিত্র তীর্থস্থান। এই সেবাঙ্গনের মাধ্যমে সনাতন ধর্ম প্রচার এবং মানবসেবার যে মহৎ উদ্যোগ নেওয়া হয়েছে, তা বিশ্বমানবের কল্যাণে অত্যন্ত প্রশংসনীয় ও অনুকরণীয়।"
+                </p>
+                <p class="text-xs text-amber-300 font-bold mt-3">— আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ ও বৃন্দাবন মঠ নেতৃবৃন্দের যৌথ প্রশংসাপত্র</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="daily-seba" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
+                মন্দিরের নিত্য সেবা ও আরতি সূচি (Daily Seba & Worship Schedule)
+            </h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">🌅 মঙ্গল আরতি ও কীর্তন</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">ব্রহ্মমুহূর্তে শ্রীবিগ্রহগণের দিব্য দর্শন, ভক্তিপূর্ণ শৃঙ্গার আরতি ও মহামন্ত্র কীর্তন।</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">🪔 শৃঙ্গার আরতি ও কীর্তন</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">প্রভুর দিব্য শৃঙ্গার দর্শন ও ভক্তবৃন্দের সমাগমে আরতি অনুষ্ঠান।</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">🍛 রাজভোগ ও ভোগারতি কীর্তন</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">মধ্যাহ্নে মহাপ্রভুর শ্রীচরণে সুস্বাদু রাজভোগ নিবেদন ও ভোগারতি কীর্তন।</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">☀️ অপরাহ্ন আরতি ও ভোগ</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">বিকেলবেলায় বিশেষ পূজা, ভোগ নিবেদন ও আরতি অনুষ্ঠান।</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">🌙 সন্ধ্যা আরতি ও কীর্তন</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">গোধূলিলগ্নে ভক্তিপূর্ণ সন্ধ্যা আরতি ও বিশ্বশান্তি কামনায় নামসংকীর্তন।</p>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                    <h3 class="font-bold text-amber-950 text-base mb-2">🥛 শীতল ভোগ</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">রাত্রিতে শ্রীবিগ্রহের সন্তুষ্টিার্থে শীতল ভোগ নিবেদন ও শয়ন সেবা।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="annual-festivals" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
+                বাৎসরিক উৎসব ও মহোৎসব সূচি (Annual Festival Calendar)
+            </h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">💧 শ্রী শ্রী জগন্নাথ দেবের স্নান যাত্রা</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">জ্যৈষ্ঠ পূর্ণিমা তিথিতে পরম প্রভুর দিব্য অভিষেক ও স্নান উৎসব মহোৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🛞 রথযাত্রা ও উল্টো রথযাত্রা মহোৎসব</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">মহাপ্রভুর রথারোহণ, বর্ণাঢ্য শোভাযাত্রা ও মাসির বাড়ি যাত্রার পবিত্র উৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🌸 ঝুলনযাত্রা মহোৎসব</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">শ্রাবণ পূর্ণিমা উপলক্ষে শ্রীশ্রী রাধাকৃষ্ণের আনন্দময় দোলনা ও ঝুলন উৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🎂 শ্রীকৃষ্ণের আবির্ভাব তিথি তথা জন্মাষ্টমী উদযাপন</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">ভগবান শ্রীকৃষ্ণের শুভ জন্মোৎসব, মধ্যরাত্রিতে মহাপূজা ও মহাপ্রসাদ বিতরণ।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🎨 শ্রী শ্রী গৌর পূর্ণিমা তথা দোল যাত্রা</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">শ্রীচৈতন্য মহাপ্রভুর আবির্ভাব তিথি ও আনন্দময় ফাগুন উৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">⛰️ গিরি গোবর্ধন পূজা ও অন্নকূট মহোৎসব</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">গোবর্ধন পূজা, পরিক্রমা ও বর্ণাঢ্য অন্নকূট ভোগ নিবেদন মহোৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🛕 শ্রী শ্রী অদ্বৈত জয়ন্তী ও প্রতিষ্ঠা বার্ষিকী</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">তিন দিন ব্যাপী প্রতিষ্ঠা বার্ষিকী ও ৬৪ মহান্তের ভোগ আরাধনা মহোৎসব।</p>
+                </div>
+                <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 text-base mb-1">🥣 হরিদাস নির্যাণ ও পানীহাটি চিড়াদধি মহোৎসব</h3>
+                    <p class="text-xs sm:text-sm text-gray-700">নামাচার্য শ্রী হরিদাস ঠাকুরের নির্যাণ তিথি ও পানীহাটি চিড়াদধি মহোৎসব উদযাপন।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+        <div id="constitution" class="bg-white p-6 sm:p-8 rounded-3xl shadow-md border border-amber-200 flex flex-col justify-between scroll-mt-20">
             <div>
-                <img src="/IMG_20260928_102421.jpg" alt="রেজিস্ট্রেশন সার্টিফিকেট" class="certificate-img">
+                <h2 class="text-xl sm:text-2xl font-bold text-amber-950 mb-4 border-b-2 border-amber-200 pb-2">গঠনতন্ত্র ও সংবিধান</h2>
+                <p class="text-gray-700 leading-relaxed text-sm sm:text-base mb-4">
+                    আমাদের মন্দিরের সুশৃঙ্খল পরিচালনা, সেবা কার্যক্রমের স্বচ্ছতা এবং আধ্যাত্মিক পরিবেশ বজায় রাখার জন্য নির্দিষ্ট নিয়মনীতি সংবলিত অফিসিয়াল <strong>গঠনতন্ত্র ও সংবিধান</strong> রয়েছে:
+                </p>
             </div>
-            <p style="text-align: center; margin-top: 10px; color: #555;">সনদপত্র ও মনোগ্রাম-এর অফিসিয়াল কপি এখানে সংযুক্ত রয়েছে।</p>
-            <a href="/IMG_20260928_102421.jpg" target="_blank" class="btn-enlarge">
-                🔍 বড় করে দেখুন (Official Document)
-            </a>
-        </div>
-
-        <!-- ২. হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন -->
-        <div class="card">
-            <h2><i class="fas fa-landmark"></i> হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন</h2>
-            <p>আমাদের এই পবিত্র তীর্থপীঠ ও সেবাঙ্গন পরিচালনার ক্ষেত্রে দেশের প্রচলিত আইন ও ট্রাস্টের বিধিমালা অনুসরণ করা হয়। বাংলাদেশ সরকারের <strong>হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট</strong> ও সংশ্লিষ্ট দপ্তরের নীতিমালা অনুযায়ী আমাদের কার্যক্রম পরিচালিত ও নিবন্ধিত রয়েছে।</p>
-            <div style="background: #e8f5e9; border: 1px solid #c8e6c9; color: #2e7d32; padding: 10px 15px; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 5px;">
-                ✅ বৈধ ও নিবন্ধিত সেবামূলক প্রতিষ্ঠান
+            <div class="text-center mt-2">
+                <a href="https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk" target="_blank" class="inline-block bg-amber-900 text-white font-bold px-6 py-3 rounded-xl shadow hover:bg-amber-950 transition text-sm sm:text-base">
+                    📜 মন্দিরের গঠনতন্ত্র ও সংবিধান দেখুন (Google Doc)
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- ৩. মন্দিরের ঠিকানা -->
-        <div class="card">
-            <h2><i class="fas fa-map-marker-alt"></i> মন্দিরের ঠিকানা</h2>
-            <div class="address-box">
-                <strong>পূর্বের ঠিকানা:</strong> বৈষ্ণব বাড়ি, দক্ষিণ রাজারাপুর (তিন পুকুরিয়া), সেবারহাট, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮২১
-            </div>
-            <div class="address-box">
-                <strong>স্থানান্তরিত বা বর্তমান ঠিকানা:</strong> সাহা বাড়ি, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮৬০
-            </div>
-        </div>
-
-        <!-- ৪. মন্দিরের ইতিহাস ও অলৌকিক মাহাত্ম্য -->
-        <div class="card">
-            <h2><i class="fas fa-history"></i> মন্দিরের ইতিহাস ও অলৌকিক মাহাত্ম্য</h2>
-            <p>
-                তিন পুকুরিয়া শ্রী শ্রী জগন্নাথ মন্দিরের প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমন্ত প্রতীক, প্রাচীন মহাত্মা পরম বৈষ্ণব শ্রীযুক্ত গোপী দাস বৈষ্ণব ১৩৮০ বাংলায় খুব ছোট পরিসরে উক্ত মন্দির প্রতিষ্ঠা করে এবং চিত্রপটে সেবা-অর্চণ শুরু করেন।
+    <!-- Comprehensive Link Hub Section (One-stop resource list) -->
+    <section id="all-links" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-400">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 text-center border-b-2 border-amber-200 pb-3">
+                🔗 অফিশিয়াল লিংক হাব (All Official Links in One Place)
+            </h2>
+            <p class="text-gray-700 text-center text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+                অন্য কোথাও খোঁজাখুঁজি না করে মন্দিরের সমস্ত অফিশিয়াল ওয়েবসাইট, ফর্ম, সোশ্যাল মিডিয়া ও ডকুমেন্টের সরাসরি লিংক নিচে দেওয়া হলো:
             </p>
-            <p>
-                বর্তমান সেবায়েত যখন দ্বিতীয় শ্রেণীতে পড়েন, তখন একদিন রাতের অন্ধকারে অলৌকিক উপায়ে স্বপ্নাদেশ প্রাপ্ত হয়ে এবং বিগ্রহ এনে মন্দিরে সেবা-অর্চণ শুরু হয়। পরবর্তীতে জায়গা সংকুলান না থাকায় তৎকালীন পরিচালনা পর্ষদের সিদ্ধান্ত অনুযায়ী এবং মহানুভব ভূমিদাতাগণের ৩০ শতাংশ ভূমি দানের মাধ্যমে বর্তমান ঠিকানায় মন্দির স্থানান্তরিত ও পুনর্নির্মিত হয়।
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+               <a href="/blog.html" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-amber-50 border border-gray-200">
+                    <span class="text-2xl">🌐</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">অফিশিয়াল ব্লগ</h4>
+                        <span class="text-xs text-blue-700 underline">jagannathsebangan.blogspot.com</span>
+                    </div>
+                </a>
+        <a href="https://form.jotform.com/262480864636062" target="_blank" class="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex items-center gap-4 hover:shadow-lg transition">
+                    <span class="text-2xl">🙏</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">অনলাইন ডোনেশন ফর্ম</h4>
+                        <span class="text-xs text-rose-700 underline">Jotform Donation Hub</span>
+                    </div>
+                </a>
+                <a href="https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk" target="_blank" class="bg-amber-50 p-4 rounded-2xl border border-amber-300 shadow-xs hover:bg-amber-100 transition flex items-center space-x-3">
+                    <span class="text-2xl">📜</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">গঠনতন্ত্র ও সংবিধান</h4>
+                        <span class="text-xs text-amber-800 underline">Google Doc Constitution</span>
+                    </div>
+                </a>
+                <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="bg-amber-50 p-4 rounded-2xl border border-amber-300 shadow-xs hover:bg-amber-100 transition flex items-center space-x-3">
+                    <span class="text-2xl">🗺️</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">গুগল ম্যাপ লোকেশন</h4>
+                        <span class="text-xs text-emerald-700 underline">Senbagh, Noakhali Map</span>
+                    </div>
+                </a>
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-300 shadow-xs flex items-center space-x-3">
+                    <span class="text-2xl">📘</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">ফেসবুক পেজ</h4>
+                        <span class="text-xs text-gray-700">শ্রী শ্রী জগন্নাথ সেবাঙ্গন...</span>
+                    </div>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-300 shadow-xs flex items-center space-x-3">
+                    <span class="text-2xl">👤</span>
+                    <div>
+                        <h4 class="font-bold text-amber-950 text-sm">ফেসবুক আইডি</h4>
+                        <span class="text-xs text-gray-700">দীনশ্রী শচীনন্দন দাসানুদাস</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 border-b-2 border-amber-200 pb-3">
+                মন্দিরের গুগল ম্যাপ লোকেশন (Google Maps Location)
+            </h2>
+            <p class="text-gray-700 mb-6 text-sm sm:text-base max-w-2xl mx-auto">
+                উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশে অবস্থিত আমাদের এই পবিত্র তীর্থপীঠে সহজে যাতায়াত করতে নিচের গুগল ম্যাপটি ব্যবহার করুন:
             </p>
+            <div class="w-full h-96 rounded-2xl overflow-hidden border-2 border-amber-300 shadow-md mb-6">
+                <!-- Embedded Google Map centered near Senbagh, Noakhali -->
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14690.697412752174!2d91.2057!3d23.0185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ae187900000001%3A0x0!2zU2VuYmFnaCwgTm9ha2hhbGk!5e0!3m2!1sen!2sbd!4v1710000000000!5m2!1sen!2sbd">
+                </iframe>
+            </div>
+            <div>
+                <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="inline-block bg-amber-900 text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm hover:bg-amber-950 transition">
+                    📍 Google Maps-এ বড় করে দেখুন ও দিকনির্দেশনা নিন
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- ৫. মন্দির পরিচালনা পরিষদ -->
-        <div class="card">
-            <h2><i class="fas fa-users"></i> মন্দির পরিচালনা পরিষদ</h2>
-            <table class="donor-table">
-                <thead>
-                    <tr>
-                        <th>পদবী</th>
-                        <th>নাম ও মোবাইল নম্বর</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>সভাপতি</strong></td>
-                        <td>শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা (01717-300520)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>সাধারণ সম্পাদক</strong></td>
-                        <td>শ্রীযুক্ত বাবু শংকর মজুমদার (01836188118)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>দীন সেবক</strong></td>
-                        <td>দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস (01711369035)</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section id="donation-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 border-b-2 border-amber-200 pb-3">
+                অনলাইন ডোনেশন ফর্ম ও কিউআর কোড (Online Donation Hub)
+            </h2>
+            <p class="text-gray-700 mb-6 text-sm sm:text-base max-w-2xl mx-auto">
+                আমাদের মন্দির ও মানবসেবামূলক কার্যক্রমে আপনার সাধ্যমতো আর্থিক সহায়তা পাঠাতে নিচের কিউআর কোডটি স্ক্যান করুন অথবা সরাসরি লিংকে ক্লিক করুন:
+            </p>
+            <div class="w-full bg-amber-50/80 p-8 rounded-3xl border-2 border-dashed border-amber-400 flex flex-col items-center justify-center">
+                <!-- QR Code Display Container -->
+                <div class="bg-white p-5 rounded-2xl shadow-md border border-amber-300 mb-6 inline-block">
+                    <div id="qrcode" class="flex justify-center"></div>
+                    <p class="text-xs sm:text-sm text-amber-950 mt-3 font-bold">ডোনেশন ফর্ম স্ক্যান করতে ক্যামেরা ব্যবহার করুন</p>
+                </div>
+                <div class="w-full max-w-xl bg-white p-5 rounded-2xl shadow-sm text-center border border-amber-200">
+                    <p class="text-gray-600 text-sm mb-3">সরাসরি ব্রাউজারে ডোনেশন ফর্ম ওপেন করতে ক্লিক করুন:</p>
+                    <a href="https://form.jotform.com/262480864636062" target="_blank" class="inline-block bg-rose-600 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-rose-700 transition text-sm sm:text-base">
+                        🙏 Donate via Jotform (অনলাইন ডোনেশন ফর্ম)
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- ৬. অনুদান পাঠানোর মাধ্যম -->
-        <div class="card">
-            <h2><i class="fas fa-hand-holding-heart"></i> অনুদান পাঠানোর মাধ্যম</h2>
-            <ul style="padding-left: 20px; font-size: 16px;">
-                <li style="margin-bottom: 8px;"><strong>বিকাশ (পার্সোনাল):</strong> 01711369035</li>
-                <li style="margin-bottom: 8px;"><strong>নগদ (পার্সোনাল):</strong> 01711369035</li>
-                <li style="margin-bottom: 8px;"><strong>ব্যাংক অ্যাকাউন্ট:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন, একাউন্ট নং: 0200016213678, অগ্রণী ব্যাংক, শাখা: সেনবাগ [BR 7179]</li>
-            </ul>
+    <section id="contact-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
+            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 border-b-2 border-amber-200 pb-3 text-center">
+                যোগাযোগের ঠিকানা, অফিশিয়াল পেজ ও কিউআর কোড হাব (Official Links & QR Hub)
+            </h2>
+            
+            <div class="mb-8 text-center bg-amber-50 p-6 rounded-2xl border border-amber-200">
+                <p class="text-lg sm:text-xl text-amber-950 font-bold mb-3">
+                    শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
+                </p>
+                <p class="text-sm sm:text-base text-gray-800 mb-2">
+                    <strong>লোকেশন / ঠিকানা:</strong> উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।
+                </p>
+                <p class="text-sm sm:text-base text-gray-800 mb-2">
+                    <strong>মোবাইল ও হোয়াটসঅ্যাপ:</strong> <a href="tel:+8801711369035" class="text-rose-700 font-bold hover:underline">+8801711369035</a>
+                </p>
+                <p class="text-xs sm:text-sm text-amber-900 font-medium leading-relaxed mt-2">
+                    (শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির এবং আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ কর্তৃক পরিচালিত)
+                </p>
+            </div>
+
+            <!-- QR Codes Grid for Website, Blog, Facebook Page, Facebook Profile, Map, Donation, & Constitution -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 my-6 p-6 bg-amber-50/70 rounded-2xl border border-amber-200">
+                <!-- Website QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-website" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ওয়েবসাইট কিউআর</span>
+                    <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-xs font-semibold hover:underline mt-1">ভিজিট করুন</a>
+                </div>
+                <!-- Location Map QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-map" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ম্যাপ লোকেশন কিউআর</span>
+                    <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="text-emerald-700 text-xs font-semibold hover:underline mt-1">দিকনির্দেশনা</a>
+                </div>
+                <!-- Facebook Page QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-fb-page" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ফেসবুক পেজ কিউআর</span>
+                    <a href="https://facebook.com" target="_blank" class="text-blue-600 text-xs font-semibold hover:underline mt-1">পেইজ দেখুন</a>
+                </div>
+                <!-- Facebook Profile / ID QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-fb-profile" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ফেসবুক আইডি কিউআর</span>
+                    <a href="https://facebook.com" target="_blank" class="text-blue-800 text-xs font-semibold hover:underline mt-1">আইডি দেখুন</a>
+                </div>
+                <!-- Blog QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-blog" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ব্লগ কিউআর কোড</span>
+                    <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-xs font-semibold hover:underline mt-1">ব্লগ ভিজিট</a>
+                </div>
+                <!-- Donation Form QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
+                    <div id="qrcode-form" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">ডোনেশন ফর্ম কিউআর</span>
+                    <a href="https://form.jotform.com/262480864636062" target="_blank" class="text-rose-700 text-xs font-semibold hover:underline mt-1">ফর্ম ওপেন</a>
+                </div>
+                <!-- Constitution Doc QR -->
+                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center col-span-2 sm:col-span-1">
+                    <div id="qrcode-doc" class="mb-2 flex justify-center"></div>
+                    <span class="text-xs font-bold text-amber-950">গঠনতন্ত্র কিউআর</span>
+                    <a href="https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk" target="_blank" class="text-amber-800 text-xs font-semibold hover:underline mt-1">সংবিধান দেখুন</a>
+                </div>
+            </div>
+
+            <!-- Detailed Links Grid -->
+            <div class="grid sm:grid-cols-2 gap-4 mt-6 pt-6 border-t border-amber-200">
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 mb-2 text-base">🌐 অফিশিয়াল ব্লগ</h3>
+                    <p class="text-xs sm:text-sm text-gray-700 mb-2">আমাদের ব্লগ ভিজিট করুন:</p>
+                    <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 font-semibold text-xs sm:text-sm hover:underline break-all">
+                        jagannathsebangan.blogspot.com
+                    </a>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 mb-2 text-base">📺 ইউটিউব চ্যানেল</h3>
+                    <p class="text-xs sm:text-sm text-gray-700 mb-2">আমাদের অফিশিয়াল ইউটিউব চ্যানেল:</p>
+                    <span class="text-gray-900 font-bold text-sm sm:text-base">পারমার্থিক পাঠশালা</span>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 mb-2 text-base">📘 ফেসবুক পেইজ ও আইডি</h3>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-1">
+                        <li><strong>পেইজ:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</li>
+                        <li><strong>আইডি:</strong> দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস</li>
+                    </ul>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-950 mb-2 text-base">👥 কমিউনিটি ও গ্রুপ</h3>
+                    <ul class="text-xs sm:text-sm text-gray-700 space-y-1">
+                        <li><strong>ফেসবুক গ্রুপ:</strong> আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ</li>
+                        <li><strong>হোয়াটসঅ্যাপ গ্রুপ:</strong> পারমার্থিক পাঠশালা</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
-
-    <footer>
-        <p>© ১৩৮০ বঙ্গাব্দ থেকে পরিচালিত শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</p>
+    <footer class="bg-amber-950 text-amber-100 text-center py-8 mt-auto px-4 text-xs sm:text-sm border-t border-amber-800">
+        <p class="mb-2">&copy; ২০২৬ শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p class="text-amber-400 text-xs">Branch of Keshighat Shree Shree Radha Murari Mohan Kunja, Vrindavan | Managed by International Shree Shree Radha Murari Mohan Seba Sangha</p>
     </footer>
 
-    <!-- গুগল ট্রান্সলেট স্ক্রিপ্ট -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'bn', includedLanguages: 'en,bn,hi,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            new google.translate.TranslateElement({
+                pageLanguage: 'bn',
+                includedLanguages: 'en,bn,hi,es,fr,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        function renderQRCode(elementId, text, cellSize) {
+            try {
+                var container = document.getElementById(elementId);
+                if (!container) return;
+                var qr = qrcode(0, 'L');
+                qr.addData(text);
+                qr.make();
+                container.innerHTML = qr.createSvgTag({cellSize: cellSize || 3, margin: 2});
+            } catch (e) {
+                console.log('QR Code rendering error for ' + elementId + ':', e);
+            }
+        }
+
+        window.onload = function() {
+            // 1. Main Donation Form QR Code (Large)
+            renderQRCode('qrcode', 'https://form.jotform.com/262480864636062', 6);
+
+            // 2. Website / Blog QR Code
+            renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com', 3);
+
+            // 3. Google Maps Location QR Code
+            renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali', 3);
+
+            // 4. Facebook Page QR Code
+            renderQRCode('qrcode-fb-page', 'https://facebook.com', 3);
+
+            // 5. Facebook Profile / ID QR Code
+            renderQRCode('qrcode-fb-profile', 'https://facebook.com', 3);
+
+            // 6. Official Blog QR Code
+            renderQRCode('qrcode-blog', 'https://jagannathsebangan.blogspot.com', 3);
+
+            // 7. Donation Form QR Code in Grid
+            renderQRCode('qrcode-form', 'https://form.jotform.com/262480864636062', 3);
+
+            // 8. Constitution Google Doc QR Code
+            renderQRCode('qrcode-doc', 'https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk', 3);
+        };
+    </script>
 
 </body>
 </html>
