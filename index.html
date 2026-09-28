@@ -4,250 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #8b4513;
-            --secondary-color: #d4a373;
-            --bg-color: #fffaf0;
-            --card-bg: #ffffff;
-            --text-color: #2c2c2c;
-            --accent-color: #b05714;
-        }
-        body {
-            font-family: 'Tiro Bangla', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, #8b4513, #a0522d);
-            color: #fff;
-            text-align: center;
-            padding: 20px 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .logo-container img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            object-fit: cover;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        h1 {
-            font-size: 24px;
-            margin: 10px 0 5px;
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        .established {
-            background-color: #d4a373;
-            color: #4a2511;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
-            border: 1px solid #faedcd;
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-top: 0;
-            font-size: 20px;
-        }
-        p {
-            text-align: justify;
-            font-size: 16px;
-        }
-        .address-box {
-            background: #fefae0;
-            padding: 12px;
-            border-left: 4px solid var(--primary-color);
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-        .donor-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .donor-list li {
-            background: #faedcd;
-            margin: 8px 0;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            color: #582f0e;
-        }
-        .certificate-img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 8px;
-            border: 2px solid var(--secondary-color);
-            margin-top: 10px;
-        }
-        .btn-enlarge {
-            display: inline-block;
-            background-color: #8b4513;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 12px;
-            transition: background 0.3s;
-        }
-        .btn-enlarge:hover {
-            background-color: #a0522d;
-        }
-        /* Google Translate Styling */
-        .translate-box {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #4a2511;
-            color: #fffaf0;
-            font-size: 14px;
-            margin-top: 30px;
-        }
+        body { font-family: 'Hind Siliguri', sans-serif; }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between bg-amber-50/30 text-gray-800">
 
-    <header>
-        <!-- Google Translate Widget -->
-        <div class="translate-box" id="google_translate_element"></div>
-        <div class="logo-container">
-            <!-- মন্দিরের মনোগ্রাম ছবি -->
-            <img src="/1000058168.jpg" alt="মন্দিরের মনোগ্রাম">
+    <!-- হেডার সেকশন -->
+    <header class="bg-amber-900 text-amber-100 py-5 px-4 shadow-md relative">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <h1 class="text-xl sm:text-2xl font-bold">শ্রী শ্রী জগন্নাথ সেবাঙ্গন (Global Portal)</h1>
+                <p class="text-xs sm:text-sm text-amber-200 mt-1">বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- গুগল ট্রান্সলেট বাটন -->
+                <div id="google_translate_element"></div>
+                <a href="/blog.html" class="text-sm bg-amber-800 hover:bg-amber-700 text-white px-3 py-2 rounded-lg transition shadow">সংবাদ ও বার্তা →</a>
+            </div>
         </div>
-        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
-        <div class="established">স্থাপিত: ১৩৮০ বঙ্গাব্দ | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী</div>
     </header>
 
-    <div class="container">
+    <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full space-y-6">
 
-        <!-- ১. সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ -->
-        <div class="card" style="text-align: center;">
-            <h2><i class="fas fa-certificate"></i> সরকারি রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ</h2>
-            <div>
-                <img src="/IMG_20260928_102421.jpg" alt="রেজিস্ট্রেশন সার্টিফিকেট" class="certificate-img">
+        <!-- ১. রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ সেকশন -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100 text-center">
+            <div class="mb-4">
+                <img src="/IMG_20260928_102421.jpg" alt="রেজিস্ট্রেশন সার্টিফিকেট" class="w-full max-w-lg mx-auto rounded-xl shadow-md border border-amber-200">
             </div>
-            <p style="text-align: center; margin-top: 10px; color: #555;">বাংলাদেশ সরকারের হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট কর্তৃক প্রদত্ত সনদপত্র ও মনোগ্রাম-এর অফিসিয়াল কপি।</p>
-            <a href="/IMG_20260928_102421.jpg" target="_blank" class="btn-enlarge">
+            <h3 class="text-2xl font-bold text-amber-900 mb-2">রেজিস্ট্রেশন সার্টিফিকেট প্রিভিউ</h3>
+            <p class="text-sm text-gray-700 mb-4">সনদপত্র ও মনোগ্রাম-এর অফিসিয়াল কপি এখানে সংযুক্ত রয়েছে।</p>
+            <a href="/IMG_20260928_102421.jpg" target="_blank" class="inline-block bg-amber-800 hover:bg-amber-700 text-white text-sm font-semibold px-4 py-3 rounded-xl transition shadow">
                 🔍 বড় করে দেখুন (Official Document)
             </a>
         </div>
 
         <!-- ২. হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন -->
-        <div class="card">
-            <h2><i class="fas fa-landmark"></i> হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন</h2>
-            <p>আমাদের এই পবিত্র তীর্থপীঠ ও সেবাঙ্গন পরিচালনার ক্ষেত্রে দেশের প্রচলিত আইন ও ট্রাস্টের বিধিমালা অনুসরণ করা হয়। বাংলাদেশ সরকারের <strong>হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট</strong> ও সংশ্লিষ্ট দপ্তরের নীতিমালা অনুযায়ী আমাদের কার্যক্রম পরিচালিত ও নিবন্ধিত রয়েছে।</p>
-            <div style="background: #e8f5e9; border: 1px solid #c8e6c9; color: #2e7d32; padding: 10px 15px; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 5px;">
-                ✅ বৈধ ও নিবন্ধিত সেবামূলক প্রতিষ্ঠান
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🏛️</span>
+                <h2 class="text-xl sm:text-2xl font-bold text-amber-900">হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট ও সরকারি অনুমোদন</h2>
+            </div>
+            <div class="prose max-w-none text-gray-700 leading-relaxed space-y-3">
+                <p>আমাদের এই পবিত্র তীর্থপীঠ ও সেবাঙ্গন পরিচালনার ক্ষেত্রে দেশের প্রচলিত আইন ও ট্রাস্টের বিধিমালা অনুসরণ করা হয়। বাংলাদেশ সরকারের <strong>হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট</strong> ও সংশ্লিষ্ট দপ্তরের নীতিমালা অনুযায়ী আমাদের কার্যক্রম পরিচালিত ও নিবন্ধিত রয়েছে।</p>
+                <div class="inline-block bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold px-4 py-2 rounded-xl">
+                    ✅ বৈধ ও নিবন্ধিত সেবামূলক প্রতিষ্ঠান
+                </div>
             </div>
         </div>
 
-        <!-- ৩. শ্রীগুরুপাদপদ্ম ও গুরুদেবের মহিমা -->
-        <div class="card">
-            <h2><i class="fas fa-om"></i> শ্রীগুরুপাদপদ্ম ও গুরুদেবের মহিমা</h2>
-            <p>
-                গুরু কৃপা হি কেবলাম। পরম আরাধ্য গুরুদেব ও বৈষ্ণববৃন্দের অহেতুক কৃপা ছাড়া ভক্তিপথ অর্জন অসম্ভব। আমাদের এই সেবাঙ্গনের প্রতিটি ধূলিকণা ও নিত্য সেবা গুরুদেবের দিব্য আদেশ এবং পবিত্র আশীর্বাদের ওপর প্রতিষ্ঠিত। ভক্ত হৃদয়ে ভক্তি জাগরণের মাধ্যমে মানবকল্যাণ ও কৃষ্ণসেবা প্রদানই আমাদের গুরুপরম্পরার মূল শিক্ষা।
-            </p>
-        </div>
-
-        <!-- ৪. মন্দিরের ঠিকানা -->
-        <div class="card">
-            <h2><i class="fas fa-map-marker-alt"></i> মন্দিরের ঠিকানা</h2>
-            <div class="address-box">
-                <strong>পূর্বের ঠিকানা:</strong> বৈষ্ণব বাড়ি, দক্ষিণ রাজারাপুর (তিন পুকুরিয়া), সেবারহাট, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮২১
-            </div>
-            <div class="address-box">
-                <strong>স্থানান্তরিত বা বর্তমান ঠিকানা:</strong> সাহা বাড়ি, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮৬০
+        <!-- ৩. মন্দিরের ঠিকানা -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100">
+            <h2 class="text-xl font-bold text-amber-900 mb-4 border-b pb-2 flex items-center gap-2">
+                <i class="fas fa-map-marker-alt text-amber-700"></i> মন্দিরের ঠিকানা
+            </h2>
+            <div class="space-y-3 text-sm sm:text-base">
+                <div class="bg-amber-50/60 p-3.5 rounded-xl border border-amber-200/60">
+                    <strong class="text-amber-900">পূর্বের ঠিকানা:</strong> বৈষ্ণব বাড়ি, দক্ষিণ রাজারাপুর (তিন পুকুরিয়া), সেবারহাট, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮২১
+                </div>
+                <div class="bg-amber-50/60 p-3.5 rounded-xl border border-amber-200/60">
+                    <strong class="text-amber-900">বর্তমান ঠিকানা:</strong> সাহা বাড়ি, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী। পোস্ট কোড নং: ৩৮৬০
+                </div>
             </div>
         </div>
 
-        <!-- ৫. মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা -->
-        <div class="card">
-            <h2><i class="fas fa-history"></i> মন্দিরের ইতিহাস ও প্রতিষ্ঠাতা সেবাইতের পথ পরিক্রমা</h2>
-            <p>
-                তিন পুকুরিয়া শ্রী শ্রী জগন্নাথ মন্দিরের প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমন্ত প্রতীক, প্রাচীন মহাত্মা পরম বৈষ্ণব শ্রীযুক্ত গোপী দাস বৈষ্ণব ১৩৮০ বাংলায় খুব ছোট পরিসরে উক্ত মন্দির প্রতিষ্ঠা করে এবং চিত্রপটে সেবা-অর্চণ শুরু করেন।
-            </p>
-            <p>
-                বর্তমান সেবায়েত যখন দ্বিতীয় শ্রেণীতে পড়েন, তখন একদিন রাতের অন্ধকারে অলৌকিক উপায়ে স্বপ্নাদেশ প্রাপ্ত হয়ে এবং বিগ্রহ এনে মন্দিরে সেবা-অর্চণ শুরু হয়। পরবর্তীতে জায়গা সংকুলান না থাকায় তৎকালীন পরিচালনা পর্ষদের সিদ্ধান্ত অনুযায়ী এবং মহানুভব ভূমিদাতাগণের ৩০ শতাংশ ভূমি দানের মাধ্যমে বর্তমান ঠিকানায় মন্দির স্থানান্তরিত ও পুনর্নির্মিত হয়।
-            </p>
+        <!-- ৪. মন্দিরের ইতিহাস -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100">
+            <h2 class="text-xl font-bold text-amber-900 mb-4 border-b pb-2 flex items-center gap-2">
+                <i class="fas fa-history text-amber-700"></i> মন্দিরের ইতিহাস ও অলৌকিক মাহাত্ম্য
+            </h2>
+            <div class="space-y-3 text-sm sm:text-base text-gray-700 leading-relaxed text-justify">
+                <p>তিন পুকুরিয়া শ্রী শ্রী জগন্নাথ মন্দিরের প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমন্ত প্রতীক, প্রাচীন মহাত্মা পরম বৈষ্ণব শ্রীযুক্ত গোপী দাস বৈষ্ণব ১৩৮০ বাংলায় খুব ছোট পরিসরে উক্ত মন্দির প্রতিষ্ঠা করে এবং চিত্রপটে সেবা-অর্চণ শুরু করেন।</p>
+                <p>বর্তমান সেবায়েত যখন দ্বিতীয় শ্রেণীতে পড়েন, তখন একদিন রাতের অন্ধকারে অলৌকিক উপায়ে স্বপ্নাদেশ প্রাপ্ত হয়ে এবং বিগ্রহ এনে মন্দিরে সেবা-অর্চণ শুরু হয়। পরবর্তীতে জায়গা সংকুলান না থাকায় তৎকালীন পরিচালনা পর্ষদের সিদ্ধান্ত অনুযায়ী এবং মহানুভব ভূমিদাতাগণের ৩০ শতাংশ ভূমি দানের মাধ্যমে বর্তমান ঠিকানায় মন্দির স্থানান্তরিত ও পুনর্নির্মিত হয়।</p>
+            </div>
         </div>
 
-        <!-- ৬. ভূমি দাতাদের নাম ও কৃতজ্ঞতা প্রকাশ -->
-        <div class="card">
-            <h2><i class="fas fa-hand-holding-heart"></i> ভূমি দাতাগণের নাম ও বিশেষ কৃতজ্ঞতা</h2>
-            <p>বর্তমান সেবাঙ্গন ও তীর্থক্ষেত্র প্রতিষ্ঠার জন্য যাঁরা নিঃস্বার্থভাবে পবিত্র ভূমি দান করে অমর হয়ে আছেন, তাঁদের প্রতি চিরকৃতজ্ঞতা প্রকাশ করছি:</p>
-            <ul class="donor-list">
-                <li>৩০ শতাংশ পবিত্র ভূমি দানকারী মহানুভব ভূমিদাতাগণ (যাঁদের অসামান্য দানে আজকের এই সেবাঙ্গন ও মন্দির স্থায়ী রূপ লাভ করেছে)।</li>
-                <li>সকল দাতা, শুভানুধ্যায়ী ও ভক্তপ্রাণ জনসাধারণের প্রতি সেবাঙ্গনের পক্ষ থেকে গভীর কৃতজ্ঞতা ও সশ্রদ্ধ প্রণাম জ্ঞাপন করা হচ্ছে।</li>
+        <!-- ৫. মন্দির পরিচালনা পরিষদ -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100">
+            <h2 class="text-xl font-bold text-amber-900 mb-4 border-b pb-2">মন্দির পরিচালনা পরিষদ</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-left text-sm sm:text-base">
+                    <thead>
+                        <tr class="bg-amber-100/70 text-amber-900">
+                            <th class="p-3 border border-amber-200">পদবী</th>
+                            <th class="p-3 border border-amber-200">নাম ও মোবাইল নম্বর</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border border-amber-200 font-semibold text-amber-900">সভাপতি</td>
+                            <td class="p-3 border border-amber-200">শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা (01717-300520)</td>
+                        </tr>
+                        <tr class="bg-amber-50/40">
+                            <td class="p-3 border border-amber-200 font-semibold text-amber-900">সাধারণ সম্পাদক</td>
+                            <td class="p-3 border border-amber-200">শ্রীযুক্ত বাবু শংকর মজুমদার (01836188118)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border border-amber-200 font-semibold text-amber-900">দীন সেবক</td>
+                            <td class="p-3 border border-amber-200">দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস (01711369035)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ৬. অনুদান পাঠানোর মাধ্যম -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-amber-100">
+            <h2 class="text-xl font-bold text-amber-900 mb-4 border-b pb-2">অনুদান পাঠানোর মাধ্যম</h2>
+            <ul class="space-y-2 text-sm sm:text-base text-gray-700">
+                <li><strong class="text-amber-900">বিকাশ (পার্সোনাল):</strong> 01711369035</li>
+                <li><strong class="text-amber-900">নগদ (পার্সোনাল):</strong> 01711369035</li>
+                <li><strong class="text-amber-900">ব্যাংক অ্যাকাউন্ট:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন, একাউন্ট নং: 0200016213678, অগ্রণী ব্যাংক, শাখা: সেনবাগ [BR 7179]</li>
             </ul>
         </div>
 
-        <!-- ৭. মন্দির পরিচালনা পরিষদ -->
-        <div class="card">
-            <h2><i class="fas fa-users"></i> মন্দির পরিচালনা পরিষদ</h2>
-            <div class="address-box">
-                <strong>সভাপতি:</strong> শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা (01717-300520)
-            </div>
-            <div class="address-box">
-                <strong>সাধারণ সম্পাদক:</strong> শ্রীযুক্ত বাবু শংকর মজুমদার (01836188118)
-            </div>
-            <div class="address-box">
-                <strong>দীন সেবক:</strong> দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস (01711369035)
-            </div>
-        </div>
+    </main>
 
-        <!-- ৮. অনুদান পাঠানোর মাধ্যম -->
-        <div class="card">
-            <h2><i class="fas fa-donate"></i> অনুদান পাঠানোর মাধ্যম</h2>
-            <ul style="padding-left: 20px; font-size: 16px;">
-                <li style="margin-bottom: 8px;"><strong>বিকাশ (পার্সোনাল):</strong> 01711369035</li>
-                <li style="margin-bottom: 8px;"><strong>নগদ (পার্সোনাল):</strong> 01711369035</li>
-                <li style="margin-bottom: 8px;"><strong>ব্যাংক অ্যাকাউন্ট:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন, একাউন্ট নং: 0200016213678, অগ্রণী ব্যাংক, শাখা: সেনবাগ [BR 7179]</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>© ১৩৮০ বঙ্গাব্দ থেকে পরিচালিত শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</p>
+    <!-- ফুটার -->
+    <footer class="bg-amber-950 text-amber-200/80 text-center py-6 text-sm mt-12 px-4">
+        <p>© শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</p>
     </footer>
 
-    <!-- Google Translate Script -->
+    <!-- গুগল ট্রান্সলেট স্ক্রিপ্ট -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'bn', includedLanguages: 'en,bn,hi,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
