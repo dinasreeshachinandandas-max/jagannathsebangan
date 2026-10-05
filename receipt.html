@@ -104,6 +104,40 @@
         if (paymentMethod) {
             document.getElementById('paymentMethodDisplay').innerText = paymentMethod;
         }
+    
+    // URL থেকে ইউনিক আইডি অথবা পেমেন্ট মেথড চেক করার ফাংশন
+    const urlParams = new URLSearchParams(window.location.search);
+    const uniqueId = urlParams.get('id') || urlParams.get('receiptId') || urlParams.get('donorId');
+    const paymentMethod = urlParams.get('paymentMethod') || urlParams.get('payment') || urlParams.get('method');
+
+    // যদি পেমেন্ট মেথড ইউআরএলে সরাসরি থাকে
+    if (paymentMethod) {
+        document.getElementById('paymentMethodDisplay').innerText = paymentMethod;
+    }
+
+    // যদি ইউনিক আইডি দেওয়া থাকে, তবে Google Apps Script থেকে ডাটা ফেচ করবে
+    if (uniqueId) {
+        // আপনার Apps Script Web App এর URL এখানে বসাবেন
+        const scriptURL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE?id=' + encodeURIComponent(uniqueId);
+
+        fetch(scriptURL)
+            .then(response => response.json())
+            .then(data => {
+                if (data && !data.error) {
+                    // শিট থেকে আসা ডাটা রসিদে বসিয়ে দেওয়া
+                    if (data.receiptNumber) document.querySelector('.receipt-number').innerText = data.receiptNumber;
+                    if (data.date) document.querySelector('.receipt-date').innerText = data.date;
+                    if (data.donorName) document.querySelector('.donor-name').innerText = data.donorName;
+                    if (data.paymentMethod) document.getElementById('paymentMethodDisplay').innerText = data.paymentMethod;
+                    if (data.transactionId) document.querySelector('.transaction-id').innerText = data.transactionId;
+                    if (data.amount) {
+                        document.querySelector('.donation-amount').innerText = '৳ ' + data.amount;
+                        document.querySelector('.total-received').innerText = '৳ ' + data.amount;
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching receipt data:', error));
+
     </script>
 
 </body>
