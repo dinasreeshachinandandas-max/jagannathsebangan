@@ -142,7 +142,7 @@
 
         // যদি ইউনিক আইডি দেওয়া থাকে, তবে Google Apps Script থেকে ডাটা ফেচ করবে
         if (uniqueId) {
-            const scriptURL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE?id=' + encodeURIComponent(uniqueId);
+       const scriptURL = 'https://script.google.com 
 
             fetch(scriptURL)
                 .then(response => response.json())
