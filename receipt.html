@@ -32,15 +32,15 @@
             <h2 class="text-sm font-bold text-gray-700 uppercase mb-2">Donation Information</h2>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Receipt Number:</span>
-                <span class="font-semibold text-gray-800">JSS-2026-001</span>
+                <span class="font-semibold text-gray-800 receipt-number">JSS-2026-001</span>
             </div>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Date:</span>
-                <span class="font-semibold text-gray-800">04 October 2026</span>
+                <span class="font-semibold text-gray-800 receipt-date">04 October 2026</span>
             </div>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Donor Name:</span>
-                <span class="font-semibold text-gray-800">General Donor</span>
+                <span class="font-semibold text-gray-800 donor-name">General Donor</span>
             </div>
             <div class="flex justify-between text-sm py-1">
                 <span class="text-gray-600">Payment Method:</span>
@@ -52,18 +52,18 @@
 
         <!-- পেমেন্ট বিবরণ -->
         <div class="flex justify-between text-sm mb-1">
-    <span class="text-gray-600">পেমেন্ট মাধ্যম:</span>
-    <span class="font-semibold text-gray-800">বিকাশ পার্সোনাল (01711369035)</span>
-</div>
+            <span class="text-gray-600">পেমেন্ট মাধ্যম:</span>
+            <span class="font-semibold text-gray-800">বিকাশ পার্সোনাল (01711369035)</span>
+        </div>
         <div class="mb-4">
             <h2 class="text-sm font-bold text-gray-700 uppercase mb-2">Payment Information</h2>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Transaction ID:</span>
-                <span class="font-semibold text-gray-800">DJ41E20MCL</span>
+                <span class="font-semibold text-gray-800 transaction-id">DJ41E20MCL</span>
             </div>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Donation Amount:</span>
-                <span class="font-semibold text-gray-800">৳ 500.00</span>
+                <span class="font-semibold text-gray-800 donation-amount">৳ 500.00</span>
             </div>
             <div class="flex justify-between text-sm py-1 border-b border-gray-100">
                 <span class="text-gray-600">Processing Fee:</span>
@@ -71,7 +71,7 @@
             </div>
             <div class="flex justify-between text-base font-bold py-2 border-t border-gray-300 mt-2">
                 <span>Total Received:</span>
-                <span class="text-red-600">৳ 500.00</span>
+                <span class="text-red-600 total-received">৳ 500.00</span>
             </div>
         </div>
 
@@ -101,8 +101,7 @@
 
     </div>
 
-    
-        <!-- ডাইনামিক পেমেন্ট মেথড ও ইউনিক আইডি রিড করার স্ক্রিপ্ট -->
+    <!-- ডাইনামিক পেমেন্ট মেথড ও ইউনিক আইডি রিড করার স্ক্রিপ্ট -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const uniqueId = urlParams.get('id') || urlParams.get('receiptId') || urlParams.get('donorId');
@@ -134,38 +133,6 @@
                 })
                 .catch(error => console.error('Error fetching receipt data:', error));
         }
-    </script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const uniqueId = urlParams.get('id') || urlParams.get('receiptId') || urlParams.get('donorId');
-        const paymentMethod = urlParams.get('paymentMethod') || urlParams.get('payment') || urlParams.get('method');
-
-        // যদি পেমেন্ট মাধ্যম ইউআরএলে সরাসরি থাকে
-        if (paymentMethod) {
-            document.getElementById('paymentMethodDisplay').innerText = paymentMethod;
-        }
-
-        // যদি ইউনিক আইডি দেওয়া থাকে, তবে Google Apps Script থেকে ডাটা ফেচ করবে
-        if (uniqueId) {
-       const scriptURL = 'https://script.google.com 
-
-            fetch(scriptURL)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && !data.error) {
-                        if (data.receiptNumber) document.querySelector('.receipt-number').innerText = data.receiptNumber;
-                        if (data.date) document.querySelector('.receipt-date').innerText = data.date;
-                        if (data.donorName) document.querySelector('.donor-name').innerText = data.donorName;
-                        if (data.paymentMethod) document.getElementById('paymentMethodDisplay').innerText = data.paymentMethod;
-                        if (data.transactionId) document.querySelector('.transaction-id').innerText = data.transactionId;
-                        if (data.amount) {
-                            document.querySelector('.donation-amount').innerText = '৳ ' + data.amount;
-                            document.querySelector('.total-received').innerText = '৳ ' + data.amount;
-                        }
-                    }
-                })
-                .catch(error => console.error('Error fetching receipt data:', error));
-        }
-
     </script>
 
 </body>
