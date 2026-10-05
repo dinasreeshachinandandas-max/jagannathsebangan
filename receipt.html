@@ -79,7 +79,13 @@
                 <span class="text-[9px] font-bold tracking-tighter uppercase text-gray-700">Sebangan</span>
             </div>
         </div>
-
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentMethod = urlParams.get('paymentMethod') || urlParams.get('payment') || urlParams.get('method');
+        if (paymentMethod) {
+            document.getElementById('paymentMethodDisplay').innerText = paymentMethod;
+        }
+    </script>
         <!-- ফুটার বা ইলেকট্রনিক নোート -->
         <div class="text-center text-xs text-gray-500 mt-4 border-t border-gray-200 pt-3">
             <p>This receipt has been generated electronically and does not require a physical signature.</p>
