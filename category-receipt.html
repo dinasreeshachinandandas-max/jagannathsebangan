@@ -1,1 +1,109 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রী শ্রী জগন্নাথ সেবাসঙ্গন - সেবা ও উপকরণ রসিদ</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'SolaimanLipi', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .invoice-box {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-top: 5px solid #652b0d;
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            margin: 0;
+            color: #652b0d;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 5px 0 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .btn {
+            background-color: #652b0d;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #4a1f09;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-box">
+    <div class="header">
+        <h2>শ্রী শ্রী জগন্নাথ সেবাসঙ্গন</h2>
+        <p>সেবা ও উপকরণ রসিদ ফরম</p>
+    </div>
+
+    <div class="form-group">
+        <label for="donorName">ভক্ত/দাতার নাম:</label>
+        <input type="text" id="donorName" placeholder="নাম লিখুন">
+    </div>
+
+    <div class="form-group">
+        <label for="categoryType">খাত বা ক্যাটাগরি:</label>
+        <select id="categoryType">
+            <option value="seva">সেবা দান</option>
+            <option value="upokoron">উপকরণ সংগ্রহ</option>
+            <option value="annadan">অন্নদান সেবা</option>
+            <option value="general">সাধারণ দান</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="amount">টাকার পরিমাণ (৳):</label>
+        <input type="number" id="amount" placeholder="পরিমাণ লিখুন">
+    </div>
+
+    <button class="btn" onclick="alert('রসিদ সফলভাবে সংরক্ষণ করা হয়েছে!')">রসিদ তৈরি করুন</button>
+</div>
+
+</body>
+</html>
