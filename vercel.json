@@ -1,5 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/admin/:match*", "destination": "/admin/index.html" }
+  "routes": [
+    { "src": "/category-receipt", "dest": "/category-receipt.html" },
+    { "src": "/category-receipt.html", "dest": "/category-receipt.html" }
   ]
 }
