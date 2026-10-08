@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - সেবা ও উপকরণ রসিদ</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'SolaimanLipi', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .invoice-box {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-top: 5px solid #652b0d;
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+            object-fit: cover;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .header h2 {
+            margin: 5px 0;
+            color: #652b0d;
+            font-size: 18px;
+        }
+        .header p {
+            margin: 3px 0;
+            font-size: 13px;
+            color: #444;
+        }
+        .manager-info {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #652b0d;
+            font-weight: bold;
+            background: #fdfaf3;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px dashed #d4af37;
+            display: inline-block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .form-group select, .form-group input {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'SolaimanLipi', Arial, sans-serif;
+        }
+        .add-btn {
+            background: #652b0d;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .add-btn:hover {
+            background: #4a2008;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 13.5px;
+        }
+        th {
+            background-color: #652b0d;
+            color: white;
+        }
+        td:nth-child(2) {
+            text-align: left;
+        }
+        .footer-section {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 13px;
+            position: relative;
+        }
+        /* গোল পেইড সীল স্টাইল */
+        .paid-stamp {
+            width: 110px;
+            height: 110px;
+            border: 3px dashed #d9534f;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #d9534f;
+            font-weight: bold;
+            transform: rotate(-12deg);
+            text-align: center;
+            padding: 5px;
+            box-shadow: inset 0 0 5px rgba(217, 83, 79, 0.2);
+            background-color: rgba(255, 245, 245, 0.6);
+            margin: 0 auto;
+        }
+        .paid-stamp .stamp-title {
+            font-size: 18px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #d9534f;
+            border-top: 1px solid #d9534f;
+            width: 90%;
+            padding: 2px 0;
+            margin-bottom: 2px;
+        }
+        .paid-stamp .stamp-sub {
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .print-btn {
+            display: block;
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .print-btn:hover {
+            background: #218838;
+        }
+        @media print {
+            .print-btn, .form-group {
+                display: none;
+            }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .invoice-box {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-box">
+    <div class="header">
+        <!-- মন্দিরের লোগো বা মনোগ্রাম -->
+        <img src="https://i.ibb.co/7dGzThTy/1000069312-4.jpg" alt="Mandir Logo" class="logo-img">
+        <div style="font-size: 13px; font-weight: bold; color: #d4af37;">॥ শ্রী শ্রী গুরু গৌর জয়তু ॥</div>
+        <h2>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ-গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h2>
+        <p>উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ</p>
+        <p style="font-size: 12px; color: #666;">প্রয়োজনে (মোবাইল/হোয়াটসঅ্যাপ): 01711369035, 01581562191</p>
+        
+        <div class="manager-info">
+            উৎসব ব্যবস্থাপনায়: দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস (দীন সেবক)
+        </div>
+        
+        <h3 style="margin-top: 12px; color: #333; font-size: 15px; border-top: 1px solid #eee; padding-top: 8px;">সেবা ও পারায়ণ উপকরণ রসিদ</h3>
+    </div>
+
+    <!-- ক্যাটাগরি ও আইটেম সিলেকশন ফর্ম -->
+    <div class="form-group">
+        <select id="categorySelect" onchange="updateItems()">
+            <option value="">-- ক্যাটাগরি সিলেক্ট করুন --</option>
+            <option value="বস্ত্র ও গ্রন্থ">১. গ্রন্থ ও বস্ত্র সংশ্লিষ্ট</option>
+            <option value="বাসনপত্র ও পূজা">২. পূজার্চনা ও বাসনপত্র</option>
+            <option value="জপ ও তুলসী">৩. জপ ও তুলসী সেবা</option>
+            <option value="অন্যান্য সামগ্রী">৪. ফুল, ভোগ ও অন্যান্য</option>
+        </select>
+
+        <select id="itemSelect">
+            <option value="">-- প্রথমে ক্যাটাগরি বেছে নিন --</option>
+        </select>
+
+        <input type="text" id="itemQty" placeholder="পরিমাণ (যেমন: ১টি)" style="max-width: 120px;">
+        <button class="add-btn" onclick="addItem()">যোগ করুন</button>
+    </div>
+
+    <!-- ইনভয়েজ টেবিল -->
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">ক্র: নং</th>
+                <th>উপকরণের নাম ও বিবরণ</th>
+                <th style="width: 100px;">পরিমাণ</th>
+            </tr>
+        </thead>
+        <tbody id="invoiceTableBody">
+            <tr>
+                <td>১</td>
+                <td>শ্রী শ্রীমদ্ভগবতগীতা</td>
+                <td>১টি</td>
+            </tr>
+            <tr>
+                <td>২</td>
+                <td>বসার আসন</td>
+                <td>১টি</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ফুটার স্বাক্ষর ও পেইড গোল সীল -->
+    <div class="footer-section">
+        <div style="text-align: left;">
+            <div>গ্রহীতার স্বাক্ষর</div>
+            <div style="margin-top: 25px;">........................................</div>
+        </div>
+
+        <!-- মন্দিরের নামে গোল পেইড সীল -->
+        <div>
+            <div class="paid-stamp">
+                <span class="stamp-sub">SEBANGAN</span>
+                <span class="stamp-title">PAID</span>
+                <span class="stamp-sub">VERIFIED</span>
+            </div>
+        </div>
+
+        <div style="text-align: right;">
+            <div>কর্তৃপক্ষের স্বাক্ষর</div>
+            <div style="margin-top: 25px;">........................................</div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">রসিদ প্রিন্ট করুন</button>
+</div>
+
+<script>
+    const categoryData = {
+        "বস্ত্র ও গ্রন্থ": [
+            "শ্রী শ্রীমদ্ভগবতগীতা", "গীতার বস্ত্র", "বসার আসন", "টাওয়েল", "ধুতি", "উত্তরীয়", "তুলসীর বস্ত্র", "রুমাল", "ব্যাগ"
+        ],
+        "বাসনপত্র ও পূজা": [
+            "জল ছকি", "জল শঙ্খ", "ত্রিপদী", "ঘণ্টা", "বড় থালা", "ভোগের প্লেট", "জলের গ্লাস", "পঞ্চপাত্র", "আচমনের বাটি", "পূর্ণপাত্র", "এক প্রদীপ", "ধূপদানী", "সুবর্ণ (স্বর্ণের টুকরো)"
+        ],
+        "জপ ও তুলসী": [
+            "জপ মালা", "জপথলি", "কণ্ঠীমালা", "তিলক", "অগুরু", "তুলসী (পরিমাণ মত)", "তুলসীর টপ"
+        ],
+        "অন্যান্য সামগ্রী": [
+            "কাঁচা ফুল", "কাঁচা ফুলের মালা", "কুলো", "কুলো সাজানী", "ধান, দূর্বা", "কলাপাতা (৩ টুকরো)", "দক্ষিণা", "পাখা", "চামর", "কর্পূর, ঘি, মধু", "ভোগের ফল ও মিষ্টি", "মিনারেল জল"
+        ]
+    };
+
+    function updateItems() {
+        const cat = document.getElementById("categorySelect").value;
+        const itemSelect = document.getElementById("itemSelect");
+        itemSelect.innerHTML = '<option value="">-- আইটেম সিলেক্ট করুন --</option>';
+
+        if (cat && categoryData[cat]) {
+            categoryData[cat].forEach(item => {
+                let opt = document.createElement("option");
+                opt.value = item;
+                opt.textContent = item;
+                itemSelect.appendChild(opt);
+            });
+        }
+    }
+
+    let serialNo = 3;
+    function addItem() {
+        const item = document.getElementById("itemSelect").value;
+        const qty = document.getElementById("itemQty").value || "১টি";
+        
+        if (!item) {
+            alert("দয়া করে একটি আইটেম সিলেক্ট করুন!");
+            return;
+        }
+
+        const tbody = document.getElementById("invoiceTableBody");
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${serialNo++}</td><td>${item}</td><td>${qty}</td>`;
+        tbody.appendChild(row);
+
+        document.getElementById("itemSelect").value = "";
+        document.getElementById("itemQty").value = "";
+    }
+</script>
+
+</body>
+</html>
