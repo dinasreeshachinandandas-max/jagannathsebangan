@@ -1,6 +1,5 @@
 {
-  "routes": [
-    { "src": "/category-receipt", "dest": "/category-receipt.html" },
-    { "src": "/category-receipt.html", "dest": "/category-receipt.html" }
+  "rewrites": [
+    { "source": "/category-receipt", "destination": "/category-receipt.html" }
   ]
 }
