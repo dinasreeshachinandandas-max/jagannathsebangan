@@ -1,44 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাসঙ্গন - সেবা ও উপকরণ রসিদ</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - গ্লোবাল পোর্টাল ও আবেদন সিস্টেম</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             background-color: #f4f4f9;
             font-family: 'SolaimanLipi', Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            padding: 15px;
         }
-        .invoice-box {
-            width: 100%;
-            max-width: 700px;
+        .main-container {
+            max-width: 750px;
+            margin: 0 auto;
             background: #fff;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            border-top: 5px solid #652b0d;
-            position: relative;
+            border-radius: 12px;
+            border-top: 6px solid #652b0d;
         }
-        .header {
+        .header-top {
             text-align: center;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 2px solid #e5d5c5;
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
-        .header h2 {
-            margin: 0;
-            color: #652b0d;
-            font-size: 24px;
+        .category-box {
+            background: #fffdf9;
+            border: 1px solid #e7d7c1;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
         }
-        .header p {
-            margin: 5px 0 0;
-            color: #555;
+        .category-title {
+            font-weight: bold;
+            color: #652b0d;
+            font-size: 16px;
+            border-bottom: 1px dashed #dcd0be;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+        }
+        .item-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #444;
             font-size: 14px;
+            line-height: 1.6;
         }
         .form-group {
             margin-bottom: 15px;
@@ -49,25 +59,26 @@
             font-weight: bold;
             color: #333;
         }
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
         }
         .btn {
             background-color: #652b0d;
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
             font-size: 18px;
             font-weight: bold;
             margin-top: 10px;
+            transition: background 0.3s;
         }
         .btn:hover {
             background-color: #4a1f09;
@@ -76,108 +87,173 @@
 </head>
 <body>
 
-<div class="invoice-box">
-    <div class="header">
-        <h2>শ্রী শ্রী জগন্নাথ সেবাসঙ্গন</h2>
-        <p>সেবা ও উপকরণ রসিদ ফরম</p>
+<div class="main-container">
+
+    <!-- পোর্টাল হেডার -->
+    <div class="header-top">
+        <h2 style="margin: 0; color: #652b0d; font-size: 22px;">II Sri Sri Guru Gaur Jayatu II</h2>
+        <h1 style="margin: 5px 0; color: #333; font-size: 20px;">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
+        <p style="margin: 0; color: #666; font-size: 13px;">Necessary materials for reciting Sri Srimad Bhagavad Gita or Bhagavad Parayana</p>
+        <div style="margin-top: 10px; display: inline-block; background: #e6f4ea; color: #137333; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold;">
+            Per seat - applicable at multiple rates
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="donorName">ভক্ত/দাতার নাম:</label>
-        <input type="text" id="donorName" placeholder="নাম লিখুন">
+    <!-- ১. গীতা পাঠ ও পারায়ণের প্রয়োজনীয় সামগ্রী (ফর্দ) -->
+    <div style="margin-bottom: 25px;">
+        <!-- Category 1 -->
+        <div class="category-box">
+            <div class="category-title">📖 1. Books and clothing related materials</div>
+            <ul class="item-list">
+                <li>01. Sri Srimad Bhagavad Gita — 1</li>
+                <li>02. Gita's clothes — 1</li>
+                <li>03. Seating — 1</li>
+                <li>04. Towel — 1</li>
+                <li>15. Dhoti — 1</li>
+                <li>16. Northern — 1</li>
+                <li>28. Tulsi cloth — 1</li>
+                <li>29. Handkerchief — 1</li>
+                <li>38. Bag — 1</li>
+            </ul>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="category-box">
+            <div class="category-title">🥥 2. Worship and utensils</div>
+            <ul class="item-list">
+                <li>05. Water dispenser — 1</li>
+                <li>06. Water conch — 1</li>
+                <li>07. Tripod — 1</li>
+                <li>08. Bell — 1</li>
+                <li>09. Large plate — 1</li>
+                <li>10. Serving plate — 1</li>
+                <li>11. Glass of water — 1</li>
+                <li>12. Panchapatra — 1</li>
+                <li>13. Achaman bowl — 1</li>
+                <li>14. Full bowl — 1</li>
+                <li>22. One lamp — 1</li>
+                <li>23. Incense burner — 1</li>
+                <li>34. Gold (piece of gold) — 1</li>
+            </ul>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="category-box">
+            <div class="category-title">📿 3. Chanting and Tulsi service</div>
+            <ul class="item-list">
+                <li>17. Japa Mala — 1</li>
+                <li>18. Japathali — 1</li>
+                <li>19. Tulsi (Tulsi) — 1</li>
+                <li>20. Tilak — 1</li>
+                <li>21. Aguru — 1</li>
+                <li>26. Tulsi — as much as you like</li>
+                <li>27. Tulsi top — 1</li>
+            </ul>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="category-box">
+            <div class="category-title">🌸 4. Flowers, food and other items</div>
+            <ul class="item-list">
+                <li>24. Raw flowers — as much as you like</li>
+                <li>25. Garland of raw flowers — 2</li>
+                <li>30. Kulo (for everyone) — 1</li>
+                <li>31. Kuloo Sajani — 1</li>
+                <li>32. Rice, Durba — as much as you like</li>
+                <li>33. Banana leaves — 3 pieces</li>
+                <li>35. Dakshina — According to ability</li>
+                <li>36. Fan — 1</li>
+                <li>37. Leather — 1</li>
+                <li>39. Camphor, ghee, honey — In appropriate quantities</li>
+                <li>40. Fruits and sweets for enjoyment - in moderation</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="categoryType">খাত বা ক্যাটাগরি:</label>
-        <select id="categoryType">
-            <option value="seva">সেবা দান</option>
-            <option value="upokoron">উপকরণ সংগ্রহ</option>
-            <option value="annadan">অন্নদান সেবা</option>
-            <option value="general">সাধারণ দান</option>
-        </select>
+    <hr style="border: 0; border-top: 2px dashed #ccc; margin: 25px 0;">
+
+    <!-- ২. সেবা ও উপকরণ রসিদ ফরম -->
+    <div style="background: #faf7f2; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #e7d7c1;">
+        <h3 style="color: #652b0d; margin-top: 0; text-align: center;">সেবা ও উপকরণ রসিদ ফরম</h3>
+        <div class="form-group">
+            <label for="donorName">ভক্ত/দাতার নাম:</label>
+            <input type="text" id="donorName" placeholder="নাম লিখুন">
+        </div>
+        <div class="form-group">
+            <label for="categoryType">খাত বা ক্যাটাগরি:</label>
+            <select id="categoryType">
+                <option value="seva">সেবা দান</option>
+                <option value="upokoron">উপকরণ সংগ্রহ</option>
+                <option value="annadan">অন্নদান সেবা</option>
+                <option value="general">সাধারণ দান</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">টাকার পরিমাণ (৳):</label>
+            <input type="number" id="amount" placeholder="পরিমাণ লিখুন">
+        </div>
+        <button class="btn" onclick="alert('রসিদ সফলভাবে তৈরি হয়েছে')">রসিদ তৈরি করুন</button>
     </div>
 
-    <div class="form-group">
-        <label for="amount">টাকার পরিমাণ (৳):</label>
-        <input type="number" id="amount" placeholder="পরিমাণ লিখুন">
-    </div>
-
-    <button class="btn" onclick="alert('রসিদ সফলভাবে সংরক্ষণ করা হয়েছে!')">রসিদ তৈরি করুন</button>
-</div>
-
-<!-- শ্রী শ্রী জগন্নাথ সেবাঙ্গন অনলাইন আবেদন সেকশন -->
-<section id="event-booking-section" class="py-12 px-4 sm:px-6 max-w-4xl mx-auto w-full">
-    <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-amber-200">
-        <h2 class="text-2xl sm:text-3xl font-bold text-amber-900 text-center mb-2">
-            🙏 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - অনলাইন অনুষ্ঠান ও প্রসাদ আবেদন
-        </h2>
-        <p class="text-amber-800 text-center text-sm sm:text-base mb-8">
-            মন্দিরে অনুষ্ঠান আয়োজন, কয়েকজন ভক্তের প্রসাদ সেবা অথবা প্রসাদের বাটা সংগ্রহের জন্য নিচের ফরমটি পূরণ করুন।
+    <!-- ৩. অনলাইন অনুষ্ঠান ও প্রসাদ বাটা আবেদন ফরম -->
+    <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #e7d7c1;">
+        <h3 style="color: #652b0d; margin-top: 0; text-align: center;">🙏 প্রসাদ ও বাটা বরাদ্দের আবেদন ফরম</h3>
+        <p style="text-align: center; color: #555; font-size: 13px; margin-bottom: 15px;">
+            কোন উপলক্ষে, কত ভক্তের প্রসাদ বা কয়টি বাটা প্রয়োজন— তা উল্লেখ করে মন্দির বরাবর আবেদন করুন।
         </p>
 
-        <form id="bookingForm" class="space-y-6">
-            <!-- ভক্তের সাধারণ তথ্য -->
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">ভক্তের নাম *</label>
-                    <input type="text" required placeholder="আপনার নাম লিখুন" class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">মোবাইল নম্বর *</label>
-                    <input type="tel" required placeholder="018XXXXXXXX" class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                </div>
+        <form id="approvalForm" class="space-y-4">
+            <div class="form-group">
+                <label>আবেদনকারী ভক্তের নাম *</label>
+                <input type="text" required placeholder="পূর্ণ নাম লিখুন">
+            </div>
+            <div class="form-group">
+                <label>মোবাইল নম্বর *</label>
+                <input type="tel" required placeholder="018XXXXXXXX">
+            </div>
+            <div class="form-group">
+                <label>পূর্ণ ঠিকানা *</label>
+                <textarea rows="2" required placeholder="গ্রাম/মহল্লা, সেনবাগ, নোয়াখালী"></textarea>
+            </div>
+            <div class="form-group">
+                <label>কী উপলক্ষে প্রসাদ/বাটা প্রয়োজন? *</label>
+                <input type="text" required placeholder="যেমন: জন্মবার্ষিকী, অন্নপ্রাশন, পূজা বা বিশেষ মানত">
+            </div>
+            <div class="form-group">
+                <label>সেবার ধরন নির্বাচন করুন *</label>
+                <select required>
+                    <option value="">সিলেক্ট করুন...</option>
+                    <option value="মন্দিরে ভক্তদের প্রসাদ সেবা">ক) মন্দিরে ভক্তদের গোষ্ঠী প্রসাদ সেবা</option>
+                    <option value="প্রসাদের বাটা সংগ্রহ">খ) মন্দির থেকে প্রসাদের বাটা সংগ্রহ</option>
+                    <option value="পূর্ণ মহোৎসব অনুষ্ঠান">গ) পূর্ণ মহোৎসব / বিশেষ অনুষ্ঠান</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>অনুষ্ঠানের তারিখ *</label>
+                <input type="date" required>
+            </div>
+            <div class="form-group">
+                <label>সময় / বেলা *</label>
+                <select required>
+                    <option value="সকালে বাল্য ভোগ">সকালে বাল্য ভোগ</option>
+                    <option value="দুপুরে রাজভোগ">দুপুরে রাজভোগ</option>
+                    <option value="সন্ধ্যায় আরতি/ভোগ">সন্ধ্যায় আরতি / ভোগ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>কত ভক্তের প্রসাদ বা বাটা? *</label>
+                <input type="text" required placeholder="যেমন: ৫০ জন বা ৫টি বাটা">
+            </div>
+            <div class="form-group">
+                <label>বিশেষ বিবরণ বা প্রসাদী মেন্যু অনুরোধ</label>
+                <textarea rows="2" placeholder="যেমন: খিচুড়ি, ডাল, আলুর দম, পায়েস ইত্যাদি..."></textarea>
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">পূর্ণ ঠিকানা *</label>
-                <textarea rows="2" required placeholder="গ্রাম/ইউনিয়ন, সেনবাগ, নোয়াখালী" class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none"></textarea>
-            </div>
-
-            <!-- আবেদনের ধরন -->
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">আবেদনের ধরন / সুযোগ *</label>
-                    <select required class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                        <option value="">নির্বাচন করুন...</option>
-                        <option value="মন্দিরে পূর্ণ অনুষ্ঠান/মহোৎসব">১. মন্দিরে পূর্ণ অনুষ্ঠান / মহোৎসব আয়োজন</option>
-                        <option value="কয়েক জনের প্রসাদ সেবা">২. কয়েকজন ভক্তের সাধারণ প্রসাদ সেবা</option>
-                        <option value="মন্দির থেকে প্রসাদের বাটা সংগ্রহ">৩. মন্দির থেকে প্রসাদের বাটা সংগ্রহ</option>
-                        <option value="বিশেষ সেবা/অন্যান্য">৪. বিশেষ সেবা / পূজা নিবেদন</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">অনুষ্ঠানের তারিখ *</label>
-                    <input type="date" required class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">সময় / বেলা *</label>
-                    <select required class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                        <option value="আগের দিন রাতে">আগের দিন রাতে</option>
-                        <option value="সকালে বাল্য ভোগ">সকালে বাল্য ভোগ</option>
-                        <option value="দুপুরে রাজভোগ">দুপুরে রাজভোগ</option>
-                        <option value="সন্ধ্যায় আরতি/ভোগ">সন্ধ্যায় আরতি / ভোগ</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">আনুমানিক ভক্ত / বাটা সংখ্যা *</label>
-                    <input type="number" required placeholder="যেমন: ৫০ জন বা ৫ বাটা" class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none">
-                </div>
-            </div>
-
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">কাঙ্ক্ষিত প্রসাদী মেন্যু / বিশেষ অনুরোধ</label>
-                <textarea rows="3" placeholder="যেমন: খিচুড়ি, ডাল, আলুর দম, পায়েস বা অন্নপ্রাশনের বাটা প্রসাদ" class="w-full px-4 py-2.5 rounded-lg border border-amber-300 focus:ring-2 focus:ring-amber-600 focus:outline-none"></textarea>
-            </div>
-
-            <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-3.5 rounded-xl shadow-lg transition duration-300 text-lg">
-                🙏 আবেদন জমা দিন (Submit Application)
-            </button>
+            <button type="submit" class="btn">মন্দির কর্তৃপক্ষ বরাবর আবেদন সাবমিট করুন</button>
         </form>
     </div>
-</section>
-    
+
+</div>
+
 </body>
 </html>
