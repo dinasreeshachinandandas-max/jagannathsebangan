@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+বলেন<!DOCTYPE html>
 <html lang="bn" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -1011,6 +1011,101 @@ function showAccountNumber() {
             </div>
         </div>
     </section>
+        <!-- সেবা ও প্রণামী রসিদ আবেদন ফরম -->
+    <div class="main-container" style="margin-top: 20px; margin-bottom: 20px; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 6px solid #652b0d;">
+        <div class="header-top" style="text-align: center; border-bottom: 2px solid #e5d5c5; padding-bottom: 15px; margin-bottom: 20px;">
+            <h1 class="text-xl font-bold" style="color: #652b0d; font-size: 20px;">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
+            <p style="font-size: 13px; color: #666;">সেবা ও প্রণামী রসিদ আবেদন পোর্টাল</p>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">ভক্ত/দাতার নাম:</label>
+            <input type="text" id="donorName" placeholder="নাম লিখুন" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">খাত বা ক্যাটাগরি:</label>
+            <select id="categoryType" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                <option value="seva">সেবা খাত</option>
+                <option value="upokoran">উপকরণ সামগ্রী</option>
+                <option value="annadan">অন্নদান (সেবা)</option>
+                <option value="general">সাধারণ দান</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">টাকার পরিমাণ (৳):</label>
+            <input type="number" id="amount" placeholder="পরিমাণ লিখুন" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        </div>
+
+        <button onclick="alert('রসিদ সফলভাবে তৈরি হয়েছে')" style="background-color: #652b0d; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; margin-bottom: 20px;">রসিদ তৈরি করুন</button>
+
+        <!-- প্রসাদান অনুষ্ঠান ও প্রসাদ বাটা আবেদন ফরম -->
+        <div style="background: #fffdf9; padding: 15px; border-radius: 8px; border: 1px solid #e7d7c1;">
+            <h3 style="color: #652b0d; margin-top: 0; text-align: center; font-size: 16px;">🙏 প্রসাদ ও বাটা বরাদ্দের আবেদন ফরম</h3>
+            <p style="text-align: center; color: #555; font-size: 13px; margin-bottom: 15px;">
+                কোনো উপলক্ষ, শুভ উৎসব কিংবা প্রসাদ বা ক্যাটারিং বাটা প্রসংগে তথ্য দিয়ে মন্দির বরাবর আবেদন করুন।
+            </p>
+
+            <form id="approvalForm">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">আবেদনকারী ভক্তের নাম *</label>
+                    <input type="text" required placeholder="পূর্ণ নাম লিখুন" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">মোবাইল নম্বর *</label>
+                    <input type="tel" required placeholder="018XXXXXXXX" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">পূর্ণ ঠিকানা *</label>
+                    <textarea rows="2" required placeholder="গ্রাম/মহল্লা, সেনবাগ, নোয়াখালী..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">কী উপলক্ষ প্রসাদ/বাটা প্রয়োজন? *</label>
+                    <input type="text" required placeholder="যেমন: জন্মাষ্টমী, অন্নপ্রাশন, পূজা বা বিশেষ মানত" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">সেবার ধরন নির্বাচন করুন *</label>
+                    <select required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                        <option value="">সিলেক্ট করুন...</option>
+                        <option value="মন্দিরে ভক্তদের প্রসাদ সেবা">ক) মন্দিরে ভক্তদের গোষ্ঠী প্রসাদ সেবা</option>
+                        <option value="প্রসাদের বাটা সংগ্রহ">খ) মন্দির থেকে প্রসাদের বাটা সংগ্রহ</option>
+                        <option value="পূর্ণ মহাপ্রসাদ অনুষ্ঠান">গ) পূর্ণ মহাপ্রসাদ / বিশাল আয়োজন</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">অনুষ্ঠানের তারিখ *</label>
+                    <input type="date" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">সময় / বেলা *</label>
+                    <select required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                        <option value="সকালে বাল্য ভোগ">সকালে বাল্য ভোগ</option>
+                        <option value="দুপুরে রাজভোগ">দুপুরে রাজভোগ</option>
+                        <option value="সন্ধ্যায় আরতি/ভোগ">সন্ধ্যায় আরতি / ভোগ</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">কত ভক্তের প্রসাদ বা বাটা? *</label>
+                    <input type="text" required placeholder="যেমন: ৫০ জন বা ৫টি বাটা" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">বিশেষ বিবরণ বা প্রসাদী মেন্যু অনুরোধ</label>
+                    <textarea rows="2" placeholder="যেমন: খিচুড়ি, ডাল, আলুর দম, পায়েস ইত্যাদি..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+                </div>
+
+                <button type="submit" style="background-color: #652b0d; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 15px; font-weight: bold;">মন্দির কর্তৃপক্ষ বরাবর আবেদন সাবমিট করুন</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="bg-amber-950 text-amber-100 text-center py-8 mt-auto px-4 text-xs sm:text-sm border-t border-amber-800">
         <p class="mb-2">&copy; ২০২৬ শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ। সর্বস্বত্ব সংরক্ষিত।</p>
