@@ -1166,38 +1166,87 @@ function showAccountNumber() {
 
             // 8. Constitution Google Doc QR Code
             renderQRCode('qrcode-doc', 'https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk
+
+};
+    </script>
+
+    <!-- ================= কাস্টম বুকিং ও ক্যালেন্ডার সেকশন শুরু ================= -->
+    <div style="max-width: 750px; margin: 30px auto; padding: 25px; background: #ffffff; border: 2px solid #f0d0a0; border-radius: 12px; font-family: 'Hind Siliguri', sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        
+        <!-- হেডার অংশ -->
+        <div style="text-align: center; margin-bottom: 25px; border-bottom: 2px solid #f5ebd0; padding-bottom: 12px;">
+            <h2 style="font-size: 22px; color: #800000; margin: 0 0 5px 0; font-weight: bold;">শ্রী শ্রী জগন্নাথ সেবাঙ্গন, সেনবাগ</h2>
+            <p style="font-size: 14px; color: #555555; margin: 0;">উৎসব ও একাদশী সেবা বুকিং ফরম | Festival & Seva Booking Form</p>
+        </div>
+
+        <form id="customBookingForm" action="#" method="POST">
+            
+            <!-- ১. তিথি ও উৎসব ড্রপডাউন সিলেক্টর -->
+            <div style="margin-bottom: 20px; background: #fffaf0; padding: 15px; border-radius: 8px; border: 1px solid #f0d0a0;">
+                <label for="festivalSelect" style="display: block; font-size: 14px; font-weight: bold; margin-bottom: 8px; color: #800000;">
+                    📅 উৎসব ও একাদশী নির্বাচন (Dropdown Calendar & Tithi) *
+                </label>
+                <select id="festivalSelect" name="festivalSelect" required style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #d1b280; border-radius: 6px; background-color: #ffffff; color: #333;">
+                    <option value="" disabled selected>-- তালিকা থেকে পবিত্র তিথি বা একাদশী বেছে নিন --</option>
+                    <optgroup label="একাদশী সমূহ (Ekadashi Dates)">
+                        <option value="utpanna_ekadashi">১৭ অক্টোবর ২০২৬ (১ কার্তিক ১৪ ৩৩) - উৎপন্না একাদশী ব্রত</option>
+                        <option value="mokshada_ekadashi">মোক্ষদা একাদশী (Mokshada Ekadashi)</option>
+                        <option value="saphala_ekadashi">সফলা একাদশী (Saphala Ekadashi)</option>
+                    </optgroup>
+                    <optgroup label="বিশেষ উৎসব (Major Festivals)">
+                        <option value="janmashtami">শ্রীকৃষ্ণের জন্মাষ্টমী (Sri Krishna Janmashtami)</option>
+                        <option value="ratha_yatra">শ্রীশ্রী জগন্নাথদেবের রথযাত্রা (Ratha Yatra)</option>
+                        <option value="gaura_purnima">শ্রী গৌর পূর্ণিমা (Gaura Purnima)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <!-- ভক্তের নাম ও মোবাইল নম্বর -->
+            <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #333;">ভক্তের নাম (Full Name) *</label>
+                    <input type="text" required placeholder="আপনার নাম লিখুন" style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #333;">মোবাইল বা হোয়াটসঅ্যাপ নম্বর *</label>
+                    <input type="tel" required placeholder="01XXXXXXXXX" style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <!-- সেবার তারিখ ও সেবার ধরন -->
+            <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #333;">অনুষ্ঠানের তারিখ *</label>
+                    <input type="date" required style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #333;">সেবার ধরন নির্বাচন *</label>
+                    <select required style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; background: #fff;">
+                        <option value="" disabled selected>সেবার ধরন বেছে নিন...</option>
+                        <option value="rajbhog">রাজভোগ সেবা</option>
+                        <option value="annadana">অন্নদান ও প্রসাদ বিতরণ</option>
+                        <option value="puja">বিশেষ পূজা ও আরতি</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- পূর্ণ ঠিকানা -->
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #333;">পূর্ণ ঠিকানা *</label>
+                <textarea rows="2" required placeholder="গ্রাম/মহল্লা, সেনবাগ, নোয়াখালী..." style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
+            </div>
+
+            <!-- সাবমিট বাটন -->
+            <div style="margin-top: 20px;">
+                <button type="submit" style="width: 100%; padding: 12px; background-color: #800000; color: #ffffff; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                    🙏 মন্দির কর্তৃপক্ষ বরাবর আবেদন সাবমিট করুন
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <!-- ================= কাস্টম বুকিং ও ক্যালেন্ডার সেকশন শেষ ================= -->
+
 </body>
 </html>
-     </script>
-
-    <!-- ================= মহোৎসব বুকিং ও ক্যালেন্ডার সেকশন শুরু ================= -->
-    <div style="max-width: 100%; margin: 30px auto; padding: 15px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
-        
-        <h2 style="text-align: center; color: #800000; margin-bottom: 8px; font-size: 22px; font-weight: bold;">শ্রী শ্রী জগন্নাথ সেবাঙ্গন, সেনবাগ</h2>
-        <p style="text-align: center; color: #555555; margin-bottom: 25px; font-size: 14px;">মহোৎসব ও বৈষ্ণবীয় অনুষ্ঠান বুকিং এবং শুভ তিথি তালিকা</p>
-
-        <!-- ১. গুগল লাইভ ক্যালেন্ডার (ফাঁকা তারিখ দেখার জন্য) -->
-        <div style="margin-bottom: 35px;">
-            <h3 style="color: #4a154b; border-bottom: 2px solid #f0d0a0; padding-bottom: 8px; margin-bottom: 15px; font-size: 17px; font-weight: bold;">📅 ১. বর্তমান অনুষ্ঠানসূচি ও খালি তারিখ দেখে নিন</h3>
-            <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd;">
-                <iframe src="https://calendar.google.com/calendar/embed?src=a772e069b143169840148bfc3647160b489ef652b142e1fbbe40a01d36eb0cae%40group.calendar.google.com&ctz=Asia%2FDhaka&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0" 
-                        style="width: 100%; height: 100%; border: 0;" 
-                        frameborder="0" scrolling="no"></iframe>
-            </div>
-        </div>
-
-        <!-- ২. মহোৎসব বুকিং গুগল ফর্ম (আবেদন জমা দেওয়ার জন্য) -->
-        <div>
-            <h3 style="color: #4a154b; border-bottom: 2px solid #f0d0a0; padding-bottom: 8px; margin-bottom: 15px; font-size: 17px; font-weight: bold;">📝 ২. মহোৎসব / সেবা বুকিং আবেদন জমা দিন</h3>
-            <div style="width: 100%; height: 900px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd;">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4xOFvmaBS_9di_PiIS0DWdoJUjdMK7AM2BCMOU_rFk-yUEA/viewform?embedded=true" 
-                        style="width: 100%; height: 100%; border: 0;" 
-                        frameborder="0" marginheight="0" marginwidth="0">লোড হচ্ছে...</iframe>
-            </div>
-        </div>
-
-    </div>
-    <!-- ================= মহোৎসব বুকিং ও ক্যালেন্ডার সেকশন শেষ ================= -->
-
-</body>
 </html>
