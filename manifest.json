@@ -7,14 +7,14 @@
   "theme_color": "#ff6600",
   "icons": [
     {
-      "src": "/temple_logo.jpg",
+      "src": "/temple-logo.jpg",
       "sizes": "192x192",
-      "type": "image/jpg"
+      "type": "image/jpeg"
     },
     {
-      "src": "/temple_logo.jpg",
+      "src": "/temple-logo.jpg",
       "sizes": "512x512",
-      "type": "image/jpg"
+      "type": "image/jpeg"
     }
   ]
 }
