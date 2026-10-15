@@ -1588,8 +1588,6 @@ function showAccountNumber() {
       <span style="background: #ffebee; color: #c62828; font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 10px;">বিস্তারিত পঞ্জিকা তথ্য</span>
       <h3 style="color: #b71c1c; margin: 10px 0 5px 0; font-size: 22px;">${data.date}</h3>
       <p style="color: #666; font-size: 13px; margin-bottom: 15px;">${data.bangla}</p>
-
-      <div style="background: #fff8e1; padding: 12px; border-radius: 10px; border-left: 4px solid #f57c00; margin-bottom: 12px;">
 <!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও মহা-ইন্টারঅ্যাক্টিভ অ্যাপ মডিউল ==================== -->
 <section id="vaishnava-app" style="max-width: 980px; margin: 40px auto; padding: 22px; background: #fffcf5; border-radius: 20px; border: 2px solid #ffcc80; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
   
@@ -1605,15 +1603,83 @@ function showAccountNumber() {
     <button onclick="filterEvents('ekadashi')" class="filter-btn" id="btn-ekadashi" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌸 একাদশী</button>
     <button onclick="filterEvents('amavasya')" class="filter-btn" id="btn-amavasya" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌑 অমাবস্যা</button>
     <button onclick="filterEvents('purnima')" class="filter-btn" id="btn-purnima" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌕 পূর্ণিমা</button>
-    <button onclick="filterEvents('grahan')" class="filter-btn" id="btn-grahan" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌒 চন্দ্র ও সূর্যগ্রহণ</button>
+    <button onclick="filterEvents('grahan')" class="filter-btn" id="btn-grahan" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌒 গ্রহণ</button>
     <button onclick="filterEvents('bibaho')" class="filter-btn" id="btn-bibaho" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">💍 বিবাহ</button>
     <button onclick="filterEvents('annaprasan')" class="filter-btn" id="btn-annaprasan" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🍚 অন্নপ্রাশন</button>
-    <button onclick="filterEvents('satbhokshon')" class="filter-btn" id="btn-satbhokshon" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🤰 সাতভক্ষণ ও পঞ্চামৃত</button>
-    <button onclick="filterEvents('grihapravesh')" class="filter-btn" id="btn-grihapravesh" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🏠 গৃহারম্ভ ও গৃহপ্রবেশ</button>
-    <button onclick="filterEvents('debpratistha')" class="filter-btn" id="btn-debpratistha" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🛕 দেবতা প্রতিষ্ঠা ও দেব গৃহপ্রবেশ</button>
-    <button onclick="filterEvents('purnah')" class="filter-btn" id="btn-purnah" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🔥 পুণ্যাহ ও মহাযজ্ঞ</button>
+    <button onclick="filterEvents('satbhokshon')" class="filter-btn" id="btn-satbhokshon" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🤰 সাতভক্ষণ</button>
+    <button onclick="filterEvents('grihapravesh')" class="filter-btn" id="btn-grihapravesh" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🏠 গৃহপ্রবেশ</button>
   </div>
 
+  <!-- নির্বাচিত ক্যাটাগরির বিস্তারিত তথ্য বাক্স -->
+  <div id="filter-info-box" style="display:none; background: #e8f5e9; color: #1b5e20; border: 1px solid #81c784; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; font-size: 14px; font-weight: bold; line-height: 1.5;">
+  </div>
+
+  <!-- আজকের দিনাবসান কার্ড -->
+  <div style="background: linear-gradient(135deg, #ffffff, #fff8e1); border-radius: 16px; padding: 20px; border: 1px solid #ffe0b2; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span style="background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 12px;">আজকের দিনাবসান</span>
+        <h3 style="color: #b71c1c; font-size: 24px; font-weight: bold; margin: 8px 0 4px 0;">১৫ অক্টোবর ২০২৬ (বৃহস্পতিবার)</h3>
+        <p style="color: #424242; font-size: 14px; margin: 0; font-weight: 600;">২৭ আশ্বিন ১৪৩৩ বঙ্গাব্দ | শুক্ল পঞ্চমী তিথি</p>
+      </div>
+      <button onclick="openModal(15)" style="background: #e65100; color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
+        🔍 আজকের বিস্তারিত তথ্য ও সময়সূচী
+      </button>
+    </div>
+  </div>
+
+  <!-- মাসিক পঞ্জিকা গ্রিড (সঠিক বার বিন্যাস: রবি থেকে শুরু) -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 15px; border: 1px solid #ffe0b2;">
+    <h4 style="color: #37474f; font-size: 16px; margin: 0 0 12px 0; text-align: center; font-weight: bold;">
+      📅 আশ্বিন - কার্তিক (অক্টোবর ২০২৬)
+    </h4>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center;">
+      
+      <!-- বারসমূহ -->
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">রবি</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">সোম</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">মঙ্গল</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">বুধ</div>
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">বৃহঃ</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">শুক্র</div>
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">শনি</div>
+
+      <!-- অক্টোবর ২০২৬ এর ১ তারিখ বৃহস্পতিবার হওয়ায় আগের ঘরগুলো খালি রাখা হয়েছে -->
+      <div style="padding: 10px;"></div>
+      <div style="padding: 10px;"></div>
+      <div style="padding: 10px;"></div>
+      <div style="padding: 10px;"></div>
+
+      <!-- ১৫ অক্টোবর সঠিক বৃহস্পতিবারের ঘরে -->
+      <div id="day-10" onclick="openModal(10)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১০<br><small style="font-size:10px; color:#e65100;">অমাবস্যা</small></div>
+      <div id="day-11" onclick="openModal(11)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১১<br><small style="font-size:10px; color:#777;">প্রতিপদ</small></div>
+      <div id="day-12" onclick="openModal(12)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১২<br><small style="font-size:10px; color:#777;">দ্বাদশী</small></div>
+      <div id="day-13" onclick="openModal(13)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৩<br><small style="font-size:10px; color:#777;">ত্রয়োদশী</small></div>
+      <div id="day-14" onclick="openModal(14)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৪<br><small style="font-size:10px; color:#777;">চতুর্দশী</small></div>
+      
+      <!-- ১৫ অক্টোবর (বৃহস্পতিবার) -->
+      <div id="day-15" onclick="openModal(15)" class="cal-day" style="background: #e8f5e9; padding: 10px; border-radius: 8px; border: 2px solid #4caf50; cursor: pointer; font-weight:bold;">
+        ১৫<br><small style="font-size:10px; color:#2e7d32;">আজ (পঞ্চমী)</small>
+      </div>
+
+      <div id="day-16" onclick="openModal(16)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৬<br><small style="font-size:10px; color:#777;">ষষ্ঠী</small></div>
+      <div id="day-17" onclick="openModal(17)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৭<br><small style="font-size:10px; color:#777;">সপ্তমী</small></div>
+      <div id="day-18" onclick="openModal(18)" class="cal-day" style="background: #fff3e0; padding: 10px; border-radius: 8px; border: 1px solid #ffb74d; cursor: pointer;">১৮<br><small style="font-size:10px; color:#e65100;">বিবাহ লগ্ন</small></div>
+      <div id="day-19" onclick="openModal(19)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৯<br><small style="font-size:10px; color:#777;">নবমী</small></div>
+      <div id="day-20" onclick="openModal(20)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">২০<br><small style="font-size:10px; color:#777;">দশমী</small></div>
+      <div id="day-21" onclick="openModal(21)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">২১<br><small style="font-size:10px; color:#777;">একাদশী</small></div>
+      
+      <!-- ২২ অক্টোবর (বৃহস্পতিবার - একাদশী) -->
+      <div id="day-22" onclick="openModal(22)" class="cal-day" style="background: #ffebee; padding: 10px; border-radius: 8px; border: 2px solid #ef5350; cursor: pointer; font-weight:bold;">
+        ২২<br><small style="font-size:10px; color:#c62828;">একাদশী ব্রত</small></div>
+      
+      <div id="day-23" onclick="openModal(23)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">২৩<br><small style="font-size:10px; color:#777;">পারণ</small></div>
+      <div id="day-24" onclick="openModal(24)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">২৪<br><small style="font-size:10px; color:#777;">চতুর্দশী</small></div>
+      <div id="day-25" onclick="openModal(25)" class="cal-day" style="background: #e1f5fe; padding: 10px; border-radius: 8px; border: 1px solid #0288d1; cursor: pointer; font-weight:bold;">২৫<br><small style="font-size:10px; color:#01579b;">পূর্ণিমা</small></div>
+    </div>
+  </div>
+</section>
+      
   <!-- নির্বাচিত ক্যাটাগরির বিস্তারিত তথ্য বাক্স -->
   <div id="filter-info-box" style="display:none; background: #e8f5e9; color: #1b5e20; border: 1px solid #81c784; padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; font-size: 14px; font-weight: bold; line-height: 1.5;">
   </div>
