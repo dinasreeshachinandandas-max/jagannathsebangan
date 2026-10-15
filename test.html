@@ -184,7 +184,7 @@
             color: var(--text-dark);
             border: 1.5px solid var(--card-border);
             border-radius: 12px;
-            padding: 12px;
+            padding: 14px;
             margin-bottom: 15px;
         }
 
@@ -193,18 +193,30 @@
             font-weight: bold;
             color: var(--accent-red);
             margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             border-bottom: 1px dashed var(--accent-gold);
             padding-bottom: 5px;
         }
 
         .mantra-box {
             background: #fcf8ec;
-            padding: 8px;
+            padding: 10px;
             border-radius: 6px;
-            margin-top: 6px;
+            margin-top: 8px;
             border-left: 3px solid var(--accent-red);
-            font-size: 0.85rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .shastra-ref {
+            display: inline-block;
+            background: #efebe9;
+            color: #4e342e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 4px;
         }
 
         .filter-scroll {
@@ -298,6 +310,7 @@
             font-size: 0.82rem;
             margin-top: 6px;
             border-left: 3px solid #8e24aa;
+            line-height: 1.4;
         }
 
         .parana-time {
@@ -309,6 +322,31 @@
             margin-top: 6px;
             border: 1px solid #c8e6c9;
             font-size: 0.85rem;
+        }
+
+        .media-box {
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .media-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-btn {
+            display: inline-block;
+            background: #c62828;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 8px;
         }
 
         /* বটম নেভিগেশন */
@@ -349,7 +387,6 @@
 
     <div class="header">
         <div class="logo-box">
-            <!-- আপনার আপলোড করা মন্দিরের সঠিক লোগো লিঙ্ক -->
             <img src="images/uploads/temple-logo.jpg" alt="মন্দিরের মনোগ্রাম" 
                  onerror="this.onerror=null; this.src='images/uploads/1000068215.jpg';">
         </div>
@@ -365,7 +402,7 @@
                 <div class="today-header">
                     <div>
                         <div class="today-date-main">২৮</div>
-                        <div class="today-date-sub">আশ্বিন ১৪ ৩৩, বৃহস্পতিবার</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, বৃহস্পতিবার</div>
                         <div style="font-size:0.8rem; color:#d4af37;">১৫ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
@@ -398,11 +435,12 @@
                 <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
                 <div class="mantra-box">
                     <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব।।”</em>
                 </div>
                 <div class="mantra-box">
                     <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“ত্ব প্রসাদস্বীকারাং কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+                    <em>“তব প্রসাদাস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রয়চ্ছ মে।।”</em>
+                    <br><span class="shastra-ref">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</span>
                 </div>
             </div>
         </div>
@@ -429,16 +467,25 @@
         <!-- ট্যাব ৩: ব্রত মহিমা ও স্মৃতি আলেখ্য -->
         <div id="tab-mohima" class="tab-content">
             <div class="mantra-card">
-                <div class="mantra-title" style="font-size:1.1rem; color:var(--accent-red);">📜 বৈষ্ণব আচার্যবৃন্দের স্মৃতি আলেখ্য ও একাদশী মহিমা</div>
+                <div class="mantra-title" style="font-size:1.1rem; color:var(--accent-red);">📖 বৈষ্ণবীয় ব্রত মহিমা, স্মৃতি আলেখ্য ও ভিডিও টিউটোরিয়াল</div>
                 
-                <div class="mantra-box" style="margin-top:10px;">
-                    <strong style="color:#8e24aa;">✨ শ্রীরূপ গোস্বামী ও শ্রীসনাতন গোস্বামী তিরোধান:</strong><br>
-                    গৌড়ীয় বৈষ্ণব সাহিত্যের প্রাণপুরুষ রূপ-সনাতন। বৃন্দাবনের লুপ্ত তীর্থ উদ্ধার ও ভক্তিরসামৃতসিন্ধু রচনায় তাঁদের অবদান চিরস্মরণীয়।
+                <div class="mantra-box" style="margin-top:12px;">
+                    <strong style="color:var(--accent-red); font-size:0.95rem;">🌺 একাদশী ব্রতের পরম মাহাত্ম্য ও পালন পদ্ধতি:</strong><br>
+                    পদ্মপুরাণে বলা হয়েছে, একাদশী ব্রত পালনে সকল প্রকার পাপ বিনষ্ট হয় এবং শ্রীকৃষ্ণের চরণে বিশুদ্ধা ভক্তি লাভ হয়। একাদশীর দিন সর্বপ্রকার অন্ন, শস্য, ডাল ও তৈলজাতীয় খাদ্য বর্জনীয়। 
+                    <br><span class="shastra-ref">📖 রেফারেন্স: স্কন্দপুরাণ ও শ্রীহরিভক্তিবিলাস</span>
+                    
+                    <div class="media-box">
+                        <img src="images/uploads/1000068215.jpg" alt="একাদশী মাহাত্ম্য" onerror="this.style.display='none'">
+                    </div>
+                    <a href="https://www.youtube.com/results?search_query=Ekadashi+Mahatmya+Gaudiya+Vaishnava" target="_blank" class="video-btn">▶️ একাদশী ব্রত টিউটোরিয়াল ভিডিও দেখুন</a>
                 </div>
 
-                <div class="mantra-box" style="margin-top:10px;">
-                    <strong style="color:var(--accent-red);">🌺 একাদশী ব্রতের পরম মাহাত্ম্য:</strong><br>
-                    শ্রীহরিভক্তিবিলাসে বলা হয়েছে, একাদশী উপবাসে সর্বপাপ বিনাশ হয় এবং শ্রীকৃষ্ণের প্রতি শুদ্ধাভক্তি প্রগাঢ় হয়। পারণকালে সঠিক সময়ে অন্ন বা নৈবেদ্য গ্রহণ পরম আবশ্যক।
+                <div class="mantra-box" style="margin-top:15px;">
+                    <strong style="color:#6a1b9a; font-size:0.95rem;">✨ শ্রীল জীব গোস্বামী ও ষড়গোস্বামী স্মৃতি আলেখ্য:</strong><br>
+                    শ্রীল জীব গোস্বামী বৈষ্ণব দর্শনের ভিত্তিপ্রস্তর 'ষট সন্দর্ভ' রচনার মাধ্যমে গৌড়ীয় বৈষ্ণব তত্ত্বকে সুপ্রতিষ্ঠিত করেন। বৃন্দাবনে শ্রীশ্রী রাধা-দামোদর জিউর সেবা প্রকাশ তাঁর অমর সৃষ্টি।
+                    <br><span class="shastra-ref">📖 রেফারেন্স: শ্রীচৈতন্যচরিতামৃত (আদি ৮/৫২)</span>
+
+                    <a href="https://www.youtube.com/results?search_query=Jiva+Goswami+Life+and+Teachings" target="_blank" class="video-btn">▶️ শ্রীল জীব গোস্বামী স্মৃতি আলেখ্য আলোচনা</a>
                 </div>
             </div>
         </div>
@@ -485,7 +532,7 @@
                 category: "ekadashi",
                 tithi: "কৃষ্ণা একাদশী তিথি",
                 detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।",
-                smriti: null,
+                smriti: "পদ্মপুরাণ মতে: রমা একাদশী ব্রত পালনে পরম গতি লাভ হয় ও রাজসূয় যজ্ঞের ফল প্রাপ্তি ঘটে।",
                 parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
@@ -533,7 +580,7 @@
                 category: "ekadashi",
                 tithi: "শুক্লা একাদশী তিথি",
                 detail: "চাতুর্মাস্ত ব্রত সমাপ্তি ও শ্রী গোবিন্দ উত্থান উৎসব।",
-                smriti: null,
+                smriti: "পদ্মপুরাণ মতে: এই তিথিতে ভগবান শ্রীগোবিন্দ চার মাস যোগনিদ্রার পর সজাগ হন।",
                 parana: "সকাল ০৬:২৩ হতে সকাল ১০:০১ পর্যন্ত (২১ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
@@ -581,7 +628,7 @@
                         <div class="event-title">${item.title}</div>
                         <div class="event-detail">📌 <strong>তিথি:</strong> ${item.tithi}</div>
                         <div class="event-detail">${item.detail}</div>
-                        ${item.smriti ? `<div class="smriti-text">✨ ${item.smriti}</div>` : ''}
+                        ${item.smriti ? `<div class="smriti-text">📖 <strong>শাস্ত্রীয় কথা:</strong> ${item.smriti}</div>` : ''}
                         ${item.parana ? `<div class="parana-time">⏰ <strong>পারণ সময়কাল:</strong> ${item.parana}</div>` : ''}
                     </div>
                 `;
