@@ -6,16 +6,16 @@
     <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় আদর্শ পঞ্জিকা</title>
     <style>
         :root {
-            --bg-primary: #2a0306;
-            --bg-secondary: #3d070b;
-            --card-bg: #fffdf5;
+            --bg-primary: #1f0204;
+            --bg-secondary: #330508;
+            --card-bg: #fffef7;
             --card-border: #d4af37;
-            --text-dark: #3a0005;
-            --text-gold: #f3e5ab;
+            --text-dark: #2c0003;
+            --text-gold: #f5e6b3;
             --accent-gold: #d4af37;
             --accent-red: #800000;
-            --accent-bright-red: #d32f2f;
-            --accent-green: #2e7d32;
+            --accent-bright-red: #c62828;
+            --accent-green: #1b5e20;
         }
 
         * {
@@ -26,46 +26,48 @@
         }
 
         body {
-            background: linear-gradient(180deg, var(--bg-primary) 0%, #1a0103 100%);
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #120102 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 70px;
+            padding-bottom: 75px;
         }
 
         .header {
-            background: linear-gradient(135deg, #4a0000 0%, #1a0000 100%);
-            padding: 20px 15px;
+            background: linear-gradient(135deg, #3d0000 0%, #150000 100%);
+            padding: 15px;
             text-align: center;
             border-bottom: 2px solid var(--accent-gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .logo-box {
-            margin: 0 auto 10px;
+            margin: 0 auto 8px;
             display: inline-block;
             background: #fff;
-            padding: 5px;
-            border-radius: 50px;
+            padding: 4px;
+            border-radius: 50%;
             border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
         .logo-box img {
-            height: 50px;
-            width: auto;
+            height: 55px;
+            width: 55px;
+            object-fit: cover;
             display: block;
-            border-radius: 50px;
+            border-radius: 50%;
         }
 
         .header h1 {
             color: #ffeb3b;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             text-shadow: 1px 1px 3px #000;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .header p {
-            color: #ffc107;
-            font-size: 0.9rem;
+            color: #f5e6b3;
+            font-size: 0.85rem;
         }
 
         .container {
@@ -74,14 +76,74 @@
             margin: 0 auto;
         }
 
-        .tz-banner {
-            background: rgba(128, 0, 0, 0.6);
-            border: 1px solid var(--accent-gold);
+        /* আজ এক নজরে (Today Highlight Card) */
+        .today-card {
+            background: linear-gradient(135deg, #4a080d 0%, #290205 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .today-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .today-date-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffeb3b;
+            line-height: 1;
+        }
+
+        .today-date-sub {
+            font-size: 0.95rem;
+            color: var(--text-gold);
+        }
+
+        .sun-times {
+            text-align: right;
+            font-size: 0.82rem;
+            color: #ffe082;
+            line-height: 1.5;
+        }
+
+        .tithi-naksatra-box {
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             padding: 10px;
-            margin-bottom: 12px;
+            margin-top: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .tithi-title {
+            color: #ffca28;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .tithi-desc {
             font-size: 0.85rem;
+            color: #f5f5f5;
+            line-height: 1.4;
+        }
+
+        .tz-banner {
+            background: rgba(128, 0, 0, 0.4);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
             text-align: center;
+            color: var(--text-gold);
         }
 
         .calc-toggle {
@@ -92,7 +154,7 @@
 
         .calc-btn {
             flex: 1;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid var(--accent-gold);
             background: var(--bg-secondary);
             color: var(--text-gold);
@@ -100,18 +162,19 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 0.88rem;
         }
 
         .calc-btn.active {
             background: var(--accent-gold);
             color: var(--text-dark);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
         .mantra-card {
             background: var(--card-bg);
             color: var(--text-dark);
-            border: 2px solid var(--card-border);
+            border: 1.5px solid var(--card-border);
             border-radius: 12px;
             padding: 12px;
             margin-bottom: 15px;
@@ -122,18 +185,18 @@
             font-weight: bold;
             color: var(--accent-red);
             margin-bottom: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             border-bottom: 1px dashed var(--accent-gold);
             padding-bottom: 5px;
         }
 
         .mantra-box {
-            background: #fdf6e3;
+            background: #fcf8ec;
             padding: 8px;
             border-radius: 6px;
             margin-top: 6px;
-            border-left: 4px solid var(--accent-red);
-            font-size: 0.88rem;
+            border-left: 3px solid var(--accent-red);
+            font-size: 0.85rem;
         }
 
         .filter-scroll {
@@ -147,12 +210,12 @@
 
         .filter-chip {
             white-space: nowrap;
-            padding: 8px 14px;
+            padding: 7px 13px;
             background: var(--bg-secondary);
             border: 1px solid var(--accent-gold);
             color: #fff;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -167,21 +230,21 @@
             background: var(--card-bg);
             color: var(--text-dark);
             border-radius: 12px;
-            border: 2px solid var(--card-border);
+            border: 1.5px solid var(--card-border);
             padding: 12px;
             margin-bottom: 12px;
             position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
 
         .event-card.ekadashi {
-            border: 2px solid #d2143a;
-            background: #fff8f8;
+            border: 2px solid #c62828;
+            background: #fff5f5;
         }
 
         .event-card.purnima {
-            border: 2px solid #ff9800;
-            background: #fffdf0;
+            border: 2px solid #f57c00;
+            background: #fffde7;
         }
 
         .badge {
@@ -190,30 +253,30 @@
             right: 10px;
             padding: 3px 8px;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: bold;
             color: #fff;
         }
 
         .badge-ekadashi { background: var(--accent-bright-red); }
-        .badge-purnima { background: #ff9800; }
+        .badge-purnima { background: #f57c00; }
         .badge-subha { background: var(--accent-green); }
 
         .event-date {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             color: var(--accent-red);
             margin-bottom: 4px;
         }
 
         .event-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .event-detail {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #444;
             margin-top: 4px;
             line-height: 1.4;
@@ -227,7 +290,7 @@
             font-weight: bold;
             margin-top: 6px;
             border: 1px solid #c8e6c9;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
         }
 
         .nav-bar {
@@ -235,7 +298,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #1a0000;
+            background: #140002;
             border-top: 2px solid var(--accent-gold);
             display: flex;
             justify-content: space-around;
@@ -244,10 +307,10 @@
         }
 
         .nav-item {
-            color: #ccc;
+            color: #bbb;
             text-decoration: none;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             flex: 1;
         }
 
@@ -257,7 +320,7 @@
         }
 
         .nav-item div {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2px;
         }
     </style>
@@ -266,16 +329,47 @@
 
     <div class="header">
         <div class="logo-box">
-            <img src="https://via.placeholder.com/50/800000/FFFFFF?text=JSP" alt="Logo">
+            <!-- মন্দিরের লোগো লিঙ্ক -->
+            <img src="https://via.placeholder.com/55/800000/FFFFFF?text=JSP" alt="Temple Logo">
         </div>
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
         <p>শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা</p>
     </div>
 
     <div class="container">
+        
+        <!-- আজ এক নজরে (দৈনিক প্রধান তথ্য) -->
+        <div class="today-card">
+            <div class="today-header">
+                <div>
+                    <div class="today-date-main">২৮</div>
+                    <div class="today-date-sub">আশ্বিন ১৪৩৩, বৃহস্পতিবার</div>
+                    <div style="font-size:0.8rem; color:#d4af37;">১৫ অক্টোবর ২০২৬</div>
+                </div>
+                <div class="sun-times">
+                    📍 ঢাকা / সেনবাগ<br>
+                    ☀️ সূর্যোদয়: <strong>০৫:৩৬ AM</strong><br>
+                    🌅 সূর্যাস্ত: <strong>১৭:০৮ PM</strong>
+                </div>
+            </div>
+
+            <div class="tithi-naksatra-box">
+                <div class="tithi-title">বর্তমান পক্ষ ও তিথি:</div>
+                <div class="tithi-desc">
+                    এখন <strong>শুক্লা পঞ্চমী</strong> তিথি। ১৬ অক্টোবর ২০২৬ ভোর <strong>০৩:২৫ (03:25 AM)</strong> এর পর শুক্লা ষষ্ঠী তিথি শুরু।
+                </div>
+            </div>
+
+            <div class="tithi-naksatra-box" style="margin-top:6px;">
+                <div class="tithi-title">নক্ষত্র:</div>
+                <div class="tithi-desc">
+                    <strong>জ্যেষ্ঠা নক্ষত্র</strong> বিকেল ০৪:১২ মিনিট পর্যন্ত, অতঃপর <strong>মূল নক্ষত্র</strong> আরম্ভ।
+                </div>
+            </div>
+        </div>
+
         <div class="tz-banner">
-            📍 আপনার সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)<br>
-            <small>* আপনার স্থানীয় সময় অনুসারে পারণকাল ও তিথি নির্দেশিত হচ্ছে</small>
+            📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)
         </div>
 
         <div class="calc-toggle">
@@ -306,7 +400,7 @@
             <button class="filter-chip" onclick="filterEvents('grihapravesh', this)">🏡 গৃহপ্রবেশ</button>
         </div>
 
-        <!-- ইভেন্ট লিস্ট হোল্ডার -->
+        <!-- ইভেন্ট লিস্ট -->
         <div id="events-container"></div>
     </div>
 
@@ -330,7 +424,6 @@
     </div>
 
     <script>
-        // নমুনা বৈষ্ণব পঞ্জিকা ডেটাবেজ
         const panjikaData = [
             {
                 id: 1,
@@ -411,13 +504,11 @@
             }
         ];
 
-        // টাইমজোন ডিটেক্ট
         try {
             const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
             document.getElementById('user-tz').innerText = userTz || "Asia/Dhaka";
         } catch(e) {}
 
-        // ইভেন্ট রেন্ডার ফাংশন
         function renderEvents(items) {
             const container = document.getElementById('events-container');
             container.innerHTML = '';
@@ -449,7 +540,6 @@
             });
         }
 
-        // ফিল্টারিং লজিক
         function filterEvents(category, btnElement) {
             document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -462,14 +552,11 @@
             }
         }
 
-        // গণনা পদ্ধতি পরিবর্তন (সূর্য / দৃক)
         function setCalcMode(mode, btnElement) {
             document.querySelectorAll('.calc-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
-            // ভবিষ্যতে আর্স বা অ্যালগরিদম সুইচের জন্য ব্যবহৃত হবে
         }
 
-        // শুরুতে সমস্ত দিন প্রদর্শন
         renderEvents(panjikaData);
     </script>
 </body>
