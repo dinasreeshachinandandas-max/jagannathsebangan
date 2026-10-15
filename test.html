@@ -329,7 +329,7 @@
 
     <div class="header">
         <div class="logo-box">
-            <!-- মন্দিরের সঠিক লোগো সংযোজন -->
+            <!-- মন্দিরের সঠিক লোগো ফাইলের নাম -->
             <img src="1000058168.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.src='https://via.placeholder.com/65/800000/FFFFFF?text=JSP'">
         </div>
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
@@ -390,7 +390,7 @@
         </div>
 
         <!-- ফিল্টার বাটনসমূহ -->
-        <div class="filter-scroll" id="filter-section">
+        <div class="filter-scroll">
             <button class="filter-chip active" onclick="filterEvents('all', this)">🌸 সকল দিন</button>
             <button class="filter-chip" onclick="filterEvents('ekadashi', this)">🌺 একাদশী</button>
             <button class="filter-chip" onclick="filterEvents('purnima', this)">🌕 পূর্ণিমা/অমাবস্যা</button>
@@ -551,8 +551,8 @@
                 renderEvents(filtered);
             }
 
-            // বাটনে ক্লিক করলে স্ক্রিনটি নিচে তালিকা বরাবর নিয়ে যাওয়ার স্মুথ লজিক
-            document.getElementById('events-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // ফিল্টার বাটনে ক্লিক করলে ইভেন্ট লিস্ট সেকশনে অটো স্ক্রিন স্ক্রল হবে
+            document.getElementById('events-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function setCalcMode(mode, btnElement) {
