@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় আদর্শ পঞ্জিকা</title>
     <style>
         :root {
-            --bg-primary: #1a0103;
-            --bg-secondary: #2d0407;
+            --bg-primary: #1f0204;
+            --bg-secondary: #330508;
             --card-bg: #fffef7;
             --card-border: #d4af37;
             --text-dark: #2c0003;
@@ -29,12 +29,12 @@
             background: linear-gradient(180deg, var(--bg-primary) 0%, #0d0001 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 80px;
+            padding-bottom: 85px;
         }
 
         .header {
             background: linear-gradient(135deg, #3d0000 0%, #150000 100%);
-            padding: 15px;
+            padding: 18px 12px;
             text-align: center;
             border-bottom: 2px solid var(--accent-gold);
             box-shadow: 0 4px 15px rgba(0,0,0,0.6);
@@ -47,12 +47,12 @@
             padding: 3px;
             border-radius: 50%;
             border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
         }
 
         .logo-box img {
-            height: 65px;
-            width: 65px;
+            height: 70px;
+            width: 70px;
             object-fit: cover;
             display: block;
             border-radius: 50%;
@@ -60,14 +60,28 @@
 
         .header h1 {
             color: #ffeb3b;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             text-shadow: 1px 1px 3px #000;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
-        .header p {
+        .header .sub-title {
             color: #f5e6b3;
             font-size: 0.82rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .header .org-tag {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            color: #ffe082;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-top: 6px;
         }
 
         .container {
@@ -184,7 +198,7 @@
             color: var(--text-dark);
             border: 1.5px solid var(--card-border);
             border-radius: 12px;
-            padding: 14px;
+            padding: 12px;
             margin-bottom: 15px;
         }
 
@@ -193,7 +207,7 @@
             font-weight: bold;
             color: var(--accent-red);
             margin-bottom: 8px;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             border-bottom: 1px dashed var(--accent-gold);
             padding-bottom: 5px;
         }
@@ -206,17 +220,6 @@
             border-left: 3px solid var(--accent-red);
             font-size: 0.88rem;
             line-height: 1.5;
-        }
-
-        .shastra-ref {
-            display: inline-block;
-            background: #efebe9;
-            color: #4e342e;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-top: 4px;
         }
 
         .filter-scroll {
@@ -310,7 +313,6 @@
             font-size: 0.82rem;
             margin-top: 6px;
             border-left: 3px solid #8e24aa;
-            line-height: 1.4;
         }
 
         .parana-time {
@@ -324,29 +326,21 @@
             font-size: 0.85rem;
         }
 
-        .media-box {
-            margin-top: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--accent-gold);
-        }
-
-        .media-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .video-btn {
-            display: inline-block;
-            background: #c62828;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.78rem;
-            text-decoration: none;
+        .share-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
             font-weight: bold;
-            margin-top: 8px;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
         }
 
         /* বটম নেভিগেশন */
@@ -388,10 +382,12 @@
     <div class="header">
         <div class="logo-box">
             <img src="images/uploads/temple-logo.jpg" alt="মন্দিরের মনোগ্রাম" 
-                 onerror="this.onerror=null; this.src='images/uploads/1000068215.jpg';">
+                 onerror="this.onerror=null; this.src='1000058168.jpg';">
         </div>
-        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
-        <p>শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা</p>
+        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
+        <div class="sub-title">শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির</div>
+        <div class="org-tag">আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ দ্বারা পরিচালিত</div>
+        <div style="font-size:0.75rem; color:#ffe082; margin-top:4px;">উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ</div>
     </div>
 
     <div class="container">
@@ -435,15 +431,20 @@
                 <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
                 <div class="mantra-box">
                     <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। 
-                        প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব।।”</em>
+                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব।<br>
+                    প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
                 </div>
                 <div class="mantra-box">
                     <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রয়চ্ছ মে।।”</em>
-                    <br><span class="shastra-ref">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</span>
+                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
+                    ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+                    <div style="font-size:0.75rem; color:#777; margin-top:3px;">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</div>
                 </div>
             </div>
+
+            <button class="share-btn" onclick="shareApp()">
+                📱 মন্দির অ্যাপটি বৈষ্ণব ভক্তদের মাঝে শেয়ার করুন
+            </button>
         </div>
 
         <!-- ট্যাব ২: পঞ্জিকা ও শুভ দিন -->
@@ -465,39 +466,44 @@
             <div id="events-container"></div>
         </div>
 
-        <!-- ট্যাব ৩: ব্রত মহিমা ও স্মৃতি আলেখ্য -->
+        <!-- ট্যাব ৩: ব্রত মহিমা ও মন্দির পরিচয় -->
         <div id="tab-mohima" class="tab-content">
             <div class="mantra-card">
-                <div class="mantra-title" style="font-size:1.1rem; color:var(--accent-red);">📖 বৈষ্ণবীয় ব্রত মহিমা, স্মৃতি আলেখ্য ও ভিডিও টিউটোরিয়াল</div>
+                <div class="mantra-title" style="font-size:1.05rem; color:var(--accent-red);">🏛️ পরম পবিত্র মন্দির পরিচিতি ও মাহাত্ম্য</div>
+                <p style="font-size:0.85rem; color:#333; line-height:1.6; margin-top:8px;">
+                    বিশুদ্ধ সদাচরণ ও শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির হিসেবে প্রতিষ্ঠিত এবং আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ কর্তৃক পরিচালিত <strong>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</strong> (উত্তর সাহাপুর, সেনবাগ, নোয়াখালী)। এই পবিত্র ধামের বৈষ্ণবীয় স্মৃতি চির স্মরণীয়, চির বরণীয় ও চির উদ্ভাসিত।
+                </p>
+            </div>
+
+            <div class="mantra-card">
+                <div class="mantra-title" style="font-size:1.05rem; color:var(--accent-red);">📜 আচার্যবৃন্দের স্মৃতি আলেখ্য ও একাদশী মহিমা</div>
                 
-                <div class="mantra-box" style="margin-top:12px;">
-                    <strong style="color:var(--accent-red); font-size:0.95rem;">🌺 একাদশী ব্রতের পরম মাহাত্ম্য ও পালন পদ্ধতি:</strong><br>
-                    পদ্মপুরাণে বলা হয়েছে, একাদশী ব্রত পালনে সকল প্রকার পাপ বিনষ্ট হয় এবং শ্রীকৃষ্ণের চরণে বিশুদ্ধা ভক্তি লাভ হয়। একাদশীর দিন সর্বপ্রকার অন্ন, শস্য, ডাল ও তৈলজাতীয় খাদ্য বর্জনীয়। 
-                    <br><span class="shastra-ref">📖 রেফারেন্স: স্কন্দপুরাণ ও শ্রীহরিভক্তিবিলাস</span>
-                    
-                    <div class="media-box">
-                        <img src="images/uploads/1000068215.jpg" alt="একাদশী মাহাত্ম্য" onerror="this.style.display='none'">
-                    </div>
-                    <a href="https://www.youtube.com/results?search_query=Ekadashi+Mahatmya+Gaudiya+Vaishnava" target="_blank" class="video-btn">▶️ একাদশী ব্রত টিউটোরিয়াল ভিডিও দেখুন</a>
+                <div class="mantra-box">
+                    <strong style="color:#8e24aa;">✨ শ্রীরূপ গোস্বামী ও শ্রীসনাতন গোস্বামী তিরোধান:</strong><br>
+                    গৌড়ীয় বৈষ্ণব সাহিত্যের প্রাণপুরুষ রূপ-সনাতন। বৃন্দাবনের লুপ্ত তীর্থ উদ্ধার ও ভক্তিরসামৃতসিন্ধু রচনায় তাঁদের অবদান চিরস্মরণীয়।
                 </div>
 
-                <div class="mantra-box" style="margin-top:15px;">
-                    <strong style="color:#6a1b9a; font-size:0.95rem;">✨ শ্রীল জীব গোস্বামী ও ষড়গোস্বামী স্মৃতি আলেখ্য:</strong><br>
-                    শ্রীল জীব গোস্বামী বৈষ্ণব দর্শনের ভিত্তিপ্রস্তর 'ষট সন্দর্ভ' রচনার মাধ্যমে গৌড়ীয় বৈষ্ণব তত্ত্বকে সুপ্রতিষ্ঠিত করেন। বৃন্দাবনে শ্রীশ্রী রাধা-দামোদর জিউর সেবা প্রকাশ তাঁর অমর সৃষ্টি।
-                    <br><span class="shastra-ref">📖 রেফারেন্স: শ্রীচৈতন্যচরিতামৃত (আদি ৮/৫২)</span>
-
-                    <a href="https://www.youtube.com/results?search_query=Jiva+Goswami+Life+and+Teachings" target="_blank" class="video-btn">▶️ শ্রীল জীব গোস্বামী স্মৃতি আলেখ্য আলোচনা</a>
+                <div class="mantra-box">
+                    <strong style="color:var(--accent-red);">🌺 একাদশী ব্রতের পরম মাহাত্ম্য:</strong><br>
+                    শ্রীহরিভক্তিবিলাসে বলা হয়েছে, একাদশী উপবাসে সর্বপাপ বিনাশ হয় এবং শ্রীকৃষ্ণের প্রতি শুদ্ধাভক্তি প্রগাঢ় হয়।
                 </div>
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস -->
+        <!-- ট্যাব ৪: সেটিংস ও সেবা প্রদান -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
-                <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও লোকেশন</div>
+                <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
                 <p style="font-size:0.88rem; color:#333; margin-top:8px;">
                     📍 বর্তমান লোকেশন: <strong>সেনবাগ, নোয়াখালী, বাংলাদেশ</strong><br>
-                    ⏰ টাইমজোন অটোমেটিক কনফিগার করা রয়েছে।
+                    ⏰ অটোমেটিক একাদশী ও পারণ নোটিফিকেশন সচল রয়েছে।
+                </p>
+            </div>
+
+            <div class="mantra-card">
+                <div class="mantra-title">🙏 মন্দির সেবা ও প্রণামী বিকাশ/নগদ</div>
+                <p style="font-size:0.85rem; color:#333; text-align:center; margin-top:5px;">
+                    শ্রী জগন্নাথ সেবাঙ্গনের নিত্য সেবা ও প্রসার কল্পে আপনার সাধ্যমতো অনুদান প্রদান করতে পারেন।
                 </p>
             </div>
         </div>
@@ -533,7 +539,7 @@
                 category: "ekadashi",
                 tithi: "কৃষ্ণা একাদশী তিথি",
                 detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।",
-                smriti: "পদ্মপুরাণ মতে: রমা একাদশী ব্রত পালনে পরম গতি লাভ হয় ও রাজসূয় যজ্ঞের ফল প্রাপ্তি ঘটে।",
+                smriti: null,
                 parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
@@ -581,7 +587,7 @@
                 category: "ekadashi",
                 tithi: "শুক্লা একাদশী তিথি",
                 detail: "চাতুর্মাস্ত ব্রত সমাপ্তি ও শ্রী গোবিন্দ উত্থান উৎসব।",
-                smriti: "পদ্মপুরাণ মতে: এই তিথিতে ভগবান শ্রীগোবিন্দ চার মাস যোগনিদ্রার পর সজাগ হন।",
+                smriti: null,
                 parana: "সকাল ০৬:২৩ হতে সকাল ১০:০১ পর্যন্ত (২১ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
@@ -629,7 +635,7 @@
                         <div class="event-title">${item.title}</div>
                         <div class="event-detail">📌 <strong>তিথি:</strong> ${item.tithi}</div>
                         <div class="event-detail">${item.detail}</div>
-                        ${item.smriti ? `<div class="smriti-text">📖 <strong>শাস্ত্রীয় কথা:</strong> ${item.smriti}</div>` : ''}
+                        ${item.smriti ? `<div class="smriti-text">✨ ${item.smriti}</div>` : ''}
                         ${item.parana ? `<div class="parana-time">⏰ <strong>পারণ সময়কাল:</strong> ${item.parana}</div>` : ''}
                     </div>
                 `;
@@ -652,6 +658,18 @@
         function setCalcMode(mode, btnElement) {
             document.querySelectorAll('.calc-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
+        }
+
+        function shareApp() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা',
+                    text: 'শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা এবং একাদশী পারণ সময়কাল দেখুন:',
+                    url: window.location.href,
+                });
+            } else {
+                alert("লিংকটি কপি করা হয়েছে: " + window.location.href);
+            }
         }
 
         renderEvents(panjikaData);
