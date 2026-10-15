@@ -317,6 +317,17 @@
         .photo-grid img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; border: 1px solid var(--accent-gold); }
         .audio-player { width: 100%; margin-top: 8px; border-radius: 30px; }
 
+        .bank-details {
+            background: #fff8e1;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 0.85rem;
+            color: #333;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
         .nav-bar {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -373,8 +384,9 @@
 
             <div class="mantra-card">
                 <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন ও ভাগবত অডিও</div>
-                <audio class="audio-player" controls autoplay loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <p style="font-size:0.82rem; color:#444; margin-top:4px;">শ্রবণ করুন মধুর হরে কৃষ্ণ কীর্তন:</p>
+                <audio class="audio-player" controls loop>
+                    <source src="https://ia801503.us.archive.org/15/items/MahaMantraKirtan/MahaMantra.mp3" type="audio/mpeg">
                 </audio>
             </div>
 
@@ -416,9 +428,9 @@
         <!-- ট্যাব ৩: মিডিয়া ও শ্রীধাম মহিমা -->
         <div id="tab-mohima" class="tab-content">
             <div class="mantra-card">
-                <div class="mantra-title">🎥 মন্দিরের সরাসরি ভিডিও প্রবচন ও উৎসব</div>
+                <div class="mantra-title">🎥 শ্রীধাম বৃন্দাবন ও মন্দিরের প্রবচন দর্শন</div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCYOUR_CHANNEL_ID" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="Vrindavan Kirtan" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -433,12 +445,12 @@
             <div class="mantra-card">
                 <div class="mantra-title" style="color:var(--accent-red);">🏛️ শ্রীধাম বৃন্দাবন ও মঠ-মন্দিরে দানের মহিমা</div>
                 <p style="font-size:0.85rem; color:#333; line-height:1.6; margin-top:8px;">
-                    পদ্মপুরাণ ও স্কন্দপুরাণ অনুযায়ী শ্রীধাম বৃন্দাবনে বাস বা সেবামূলক কাজে অংশ নেওয়া পরম সৌভাগ্যের বিষয়। এছাড়া শ্রীমদ্ভগবদ্গীতায় (১৭/২০) উপযুক্ত পাত্রে (ভগবান ও বৈষ্ণবের সেবায়) উপার্জিত অর্থ দানকে সাত্ত্বিক দান বলা হয়েছে। আমাদের মঠ-মন্দিরের নিত্যসেবা ও প্রসাদ বিতরণে আপনার অবদান ভক্তির পথকে প্রশস্ত করে।
+                    পদ্মপুরাণ ও স্কন্দপুরাণ অনুযায়ী শ্রীধাম বৃন্দাবনে বাস বা সেবামূলক কাজে অংশ নেওয়া পরম সৌভাগ্যের বিষয়। এছাড়া শ্রীমদ্ভগবদ্গীতায় (১৭/২০) উপযুক্ত পাত্রে (ভগবান ও বৈষ্ণবের সেবায়) উপার্জিত অর্থ দানকে সাত্ত্বিক দান বলা হয়েছে।
                 </p>
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও সেবা -->
+        <!-- ট্যাব ৪: সেটিংস ও সেবা (ব্যাংকিং তথ্যসহ) -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
@@ -446,11 +458,25 @@
             </div>
 
             <div class="mantra-card">
-                <div class="mantra-title">🙏 মন্দির অনলাইন সেবা ও ডিজিটাল প্রণামী</div>
+                <div class="mantra-title">🙏 মন্দির সেবা ও ডিজিটাল প্রণামী একাউন্ট</div>
                 <p style="font-size:0.85rem; color:#333; text-align:center; margin-top:5px;">
-                    নিত্য সেবা ও প্রসাদ বিতরণে সাহায্য করুন:<br>
-                    <strong>📱 বিকাশ নম্বর: 01311600911</strong>
+                    শ্রীবিগ্রহের নিত্যসেবা ও প্রসাদ বিতরণে সাহায্য করার মাধ্যমসমূহ:
                 </p>
+                <div class="bank-details">
+                    📱 <strong>বিকাশ পার্সোনাল:</strong> +8801711369035<br>
+                    📱 <strong>নগদ পার্সোনাল:</strong> +8801711369035<br>
+                    🚀 <strong>রকেট মার্চেন্ট:</strong> +8801616521762
+                </div>
+
+                <div class="bank-details" style="margin-top:10px; background:#f0f4c3; border-left-color:#2e7d32;">
+                    🏛️ <strong>অফিসিয়াল ব্যাংক একাউন্ট বিবরণী:</strong><br>
+                    <strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)<br>
+                    <strong>ব্রাঞ্চ:</strong> সেনবাগ বিআর ৭১৭৯<br>
+                    <strong>অ্যাকাউন্ট নাম:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন<br>
+                    <strong>অ্যাকাউন্ট নম্বর:</strong> 0200016213678<br>
+                    <strong>কাস্টমার আইডি:</strong> 3177228<br>
+                    <strong>রাউটিং নম্বর:</strong> 010751631
+                </div>
             </div>
         </div>
 
