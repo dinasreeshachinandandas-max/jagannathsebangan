@@ -1237,77 +1237,107 @@ function showAccountNumber() {
                 </table>
             </div>
         </div>
+<!-- ==================== ১. রশিদ ও সেবা আবেদন ফর্ম ==================== -->
+<div class="card" style="background: #ffffff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #d4a373;">
+  <h3 style="color: #8b4513; margin-top: 0; text-align: center;">Sri Sri Jagannath Temple</h3>
+  <p style="text-align: center; font-size: 12px; color: #666; margin-top: -8px;">Service and Service Receipt Application Portal</p>
+  
+  <form id="receiptForm" onsubmit="submitReceipt(event)">
+    <label style="font-size: 13px; font-weight: bold;">Name of the devotee/donor:</label>
+    <input type="text" id="r_name" placeholder="Enter name" required style="width: 100%; padding: 8px; margin: 5px 0 12px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
 
-        <!-- ২. আপনার পছন্দের সুন্দর ডিজাইন ও বুকিং ফর্ম -->
-        <div style="background: #ffffff; padding: 20px; border-radius: 10px; border: 2px solid #800000;">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h3 style="color: #800000; font-size: 18px; margin: 0;">🙏 প্রসাদ ও বাটা বরাদ্দের আবেদন ফরম</h3>
-                <p style="font-size: 12px; color: #666; margin-top: 4px;">কোনো উপলক্ষ্যে, শুভ উৎসবে কিংবা বিশেষ প্রসাদ বা ক্যাটারিং বাটা গ্রহণের জন্য নিচে সঠিক তথ্য দিয়ে আবেদন করুন।</p>
-            </div>
+    <label style="font-size: 13px; font-weight: bold;">Sector or Category:</label>
+    <select id="r_category" style="width: 100%; padding: 8px; margin: 5px 0 12px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+      <option value="Service sector">Service sector</option>
+      <option value="General Donation">General Donation</option>
+      <option value="Festival Donation">Festival Donation</option>
+    </select>
 
-            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">আবেদনকারী ভক্তের নাম *</label>
-                        <input type="text" placeholder="পূর্ণ নাম লিখুন" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                    </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">মোবাইল নম্বর *</label>
-                        <input type="tel" placeholder="01XXXXXXXXX" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                    </div>
-                </div>
+    <label style="font-size: 13px; font-weight: bold;">Amount (৳):</label>
+    <input type="number" id="r_amount" placeholder="Enter the amount" required style="width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
 
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">পূর্ণ ঠিকানা *</label>
-                    <textarea rows="2" placeholder="গ্রাম/মহল্লা, সেনবাগ, নোয়াখালী..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;"></textarea>
-                </div>
+    <button type="submit" style="width: 100%; background: #582f0e; color: white; padding: 10px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Create receipt</button>
+  </form>
+</div>
 
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">কী উপলক্ষ্যে প্রসাদ/বাটা প্রয়োজন? *</label>
-                        <input type="text" placeholder="যেমন: জন্মবার্ষিকী, শ্রাদ্ধপক্ষ, পূজা বা বিশেষ মানত" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                    </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">সেবার ধরন নির্বাচন করুন *</label>
-                        <select required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; background: #fff;">
-                            <option value="" disabled selected>সিলেক্ট করুন...</option>
-                            <option value="nitya">নিত্য সেবা ভোগ</option>
-                            <option value="ekadashi">একাদশী মহাপ্রসাদ</option>
-                            <option value="mahotsav">বিশেষ মহোৎসব ভাণ্ডারা</option>
-                        </select>
-                    </div>
-                </div>
+<!-- ==================== ২. প্রসাদ ও বাতাসা বরাদ্দ আবেদন ফর্ম (আপডেট করা) ==================== -->
+<div class="card" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #d4a373;">
+  <p style="font-size: 13px; color: #d84315; font-weight: bold; text-align: center; margin-top: 0;">
+    🙏 Application form for allocation of Prasad and Bata
+  </p>
+  
+  <form id="appForm" onsubmit="submitApp(event)">
+    <label style="font-size: 13px; font-weight: bold;">Applicant's name *</label>
+    <input type="text" id="a_name" placeholder="Enter full name" required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
 
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">অনুষ্ঠানের তারিখ *</label>
-                        <input type="date" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                    </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">সময় / বেলা *</label>
-                        <select required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; background: #fff;">
-                            <option value="morning">সকালে বাল্য ভোগ</option>
-                            <option value="noon">দুপুরে রাজভোগ</option>
-                            <option value="evening">সন্ধ্যায় আরতি ভোগ</option>
-                        </select>
-                    </div>
-                </div>
+    <label style="font-size: 13px; font-weight: bold;">Mobile number *</label>
+    <input type="tel" id="a_mobile" placeholder="01XXXXXXXXX" required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
 
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">কত জনের প্রসাদ বা বাটা? *</label>
-                    <input type="text" placeholder="যেমন: ৫০ জন বা ৫টি বাটা" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                </div>
+    <label style="font-size: 13px; font-weight: bold;">Full address *</label>
+    <textarea id="a_address" rows="2" placeholder="Village, Neighborhood, Senbag, Noakhali..." required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
 
-                <div>
-                    <label style="display: block; font-size: 13px; font-weight: bold; color: #333; margin-bottom: 5px;">বিশেষ বিবরণ বা প্রসাদ মেনু অনুরোধ</label>
-                    <input type="text" placeholder="যেমন: খিচুড়ি, ডাল, আলুর দম, পায়েস ইত্যাদি..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px;">
-                </div>
+    <label style="font-size: 13px; font-weight: bold;">For what occasion is Prasad/Bata required? *</label>
+    <input type="text" id="a_occasion" placeholder="For example: Kartik month Bhog..." required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
 
-                <div style="margin-top: 10px;">
-                    <button type="submit" style="width: 100%; background-color: #800000; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer;">
-                        মন্দির কর্তৃপক্ষ বরাবর আবেদন সাবমিট করুন
-                    </button>
+    <label style="font-size: 13px; font-weight: bold;">Select service type *</label>
+    <select id="a_servicetype" style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+      <option value="Complete Mahaprasad / Grand Arrangement">Complete Mahaprasad / Grand Arrangement</option>
+      <option value="General Prasad Allocation">General Prasad Allocation</option>
+      <option value="Festival Bata Distribution">Festival Bata Distribution</option>
+    </select>
+
+    <label style="font-size: 13px; font-weight: bold;">Event Date *</label>
+    <input type="date" id="a_date" required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+
+    <label style="font-size: 13px; font-weight: bold;">Time / Hour *</label>
+    <select id="a_time" style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+      <option value="Morning Mangal Arati & Bhog">Morning Mangal Arati & Bhog</option>
+      <option value="Royal feast at noon (Rajbhog)">Royal feast at noon (Rajbhog)</option>
+      <option value="Evening Arati & Bhog">Evening Arati & Bhog</option>
+    </select>
+
+    <label style="font-size: 13px; font-weight: bold;">How many people will receive prasad or batter? *</label>
+    <input type="number" id="a_count" placeholder="For example: 250" required style="width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+
+    <label style="font-weight: bold; font-size: 13px;">Special details or Prasadi menu request</label>
+    <textarea id="a_details" rows="2" placeholder="Khichuri, Dal, Potato Dumplings, Pies etc..." style="width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
+
+    <button type="submit" style="width: 100%; background: #582f0e; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      Submit the application to the temple authorities
+    </button>
+  </form>
+</div>
+
+<!-- ==================== জাভাস্ক্রিপ্ট রেসপন্স হ্যান্ডলার ==================== -->
+<script>
+  function submitReceipt(event) {
+    event.preventDefault();
+    const name = document.getElementById('r_name').value;
+    const amount = document.getElementById('r_amount').value;
+    alert("🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nধন্যবাদ " + name + "!\nআপনার ৳" + amount + " টাকার রশিদের আবেদনটি সফলভাবে গ্রহণ করা হয়েছে। হরে কৃষ্ণ!");
+    document.getElementById('receiptForm').reset();
+  }
+
+  function submitApp(event) {
+    event.preventDefault();
+    const name = document.getElementById('a_name').value;
+    const mobile = document.getElementById('a_mobile').value;
+    const address = document.getElementById('a_address').value;
+    const occasion = document.getElementById('a_occasion').value;
+    const service = document.getElementById('a_servicetype').value;
+    const date = document.getElementById('a_date').value;
+    const time = document.getElementById('a_time').value;
+    const count = document.getElementById('a_count').value;
+    const details = document.getElementById('a_details').value;
+
+    alert("🙏 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nহরে কৃষ্ণ " + name + "!\n\nআপনার প্রসাদ ও বাতাসা বরাদ্দের আবেদনটি সফলভাবে জমা হয়েছে। মন্দির কর্তৃপক্ষ শীঘ্রই আপনার দেওয়া (" + mobile + ") নম্বরে যোগাযোগ করবে।");
+
+    const msg = encodeURIComponent(`*🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন আবেদন 🌸*%0A*নাম:* ${name}%0A*মোবাইল:* ${mobile}%0A*ঠিকানা:* ${address}%0A*অনুষ্ঠান:* ${occasion}%0A*সেবা:* ${service}%0A*তারিখ:* ${date}%0A*সময়:* ${time}%0A*ভক্ত সংখ্যা:* ${count}%0A*বিশেষ বিবরণ:* ${details}`);
+    window.open("https://wa.me/8801711369035?text=" + msg, "_blank");
+
+    document.getElementById('appForm').reset();
+  }
+</script>
                 </div>
 
             </form>
