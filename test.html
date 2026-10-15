@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় আদর্শ পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা</title>
     <style>
         :root {
             --bg-primary: #1f0204;
@@ -84,6 +84,12 @@
             margin-top: 6px;
         }
 
+        .gov-reg {
+            font-size: 0.72rem;
+            color: #d4af37;
+            margin-top: 4px;
+        }
+
         .container {
             padding: 12px;
             max-width: 600px;
@@ -98,7 +104,7 @@
             display: block;
         }
 
-        /* আজ এক নজরে (Today Card) */
+        /* আজ এক নজরে (Today Highlight Card) */
         .today-card {
             background: linear-gradient(135deg, #4a080d 0%, #290205 100%);
             border: 2px solid var(--accent-gold);
@@ -326,9 +332,9 @@
             font-size: 0.85rem;
         }
 
-        .share-btn {
-            background: #25d366;
-            color: white;
+        .btn-main {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #2c0003;
             border: none;
             padding: 10px;
             border-radius: 25px;
@@ -336,11 +342,16 @@
             width: 100%;
             margin-top: 10px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
             font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .share-btn {
+            background: #25d366;
+            color: white;
         }
 
         /* বটম নেভিগেশন */
@@ -387,6 +398,7 @@
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
         <div class="sub-title">শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির</div>
         <div class="org-tag">আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ দ্বারা পরিচালিত</div>
+        <div class="gov-reg">রেজিঃ ২২৬২/নোয়া/সেন/০৪ (হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট, গণপ্রজাতন্ত্রী বাংলাদেশ সরকার)</div>
         <div style="font-size:0.75rem; color:#ffe082; margin-top:4px;">উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ</div>
     </div>
 
@@ -436,13 +448,17 @@
                 </div>
                 <div class="mantra-box">
                     <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
+                    <em>“ত্ব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
                     ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
                     <div style="font-size:0.75rem; color:#777; margin-top:3px;">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</div>
                 </div>
             </div>
 
-            <button class="share-btn" onclick="shareApp()">
+            <a href="https://jagannathsebangan.vercel.app" target="_blank" class="btn-main">
+                🌐 মন্দিরের অফিসিয়াল ওয়েবসাইট ভিজিট করুন
+            </a>
+
+            <button class="btn-main share-btn" onclick="shareApp()">
                 📱 মন্দির অ্যাপটি বৈষ্ণব ভক্তদের মাঝে শেয়ার করুন
             </button>
         </div>
@@ -490,7 +506,7 @@
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও সেবা প্রদান -->
+        <!-- ট্যাব ৪: সেটিংস ও অনুদান সেবা -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
@@ -501,9 +517,10 @@
             </div>
 
             <div class="mantra-card">
-                <div class="mantra-title">🙏 মন্দির সেবা ও প্রণামী বিকাশ/নগদ</div>
+                <div class="mantra-title">🙏 মন্দির অনলাইন সেবা ও ডিজিটাল প্রণামী</div>
                 <p style="font-size:0.85rem; color:#333; text-align:center; margin-top:5px;">
-                    শ্রী জগন্নাথ সেবাঙ্গনের নিত্য সেবা ও প্রসার কল্পে আপনার সাধ্যমতো অনুদান প্রদান করতে পারেন।
+                    নিত্য সেবা, মহাপ্রসাদ ও রূপান্তর কাজের সাহায্যার্থে আপনার অনুদান প্রদান করুন:<br>
+                    <strong>📱 বিকাশ মাকেন্ট / পার্সোনাল নম্বর: 01311600911</strong>
                 </p>
             </div>
         </div>
