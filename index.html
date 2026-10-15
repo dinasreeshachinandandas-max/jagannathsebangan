@@ -1344,102 +1344,117 @@ function showAccountNumber() {
         </div>
 
     </div>
-    <!-- ================= শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বুকিং ও সিডিউল সেকশন শেষ ================= -->
-<!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও ক্যালেন্ডার সেকশন ==================== -->
-<section style="max-width: 900px; margin: 30px auto; padding: 20px; background: #fff8e1; border-radius: 20px; border: 2px solid #ffe082; box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
-  
-  <!-- শিরোনাম -->
-  <div style="text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px stroke #ffb74d;">
-    <h2 style="color: #b71c1c; font-size: 26px; font-weight: bold; margin: 0;">🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন বৈষ্ণবীয় পঞ্জিকা</h2>
-    <p style="color: #5d4037; font-size: 14px; margin-top: 5px;">দৈনিক তিথি, নক্ষত্র, একাদশী ও ব্রতাদি সময়সূচী</p>
-  </div>
-
-  <!-- আজকের প্রধান কার্ড -->
-  <div style="background: #ffffff; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #ffe0b2; margin-bottom: 20px;">
-    <span style="background: #ffebee; color: #c62828; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">আজকের পঞ্জিকা</span>
-    <h3 style="color: #b71c1c; font-size: 32px; font-weight: bold; margin: 10px 0 5px 0;">১৫ অক্টোবর ২০২৬</h3>
-    <p style="color: #424242; font-size: 16px; font-weight: 600; margin: 0;">আশ্বিন ১৪৩৩ বঙ্গাব্দ | শুক্ল পঞ্চমী তিথি</p>
-    
-    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
-        <span style="display: block; color: #757575; font-size: 12px;">🌅 সূর্যোদয়</span>
-        <strong style="color: #e65100; font-size: 15px;">০৫:৩৬ AM</strong>
-      </div>
-      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
-        <span style="display: block; color: #757575; font-size: 12px;">🌇 সূর্যাস্ত</span>
-        <strong style="color: #e65100; font-size: 15px;">০৫:০৮ PM</strong>
-      </div>
-    </div>
-<!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও ক্যালেন্ডার সেকশন (সম্পূর্ণ অটো ও সিলেক্টর সহ) ==================== -->
-<section style="max-width: 900px; margin: 30px auto; padding: 20px; background: #fff8e1; border-radius: 20px; border: 2px solid #ffe082; box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
-  
-  <!-- শিরোনাম -->
-  <div style="text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ffb74d;">
-    <h2 style="color: #b71c1c; font-size: 26px; font-weight: bold; margin: 0;">🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন বৈষ্ণবীয় পঞ্জিকা</h2>
-    <p style="color: #5d4037; font-size: 14px; margin-top: 5px;">দৈনিক তিথি, নক্ষত্র, একাদশী ও ব্রতাদি সময়সূচী</p>
-  </div>
-
-  <!-- তারিখ পরিবর্তন করার বক্স (যেকোনো দিনের পঞ্জিকা দেখার জন্য) -->
-  <div style="background: #ffffff; border-radius: 14px; padding: 15px; text-align: center; border: 1px solid #ffe0b2; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
-    <label for="panjika-date-picker" style="font-weight: bold; color: #b71c1c; font-size: 14px;">📅 অন্য কোনো দিনের পঞ্জিকা দেখতে তারিখ বেছে নিন:</label>
-    <input type="date" id="panjika-date-picker" style="padding: 8px 15px; border-radius: 8px; border: 1px solid #ffb74d; font-family: 'Hind Siliguri', sans-serif; font-size: 15px; background: #fff3e0; color: #333; outline: none;" onchange="updatePanjikaData(this.value)">
-  </div>
-
-  <!-- আজকের প্রধান কার্ড -->
-  <div style="background: #ffffff; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #ffe0b2; margin-bottom: 20px;">
-    <span style="background: #ffebee; color: #c62828; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">নির্বাচিত দিনের পঞ্জিকা</span>
-    <h3 id="display-date" style="color: #b71c1c; font-size: 26px; font-weight: bold; margin: 10px 0 5px 0;">লোড হচ্ছে...</h3>
-    <p id="display-bangla-date" style="color: #424242; font-size: 15px; font-weight: 600; margin: 0;">আশ্বিন ১৪৩৩ বঙ্গাব্দ</p>
-    
-    <!-- সূর্যোদয় ও সূর্যাস্ত -->
-    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
-        <span style="display: block; color: #757575; font-size: 12px;">🌅 সূর্যোদয়</span>
-        <strong style="color: #e65100; font-size: 15px;">০৫:৩৬ AM</strong>
-      </div>
-      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
-        <span style="display: block; color: #757575; font-size: 12px;">🌇 সূর্যাস্ত</span>
-        <strong style="color: #e65100; font-size: 15px;">০৫:০৮ PM</strong>
+<!-- ==================== সূর্যাস্ত ও কার্ড সমাপ্তি ==================== -->
+        <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
+          <span style="display: block; color: #757575; font-size: 12px;">🌅 সূর্যাস্ত</span>
+          <strong style="color: #e65100; font-size: 15px;">০৫:০৮ PM</strong>
+        </div>
       </div>
     </div>
   </div>
+</section>
+<!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও ক্যালেন্ডার সেকশন (সঠিক বার বিন্যাস সহ) ==================== -->
+<section id="vaishnava-app" style="max-width: 950px; margin: 30px auto; padding: 20px; background: #fffcf5; border-radius: 20px; border: 2px solid #ffcc80; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
+  
+  <!-- হেডার -->
+  <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #ffe0b2;">
+    <h2 style="color: #b71c1c; font-size: 24px; font-weight: bold; margin: 0;">🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন ডিজিটাল পঞ্জিকা</h2>
+    <p style="color: #5d4037; font-size: 14px; margin-top: 5px;">আজকের শুভ মুহূর্ত, তিথি, পূজা-পার্বণ ও বৈষ্ণবীয় নির্দেশিকা</p>
+  </div>
 
-  <!-- বিস্তারিত তিথি ও নক্ষত্র বিবরণ -->
-  <div style="background: #ffffff; border-radius: 16px; padding: 20px; border: 1px solid #ffe0b2; margin-bottom: 20px;">
-    <h4 style="color: #b71c1c; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 12px;">
-      ✨ তিথি ও নক্ষত্রের সময়সূচী
+  <!-- ফিল্টার বাটনসমূহ -->
+  <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px; scrollbar-width: thin;">
+    <button onclick="filterEvents('all')" style="background: #b71c1c; color: white; border: none; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">সব দিন</button>
+    <button onclick="filterEvents('ekadashi')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌸 Ekadashi</button>
+    <button onclick="filterEvents('bibaho')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">💍 Wedding</button>
+    <button onclick="filterEvents('annaprasan')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🍚 Lunch</button>
+    <button onclick="filterEvents('satbhokshon')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🤰 Satabhakhana and Panchamrit</button>
+  </div>
+
+  <!-- আজকের লাইভ তথ্য কার্ড -->
+  <div style="background: linear-gradient(135deg, #ffffff, #fff8e1); border-radius: 16px; padding: 20px; border: 1px solid #ffe0b2; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span style="background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 12px;">State of the day today</span>
+        <h3 style="color: #b71c1c; font-size: 24px; font-weight: bold; margin: 8px 0 4px 0;">15 October 2026 (Thursday)</h3>
+        <p style="color: #424242; font-size: 14px; margin: 0; font-weight: 600;">27 Ashwin 1433 Bengali | Shukla Panchami Tithi</p>
+      </div>
+      <button onclick="openModal(15)" style="background: #e65100; color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: bold; font-size: 13px; cursor: pointer;">
+        🔍 Today's detailed rules, auspicious times & mantras
+      </button>
+    </div>
+  </div>
+
+  <!-- আগামী একাদশী হাইলাইট -->
+  <div style="margin-bottom: 20px; background: #ef6c00; color: #ffffff; padding: 12px 20px; border-radius: 14px; font-weight: bold; font-size: 14px; text-align: center;">
+    🌸 Upcoming Ekadashi: <span style="text-decoration: underline;">Papankusha/Papanshini Ekadashi Fast — 22 October 2026 (Thursday)</span>
+  </div>
+
+  <!-- পঞ্জিকা গ্রিড (Sun থেকে শুরু হওয়া সম্পূর্ণ সঠিক ৭ দিনের কলাম) -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 15px; border: 1px solid #ffe0b2;">
+    <h4 style="color: #37474f; font-size: 16px; margin: 0 0 12px 0; text-align: center; font-weight: bold;">
+      📅 Ashwin - Kartik (October 2026)
     </h4>
-    <div style="background: #fff8e1; padding: 15px; border-radius: 12px; border-left: 5px solid #d32f2f; margin-bottom: 12px;">
-      <p id="tithi-info-title" style="color: #333333; font-size: 15px; margin: 0 0 6px 0; font-weight: bold;">
-        🌙 তিথি বিবরণ: শুক্ল পক্ষ পঞ্চমী
-      </p>
-      <p id="tithi-info-desc" style="color: #555555; font-size: 14px; margin: 0; line-height: 1.5;">
-        আজ ভোর ০৩:২৫ AM পর্যন্ত শুক্ল পক্ষ পঞ্চমী তিথি থাকবে, এরপর থেকে শুক্ল পক্ষ ষষ্ঠী তিথি শুরু হবে।
-      </p>
-    </div>
-    
-    <div style="background: #fff8e1; padding: 15px; border-radius: 12px; border-left: 5px solid #f57c00;">
-      <p id="nakshatra-info-title" style="color: #333333; font-size: 15px; margin: 0 0 6px 0; font-weight: bold;">
-        ⭐ নক্ষত্র বিবরণ: জ্যেষ্ঠা নক্ষত্র
-      </p>
-      <p id="nakshatra-info-desc" style="color: #555555; font-size: 14px; margin: 0; line-height: 1.5;">
-        আজ দুপুর ১২:১০ PM পর্যন্ত জ্যেষ্ঠা নক্ষত্র থাকবে, এরপর মূলা নক্ষত্র শুরু হবে।
-      </p>
-    </div>
-  </div>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center;">
+      
+      <!-- ৭টি বারের পুরো সারি (Sun to Sat) -->
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">Sun</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">Mon</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">Tue</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">Wed</div>
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">Thu</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">Fri</div>
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">Sat</div>
 
-  <!-- আগামী একাদশী নোটিশ -->
-  <div style="margin-bottom: 20px; background: #ef6c00; color: #ffffff; padding: 14px; border-radius: 14px; font-weight: bold; font-size: 14px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-    🌸 আগামী একাদশী: <span style="text-decoration: underline;">পাপানশিনী একাদশী ব্রত</span>
-  </div>
+      <!-- অক্টোবর ২০২৬ এর ১ তারিখ বৃহস্পতিবার হওয়ায় প্রথম ৪টি ঘর খালি (Sun, Mon, Tue, Wed) -->
+      <div></div><div></div><div></div><div></div>
 
-  <!-- তারকব্রহ্ম মহামন্ত্র -->
-  <div style="background: linear-gradient(135deg, #ffe0b2, #ffcc80); border-radius: 16px; padding: 18px; text-align: center; border: 1px solid #ffb74d;">
-    <span style="color: #b71c1c; font-weight: bold; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">🙏 তারকব্রহ্ম মহামন্ত্র</span>
-    <p style="color: #212121; font-size: 18px; font-weight: bold; margin: 8px 0; line-height: 1.5;">
-      "হরে কৃষ্ণ হরে কৃষ্ণ কৃষ্ণ কৃষ্ণ হরে হরে<br>হরে রাম হরে রাম রাম রাম হরে হরে"
-    </p>
+      <!-- ১ অক্টোবর (Thu) থেকে দিন শুরু -->
+      <div onclick="openModal(1)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">1st<br><small style="font-size:10px; color:#777;">Shasthi</small></div>
+      <div onclick="openModal(2)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">2nd<br><small style="font-size:10px; color:#777;">Saptami</small></div>
+      <div onclick="openModal(3)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">3rd<br><small style="font-size:10px; color:#777;">Ashtami</small></div>
+
+      <div onclick="openModal(4)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">4th<br><small style="font-size:10px; color:#777;">Navami</small></div>
+      <div onclick="openModal(5)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">5th<br><small style="font-size:10px; color:#777;">Dashami</small></div>
+      <div onclick="openModal(6)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">6th<br><small style="font-size:10px; color:#777;">Ekadashi</small></div>
+      <div onclick="openModal(7)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">7th<br><small style="font-size:10px; color:#777;">Dwadashi</small></div>
+      <div onclick="openModal(8)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">8th<br><small style="font-size:10px; color:#777;">Trayodashi</small></div>
+      <div onclick="openModal(9)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">9th<br><small style="font-size:10px; color:#777;">Chaturdashi</small></div>
+      <div onclick="openModal(10)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">10th<br><small style="font-size:10px; color:#e65100;">Amavasya</small></div>
+
+      <div onclick="openModal(11)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">11th<br><small style="font-size:10px; color:#777;">Pratipada</small></div>
+      <div onclick="openModal(12)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">12th<br><small style="font-size:10px; color:#777;">Dwitiya</small></div>
+      <div onclick="openModal(13)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">13th<br><small style="font-size:10px; color:#777;">Tritiya</small></div>
+      <div onclick="openModal(14)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">14th<br><small style="font-size:10px; color:#777;">Chaturthi</small></div>
+
+      <!-- ১৫ অক্টোবর (আজ - সঠিক Thursday / বৃহস্পতিবার কলামে) -->
+      <div id="day-15" onclick="openModal(15)" class="cal-day" style="background: #e8f5e9; padding: 10px; border-radius: 8px; border: 2px solid #4caf50; cursor: pointer; font-weight:bold;">
+        15<br><small style="font-size:10px; color:#2e7d32;">Today (Panchami)</small>
+      </div>
+
+      <div onclick="openModal(16)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">16th<br><small style="font-size:10px; color:#777;">Shasthi</small></div>
+      <div onclick="openModal(17)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">17th<br><small style="font-size:10px; color:#777;">Saptami</small></div>
+
+      <div onclick="openModal(18)" class="cal-day" style="background: #fff3e0; padding: 10px; border-radius: 8px; border: 1px solid #ffb74d; cursor: pointer;">18th<br><small style="font-size:10px; color:#e65100;">Wedding</small></div>
+      <div onclick="openModal(19)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">19th<br><small style="font-size:10px; color:#777;">Navami</small></div>
+      <div onclick="openModal(20)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">20th<br><small style="font-size:10px; color:#777;">Dashami</small></div>
+      <div onclick="openModal(21)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">21st<br><small style="font-size:10px; color:#777;">Ekadashi begins</small></div>
+
+      <!-- ২২ অক্টোবর (Thursday - একাদশী ব্রত) -->
+      <div id="day-22" onclick="openModal(22)" class="cal-day" style="background: #ffebee; padding: 10px; border-radius: 8px; border: 2px solid #ef5350; cursor: pointer; font-weight:bold;">
+        22<br><small style="font-size:10px; color:#c62828;">Ekadashi Vrat</small>
+      </div>
+
+      <div onclick="openModal(23)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">23rd<br><small style="font-size:10px; color:#777;">Dawadashi (Paran)</small></div>
+      <div onclick="openModal(24)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">24th<br><small style="font-size:10px; color:#777;">Chaturdashi</small></div>
+
+      <div onclick="openModal(25)" class="cal-day" style="background: #e1f5fe; padding: 10px; border-radius: 8px; border: 1px solid #0288d1; cursor: pointer; font-weight:bold;">
+        25<br><small style="font-size:10px; color:#01579b;">Full Moon / Purnima</small>
+      </div>
+
+    </div>
   </div>
+</section>
 
 </section>
 
