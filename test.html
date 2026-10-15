@@ -1,286 +1,476 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - গ্লোবাল বৈষ্ণবীয় পঞ্জিকা</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-dark: #4A0000;
-      --accent-maroon: #800000;
-      --primary-gold: #D4AF37;
-      --bg-cream: #FFFDD0;
-      --card-bg: #FFFDF0;
-      --text-dark: #2A0800;
-    }
-    body {
-      font-family: 'Hind Siliguri', sans-serif;
-      background-color: var(--primary-dark);
-      color: var(--text-dark);
-      margin: 0;
-      padding: 0;
-      padding-bottom: 75px;
-    }
-    .app-header {
-      background: linear-gradient(135deg, #800000, #2A0800);
-      color: #FFF;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 3px solid var(--primary-gold);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-    .logo-container img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid var(--primary-gold);
-      background: #fff;
-    }
-    .container {
-      max-width: 850px;
-      margin: 15px auto;
-      padding: 10px;
-    }
-    .card-dark {
-      background: linear-gradient(145deg, #FFFDF0, #FFF5D6);
-      border: 2px solid var(--primary-gold);
-      border-radius: 14px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .mode-switch {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    .mode-btn {
-      background: var(--accent-maroon);
-      color: var(--primary-gold);
-      border: 1px solid var(--primary-gold);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .mode-btn.active {
-      background: var(--primary-gold);
-      color: var(--accent-maroon);
-    }
-    .mantra-box {
-      background: var(--accent-maroon);
-      color: #FFFDF0;
-      padding: 12px;
-      border-radius: 8px;
-      border-left: 4px solid var(--primary-gold);
-      margin: 10px 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .filter-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-      scrollbar-width: none;
-    }
-    .filter-btn {
-      background: #800000;
-      color: var(--primary-gold);
-      border: 1px solid var(--primary-gold);
-      padding: 6px 14px;
-      border-radius: 15px;
-      font-size: 12px;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-      text-align: center;
-    }
-    .cal-day {
-      background: #FFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      padding: 8px 2px;
-      font-size: 11px;
-      cursor: pointer;
-    }
-    .cal-day.ekadashi {
-      background: #FFEBEE;
-      border: 2px solid #C62828;
-      font-weight: bold;
-    }
-    .cal-day.purnima {
-      background: #E1F5FE;
-      border: 2px solid #0288D1;
-      font-weight: bold;
-    }
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #2A0800;
-      border-top: 2px solid var(--primary-gold);
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      z-index: 1000;
-    }
-    .nav-item {
-      color: #FFFDD0;
-      text-align: center;
-      font-size: 11px;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় আদর্শ পঞ্জিকা</title>
+    <style>
+        :root {
+            --bg-primary: #2a0306;
+            --bg-secondary: #3d070b;
+            --card-bg: #fffdf5;
+            --card-border: #d4af37;
+            --text-dark: #3a0005;
+            --text-gold: #f3e5ab;
+            --accent-gold: #d4af37;
+            --accent-red: #800000;
+            --accent-bright-red: #d32f2f;
+            --accent-green: #2e7d32;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'SolaimanLipi', 'Kalpurush', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #1a0103 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding-bottom: 70px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a0000 0%, #1a0000 100%);
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .logo-box {
+            margin: 0 auto 10px;
+            display: inline-block;
+            background: #fff;
+            padding: 5px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-box img {
+            height: 50px;
+            width: auto;
+            display: block;
+            border-radius: 50px;
+        }
+
+        .header h1 {
+            color: #ffeb3b;
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 3px #000;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            padding: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tz-banner {
+            background: rgba(128, 0, 0, 0.6);
+            border: 1px solid var(--accent-gold);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .calc-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .calc-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--accent-gold);
+            background: var(--bg-secondary);
+            color: var(--text-gold);
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calc-btn.active {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .mantra-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .mantra-title {
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+            font-size: 1rem;
+            border-bottom: 1px dashed var(--accent-gold);
+            padding-bottom: 5px;
+        }
+
+        .mantra-box {
+            background: #fdf6e3;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 6px;
+            border-left: 4px solid var(--accent-red);
+            font-size: 0.88rem;
+        }
+
+        .filter-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            scrollbar-width: thin;
+        }
+
+        .filter-chip {
+            white-space: nowrap;
+            padding: 8px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-gold);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .filter-chip.active {
+            background: var(--accent-bright-red);
+            border-color: #fff;
+            font-weight: bold;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border-radius: 12px;
+            border: 2px solid var(--card-border);
+            padding: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .event-card.ekadashi {
+            border: 2px solid #d2143a;
+            background: #fff8f8;
+        }
+
+        .event-card.purnima {
+            border: 2px solid #ff9800;
+            background: #fffdf0;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .badge-ekadashi { background: var(--accent-bright-red); }
+        .badge-purnima { background: #ff9800; }
+        .badge-subha { background: var(--accent-green); }
+
+        .event-date {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent-red);
+            margin-bottom: 4px;
+        }
+
+        .event-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .event-detail {
+            font-size: 0.88rem;
+            color: #444;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .parana-time {
+            background: #e8f5e9;
+            color: var(--accent-green);
+            padding: 6px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 6px;
+            border: 1px solid #c8e6c9;
+            font-size: 0.88rem;
+        }
+
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a0000;
+            border-top: 2px solid var(--accent-gold);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            color: #ccc;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-item.active {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .nav-item div {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- মন্দির হেডার ও লোগো -->
-  <div class="app-header">
-    <div class="logo-container">
-      <img src="1000071235.jpg" alt="শ্রী শ্রী জগন্নাথ সেবাঙ্গন লোগো">
-    </div>
-    <h2 style="margin: 5px 0; color: var(--primary-gold);">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h2>
-    <p style="margin: 0; font-size: 12px; color: #FFFDD0;">শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা</p>
-  </div>
-
-  <div class="container">
-
-    <!-- গ্লোবাল অটোমেটিক লোকেশন ও গণনার মোড -->
-    <div class="card-dark" style="background: linear-gradient(135deg, #4A0000, #800000); color: #FFF;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span id="user-location" style="color: var(--primary-gold); font-size: 13px;">🌐 স্থান নির্ধারণ করা হচ্ছে...</span>
-        <span style="font-size: 12px; background: var(--primary-gold); color: #4A0000; padding: 2px 8px; border-radius: 10px; font-weight: bold;" id="tz-offset">UTC Offset</span>
-      </div>
-      <p style="font-size: 12px; margin: 8px 0 0 0; color: #FFFDD0;">* আপনার দেশের স্থানীয় সময় অনুসারে পারণকাল ও তিথি অটোমেটিক ফিল্টার করা হয়েছে।</p>
+    <div class="header">
+        <div class="logo-box">
+            <img src="https://via.placeholder.com/50/800000/FFFFFF?text=JSP" alt="Logo">
+        </div>
+        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
+        <p>শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা</p>
     </div>
 
-    <!-- সূর্য সিদ্ধান্ত ও দৃক সিদ্ধান্ত গণনা সুইচ -->
-    <div class="mode-switch">
-      <button class="mode-btn active" onclick="setCalcMode('surya')">সূর্য সিদ্ধান্ত</button>
-      <button class="mode-btn" onclick="setCalcMode('drik')">দৃক সিদ্ধান্ত</button>
+    <div class="container">
+        <div class="tz-banner">
+            📍 আপনার সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)<br>
+            <small>* আপনার স্থানীয় সময় অনুসারে পারণকাল ও তিথি নির্দেশিত হচ্ছে</small>
+        </div>
+
+        <div class="calc-toggle">
+            <button class="calc-btn active" onclick="setCalcMode('surya', this)">সূর্য সিদ্ধান্ত</button>
+            <button class="calc-btn" onclick="setCalcMode('drik', this)">দৃক সিদ্ধান্ত</button>
+        </div>
+
+        <div class="mantra-card">
+            <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
+            <div class="mantra-box">
+                <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
+                <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+            </div>
+            <div class="mantra-box">
+                <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
+                <em>“ত্ব প্রসাদস্বীকারাং কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+            </div>
+        </div>
+
+        <!-- ফিল্টার বাটনসমূহ -->
+        <div class="filter-scroll">
+            <button class="filter-chip active" onclick="filterEvents('all', this)">🌸 সকল দিন</button>
+            <button class="filter-chip" onclick="filterEvents('ekadashi', this)">🌺 একাদশী</button>
+            <button class="filter-chip" onclick="filterEvents('purnima', this)">🌕 পূর্ণিমা/অমাবস্যা</button>
+            <button class="filter-chip" onclick="filterEvents('marriage', this)">💍 শুভ বিবাহ</button>
+            <button class="filter-chip" onclick="filterEvents('annaprasan', this)">🥣 অন্নপ্রাশন</button>
+            <button class="filter-chip" onclick="filterEvents('sadbhakshan', this)">🤰 সাধভক্ষণ/পঞ্চামৃত</button>
+            <button class="filter-chip" onclick="filterEvents('grihapravesh', this)">🏡 গৃহপ্রবেশ</button>
+        </div>
+
+        <!-- ইভেন্ট লিস্ট হোল্ডার -->
+        <div id="events-container"></div>
     </div>
 
-    <!-- বৈষ্ণবীয় মন্ত্র সংকলন -->
-    <div class="card-dark">
-      <h4 style="color:var(--accent-maroon); margin-top:0; text-align:center;">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</h4>
-      <div class="mantra-box">
-        <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-        <em>"অজ্ঞানতিমিবান্ধস্য ব্রতেনেন কেশব।<br>প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥"</em>
-      </div>
-      <div class="mantra-box">
-        <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-        <em>"ত্ব প্রসাদস্বীকারাং কৃতং যৎ পারণং ময়া।<br>ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥"</em>
-      </div>
+    <div class="nav-bar">
+        <a href="#" class="nav-item active">
+            <div>🏠</div>
+            এক নজরে
+        </a>
+        <a href="#" class="nav-item">
+            <div>📅</div>
+            পঞ্জিকা
+        </a>
+        <a href="#" class="nav-item">
+            <div>📖</div>
+            ব্রত মহিমা
+        </a>
+        <a href="#" class="nav-item">
+            <div>⚙️</div>
+            সেটিংস
+        </a>
     </div>
 
-    <!-- মাঙ্গলিক দিন ও পর্ব ফিল্টার -->
-    <div class="filter-scroll">
-      <button class="filter-btn">🌸 একাদশী</button>
-      <button class="filter-btn">🌕 পূর্ণিমা/অমাবস্যা</button>
-      <button class="filter-btn">💍 শুভ বিবাহ</button>
-      <button class="filter-btn">🍚 অন্নপ্রাশন</button>
-      <button class="filter-btn">🤰 পঞ্চামৃত ও সাতভক্ষণ</button>
-      <button class="filter-btn">🏠 গৃহারম্ভ/গৃহপ্রবেশ</button>
-      <button class="filter-btn">🛕 দেবতা প্রতিষ্ঠা</button>
-      <button class="filter-btn">🔥 পুণ্যাহ ও মহাযজ্ঞ</button>
-    </div>
+    <script>
+        // নমুনা বৈষ্ণব পঞ্জিকা ডেটাবেজ
+        const panjikaData = [
+            {
+                id: 1,
+                date: "১ নভেম্বর ২০২৬, রবিবার",
+                title: "রমা একাদশী ব্রত",
+                category: "ekadashi",
+                tithi: "কৃষ্ণা একাদশী তিথি",
+                detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।",
+                parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)",
+                badge: "একাদশী",
+                badgeClass: "badge-ekadashi"
+            },
+            {
+                id: 2,
+                date: "৮ নভেম্বর ২০২৬, রবিবার",
+                title: "শ্রীশ্রী রাসপূর্ণিমা ও রাসযাত্রা",
+                category: "purnima",
+                tithi: "শুক্লা পূর্ণিমা তিথি",
+                detail: "শ্রীকৃষ্ণ রাসযাত্রা, শ্রীমন্মহাপ্রভুর রাসোৎসব। পূর্ণিমা নিশি পালন।",
+                parana: null,
+                badge: "পূর্ণিমা",
+                badgeClass: "badge-purnima"
+            },
+            {
+                id: 3,
+                date: "১৫ নভেম্বর ২০২৬, রবিবার",
+                title: "শুভ বিবাহ লগ্ন",
+                category: "marriage",
+                tithi: "শুক্লা সপ্তমী তিথি",
+                detail: "শুভ বিবাহ লগ্ন: রাত ০৭:৩০ হতে রাত ১১:১৫ পর্যন্ত। শুভ গোধূলি বেলা।",
+                parana: null,
+                badge: "শুভ মুহূর্ত",
+                badgeClass: "badge-subha"
+            },
+            {
+                id: 4,
+                date: "১৮ নভেম্বর ২০২৬, বুধবার",
+                title: "শুভ অন্নপ্রাশন ও নামকরণ",
+                category: "annaprasan",
+                tithi: "শুক্লা দশমী তিথি",
+                detail: "শুভ অন্নপ্রাশন সময়: সকাল ০৭:১৫ হতে সকাল ১০:৩০ পর্যন্ত।",
+                parana: null,
+                badge: "শুভ কর্ম",
+                badgeClass: "badge-subha"
+            },
+            {
+                id: 5,
+                date: "২০ নভেম্বর ২০২৬, শুক্রবার",
+                title: "উত্থান (প্রবোধিনী) একাদশী ব্রত",
+                category: "ekadashi",
+                tithi: "শুক্লা একাদশী তিথি",
+                detail: "চাতুর্মাস্ত ব্রত সমাপ্তি ও শ্রী গোবিন্দ উত্থান উৎসব।",
+                parana: "সকাল ০৬:২৩ হতে সকাল ১০:০১ পর্যন্ত (২১ নভেম্বর)",
+                badge: "একাদশী",
+                badgeClass: "badge-ekadashi"
+            },
+            {
+                id: 6,
+                date: "২২ নভেম্বর ২০২৬, রবিবার",
+                title: "শুভ সাধভক্ষণ ও পঞ্চামৃত",
+                category: "sadbhakshan",
+                tithi: "ত্রয়োদশী তিথি",
+                detail: "গর্ভবতী নারীর শুভ সাধভক্ষণ ও পঞ্চামৃত গ্রহণ লগ্ন: দুপুর ১২:১০ হতে দুপুর ০২:৩০।",
+                parana: null,
+                badge: "শুভ সংস্কার",
+                badgeClass: "badge-subha"
+            },
+            {
+                id: 7,
+                date: "২৫ নভেম্বর ২০২৬, বুধবার",
+                title: "শুভ গৃহপ্রবেশ ও বাস্তুপূজা",
+                category: "grihapravesh",
+                tithi: "দ্বীতিয়া তিথি",
+                detail: "শুভ গৃহপ্রবেশ লগ্ন: সকাল ০৮:৪০ হতে সকাল ১১:২০ মিনিট পর্যন্ত।",
+                parana: null,
+                badge: "বাস্তু শুভ",
+                badgeClass: "badge-subha"
+            }
+        ];
 
-    <!-- ১ বছরের ধারাবাহিক পঞ্জিকা গ্রিড (অক্টোবর ২০২৬ নমুনা) -->
-    <div class="card-dark">
-      <h4 style="color:var(--accent-maroon); margin-top:0; text-align:center;">📅 আশ্বিন - কার্তিক (অক্টোবর ২০২৬)</h4>
-      <div class="cal-grid">
-        <div style="font-weight:bold; color:red;">রবি</div>
-        <div style="font-weight:bold;">সোম</div>
-        <div style="font-weight:bold;">মঙ্গল</div>
-        <div style="font-weight:bold;">বুধ</div>
-        <div style="font-weight:bold; color:red;">বৃহঃ</div>
-        <div style="font-weight:bold;">শুক্র</div>
-        <div style="font-weight:bold; color:red;">শনি</div>
+        // টাইমজোন ডিটেক্ট
+        try {
+            const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.getElementById('user-tz').innerText = userTz || "Asia/Dhaka";
+        } catch(e) {}
 
-        <div></div><div></div><div></div><div></div>
-        <div class="cal-day">১<br>ষষ্ঠী</div>
-        <div class="cal-day">২<br>সপ্তমী</div>
-        <div class="cal-day">৩<br>অষ্টমী</div>
-        <div class="cal-day">৪<br>নবমী</div>
-        <div class="cal-day">৫<br>দশমী</div>
-        <div class="cal-day ekadashi">৬<br>একাদশী</div>
-        <div class="cal-day">৭<br>দ্বাদশী</div>
-        <div class="cal-day">৮<br>ত্রয়োদশী</div>
-        <div class="cal-day">৯<br>চতুর্দশী</div>
-        <div class="cal-day">১০<br>অমাবস্যা</div>
-        <div class="cal-day">১১<br>প্রতিপদ</div>
-        <div class="cal-day">১২<br>দ্বিতীয়া</div>
-        <div class="cal-day">১৩<br>তৃতীয়া</div>
-        <div class="cal-day">১৪<br>চতুর্থী</div>
-        <div class="cal-day" style="background:#E8F5E9; border:2px solid green;">১৫<br>পঞ্চমী (আজ)</div>
-        <div class="cal-day">১৬<br>ষষ্ঠী</div>
-        <div class="cal-day">১৭<br>সপ্তমী</div>
-        <div class="cal-day">১৮<br>বিবাহ</div>
-        <div class="cal-day">১৯<br>নবমী</div>
-        <div class="cal-day">২০<br>দশমী</div>
-        <div class="cal-day">২১<br>একাদশী আরম্ভ</div>
-        <div class="cal-day ekadashi">২২<br>পাপঙ্কুশা একাদশী</div>
-        <div class="cal-day">২৩<br>পারণ</div>
-        <div class="cal-day">২৪<br>চতুর্দশী</div>
-        <div class="cal-day purnima">২৫<br>লক্ষ্মী পূর্ণিমা</div>
-      </div>
-    </div>
+        // ইভেন্ট রেন্ডার ফাংশন
+        function renderEvents(items) {
+            const container = document.getElementById('events-container');
+            container.innerHTML = '';
 
-    <!-- অহিংস নীতি ও গৌড়ীয় বৈষ্ণব সদাচার -->
-    <div class="card-dark">
-      <h4 style="color:var(--accent-maroon); margin-top:0;">🌱 মন্দিরের অহিংস নীতি ও বৈষ্ণব সদাচার</h4>
-      <p style="font-size:13px; line-height:1.6;">
-        শ্রী শ্রী জগন্নাথ সেবাঙ্গন শ্রীধাম বৃন্দাবনের শুদ্ধ গৌড়ীয় বৈষ্ণব ঐতিহ্যে পরিচালিত। সকল জীবের প্রতি অহিংসা, নিরামিষ প্রসাদ গ্রহণ, নাম জপ এবং একাদশী ও তিথি পালনের মাধ্যমে ভগবৎ প্রীতি লাভই আমাদের মূল উদ্দেশ্য।
-      </p>
-    </div>
+            if(items.length === 0) {
+                container.innerHTML = '<div style="text-align:center; padding: 20px; color: var(--accent-gold);">এই বিভাগে কোন নির্ধারিত দিন পাওয়া যায়নি।</div>';
+                return;
+            }
 
-  </div>
+            items.forEach(item => {
+                const isEkadashi = item.category === 'ekadashi';
+                const isPurnima = item.category === 'purnima';
+                
+                let cardClass = 'event-card';
+                if(isEkadashi) cardClass += ' ekadashi';
+                if(isPurnima) cardClass += ' purnima';
 
-  <!-- বটম ন্যাভিগেশন বার -->
-  <div class="bottom-nav">
-    <a href="#" class="nav-item">🏠<br>এক নজরে</a>
-    <a href="#" class="nav-item">📅<br>পঞ্জিকা</a>
-    <a href="#" class="nav-item">📖<br>ব্রত মহিমা</a>
-    <a href="#" class="nav-item">⚙️<br>সেটিংস</a>
-  </div>
+                const html = `
+                    <div class="${cardClass}">
+                        <span class="badge ${item.badgeClass}">${item.badge}</span>
+                        <div class="event-date">📅 ${item.date}</div>
+                        <div class="event-title">${item.title}</div>
+                        <div class="event-detail">📌 <strong>তিথি:</strong> ${item.tithi}</div>
+                        <div class="event-detail">${item.detail}</div>
+                        ${item.parana ? `<div class="parana-time">⏰ <strong>পারণ সময়কাল:</strong> ${item.parana}</div>` : ''}
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
 
-  <!-- অটোমেটিক টাইমজোন ডিটেকশন স্ক্রিপ্ট -->
-  <script>
-    function detectUserTimezone() {
-      try {
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const offset = new Date().getTimezoneOffset();
-        const hours = Math.abs(Math.floor(offset / 60));
-        const minutes = Math.abs(offset % 60);
-        const sign = offset <= 0 ? "+" : "-";
-        const formattedOffset = `UTC${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-        
-        document.getElementById('user-location').innerText = `📍 আপনার সময় অঞ্চল: ${timeZone}`;
-        document.getElementById('tz-offset').innerText = formattedOffset;
-      } catch (e) {
-        document.getElementById('user-location').innerText = "📍 স্থানীয় সময় নির্ধারণ করা হয়েছে";
-      }
-    }
+        // ফিল্টারিং লজিক
+        function filterEvents(category, btnElement) {
+            document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
 
-    function setCalcMode(mode) {
-      const btns = document.querySelectorAll('.mode-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      if(mode === 'surya') {
-        btns[0].classList.add('active');
-      } else {
-        btns[1].classList.add('active');
-      }
-    }
+            if (category === 'all') {
+                renderEvents(panjikaData);
+            } else {
+                const filtered = panjikaData.filter(item => item.category === category);
+                renderEvents(filtered);
+            }
+        }
 
-    window.onload = detectUserTimezone;
-  </script>
+        // গণনা পদ্ধতি পরিবর্তন (সূর্য / দৃক)
+        function setCalcMode(mode, btnElement) {
+            document.querySelectorAll('.calc-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            // ভবিষ্যতে আর্স বা অ্যালগরিদম সুইচের জন্য ব্যবহৃত হবে
+        }
+
+        // শুরুতে সমস্ত দিন প্রদর্শন
+        renderEvents(panjikaData);
+    </script>
 </body>
 </html>
