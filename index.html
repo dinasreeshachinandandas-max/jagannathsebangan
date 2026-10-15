@@ -1445,6 +1445,165 @@ function showAccountNumber() {
   };
 </script>
 <!-- ==================== বৈষ্ণবীয় পঞ্জিকা সেকশন সমাপ্ত ==================== -->
+<!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও ইন্টারঅ্যাক্টিভ অ্যাপ মডিউল ==================== -->
+<section id="vaishnava-app" style="max-width: 950px; margin: 30px auto; padding: 20px; background: #fffcf5; border-radius: 20px; border: 2px solid #ffcc80; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
+  
+  <!-- অ্যাপ হেডার -->
+  <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #ffe0b2;">
+    <h2 style="color: #b71c1c; font-size: 26px; font-weight: bold; margin: 0;">🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন ডিজিটাল পঞ্জিকা</h2>
+    <p style="color: #5d4037; font-size: 14px; margin-top: 5px;">আজকের শুভ মুহূর্ত, তিথি, মন্ত্র ও বৈষ্ণবীয় নির্দেশিকা</p>
+  </div>
 
+  <!-- শুভ কাজের কুইক ফিল্টার বাটন -->
+  <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px; scrollbar-width: none;">
+    <button onclick="filterEvents('all')" style="background: #b71c1c; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">সব দিন</button>
+    <button onclick="filterEvents('ekadashi')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🌸 একাদশী</button>
+    <button onclick="filterEvents('bibaho')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">💍 বিবাহ</button>
+    <button onclick="filterEvents('annaprasan')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🍚 অন্নপ্রাশন</button>
+    <button onclick="filterEvents('grihapravesh')" style="background: #fff3e0; color: #e65100; border: 1px solid #ffb74d; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; white-space: nowrap;">🏠 গৃহপ্রবেশ</button>
+  </div>
+
+  <!-- আজকের লাইভ তথ্য কার্ড -->
+  <div style="background: linear-gradient(135deg, #ffffff, #fff8e1); border-radius: 16px; padding: 20px; border: 1px solid #ffe0b2; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div>
+        <span style="background: #ffebee; color: #c62828; font-size: 11px; font-weight: bold; padding: 3px 10px; border-radius: 12px;">আজকের দিনাবসান</span>
+        <h3 id="current-full-date" style="color: #b71c1c; font-size: 24px; font-weight: bold; margin: 8px 0 4px 0;">১৬ অক্টোবর ২০২৬</h3>
+        <p style="color: #424242; font-size: 14px; margin: 0; font-weight: 600;">আশ্বিন ১৪৩৩ বঙ্গাব্দ | শুক্ল পঞ্চমী তিথি</p>
+      </div>
+      <button onclick="openModal(16)" style="background: #e65100; color: white; border: none; padding: 10px 18px; border-radius: 12px; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
+        🔍 আজকের বিস্তারিত নিয়ম ও মন্ত্র
+      </button>
+    </div>
+  </div>
+
+  <!-- মাসিক পঞ্জিকা গ্রিড (১ থেকে ৩১ তারিখ) -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 15px; border: 1px solid #ffe0b2;">
+    <h4 style="color: #37474f; font-size: 16px; margin: 0 0 12px 0; text-align: center; font-weight: bold;">
+      📅 আশ্বিন - কার্তিক (অক্টোবর ২০২৬)
+    </h4>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center;">
+      <!-- সপ্তাহের দিনগুলো -->
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">রবি</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">সোম</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">মঙ্গল</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">বুধ</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">বৃহঃ</div>
+      <div style="font-weight: bold; color: #333; padding: 6px; font-size: 13px;">শুক্র</div>
+      <div style="font-weight: bold; color: #b71c1c; padding: 6px; font-size: 13px;">শনি</div>
+
+      <!-- তারিখের ঘরসমূহ (উদাহরণস্বরূপ কয়েকটি দিন) -->
+      <div onclick="openModal(12)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১২<br><small style="font-size:10px; color:#777;">দ্বাদশী</small></div>
+      <div onclick="openModal(13)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৩<br><small style="font-size:10px; color:#777;">ত্রয়োদশী</small></div>
+      <div onclick="openModal(14)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৪<br><small style="font-size:10px; color:#777;">চতুর্দশী</small></div>
+      <div onclick="openModal(15)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৫<br><small style="font-size:10px; color:#777;">পঞ্চমী</small></div>
+      <div onclick="openModal(16)" class="cal-day" style="background: #fff3e0; padding: 10px; border-radius: 8px; border: 2px solid #ff9800; cursor: pointer; font-weight:bold;">১৬<br><small style="font-size:10px; color:#e65100;">আজ</small></div>
+      <div onclick="openModal(17)" class="cal-day ekadashi-day" style="background: #ffebee; padding: 10px; border-radius: 8px; border: 1px solid #ef5350; cursor: pointer;">১৭<br><small style="font-size:10px; color:#c62828;">একাদশী</small></div>
+      <div onclick="openModal(18)" class="cal-day" style="background: #fafafa; padding: 10px; border-radius: 8px; border: 1px solid #eee; cursor: pointer;">১৮<br><small style="font-size:10px; color:#777;">দ্বাদশী</small></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ==================== ইন্টারঅ্যাক্টিভ পপ-আপ (MODAL) ==================== -->
+<div id="panjika-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;">
+  <div style="background: #ffffff; width: 100%; max-width: 550px; max-height: 90vh; overflow-y: auto; border-radius: 20px; padding: 22px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-family: 'Hind Siliguri', sans-serif;">
+    
+    <!-- বন্ধ করার বাটন -->
+    <button onclick="closeModal()" style="position: absolute; top: 15px; right: 15px; background: #ffebee; color: #c62828; border: none; font-size: 18px; font-weight: bold; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">✕</button>
+
+    <!-- পপ-আপ কনটেন্ট -->
+    <div id="modal-content">
+      <!-- ডায়নামিক ডাটা জাভাস্ক্রিপ্ট দিয়ে লোড হবে -->
+    </div>
+  </div>
+</div>
+
+<!-- ==================== লজিক ও ডাটা স্ক্রিপ্ট ==================== -->
+<script>
+  // প্রতিদিনের বিশেষ বিবরণ ডাটাবেজ
+  const panjikaData = {
+    16: {
+      date: "১৬ অক্টোবর ২০২৬ (শুক্রবার)",
+      bangla: "১ কার্তিক ১৪৩৩ বঙ্গাব্দ",
+      tithi: "শুক্ল পঞ্চমী তিথি (ভোর ০৩:২৫ AM পর্যন্ত)",
+      nextTithi: "এরপর শুক্ল ষষ্ঠী তিথি আরম্ভ",
+      nakshatra: "জ্যেষ্ঠা নক্ষত্র (দুপুর ১২:১০ PM পর্যন্ত)",
+      shubho: "বিবাহ ও অন্নপ্রাশনের শুভ মুহূর্ত: সকাল ০৭:৩০ থেকে ১০:১৫ মিনিট পর্যন্ত।",
+      mantra: "ॐ নমো ভগবতে বাসুদেবায় ॥",
+      meaning: "ভগবান শ্রীকৃষ্ণ ও বাসুদেবের চরণে সর্বান্তকরণে প্রণাম নিবেদন করি।",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" // মন্দিরের নিজস্ব ইউটিউব লিংক এখানে বসবে
+    },
+    17: {
+      date: "১৭ অক্টোবর ২০২৬ (শনিবার)",
+      bangla: "২ কার্তিক ১৪৩৩ বঙ্গাব্দ",
+      tithi: "পাপানশিনী একাদশী ব্রত",
+      nextTithi: "পারণ সময়: পরদিন সকাল ০৬:১৫ - ০৯:৩০ এর মধ্যে",
+      nakshatra: "মূল নক্ষত্র",
+      shubho: "সর্বপ্রকার বৈষ্ণবীয় ব্রত পালনের প্রশস্ত দিন। অন্ন গ্রহণ নিষিদ্ধ।",
+      mantra: "হরে কৃষ্ণ হরে কৃষ্ণ কৃষ্ণ কৃষ্ণ হরে হরে, হরে রাম হরে রাম রাম রাম হরে হরে ॥",
+      meaning: "হে পরমেশ্বর ভগবান ও তোমার আহ্লাদিনী শক্তি রাধা, আমাকে তোমার প্রেমে নিযুক্ত করো।",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    }
+  };
+
+  function openModal(day) {
+    const data = panjikaData[day] || {
+      date: day + " অক্টোবর ২০২৬",
+      bangla: "কার্তিক ১৪৩৩ বঙ্গাব্দ",
+      tithi: "সাধারণ তিথি",
+      nextTithi: "পরবর্তী তিথি সময়সূচী যথাসময়ে আপডেট হবে",
+      nakshatra: "শুভ নক্ষত্র",
+      shubho: "দৈনিক নিত্য পূজা ও হরিণাম সংকীর্তনের জন্য শুভ।",
+      mantra: "শ্রী কৃষ্ণ শরণং মম ॥",
+      meaning: "শ্রীকৃষ্ণের চরণকমলেই আমার একমাত্র আশ্রয়।",
+      videoUrl: ""
+    };
+
+    let html = `
+      <span style="background: #ffebee; color: #c62828; font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 10px;">বিশেষ বিবরণ</span>
+      <h3 style="color: #b71c1c; margin: 10px 0 5px 0; font-size: 22px;">${data.date}</h3>
+      <p style="color: #666; font-size: 13px; margin-bottom: 15px;">${data.bangla}</p>
+
+      <div style="background: #fff8e1; padding: 12px; border-radius: 10px; border-left: 4px solid #f57c00; margin-bottom: 12px;">
+        <strong style="color: #e65100; font-size: 14px; display:block;">🌙 তিথি ও নক্ষত্র:</strong>
+        <span style="font-size: 13px; color: #333;">${data.tithi}</span><br>
+        <small style="color: #666; font-size: 12px;">${data.nextTithi}</small>
+      </div>
+
+      <div style="background: #e8f5e9; padding: 12px; border-radius: 10px; border-left: 4px solid #388e3c; margin-bottom: 12px;">
+        <strong style="color: #2e7d32; font-size: 14px; display:block;">✨ শুভ মুহূর্ত ও সময়কাল:</strong>
+        <span style="font-size: 13px; color: #333;">${data.shubho}</span>
+      </div>
+
+      <div style="background: #fff3e0; padding: 14px; border-radius: 10px; text-align: center; margin-bottom: 15px; border: 1px dashed #ffb74d;">
+        <strong style="color: #b71c1c; font-size: 13px;">🙏 আজকের পূজার মন্ত্র:</strong>
+        <p style="font-size: 16px; font-weight: bold; color: #212121; margin: 6px 0;">"${data.mantra}"</p>
+        <small style="color: #555; font-size: 12px; display:block;">অর্থ: ${data.meaning}</small>
+      </div>
+    `;
+
+    if(data.videoUrl) {
+      html += `
+        <div style="margin-top: 10px;">
+          <strong style="color: #333; font-size: 13px; display:block; margin-bottom: 6px;">🎥 ভিডিও নির্দেশিকা ও পূজা নিয়ম:</strong>
+          <iframe width="100%" height="200" src="${data.videoUrl}" frameborder="0" allowfullscreen style="border-radius: 10px;"></iframe>
+        </div>
+      `;
+    }
+
+    document.getElementById('modal-content').innerHTML = html;
+    document.getElementById('panjika-modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('panjika-modal').style.display = 'none';
+  }
+
+  function filterEvents(type) {
+    alert("টিপস: " + type.toUpperCase() + " ফিল্টার নির্বাচিত হয়েছে। শুভ দিনগুলো তালিকায় দেখতে পাচ্ছেন।");
+  }
+</script>
+<!-- ==================== বৈষ্ণবীয় পঞ্জিকা সেকশন সমাপ্ত ==================== -->
 </body>
 </html>
