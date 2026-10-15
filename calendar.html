@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা ও ক্যালেন্ডার</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Hind Siliguri', sans-serif; }
+  </style>
+</head>
+<body class="bg-amber-50 min-h-screen text-gray-800 pb-24">
 
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-red-700 to-amber-800 text-white text-center py-6 shadow-lg rounded-b-3xl">
+    <h1 class="text-2xl font-bold">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
+    <p class="text-sm opacity-90">ডিজিটাল বৈষ্ণবীয় ব্রত ও পঞ্জিকা অ্যাপ</p>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-md mx-auto px-4 mt-6 space-y-6">
+
+    <!-- Today's Overview Card -->
+    <div class="bg-white rounded-2xl shadow-md p-6 border border-amber-200 text-center relative overflow-hidden">
+      <div class="bg-red-100 text-red-800 text-xs font-bold uppercase px-3 py-1 rounded-full inline-block mb-2">
+        আজকের তিথি ও পঞ্জিকা
+      </div>
+      <h2 class="text-3xl font-bold text-red-700 my-1" id="today-date">১৫ অক্টোবর ২০২৬</h2>
+      <p class="text-base font-semibold text-gray-600">আশ্বিন ১৪৩৩ বঙ্গাব্দ | শুক্ল পক্ষ</p>
+      
+      <hr class="my-4 border-amber-100">
+
+      <div class="grid grid-cols-2 gap-3 text-sm">
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+          <span class="block text-gray-500 text-xs">সূর্যোদয়</span>
+          <span class="font-bold text-amber-900">০৫:৩৬ AM</span>
+        </div>
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+          <span class="block text-gray-500 text-xs">সূর্যাস্ত</span>
+          <span class="font-bold text-amber-900">০৫:০৮ PM</span>
+        </div>
+      </div>
+
+      <!-- Next Ekadashi Alert -->
+      <div class="mt-4 bg-orange-600 text-white p-3 rounded-xl shadow-sm text-sm font-semibold flex items-center justify-center gap-2">
+        <span>🌸 আগামী একাদশী:</span> <span id="next-ekadashi">পাপানশিনী একাদশী</span>
+      </div>
+    </div>
+
+    <!-- Vaishnava Vrat & Festivals Section -->
+    <div class="bg-white rounded-2xl shadow-md p-5 border border-amber-200">
+      <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        📅 আসন্ন ব্রত ও পূজা-পার্বণ সূচি
+      </h3>
+      <div class="space-y-3 text-sm">
+        <div class="p-3 bg-amber-50 rounded-xl border-l-4 border-red-600 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-gray-800">পাপানশিনী একাদশী ব্রত</p>
+            <p class="text-xs text-gray-500">পারণ: পরদিন সকাল ০৬:১৫ - ০৯:৩০ মধ্যে</p>
+          </div>
+          <span class="text-xs bg-red-700 text-white px-2.5 py-1 rounded-full font-semibold">পালনীয়</span>
+        </div>
+
+        <div class="p-3 bg-amber-50 rounded-xl border-l-4 border-amber-600 flex justify-between items-center">
+          <div>
+            <p class="font-bold text-gray-800">শ্রী শ্রী শারদীয় দুর্গোৎসব / বিজয়া দশমী</p>
+            <p class="text-xs text-gray-500">বিশেষ পূজা ও মহা প্রসাদ বিতরণ</p>
+          </div>
+          <span class="text-xs bg-amber-600 text-white px-2.5 py-1 rounded-full font-semibold">উৎসব</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Mantra & Sloka Section -->
+    <div class="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl shadow-md p-5 border border-orange-200 text-center">
+      <h3 class="text-sm font-bold text-red-800 uppercase tracking-wide mb-2">🙏 আজকের মহামন্ত্র</h3>
+      <p class="text-lg font-bold text-gray-900 font-serif">
+        "হেরে কৃষ্ণ হরে কৃষ্ণ কৃষ্ণ কৃষ্ণ হরে হরে<br>হরে রাম হরে রাম রাম রাম হরে হরে"
+      </p>
+      <p class="text-xs text-gray-600 mt-2">মহাপ্রভুর পবিত্র তারকব্রহ্ম নাম সংকীর্তন</p>
+    </div>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-3 shadow-lg max-w-md mx-auto">
+    <button class="flex flex-col items-center text-red-700 font-bold text-xs">
+      <span class="text-lg">🏠</span> <span>এক নজরে</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-500 hover:text-red-700 text-xs">
+      <span class="text-lg">📅</span> <span>ক্যালেন্ডার</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-500 hover:text-red-700 text-xs">
+      <span class="text-lg">📖</span> <span>ব্রতাদি</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-500 hover:text-red-700 text-xs">
+      <span class="text-lg">⚙️</span> <span>সেটিংস</span>
+    </button>
+  </nav>
+
+</body>
+</html>
