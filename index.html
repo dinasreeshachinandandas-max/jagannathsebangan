@@ -1331,32 +1331,60 @@ function showAccountNumber() {
         <strong style="color: #e65100; font-size: 15px;">০৫:০৮ PM</strong>
       </div>
     </div>
+<!-- ==================== বৈষ্ণবীয় পঞ্জিকা ও ক্যালেন্ডার সেকশন (ডায়নামিক ও বিস্তারিত) ==================== -->
+<section style="max-width: 900px; margin: 30px auto; padding: 20px; background: #fff8e1; border-radius: 20px; border: 2px solid #ffe082; box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-family: 'Hind Siliguri', sans-serif;">
+  
+  <!-- শিরোনাম -->
+  <div style="text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ffb74d;">
+    <h2 style="color: #b71c1c; font-size: 26px; font-weight: bold; margin: 0;">🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন বৈষ্ণবীয় পঞ্জিকা</h2>
+    <p style="color: #5d4037; font-size: 14px; margin-top: 5px;">দৈনিক তিথি, নক্ষত্র, একাদশী ও ব্রতাদি সময়সূচী</p>
+  </div>
 
-    <!-- আগামী একাদশী নোটিশ -->
-    <div style="margin-top: 15px; background: #ef6c00; color: #ffffff; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 14px;">
-      🌸 আগামী একাদশী: <span style="text-decoration: underline;">পাপানশিনী একাদশী ব্রত</span>
+  <!-- আজকের প্রধান কার্ড (ডায়নামিক জাভাস্ক্রিপ্ট সহ) -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #ffe0b2; margin-bottom: 20px;">
+    <span style="background: #ffebee; color: #c62828; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; text-transform: uppercase;">আজকের পঞ্জিকা</span>
+    <h3 id="live-date" style="color: #b71c1c; font-size: 28px; font-weight: bold; margin: 10px 0 5px 0;">লোড হচ্ছে...</h3>
+    <p style="color: #424242; font-size: 15px; font-weight: 600; margin: 0;">আশ্বিন ১৪৩৩ বঙ্গাব্দ</p>
+    
+    <!-- সূর্যোদয় ও সূর্যাস্ত -->
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
+        <span style="display: block; color: #757575; font-size: 12px;">🌅 সূর্যোদয়</span>
+        <strong style="color: #e65100; font-size: 15px;">০৫:৩৬ AM</strong>
+      </div>
+      <div style="flex: 1; background: #fff3e0; padding: 10px; border-radius: 12px; border: 1px solid #ffe0b2;">
+        <span style="display: block; color: #757575; font-size: 12px;">🌇 সূর্যাস্ত</span>
+        <strong style="color: #e65100; font-size: 15px;">০৫:০৮ PM</strong>
+      </div>
     </div>
   </div>
 
-  <!-- আসন্ন বৈষ্ণবীয় ব্রত ও পূজা সূচি -->
+  <!-- তিথি ও নক্ষত্রের বিস্তারিত বিবরণ (যেমনটি আপনি স্ক্রিনশটে চেয়েছেন) -->
   <div style="background: #ffffff; border-radius: 16px; padding: 20px; border: 1px solid #ffe0b2; margin-bottom: 20px;">
-    <h4 style="color: #37474f; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">📅 আসন্ন ব্রত ও পূজা-পার্বণ</h4>
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; background: #fff8e1; padding: 12px 15px; border-radius: 12px; border-left: 5px solid #b71c1c; margin-bottom: 10px;">
-      <div>
-        <strong style="color: #212121; display: block; font-size: 15px;">পাপানশিনী একাদশী ব্রত</strong>
-        <span style="color: #616161; font-size: 12px;">পারণ সময়: পরদিন সকাল ০৬:১৫ - ০৯:৩০ এর মধ্যে</span>
-      </div>
-      <span style="background: #b71c1c; color: white; font-size: 11px; padding: 4px 10px; border-radius: 15px; font-weight: bold;">পালনীয়</span>
+    <h4 style="color: #b71c1c; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+      ✨ তিথি ও নক্ষত্র বিবরণ
+    </h4>
+    <div style="background: #fff8e1; padding: 15px; border-radius: 12px; border-left: 5px solid #d32f2f;">
+      <p style="color: #333333; font-size: 15px; margin: 0 0 8px 0; font-weight: bold;">
+        🌙 বর্তমান তিথি: শুক্ল পক্ষ পঞ্চমী
+      </p>
+      <p style="color: #555555; font-size: 14px; margin: 0; line-height: 1.5;">
+        আজ ১৬ অক্টোবর ২০২৬ ভোর ০৩:২৫ AM পর্যন্ত শুক্ল পক্ষ পঞ্চমী তিথি থাকবে, এরপর থেকে শুক্ল পক্ষ ষষ্ঠী তিথি শুরু হবে।
+      </p>
     </div>
+    <div style="background: #fff8e1; padding: 15px; border-radius: 12px; border-left: 5px solid #f57c00; margin-top: 10px;">
+      <p style="color: #333333; font-size: 15px; margin: 0 0 8px 0; font-weight: bold;">
+        ⭐ নক্ষত্র ও যোগ: জ্যেষ্ঠা নক্ষত্র
+      </p>
+      <p style="color: #555555; font-size: 14px; margin: 0; line-height: 1.5;">
+        আজ দিনগত দুপুর ১২:১০ পর্যন্ত জ্যেষ্ঠা নক্ষত্র থাকবে, এরপর মূলা নক্ষত্র শুরু হবে।
+      </p>
+    </div>
+  </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; background: #fff8e1; padding: 12px 15px; border-radius: 12px; border-left: 5px solid #f57c00;">
-      <div>
-        <strong style="color: #212121; display: block; font-size: 15px;">শ্রী শ্রী শারদীয় দুর্গোৎসব / বিজয়া দশমী</strong>
-        <span style="color: #616161; font-size: 12px;">বিশেষ পূজা ও মহা প্রসাদ বিতরণ</span>
-      </div>
-      <span style="background: #f57c00; color: white; font-size: 11px; padding: 4px 10px; border-radius: 15px; font-weight: bold;">উৎসব</span>
-    </div>
+  <!-- আগামী একাদশী নোটিশ -->
+  <div style="margin-bottom: 20px; background: #ef6c00; color: #ffffff; padding: 14px; border-radius: 14px; font-weight: bold; font-size: 14px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    🌸 আগামী একাদশী: <span style="text-decoration: underline;">পাপানশিনী একাদশী ব্রত</span>
   </div>
 
   <!-- তারকব্রহ্ম মহামন্ত্র -->
@@ -1368,6 +1396,15 @@ function showAccountNumber() {
   </div>
 
 </section>
+
+<!-- অটোমেটিক ডেট আপডেট স্ক্রিপ্ট -->
+<script>
+  const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+  const todayStr = new Date().toLocaleDateString('bn-BD', options);
+  const dateEl = document.getElementById('live-date');
+  if(dateEl) { dateEl.innerText = todayStr; }
+</script>
 <!-- ==================== বৈষ্ণবীয় পঞ্জিকা সেকশন সমাপ্ত ==================== -->
+
 </body>
 </html>
