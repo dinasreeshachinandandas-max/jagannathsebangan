@@ -354,6 +354,46 @@
             color: white;
         }
 
+        /* গ্যালারি এবং মিডিয়া সেকশন */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 8px;
+            border-radius: 30px;
+        }
+
         /* বটম নেভিগেশন */
         .nav-bar {
             position: fixed;
@@ -439,6 +479,16 @@
                 📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)
             </div>
 
+            <!-- অডিও প্রবচন ও কীর্তন সেকশন -->
+            <div class="mantra-card">
+                <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন ও অডিও প্রবচন</div>
+                <p style="font-size:0.82rem; color:#444; margin-top:4px;">শ্রবণ করুন মধুর হরে কৃষ্ণ মহামন্ত্র কীর্তন:</p>
+                <audio class="audio-player" controls autoplay loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    আপনার ব্রাউজারে অডিও প্লেয়ার সমর্থিত নয়।
+                </audio>
+            </div>
+
             <div class="mantra-card">
                 <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
                 <div class="mantra-box">
@@ -448,7 +498,7 @@
                 </div>
                 <div class="mantra-box">
                     <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“ত্ব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
+                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
                     ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
                     <div style="font-size:0.75rem; color:#777; margin-top:3px;">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</div>
                 </div>
@@ -482,8 +532,25 @@
             <div id="events-container"></div>
         </div>
 
-        <!-- ট্যাব ৩: ব্রত মহিমা ও মন্দির পরিচয় -->
+        <!-- ট্যাব ৩: ব্রত মহিমা, গ্যালারি ও ভিডিও -->
         <div id="tab-mohima" class="tab-content">
+            <!-- ভিডিও ইউটিউব সেকশন -->
+            <div class="mantra-card">
+                <div class="mantra-title">🎥 মন্দিরের সরাসরি ভিডিও প্রবচন ও উৎসব দর্শন</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UCYOUR_CHANNEL_ID" title="Jagannath Sebangan Live" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- শ্রীধাম বৃন্দাবন ও মন্দির ছবি গ্যালারি -->
+            <div class="mantra-card">
+                <div class="mantra-title">📸 শ্রীধাম বৃন্দাবন ও শাখা মন্দিরের চিত্র দর্শন</div>
+                <div class="photo-grid">
+                    <img src="images/uploads/temple-logo.jpg" alt="মন্দির ১" onerror="this.src='1000058168.jpg'">
+                    <img src="images/uploads/1000068215.jpg" alt="মন্দির ২" onerror="this.src='1000058168.jpg'">
+                </div>
+            </div>
+
             <div class="mantra-card">
                 <div class="mantra-title" style="font-size:1.05rem; color:var(--accent-red);">🏛️ পরম পবিত্র মন্দির পরিচিতি ও মাহাত্ম্য</div>
                 <p style="font-size:0.85rem; color:#333; line-height:1.6; margin-top:8px;">
@@ -506,7 +573,7 @@
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও অনুদান সেবা -->
+        <!-- ট্যাব ৪: সেটিংস ও সেবা প্রদান -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
@@ -539,7 +606,7 @@
         </div>
         <div class="nav-item" onclick="switchTab('tab-mohima', this)">
             <div>📖</div>
-            ব্রত মহিমা
+            মিডিয়া ও দর্শন
         </div>
         <div class="nav-item" onclick="switchTab('tab-settings', this)">
             <div>⚙️</div>
