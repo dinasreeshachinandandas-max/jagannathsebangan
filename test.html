@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় আদর্শ পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা</title>
     <style>
         :root {
-            --bg-primary: #1f0204;
-            --bg-secondary: #330508;
+            --bg-primary: #1a0103;
+            --bg-secondary: #2d0407;
             --card-bg: #fffef7;
             --card-border: #d4af37;
             --text-dark: #2c0003;
@@ -26,10 +26,10 @@
         }
 
         body {
-            background: linear-gradient(180deg, var(--bg-primary) 0%, #120102 100%);
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #0d0001 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 75px;
+            padding-bottom: 80px;
         }
 
         .header {
@@ -47,7 +47,7 @@
             padding: 3px;
             border-radius: 50%;
             border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .logo-box img {
@@ -60,14 +60,14 @@
 
         .header h1 {
             color: #ffeb3b;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             text-shadow: 1px 1px 3px #000;
             margin-bottom: 3px;
         }
 
         .header p {
             color: #f5e6b3;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
 
         .container {
@@ -76,7 +76,15 @@
             margin: 0 auto;
         }
 
-        /* আজ এক নজরে (Today Highlight Card) */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* আজ এক নজরে (Today Card) */
         .today-card {
             background: linear-gradient(135deg, #4a080d 0%, #290205 100%);
             border: 2px solid var(--accent-gold);
@@ -125,7 +133,7 @@
         .tithi-title {
             color: #ffca28;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             margin-bottom: 4px;
         }
 
@@ -215,9 +223,8 @@
             border: 1px solid var(--accent-gold);
             color: #fff;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         .filter-chip.active {
@@ -261,6 +268,7 @@
         .badge-ekadashi { background: var(--accent-bright-red); }
         .badge-purnima { background: #f57c00; }
         .badge-subha { background: var(--accent-green); }
+        .badge-smriti { background: #6a1b9a; }
 
         .event-date {
             font-size: 1rem;
@@ -282,6 +290,16 @@
             line-height: 1.4;
         }
 
+        .smriti-text {
+            background: #f3e5f5;
+            color: #4a148c;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            margin-top: 6px;
+            border-left: 3px solid #8e24aa;
+        }
+
         .parana-time {
             background: #e8f5e9;
             color: var(--accent-green);
@@ -293,12 +311,13 @@
             font-size: 0.85rem;
         }
 
+        /* বটম নেভিগেশন */
         .nav-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #140002;
+            background: #120002;
             border-top: 2px solid var(--accent-gold);
             display: flex;
             justify-content: space-around;
@@ -307,11 +326,12 @@
         }
 
         .nav-item {
-            color: #bbb;
+            color: #aaa;
             text-decoration: none;
             text-align: center;
             font-size: 0.72rem;
             flex: 1;
+            cursor: pointer;
         }
 
         .nav-item.active {
@@ -320,7 +340,7 @@
         }
 
         .nav-item div {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 2px;
         }
     </style>
@@ -329,8 +349,9 @@
 
     <div class="header">
         <div class="logo-box">
-            <!-- মন্দিরের সঠিক লোগো ফাইলের নাম -->
-            <img src="1000058168.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.src='https://via.placeholder.com/65/800000/FFFFFF?text=JSP'">
+            <!-- কেস সেন্সিটিভিটি সহ ব্যাকআপ লোগো লিংক -->
+            <img src="1000058168.jpg" alt="মন্দিরের মনোগ্রাম" 
+                 onerror="this.onerror=null; this.src='1000058168.JPG';">
         </div>
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন</h1>
         <p>শ্রীধাম বৃন্দাবনের গৌড়ীয় বৈষ্ণবীয় আদর্শ পঞ্জিকা</p>
@@ -338,89 +359,121 @@
 
     <div class="container">
         
-        <!-- আজ এক নজরে (দৈনিক প্রধান তথ্য) -->
-        <div class="today-card">
-            <div class="today-header">
-                <div>
-                    <div class="today-date-main">২৮</div>
-                    <div class="today-date-sub">আশ্বিন ১৪৩৩, বৃহস্পতিবার</div>
-                    <div style="font-size:0.8rem; color:#d4af37;">১৫ অক্টোবর ২০২৬</div>
+        <!-- ট্যাব ১: এক নজরে -->
+        <div id="tab-home" class="tab-content active">
+            <div class="today-card">
+                <div class="today-header">
+                    <div>
+                        <div class="today-date-main">২৮</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, বৃহস্পতিবার</div>
+                        <div style="font-size:0.8rem; color:#d4af37;">১৫ অক্টোবর ২০২৬</div>
+                    </div>
+                    <div class="sun-times">
+                        📍 নোয়াখালী / সেনবাগ<br>
+                        ☀️ সূর্যোদয়: <strong>০৫:৩৬ AM</strong><br>
+                        🌅 সূর্যাস্ত: <strong>১৭:০৮ PM</strong>
+                    </div>
                 </div>
-                <div class="sun-times">
-                    📍 নোয়াখালী / সেনবাগ<br>
-                    ☀️ সূর্যোদয়: <strong>০৫:৩৬ AM</strong><br>
-                    🌅 সূর্যাস্ত: <strong>১৭:০৮ PM</strong>
+
+                <div class="tithi-naksatra-box">
+                    <div class="tithi-title">বর্তমান পক্ষ ও তিথি:</div>
+                    <div class="tithi-desc">
+                        এখন <strong>শুক্লা পঞ্চমী</strong> তিথি। ১৬ অক্টোবর ২০২৬ ভোর <strong>০৩:২৫ (03:25 AM)</strong> এর পর শুক্লা ষষ্ঠী তিথি শুরু।
+                    </div>
+                </div>
+
+                <div class="tithi-naksatra-box" style="margin-top:6px;">
+                    <div class="tithi-title">নক্ষত্র:</div>
+                    <div class="tithi-desc">
+                        <strong>জ্যেষ্ঠা নক্ষত্র</strong> বিকেল ০৪:১২ মিনিট পর্যন্ত, অতঃপর <strong>মূল নক্ষত্র</strong> আরম্ভ।
+                    </div>
                 </div>
             </div>
 
-            <div class="tithi-naksatra-box">
-                <div class="tithi-title">বর্তমান পক্ষ ও তিথি:</div>
-                <div class="tithi-desc">
-                    এখন <strong>শুক্লা পঞ্চমী</strong> তিথি। ১৬ অক্টোবর ২০২৬ ভোর <strong>০৩:২৫ (03:25 AM)</strong> এর পর শুক্লা ষষ্ঠী তিথি শুরু।
+            <div class="tz-banner">
+                📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)
+            </div>
+
+            <div class="mantra-card">
+                <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
+                <div class="mantra-box">
+                    <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
+                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+                </div>
+                <div class="mantra-box">
+                    <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
+                    <em>“ত্ব প্রসাদস্বীকারাং কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
                 </div>
             </div>
+        </div>
 
-            <div class="tithi-naksatra-box" style="margin-top:6px;">
-                <div class="tithi-title">নক্ষত্র:</div>
-                <div class="tithi-desc">
-                    <strong>জ্যেষ্ঠা নক্ষত্র</strong> বিকেল ০৪:১২ মিনিট পর্যন্ত, অতঃপর <strong>মূল নক্ষত্র</strong> আরম্ভ।
+        <!-- ট্যাব ২: পঞ্জিকা ও শুভ দিন -->
+        <div id="tab-panjika" class="tab-content">
+            <div class="calc-toggle">
+                <button class="calc-btn active" onclick="setCalcMode('surya', this)">সূর্য সিদ্ধান্ত</button>
+                <button class="calc-btn" onclick="setCalcMode('drik', this)">দৃক সিদ্ধান্ত</button>
+            </div>
+
+            <div class="filter-scroll">
+                <button class="filter-chip active" onclick="filterEvents('all', this)">🌸 সকল দিন</button>
+                <button class="filter-chip" onclick="filterEvents('ekadashi', this)">🌺 একাদশী</button>
+                <button class="filter-chip" onclick="filterEvents('purnima', this)">🌕 পূর্ণিমা/অমাবস্যা</button>
+                <button class="filter-chip" onclick="filterEvents('smriti', this)">✨ বিশেষ তিরোধান/আবির্ভাব</button>
+                <button class="filter-chip" onclick="filterEvents('marriage', this)">💍 শুভ বিবাহ</button>
+                <button class="filter-chip" onclick="filterEvents('annaprasan', this)">🥣 অন্নপ্রাশন</button>
+            </div>
+
+            <div id="events-container"></div>
+        </div>
+
+        <!-- ট্যাব ৩: ব্রত মহিমা ও স্মৃতি আলেখ্য -->
+        <div id="tab-mohima" class="tab-content">
+            <div class="mantra-card">
+                <div class="mantra-title" style="font-size:1.1rem; color:var(--accent-red);">📜 বৈষ্ণব আচার্যবৃন্দের স্মৃতি আলেখ্য ও একাদশী মহিমা</div>
+                
+                <div class="mantra-box" style="margin-top:10px;">
+                    <strong style="color:#8e24aa;">✨ শ্রীরূপ গোস্বামী ও শ্রীসনাতন গোস্বামী তিরোধান:</strong><br>
+                    গৌড়ীয় বৈষ্ণব সাহিত্যের প্রাণপুরুষ রূপ-সনাতন। বৃন্দাবনের লুপ্ত তীর্থ উদ্ধার ও ভক্তিরসামৃতসিন্ধু রচনায় তাঁদের অবদান চিরস্মরণীয়।
+                </div>
+
+                <div class="mantra-box" style="margin-top:10px;">
+                    <strong style="color:var(--accent-red);">🌺 একাদশী ব্রতের পরম মাহাত্ম্য:</strong><br>
+                    শ্রীহরিভক্তিবিলাসে বলা হয়েছে, একাদশী উপবাসে সর্বপাপ বিনাশ হয় এবং শ্রীকৃষ্ণের প্রতি শুদ্ধাভক্তি প্রগাঢ় হয়। পারণকালে সঠিক সময়ে অন্ন বা নৈবেদ্য গ্রহণ পরম আবশ্যক।
                 </div>
             </div>
         </div>
 
-        <div class="tz-banner">
-            📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)
-        </div>
-
-        <div class="calc-toggle">
-            <button class="calc-btn active" onclick="setCalcMode('surya', this)">সূর্য সিদ্ধান্ত</button>
-            <button class="calc-btn" onclick="setCalcMode('drik', this)">দৃক সিদ্ধান্ত</button>
-        </div>
-
-        <div class="mantra-card">
-            <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
-            <div class="mantra-box">
-                <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-                <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
-            </div>
-            <div class="mantra-box">
-                <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                <em>“ত্ব প্রসাদস্বীকারাং কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+        <!-- ট্যাব ৪: সেটিংস -->
+        <div id="tab-settings" class="tab-content">
+            <div class="mantra-card">
+                <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও লোকেশন</div>
+                <p style="font-size:0.88rem; color:#333; margin-top:8px;">
+                    📍 বর্তমান লোকেশন: <strong>সেনবাগ, নোয়াখালী, বাংলাদেশ</strong><br>
+                    ⏰ টাইমজোন অটোমেটিক কনফিগার করা রয়েছে।
+                </p>
             </div>
         </div>
 
-        <!-- ফিল্টার বাটনসমূহ -->
-        <div class="filter-scroll">
-            <button class="filter-chip active" onclick="filterEvents('all', this)">🌸 সকল দিন</button>
-            <button class="filter-chip" onclick="filterEvents('ekadashi', this)">🌺 একাদশী</button>
-            <button class="filter-chip" onclick="filterEvents('purnima', this)">🌕 পূর্ণিমা/অমাবস্যা</button>
-            <button class="filter-chip" onclick="filterEvents('marriage', this)">💍 শুভ বিবাহ</button>
-            <button class="filter-chip" onclick="filterEvents('annaprasan', this)">🥣 অন্নপ্রাশন</button>
-            <button class="filter-chip" onclick="filterEvents('sadbhakshan', this)">🤰 সাধভক্ষণ/পঞ্চামৃত</button>
-            <button class="filter-chip" onclick="filterEvents('grihapravesh', this)">🏡 গৃহপ্রবেশ</button>
-        </div>
-
-        <!-- ইভেন্ট লিস্ট -->
-        <div id="events-container"></div>
     </div>
 
+    <!-- বটম নেভিগেশন বার -->
     <div class="nav-bar">
-        <a href="#" class="nav-item active">
+        <div class="nav-item active" onclick="switchTab('tab-home', this)">
             <div>🏠</div>
             এক নজরে
-        </a>
-        <a href="#" class="nav-item">
+        </div>
+        <div class="nav-item" onclick="switchTab('tab-panjika', this)">
             <div>📅</div>
             পঞ্জিকা
-        </a>
-        <a href="#" class="nav-item">
+        </div>
+        <div class="nav-item" onclick="switchTab('tab-mohima', this)">
             <div>📖</div>
             ব্রত মহিমা
-        </a>
-        <a href="#" class="nav-item">
+        </div>
+        <div class="nav-item" onclick="switchTab('tab-settings', this)">
             <div>⚙️</div>
             সেটিংস
-        </a>
+        </div>
     </div>
 
     <script>
@@ -432,6 +485,7 @@
                 category: "ekadashi",
                 tithi: "কৃষ্ণা একাদশী তিথি",
                 detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।",
+                smriti: null,
                 parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
@@ -443,30 +497,33 @@
                 category: "purnima",
                 tithi: "শুক্লা পূর্ণিমা তিথি",
                 detail: "শ্রীকৃষ্ণ রাসযাত্রা, শ্রীমন্মহাপ্রভুর রাসোৎসব। পূর্ণিমা নিশি পালন।",
+                smriti: "স্মৃতি আলেখ্য: বৃন্দাবনে শ্রীকৃষ্ণ ও গোপীদের অপ্রাকৃত রাসলীলার পরম পবিত্র স্মারক দিন।",
                 parana: null,
                 badge: "পূর্ণিমা",
                 badgeClass: "badge-purnima"
             },
             {
                 id: 3,
+                date: "১২ নভেম্বর ২০২৬, বৃহস্পতিবার",
+                title: "শ্রীল ভূগর্ভ গোস্বামী ও শ্রীল জীব গোস্বামী তিরোধান",
+                category: "smriti",
+                tithi: "কৃষ্ণা চতুর্দশী তিথি",
+                detail: "ষড়গোস্বামীর অন্যতম শ্রীল জীব গোস্বামী ও ভূগর্ভ গোস্বামীর স্মরণ মহোৎসব।",
+                smriti: "স্মৃতি আলেখ্য: শ্রীল জীব গোস্বামী বৈষ্ণব দর্শনের ভিত্তিপ্রস্তর ষট্-সন্দর্ভ গ্রন্থ রচনা করেছিলেন।",
+                parana: null,
+                badge: "তিরোধান তিথি",
+                badgeClass: "badge-smriti"
+            },
+            {
+                id: 4,
                 date: "১৫ নভেম্বর ২০২৬, রবিবার",
                 title: "শুভ বিবাহ লগ্ন",
                 category: "marriage",
                 tithi: "শুক্লা সপ্তমী তিথি",
                 detail: "শুভ বিবাহ লগ্ন: রাত ০৭:৩০ হতে রাত ১১:১৫ পর্যন্ত। শুভ গোধূলি বেলা।",
+                smriti: null,
                 parana: null,
                 badge: "শুভ মুহূর্ত",
-                badgeClass: "badge-subha"
-            },
-            {
-                id: 4,
-                date: "১৮ নভেম্বর ২০২৬, বুধবার",
-                title: "শুভ অন্নপ্রাশন ও নামকরণ",
-                category: "annaprasan",
-                tithi: "শুক্লা দশমী তিথি",
-                detail: "শুভ অন্নপ্রাশন সময়: সকাল ০৭:১৫ হতে সকাল ১০:৩০ পর্যন্ত।",
-                parana: null,
-                badge: "শুভ কর্ম",
                 badgeClass: "badge-subha"
             },
             {
@@ -476,31 +533,10 @@
                 category: "ekadashi",
                 tithi: "শুক্লা একাদশী তিথি",
                 detail: "চাতুর্মাস্ত ব্রত সমাপ্তি ও শ্রী গোবিন্দ উত্থান উৎসব।",
+                smriti: null,
                 parana: "সকাল ০৬:২৩ হতে সকাল ১০:০১ পর্যন্ত (২১ নভেম্বর)",
                 badge: "একাদশী",
                 badgeClass: "badge-ekadashi"
-            },
-            {
-                id: 6,
-                date: "২২ নভেম্বর ২০২৬, রবিবার",
-                title: "শুভ সাধভক্ষণ ও পঞ্চামৃত",
-                category: "sadbhakshan",
-                tithi: "ত্রয়োদশী তিথি",
-                detail: "গর্ভবতী নারীর শুভ সাধভক্ষণ ও পঞ্চামৃত গ্রহণ লগ্ন: দুপুর ১২:১০ হতে দুপুর ০২:৩০।",
-                parana: null,
-                badge: "শুভ সংস্কার",
-                badgeClass: "badge-subha"
-            },
-            {
-                id: 7,
-                date: "২৫ নভেম্বর ২০২৬, বুধবার",
-                title: "শুভ গৃহপ্রবেশ ও বাস্তুপূজা",
-                category: "grihapravesh",
-                tithi: "দ্বীতিয়া তিথি",
-                detail: "শুভ গৃহপ্রবেশ লগ্ন: সকাল ০৮:৪০ হতে সকাল ১১:২০ মিনিট পর্যন্ত।",
-                parana: null,
-                badge: "বাস্তু শুভ",
-                badgeClass: "badge-subha"
             }
         ];
 
@@ -509,12 +545,24 @@
             document.getElementById('user-tz').innerText = userTz || "Asia/Dhaka";
         } catch(e) {}
 
+        function switchTab(tabId, navElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            navElement.classList.add('active');
+
+            if(tabId === 'tab-panjika') {
+                renderEvents(panjikaData);
+            }
+        }
+
         function renderEvents(items) {
             const container = document.getElementById('events-container');
             container.innerHTML = '';
 
             if(items.length === 0) {
-                container.innerHTML = '<div style="text-align:center; padding: 25px; color: var(--accent-gold); font-size:0.95rem;">এই বিভাগে কোন নির্ধারিত শুভ দিন পাওয়া যায়নি।</div>';
+                container.innerHTML = '<div style="text-align:center; padding: 25px; color: var(--accent-gold); font-size:0.95rem;">এই বিভাগে কোন নির্ধারিত দিন পাওয়া যায়নি।</div>';
                 return;
             }
 
@@ -533,6 +581,7 @@
                         <div class="event-title">${item.title}</div>
                         <div class="event-detail">📌 <strong>তিথি:</strong> ${item.tithi}</div>
                         <div class="event-detail">${item.detail}</div>
+                        ${item.smriti ? `<div class="smriti-text">✨ ${item.smriti}</div>` : ''}
                         ${item.parana ? `<div class="parana-time">⏰ <strong>পারণ সময়কাল:</strong> ${item.parana}</div>` : ''}
                     </div>
                 `;
@@ -550,9 +599,6 @@
                 const filtered = panjikaData.filter(item => item.category === category);
                 renderEvents(filtered);
             }
-
-            // ফিল্টার বাটনে ক্লিক করলে ইভেন্ট লিস্ট সেকশনে অটো স্ক্রিন স্ক্রল হবে
-            document.getElementById('events-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function setCalcMode(mode, btnElement) {
