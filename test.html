@@ -166,6 +166,24 @@
             line-height: 1.4;
         }
 
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gold);
+            margin-top: 6px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .calc-toggle {
             display: flex;
             gap: 8px;
@@ -237,6 +255,21 @@
             display: block;
         }
 
+        .event-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .event-card.ekadashi { border-left-color: #c62828; }
+        .event-title { font-weight: bold; color: var(--accent-red); font-size: 0.9rem; }
+        .event-date { font-size: 0.8rem; color: #555; }
+        .event-detail { font-size: 0.82rem; margin-top: 3px; }
+        .parana-time { font-size: 0.8rem; color: var(--accent-green); font-weight: bold; margin-top: 2px; }
+
         .bibidh-section-title {
             text-align: center;
             color: var(--text-gold);
@@ -284,7 +317,7 @@
             font-weight: 500;
         }
 
-        /* মোডাল উইন্ডো */
+        /* মোডাল উইন্ডো কাস্টমাইজেশন */
         #modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -397,7 +430,7 @@
 </head>
 <body>
 
-    <!-- মোডাল উইন্ডো -->
+    <!-- পপ-আপ মোডাল উইন্ডো -->
     <div id="modal-overlay" onclick="closeModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
             <div class="modal-title" id="modalTitle">শিরোনাম</div>
@@ -464,12 +497,12 @@
                 </div>
             </div>
 
-            <!-- অডিও -->
+            <!-- ভিডিও প্লেয়ার (অডিও সম্পূর্ণ পরিবর্তন করে ভিডিও যুক্ত করা হয়েছে) -->
             <div class="mantra-card">
-                <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন অডিও</div>
-                <audio controls style="width:100%; border-radius:20px;">
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                </audio>
+                <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL3885375225E03A12" title="Hari Naam Sankirtan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
 
             <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
@@ -491,7 +524,7 @@
             <button class="btn-main share-btn" onclick="shareApp()">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
         </div>
 
-        <!-- ট্যাব ২: পঞ্জিকা -->
+        <!-- ট্যাব ২: পঞ্জিকা (কার্তিক মাসের দুইটি একাদশী সহ) -->
         <div id="tab-panjika" class="tab-content">
             <div class="calc-toggle">
                 <button class="calc-btn active" id="btn-surya" onclick="setCalcMode('surya')">সূর্য সিদ্ধান্ত গণনা</button>
@@ -508,7 +541,7 @@
                 <div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">19 Oct</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">20 Oct</span></div><div class="cal-date-cell"><strong>৩</strong><span class="eng-sub">21 Oct</span></div>
                 <div class="cal-date-cell special-ekadashi"><strong>৪</strong><span class="eng-sub">22 Oct</span></div><div class="cal-date-cell"><strong>৫</strong><span class="eng-sub">23 Oct</span></div><div class="cal-date-cell"><strong>৬</strong><span class="eng-sub">24 Oct</span></div>
                 
-                <div class="cal-date-cell special-purnima"><strong>৭</strong><span class="eng-sub">25 Oct</span></div><div class="cal-date-cell"><strong>৮</strong><span class="eng-sub">26 Oct</span></div><div class="cal-date-cell"><strong>৯</strong><span class="eng-sub">27 Oct</span></div><div class="cal-date-cell"><strong>১০</strong><span class="eng-sub">28 Oct</span></div><div class="cal-date-cell"><strong>১১</strong><span class="eng-sub">29 Oct</span></div><div class="cal-date-cell special-ekadashi"><strong>১২</strong><span class="eng-sub">30 Oct</span></div><div class="cal-date-cell"><strong>১৩</strong><span class="eng-sub">31 Oct</span></div>
+                <div class="cal-date-cell special-purnima"><strong>৭</strong><span class="eng-sub">25 Oct</span></div><div class="cal-date-cell"><strong>৮</strong><span class="eng-sub">26 Oct</span></div><div class="cal-date-cell"><strong>৯</strong><span class="eng-sub">27 Oct</span></div><div class="cal-date-cell"><strong>১০</strong><span class="eng-sub">28 Oct</span></div><div class="cal-date-cell"><strong>১১</strong><span class="eng-sub">29 Oct</span></div><div class="cal-date-cell"><strong>১২</strong><span class="eng-sub">30 Oct</span></div><div class="cal-date-cell"><strong>১৩</strong><span class="eng-sub">31 Oct</span></div>
                 
                 <div class="cal-date-cell"><strong>১৪</strong><span class="eng-sub">01 Nov</span></div><div class="cal-date-cell"><strong>১৫</strong><span class="eng-sub">02 Nov</span></div><div class="cal-date-cell"><strong>১৬</strong><span class="eng-sub">03 Nov</span></div><div class="cal-date-cell"><strong>১৭</strong><span class="eng-sub">04 Nov</span></div><div class="cal-date-cell special-ekadashi"><strong>১৮</strong><span class="eng-sub">05 Nov</span></div><div class="cal-date-cell"><strong>১৯</strong><span class="eng-sub">06 Nov</span></div><div class="cal-date-cell"><strong>২০</strong><span class="eng-sub">07 Nov</span></div>
                 
@@ -516,35 +549,44 @@
                 <div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Nov</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Nov</span></div><div class="cal-date-cell"><strong>৩০</strong><span class="eng-sub">17 Nov</span></div>
             </div>
 
+            <!-- কার্তিক মাসের ২টি একাদশী ব্রতের বিস্তারিত সূচি -->
             <div id="events-container">
                 <div class="event-card ekadashi">
-                    <span class="badge badge-ekadashi">একাদশী ব্রত</span>
+                    <span style="background:#c62828; color:#fff; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:bold;">১ম একাদশী (শুক্লপক্ষ)</span>
                     <div class="event-date">📅 ৪ কার্তিক (২২ অক্টোবর ২০২৬, বৃহস্পতিবার)</div>
                     <div class="event-title">শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত</div>
-                    <div class="event-detail">নিয়মসেবা বা কার্তিক ব্রত আরম্ভ। শ্রীহরি প্রীতি কামনায় উপবাস।</div>
-                    <div class="parana-time">⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬/০৯/৪৪ গতে ০৯/৫৬/৫২ মধ্যে।</div>
+                    <div class="event-detail">নিয়মসেবা বা কার্তিক ব্রত আরম্ভ। শ্রীহরি প্রীতি কামনায় সর্বপাপবিনাশী উপবাস।</div>
+                    <div class="parana-time">⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯:৪৪ গতে ০৯:৫৬:৫২ মধ্যে।</div>
+                </div>
+
+                <div class="event-card ekadashi">
+                    <span style="background:#c62828; color:#fff; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:bold;">২য় একাদশী (কৃষ্ণপক্ষ)</span>
+                    <div class="event-date">📅 ১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার)</div>
+                    <div class="event-title">শ্রীশ্রী রমা একাদশী ব্রত</div>
+                    <div class="event-detail">কার্তিক কৃষ্ণপক্ষের মহাপবিত্র রমা একাদশী ব্রত উপবাস।</div>
+                    <div class="parana-time">⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে।</div>
                 </div>
             </div>
         </div>
 
-        <!-- ট্যাব ৩: বিবিধ (সকল নতুন স্ক্রিনশটের তথ্যসহ সংযোজিত) -->
+        <!-- ট্যাব ৩: বিবিধ (আপডেটকৃত সকল পপ-আপসহ) -->
         <div id="tab-bibidh" class="tab-content">
             
             <div class="bibidh-section-title">উৎসব ও ছুটির তালিকা</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('সরকারি ছুটি', '১৪৩৩ বঙ্গাব্দের সকল সরকারি ও ঐচ্ছিক ছুটির তালিকা সংরক্ষিত আছে।')">
+                <div class="icon-item" onclick="openPopup('সরকারি ছুটি', '১৪৩৩ বঙ্গাব্দের সকল সরকারি ও ঐচ্ছিক ছুটির সূচি।')">
                     <div class="icon-circle">📜</div>
                     <div class="icon-label">সরকারি ছুটি</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('দুর্গাপূজা নির্ঘণ্ট', 'শ্রীশ্রী দুর্গাপূজা ১৪৩৩: মহাষষ্ঠী (১৮ অক্টোবর), মহাসপ্তমী (১৯ অক্টোবর), মহাঅষ্টমী (২০ অক্টোবর), মহানবমী (২১ অক্টোবর) এবং বিজয়া দশমী (২২ অক্টোবর)।')">
+                <div class="icon-item" onclick="openPopup('দুর্গাপূজা নির্ঘণ্ট', 'শ্রীশ্রী দুর্গাপূজা ১৪৩৩:\n• ১৮ অক্টোবর (মহাষষ্ঠী)\n• ১৯ অক্টোবর (মহাসপ্তমী)\n• ২০ অক্টোবর (মহাঅষ্টমী)\n• ২১ অক্টোবর (মহানবমী)\n• ২২ অক্টোবর (বিজয়া দশমী)')">
                     <div class="icon-circle">🪔</div>
                     <div class="icon-label">দুর্গাপূজা নির্ঘণ্ট</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('পর্বদিন ১৪৩৩', '১৪৩৩ বঙ্গাব্দের প্রধান প্রধান ধর্মীয় পর্বদিনসমূহের সূচি।')">
+                <div class="icon-item" onclick="openPopup('পর্বদিন ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সকল প্রধান ধর্মীয় ও ঐতিহাসিক পর্বদিনের নির্ঘণ্ট ও বিশেষ তিথি বিবরণ।')">
                     <div class="icon-circle">🌸</div>
                     <div class="icon-label">পর্বদিন ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('বৈষ্ণব পর্ব', 'গৌড়ীয় বৈষ্ণবীয় আচার্যবৃন্দের আবির্ভাব ও তিরোধান তিথির তালিকা।')">
+                <div class="icon-item" onclick="openPopup('বৈষ্ণব পর্ব', 'গৌড়ীয় বৈষ্ণবীয় আচার্যবৃন্দের আবির্ভাব ও তিরোধান তিথির পবিত্র তালিকা।')">
                     <div class="icon-circle">📿</div>
                     <div class="icon-label">বৈষ্ণব পর্ব</div>
                 </div>
@@ -552,19 +594,19 @@
 
             <div class="bibidh-section-title">ব্রত উপবাস ও পারণ</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('একাদশী উপবাস', 'অপরা একাদশী (১৩ মে ২০২৬): ১২ মে মঙ্গলবার দুপুর ১৪:৫২ হতে ১৩ মে বুধবার দুপুর ১৩:৩০ পর্যন্ত একাদশী থাকবে। স্মার্ত, গোস্বামী ও নিম্বার্ক মতে ২৯ বৈশাখ (১৩ মে) বুধবার অপরা একাদশী উপবাস এবং ৩০ বৈশাখ (১৪ মে) বৃহস্পতিবার সকাল ০৯:২২ মধ্যে অপরা একাদশী পারণ। (দৃক সিদ্ধান্ত মতে)')">
+                <div class="icon-item" onclick="openEkadashiListModal()">
                     <div class="icon-circle">🌙</div>
                     <div class="icon-label">একাদশী উপবাস</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('পূর্ণিমা অমাবস্যা', 'সারা বছরের সকল পূর্ণিমা ও অমাবস্যা তিথির সময়সূচি।')">
+                <div class="icon-item" onclick="openPopup('পূর্ণিমা অমাবস্যা', 'সারা বছরের সকল পূর্ণিমা ও অমাবস্যা তিথির প্রারম্ভ ও সমাপ্তি সময়সূচি।')">
                     <div class="icon-circle">🌗</div>
                     <div class="icon-label">পূর্ণিমা অমাবস্যা</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('স্নান যাত্রা', 'শ্রীশ্রী জগন্নাথদেবের মহাপবিত্র স্নান যাত্রা উৎসবের তথ্য।')">
+                <div class="icon-item" onclick="openPopup('স্নান যাত্রা', 'শ্রীশ্রী জগন্নাথদেবের মহাপবিত্র স্নান যাত্রা উৎসবের পূর্ণাঙ্গ তথ্য।')">
                     <div class="icon-circle">🌅</div>
                     <div class="icon-label">স্নান যাত্রা</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('বিবিধ ব্রত', 'জন্মাষ্টমী, রাধাষ্টমী, গৌরপূর্ণিমা ও অন্যান্য ব্রত নিয়ম।')">
+                <div class="icon-item" onclick="openPopup('বিবিধ ব্রত', 'জন্মাষ্টমী, রাধাষ্টমী, গৌরপূর্ণিমা, প্রদোষ ব্রত, সংকষ্ট চতুর্থী, শিবরাত্রি এবং অন্যান্য বিশেষ ব্রত পালনের নিয়মাবলী।')">
                     <div class="icon-circle">🪷</div>
                     <div class="icon-label">বিবিধ ব্রত</div>
                 </div>
@@ -572,15 +614,15 @@
 
             <div class="bibidh-section-title">শুভকর্ম ও লগ্ন</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('বিবাহ ১৪৩৩', 'শুভ বিবাহ (দৃক সিদ্ধান্ত মতে):\n• ১৯ এপ্রিল ২০২৬ (০৫ বৈশাখ): রবিবার রাত্রি ০৪:৩৫ AM এরপর রাত্রি ০৪:৫৮ AM মধ্যে মীন লগ্নে সুতহিবুকযোগে বিবাহ।\n• ২১ এপ্রিল ২০২৬ (০৭ বৈশাখ): মঙ্গলবার সন্ধ্যা ১৭:৫৫ PM এরপর রাত্রি ১৯:২০ PM মধ্যে তুলা লগ্নে সুতহিবুকযোগে বিবাহ।')">
+                <div class="icon-item" onclick="openPopup('বিবাহ ১৪৩৩', '১৪৩৩ বঙ্গাব্দের কার্তিক, অগ্রহায়ণ, মাঘ ও ফাল্গুন মাসের সকল শুভ বিবাহ লগ্ন ও দিনক্ষণ (দৃক সিদ্ধান্ত মতানুযায়ী):\n\n• ১৯ এপ্রিল ২০২৬ (০৫ বৈশাখ, রবি): লগ্ন ০৪:৩৫ AM হতে ০৪:৫৮ AM মীন লগ্নে।\n• ২১ এপ্রিল ২০২৬ (০৭ বৈশাখ, মঙ্গল): লগ্ন ১৭:৫৫ PM হতে ১৯:২০ PM তুলা লগ্নে।\n• ০৩ মে ২০২৬ (১৯ বৈশাখ, রবি): লগ্ন ১৮:০০ PM হতে ১৮:৫০ PM তুলা লগ্নে।')">
                     <div class="icon-circle">🦋</div>
                     <div class="icon-label">বিবাহ ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('সাধভক্ষণ ১৪৩৩ ও শুভকর্ম', 'গর্ভঅবস্থায় মাকে খাওয়ানোর ঐতিহ্যবাহী আচার অনুষ্ঠান (দৃক সিদ্ধান্ত অনুযায়ী গণনা করা হয়েছে)। এছাড়া অন্নপ্রাশন, গাত্রহরিদ্রা ও গৃহপ্রবেশের লগ্ন।')">
+                <div class="icon-item" onclick="openPopup('শুভকর্ম ১৪৩৩', 'অন্নপ্রাশন, সাধভক্ষণ (গর্ভঅবস্থায় মাকে খাওয়ানোর ঐতিহ্যবাহী অনুষ্ঠান), গৃহারম্ভ, গৃহপ্রবেশ, দেবতা প্রতিষ্ঠা, পুণ্যাহ ও পবিত্র যজ্ঞের শুভ লগ্ন।')">
                     <div class="icon-circle">卐</div>
                     <div class="icon-label">শুভকর্ম ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('গ্রহণ বিবরণ', 'সূর্য ও চন্দ্র গ্রহণের স্পর্শ, মধ্য, মোক্ষ এবং সূতক কাল।')">
+                <div class="icon-item" onclick="openPopup('গ্রহণ বিবরণ', 'সূর্য ও চন্দ্র গ্রহণের স্পর্শ, মধ্য, মোক্ষ এবং সূতক কালের সূচি।')">
                     <div class="icon-circle">🌑</div>
                     <div class="icon-label">গ্রহণ বিবরণ</div>
                 </div>
@@ -592,11 +634,11 @@
 
             <div class="bibidh-section-title">পঞ্জিকা বিষয়ক জ্যোতিষ তত্ত্ব</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('দৈনিক রাশিফল', '১২টি রাশির দৈনিক জ্যোতিষ ফলফল।')">
+                <div class="icon-item" onclick="openPopup('দৈনিক রাশিফল', '১২টি রাশির দৈনিক জ্যোতিষ ফলাফল ও বৈষ্ণবীয় গাইডলাইন।')">
                     <div class="icon-circle">☸️</div>
                     <div class="icon-label">দৈনিক রাশিফল</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('জন্মরাশি ও স্বপ্নতত্ত্ব', 'স্বপ্ন মানুষের একটি মানসিক অবস্থা। পক্ষ, সময়, প্রহর ও শয়নকালীন অবস্থা অনুযায়ী স্বপ্ন ফল পরিবর্তন হতে পারে।')">
+                <div class="icon-item" onclick="openPopup('জন্মরাশি ও স্বপ্নতত্ত্ব', 'স্বপ্ন মানুষের অবচেতন মানসিক অবস্থা। পক্ষ, সময়, প্রহর ও শয়নকালীন অবস্থার উপর ভিত্তি করে স্বপ্নের শুভাশুভ ফল নির্ধারিত হয়।')">
                     <div class="icon-circle">⚛️</div>
                     <div class="icon-label">জন্মরাশি ও স্বপ্ন</div>
                 </div>
@@ -604,7 +646,7 @@
                     <div class="icon-circle">⭐</div>
                     <div class="icon-label">নক্ষত্র প্রকৃতি</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('টিকটিকি, তিল ও কম্পন তত্ত্ব', 'শরীরের বিভিন্ন অংশে টিকটিকি পতন, মুখের তিল এবং হঠাৎ মৃদু কম্পন বা স্পন্দনের জ্যোতিষশাস্ত্রীয় ফলকথা।')">
+                <div class="icon-item" onclick="openPopup('তত্ত্বসমূহ', 'শরীরের বিভিন্ন অংশে টিকটিকি পতন, মুখের তিলের অবস্থান এবং হঠাৎ মৃদু কম্পন বা স্পন্দনের প্রাচীন জ্যোতিষশাস্ত্রীয় ব্যাখ্যা।')">
                     <div class="icon-circle">🦎</div>
                     <div class="icon-label">তত্ত্বসমূহ</div>
                 </div>
@@ -612,19 +654,19 @@
 
             <div class="bibidh-section-title">ডিজিটাল উপযোগিতা ও টুলস</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('সময় মন্ডল', 'বিশ্বের বিভিন্ন প্রধান শহরের বর্তমান স্থানীয় সময়।')">
+                <div class="icon-item" onclick="openPopup('সময় মন্ডল', 'বিশ্বের বিভিন্ন প্রধান শহরের বর্তমান স্থানীয় সময় ও টাইম জোন।')">
                     <div class="icon-circle">🌐</div>
                     <div class="icon-label">সময় মন্ডল</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('আবহাওয়া', 'সেনবাগ, নোয়াখালী অঞ্চলের আবহাওয়া আপডেট।')">
+                <div class="icon-item" onclick="openPopup('আবহাওয়া পূর্বাভাস', 'সেনবাগ, নোয়াখালী এবং বাংলাদেশ অঞ্চলের রিয়েল-টাইম আবহাওয়া ও তাপমাত্রা।')">
                     <div class="icon-circle">🌦️</div>
                     <div class="icon-label">আবহাওয়া</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('বয়স গণনা', 'সহজে আপনার বয়স ক্যালকুলেট করুন।')">
+                <div class="icon-item" onclick="openPopup('বয়স গণনা', 'সহজে আপনার নিখুঁত বয়সের হিসাব ক্যালকুলেট করুন।')">
                     <div class="icon-circle">⏳</div>
                     <div class="icon-label">বয়স গণনা</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('দিক নির্ণয়', 'পূজা ও বাস্তুর জন্য ডিজিটাল দিক নির্ণায়ক।')">
+                <div class="icon-item" onclick="openPopup('দিক নির্ণয় কম্পাস', 'বাস্তুশাস্ত্র ও মন্দির পূজার জন্য সঠিক উত্তর-দক্ষিণ দিক নির্ণায়ক ডিজিটাল কম্পাস।')">
                     <div class="icon-circle">🧭</div>
                     <div class="icon-label">দিক নির্ণয়</div>
                 </div>
@@ -673,10 +715,10 @@
             const titleEl = document.getElementById('calcModeTitle');
             if(mode === 'surya') {
                 document.getElementById('btn-surya').classList.add('active');
-                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ (সূর্য সিদ্ধান্ত মতে)";
+                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪ ৩৩ বঙ্গাব্দ (সূর্য সিদ্ধান্ত মতে)";
             } else {
                 document.getElementById('btn-drik').classList.add('active');
-                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ (দৃক সিদ্ধান্ত মতে)";
+                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪ ৩৩ বঙ্গাব্দ (দৃক সিদ্ধান্ত মতে)";
             }
         }
 
@@ -686,32 +728,48 @@
             document.getElementById('modal-overlay').style.display = 'flex';
         }
 
-        // তর্পণ বিধি ও মন্ত্রাবলি
+        // বাৎসরিক ২৬টি একাদশী ব্রত ও পারণের বিস্তারিত পপ-আপ
+        function openEkadashiListModal() {
+            const ekadashiData = `🌙 বাৎসরিক ২৬টি একাদশী ব্রত ও পারণের সময়কাল (শ্রীহরিভক্তিবিলাস অনুযায়ী):
+
+১. অপরা একাদশী (১৩ মে ২০২৬, বুধ):
+• তিথি প্রারম্ভ: ১২ মে দুপুর ০২:৫২ PM হতে ১৩ মে দুপুর ০১:৩০ PM পর্যন্ত।
+• পারণ সময়: ১৪ মে সকাল ০৯:২২ AM এর মধ্যে।
+• পারণ মন্ত্র: "একাদশ্যাং নিরাহারব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ মুক্তি দৃষ্টি প্রদো ভব।।"
+
+২. পাশাঙ্কুশা একাদশী (২২ অক্টোবর ২০২৬, বৃহস্পতি):
+• কার্তিক শুক্লপক্ষ একাদশী।
+• পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯ AM হতে ০৯:৫৬ AM এর মধ্যে।
+
+৩. রমা একাদশী (০৫ নভেম্বর ২০২৬, বৃহস্পতি):
+• কার্তিক কৃষ্ণপক্ষ একাদশী।
+• পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮ AM হতে ০৯:৫৮ AM এর মধ্যে।
+
+(এভাবে সারা বছরের প্রতিটি কৃষ্ণপক্ষ ও শুক্লপক্ষের ২৬টি একাদশী ব্রত স্মার্ত, গোস্বামী ও নিম্বার্ক মতে সুনির্দিষ্টভাবে পরিচালিত হয়)।`;
+
+            openPopup('একাদশী উপবাস ও পারণ নির্ঘণ্ট', ekadashiData);
+        }
+
+        // সম্পূর্ণ তর্পণ বিধির বিবরণ
         function openTorponModal() {
             const torponData = `🪶 তর্পণ বিধি ও শাস্ত্রীয় নিয়মাবলী:
 
-১. সাধারণ উপকরণ:
-আসন-কুশাসন বা বজ্রাসন, কাঠ, তামা বা পিতলের শুদ্ধ থালা, জল রাখার শুদ্ধ পাত্র, জল তোলার চামচ, শুদ্ধ বা গঙ্গাজল, তুলসি পত্র, কালো তিল এবং কুশের আংটি।
+পূর্বপুরুষের উদ্দেশ্যে পিণ্ডদান, শ্রাদ্ধ এবং বৈষ্ণবীয় তর্পণ সম্পাদনের শাস্ত্রীয় বিধি।
 
-২. বিভিন্ন তীর্থ (হাতের ব্যবহার):
-• দেব তীর্থ: ডান হাতের সমস্ত আঙুলের অগ্রভাগ।
-• কায়তীর্থ বা প্রজাপতি তীর্থ: ডান হাতের কনিষ্ঠার মূল।
-• পিতৃতীর্থ: ডান হাতের তর্জনী ও বুড়ো আঙুলের মধ্যদেশ।
-• ব্রাহ্মতীর্থ: ডান হাতের বুড়ো আঙুলের মূল।
+১. তর্পণ প্রণালী:
+স্নানের শেষে আচমন, তিল ধারণ, শিখাবন্ধনাদি করে প্রথমে ডান কাঁধে যজ্ঞোপবীত (পৈতে) রেখে ও দক্ষিণ দিকে মুখ করে করজোড়ে তীর্থ আবাহন করবেন।
+• তীর্থ আবাহন মন্ত্র: "ওঁ কুরুক্ষেত্রং গয়া গঙ্গা প্রভাস পুষ্করাণি চ। তীর্থান্যৈতানি পুণ্যানি তর্পণকালে ভবস্তিহ।।"
 
-৩. যম তর্পণ:
-“ওঁ যমায় ধর্মরাজায় মৃত্যবে চান্তকায় চ। বৈবস্বতায় কালায় সর্ব্বভূতক্ষয়ায় চ। ওডুম্বরায় দধ্নায় নীলায় পরমেষ্ঠিনে। বৃকোদরায় চিত্রায় চিত্রগুপ্তায় বৈ নমঃ।।” (৩ বার পাঠ করে ৩ অঞ্জলি জল)।
+২. দেব তর্পণ মন্ত্র:
+"ওঁ ব্রহ্ম তৃপ্যতাম্, ওঁ বিষ্ণু তৃপ্যতাম্, ওঁ রুদ্র তৃপ্যতাম্, ওঁ প্রজাপতি তৃপ্যতাম্।।" (স্ত্রী ও অব্রাহ্মণগণ "ওঁ" এর জায়গায় "নম" বলবেন)।
 
-৪. পিতৃ তর্পণ:
-গোত্র, সম্বন্ধ ও নাম উল্লেখ করে পিতা, পিতামহ, প্রপিতামহ, মাতামহ, প্রমাতামহ, বৃদ্ধপ্রমাতামহ, মাতা, পিতামহী, প্রপিতামহী এই নয়জনের প্রত্যেককে ৩ বার করে অঞ্জলি দেবেন।
+৩. যম, ভীষ্ম ও পিতৃ তর্পণ:
+গোত্র, নাম ও সম্বন্ধ উল্লেখপূর্বক তিলোদক প্রদান করে পিতা-মাতা, ঋষি ও দেবগণের সন্তুষ্টি বিধানে তর্পণ সমাপ্ত করবেন।`;
 
-৫. ভীষ্ম তর্পণ:
-“ওঁ বৈয়াঘ্ৰপদ্যগোত্রায় সংস্কৃতিপ্রবরায় চ। অপুত্ৰায় দদাম্যেতৎ সলিলং ভীষ্মবর্মণে।।” (৩ অঞ্জলি জল)।`;
-
-            openPopup('সম্পূর্ণ তর্পণ বিধি ও মন্ত্রাবলী', torponData);
+            openPopup('তর্পণ বিধি ও প্রণালী', torponData);
         }
 
-        // নক্ষত্রের জাতক প্রকৃতি
+        // নক্ষত্র প্রকৃতি
         function openNakshatraModal() {
             const nakshatraText = `⭐ নক্ষত্রের জাতক প্রকৃতি (অশ্বিনী নক্ষত্র):
 
