@@ -424,6 +424,7 @@
 
         .map-btn { background: linear-gradient(135deg, #1976d2, #0d47a1); color: #fff; }
         .share-btn { background: #2e7d32; color: white; }
+        .youtube-channel-btn { background: #cc0000; color: white; margin-top: 6px; }
 
         .nav-bar {
             position: fixed;
@@ -515,12 +516,15 @@
                 </div>
             </div>
 
-            <!-- ভিডিও প্লেয়ার (সচল ও প্লেয়াবল ইউটিউব এমবেড) -->
+            <!-- ভিডিও প্লেয়ার ও চ্যানেল লিঙ্ক ফিক্সড -->
             <div class="mantra-card">
                 <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Hari Naam Sankirtan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Hari Naam Sankirtan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="btn-main youtube-channel-btn">
+                    📺 আমাদের ইউটিউব চ্যানেল ভিজিট করুন (Paramarthik Pathshala)
+                </a>
             </div>
 
             <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
@@ -739,7 +743,6 @@
             }
         }
 
-        // স্থানীয় সময় অনুযায়ী সূর্যোদয়, সূর্যাস্ত ও পারণ সময় আপডেট করার ডাইনামিক ফাংশন
         function updateLocationTime() {
             const loc = document.getElementById('locationSelect').value;
             const sunriseEl = document.getElementById('sunriseTime');
