@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - পূর্ণাঙ্গ বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা ও পঞ্জাঙ্গ</title>
     <style>
         :root {
             --bg-primary: #1f0204;
@@ -216,6 +216,50 @@
             border: 1px solid var(--accent-gold);
         }
 
+        /* ক্যালেণ্ডার গ্রিড ভিউ */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1.5px solid var(--accent-gold);
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .cal-day-head {
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent-bright-red);
+            font-size: 0.85rem;
+            padding-bottom: 5px;
+        }
+
+        .cal-date-cell {
+            background: #fdfae6;
+            border: 1px solid #e0d0b0;
+            border-radius: 6px;
+            min-height: 42px;
+            padding: 4px;
+            text-align: center;
+            font-size: 0.82rem;
+            position: relative;
+        }
+
+        .cal-date-cell.today {
+            background: #ffeb3b;
+            border: 2px solid var(--accent-bright-red);
+            font-weight: bold;
+        }
+
+        .cal-date-cell .eng-sub {
+            font-size: 0.68rem;
+            color: #666;
+            display: block;
+        }
+
         .mantra-card {
             background: var(--card-bg);
             color: var(--text-dark);
@@ -302,6 +346,28 @@
         .event-title { font-size: 0.95rem; font-weight: bold; margin-bottom: 5px; }
         .event-detail { font-size: 0.85rem; color: #444; margin-top: 4px; line-height: 1.4; }
         .sutak-box { background: #ffebee; color: #b71c1c; padding: 6px; border-radius: 6px; font-size: 0.82rem; margin-top: 6px; border: 1px solid #ffcdd2; font-weight: bold; }
+
+        /* রাশিফল গ্রিড */
+        .rashi-select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: #fff;
+            color: var(--text-dark);
+        }
+
+        .rashi-card-result {
+            background: #fffdf2;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            color: #333;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
 
         .btn-main {
             background: linear-gradient(135deg, #d4af37, #b8860b);
@@ -415,11 +481,32 @@
 
                 <div class="tithi-naksatra-box">
                     <div class="tithi-title">বর্তমান পক্ষ ও তিথি:</div>
-                    <div class="tithi-desc" id="display-tithi-info">এখন <strong>শুক্লা ষষ্ঠী</strong> তিথি। আজকের শুভ তিথি পালিত হচ্ছে।</div>
+                    <div class="tithi-desc" id="display-tithi-info">এখন <strong>শুক্লা ষষ্ঠী</strong> তিথি। আজকের শ্রীশ্রী দুর্গাপূজার ষষ্ঠী পূজা ও দুর্গোৎসব প্রারম্ভ।</div>
                 </div>
             </div>
 
-            <div class="tz-banner">📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)</div>
+            <!-- অটোমেটিক দৈনিক রাশিফল সেকশন -->
+            <div class="mantra-card">
+                <div class="mantra-title">✨ অটোমেটিক দৈনিক রাশিফল</div>
+                <p style="font-size:0.82rem; color:#555; margin-bottom:8px; text-align:center;">আপনার রাশি নির্বাচন করে আজকের পূর্বাভাস জানুন:</p>
+                <select id="rashiSelect" class="rashi-select" onchange="updateRashiData()">
+                    <option value="mesh">মেষ রাশি (Aries)</option>
+                    <option value="vrish">বৃষ রাশি (Taurus)</option>
+                    <option value="mithun">মিথুন রাশি (Gemini)</option>
+                    <option value="karkat">কর্কট রাশি (Cancer)</option>
+                    <option value="singha">সিংহ রাশি (Leo)</option>
+                    <option value="kanya">কন্যা রাশি (Virgo)</option>
+                    <option value="tula">তুলা রাশি (Libra)</option>
+                    <option value="vrischick">বৃশ্চিক রাশি (Scorpio)</option>
+                    <option value="dhanu">ধনু রাশি (Sagittarius)</option>
+                    <option value="makar">মকর রাশি (Capricorn)</option>
+                    <option value="kumbha">কুম্ভ রাশি (Aquarius)</option>
+                    <option value="meen">মীন রাশি (Pisces)</option>
+                </select>
+                <div id="rashiOutput" class="rashi-card-result">
+                    আজ বৈষ্ণবীয় কৃপায় আপনার কাজে উন্নতি ও মানসিক শান্তি বজায় থাকবে। ধর্মীয় জপ ও নামসংকীর্তনে মনোযোগ দিন।
+                </div>
+            </div>
 
             <!-- অডিও প্রবচন ও কীর্তন -->
             <div class="mantra-card">
@@ -447,24 +534,11 @@
                 </div>
             </div>
 
-            <div class="mantra-card">
-                <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
-                <div class="mantra-box">
-                    <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব।<br>প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
-                </div>
-                <div class="mantra-box">
-                    <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
-                    <div style="font-size:0.75rem; color:#777; margin-top:3px;">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</div>
-                </div>
-            </div>
-
             <a href="https://jagannathsebangan.vercel.app" target="_blank" class="btn-main">🌐 অফিসিয়াল ওয়েবসাইট ভিজিট করুন</a>
             <button class="btn-main share-btn" onclick="shareApp()">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
         </div>
 
-        <!-- ট্যাব ২: পঞ্জিকা ও সারা বছরের শুভ দিন -->
+        <!-- ট্যাব ২: সম্পূর্ণ মাসভিত্তিক পঞ্জিকা ও ক্যালেণ্ডার গ্রিড -->
         <div id="tab-panjika" class="tab-content">
             <div class="calc-toggle">
                 <button class="calc-btn active" onclick="setCalcMode('surya', this)">সূর্য সিদ্ধান্ত</button>
@@ -474,12 +548,17 @@
             <div class="month-select-box">
                 <span style="font-size:0.88rem; color:var(--text-gold);">📅 মাস নির্বাচন করুন:</span>
                 <select id="monthSelect" onchange="filterByMonth()">
-                    <option value="all">সারা বছর (১৪ ৩৩ বঙ্গাব্দ)</option>
-                    <option value="kartik">কার্তিক</option>
-                    <option value="agrahayan">অগ্রহায়ণ</option>
-                    <option value="poush">পৌষ</option>
-                    <option value="magh">মাঘ</option>
+                    <option value="kartik">কার্তিক (অক্টোবর-নভেম্বর)</option>
+                    <option value="agrahayan">অগ্রহায়ণ (নভেম্বর-ডিসেম্বর)</option>
+                    <option value="poush">পৌষ (ডিসেম্বর-জানুয়ারি)</option>
+                    <option value="magh">মাঘ (জানুয়ারি-ফেব্রুয়ারি)</option>
                 </select>
+            </div>
+
+            <!-- মাসিক গুগল ক্যালেণ্ডার গ্রিড টেবিল -->
+            <div class="calendar-grid" id="calendarGrid">
+                <div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>
+                <!-- ডেট সেলসমূহ অটোমেটিক স্ক্রিপ্ট দিয়ে ফিল হবে -->
             </div>
 
             <div class="filter-scroll">
@@ -531,10 +610,6 @@
 
             <div class="mantra-card">
                 <div class="mantra-title">🙏 মন্দির সেবা ও ডিজিটাল প্রণামী একাউন্টসমূহ</div>
-                <p style="font-size:0.85rem; color:#333; text-align:center; margin-top:5px;">
-                    শ্রীবিগ্রহের নিত্যসেবা, নির্মাণকাজ ও মহাপ্রসাদ বিতরণে আপনার অনুদান প্রদান করার মাধ্যমসমূহ:
-                </p>
-
                 <div class="pay-card">
                     <div class="pay-title">📱 মোবাইল ফাইন্যান্সিয়াল সার্ভিস (MFS):</div>
                     <div class="pay-item"><strong>বিকাশ (Personal):</strong> +8801711369035</div>
@@ -564,21 +639,6 @@
     </div>
 
     <script>
-        // বর্তমান তারিখ স্বয়ংক্রিয়ভাবে দেখানোর স্ক্রিপ্ট
-        const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-        function toBangla(num) {
-            return num.toString().split('').map(d => banglaDigits[d] || d).join('');
-        }
-
-        const now = new Date();
-        const day = now.getDate();
-        if(day === 16) {
-            document.getElementById('display-bangla-date').innerText = '২৯';
-            document.getElementById('display-bangla-month-day').innerText = 'আশ্বিন ১৪৩৩, শুক্রবার';
-            document.getElementById('display-english-date').innerText = '১৬ অক্টোবর ২০২৬';
-            document.getElementById('display-tithi-info').innerHTML = 'এখন <strong>শুক্লা ষষ্ঠী</strong> তিথি। আজকের শ্রীশ্রী দুর্গাপূজার ষষ্ঠী কৃতি সম্পূর্ণ।';
-        }
-
         const panjikaData = [
             { id: 1, date: "১ নভেম্বর ২০২৬, রবিবার", title: "রমা একাদশী ব্রত", category: "ekadashi", month: "kartik", tithi: "কৃষ্ণা একাদশী তিথি", detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।", parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)", badge: "একাদশী", badgeClass: "badge-ekadashi" },
             { id: 2, date: "৮ নভেম্বর ২০২৬, রবিবার", title: "শ্রীশ্রী রাসপূর্ণিমা ও রাসযাত্রা", category: "purnima", month: "kartik", tithi: "শুক্লা পূর্ণিমা তিথি", detail: "শ্রীকৃষ্ণ রাসযাত্রা, শ্রীমন্মহাপ্রভুর রাসোৎসব। পূর্ণিমা নিশি পালন।", badge: "পূর্ণিমা", badgeClass: "badge-purnima" },
@@ -588,19 +648,66 @@
             { id: 6, date: "২২ নভেম্বর ২০২৬, রবিবার", title: "শুভ সাধভক্ষণ ও পঞ্চামৃত গ্রহণ", category: "sadbhakshan", month: "kartik", tithi: "ত্রয়োদশী তিথি", detail: "গর্ভবতী নারীর শুভ সাধভক্ষণ লগ্ন: দুপুর ১২:১০ হতে ০২:৩০।", badge: "শুভ সংস্কার", badgeClass: "badge-subha" },
             { id: 7, date: "২৫ নভেম্বর ২০২৬, বুধবার", title: "শুভ গৃহপ্রবেশ ও গৃহারম্ভ", category: "grihapravesh", month: "agrahayan", tithi: "দ্বীতিয়া তিথি", detail: "শুভ গৃহপ্রবেশ ও বাস্তুপূজা লগ্ন: সকাল ০৮:৪০ হতে ১১:২০ মিনিট।", badge: "বাস্তু শুভ", badgeClass: "badge-subha" },
             { id: 8, date: "২৮ নভেম্বর ২০২৬, শনিবার", title: "শ্রীশ্রী দেবালয় ও দেবতা প্রতিষ্ঠা / দেব গৃহপ্রবেশ", category: "devapuja", month: "agrahayan", tithi: "পঞ্চমী তিথি", detail: "শ্রীবিগ্রহ প্রতিষ্ঠা, দেব গৃহপ্রবেশ পূর্ণ্যাহ ও যজ্ঞ অনুষ্ঠান।", badge: "দেবাৰ্চনা", badgeClass: "badge-subha" },
-            { id: 9, date: "৩ ডিসেম্বর ২০২৬, বৃহস্পতিবার", title: "খণ্ডগ্রাস সূর্য গ্রহণ (সতর্কবার্তা)", category: "grahan", month: "agrahayan", tithi: "অমাবস্যা তিথি", detail: "সূর্য গ্রহণ স্পর্শ কাল। বৈষ্ণবীয় আচার ও জপ-ধ্যান পালনীয়।", sutak: "⏰ গ্রহণের ১২ ঘণ্টা পূর্ব হতে সূতক কাল প্রারম্ভ।", badge: "সূর্য গ্রহণ", badgeClass: "badge-grahan" }
+            { 
+                id: 9, 
+                date: "৩ ডিসেম্বর ২০২৬, বৃহস্পতিবার", 
+                title: "খণ্ডগ্রাস সূর্য গ্রহণ (সতর্কবার্তা ও সূতক কাল)", 
+                category: "grahan", 
+                month: "poush", 
+                tithi: "অমাবস্যা তিথি", 
+                detail: "সূর্য গ্রহণ স্পর্শ কাল: বিকাল ০৩:৪০ মিনিট। মধ্য কাল: বিকাল ০৪:৪৫ মিনিট। মোক্ষ কাল (সমাপ্তি): বিকাল ০৫:৪২ মিনিট।", 
+                sutak: "⏰ সূতক কাল আরম্ভ: ৩ ডিসেম্বর ভোর ০৩:৪০ AM (গ্রহণ স্পর্শের ঠিক ১২ ঘণ্টা পূর্বে)। সূতক কালে দেবসেবা ও অন্নগ্রহণ নিষিদ্ধ।", 
+                badge: "সূর্য গ্রহণ", 
+                badgeClass: "badge-grahan" 
+            }
         ];
 
-        try {
-            document.getElementById('user-tz').innerText = Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Dhaka";
-        } catch(e) {}
+        // দৈনিক অটোমেটিক রাশিফল ডিকশনারি
+        const rashiDict = {
+            mesh: "আজ মেষ রাশির জাতক-জাতিকাদের মানসিক শক্তি বৃদ্ধি পাবে। নামসংকীর্তনে আনন্দ লাভ করবেন। ব্যবসায় শুভ যোগাযোগ।",
+            vrish: "বৃষ রাশির জন্য শুভ দিন। পরিবারের গুরুজনদের আশীর্বাদ পাবেন। মন্দির দর্শনে আত্মিক তৃপ্তি মিলবে।",
+            mithun: "মিথুন রাশির জাতক-জাতিকাদের আর্থিক দিক শুভ। বন্ধুদের সাহায্য পাবেন। ভ্রমণের সুযোগ আসতে পারে।",
+            karkat: "কর্কট রাশির ক্ষেত্রে কর্মক্ষেত্রে সফলতা আসবে। বৈষ্ণব সেবায় অংশ গ্রহণে মানসিক শান্তি মিলবে।",
+            singha: "সিংহ রাশির জাতকদের প্রতিপত্তি ও সম্মান বৃদ্ধি পাবে। শুভ কাজে অগ্রগতির যোগ রয়েছে।",
+            kanya: "কন্যা রাশির শুভ যোগাযোগ দেখা যাচ্ছে। ছাত্র-ছাত্রীদের জন্য দিনটি অত্যন্ত ফলপ্রসূ।",
+            tula: "তুলা রাশির দাম্পত্য জীবনে মধুরতা বজায় থাকবে। বিগ্রহ দর্শনে ইতিবাচক শক্তি পাবেন।",
+            vrischick: "বৃশ্চিক রাশির স্বাস্থ্যের দিকটি ভালো যাবে। আটকে থাকা অর্থ পুনরুদ্ধারের সম্ভাবনা রয়েছে।",
+            dhanu: "ধনু রাশির আর্থিক উপার্জন বৃদ্ধির যোগ। গৃহে শুভ অনুষ্ঠানের পরিকল্পনা হতে পারে।",
+            makar: "মকর রাশির আত্মবিশ্বাস বৃদ্ধি পাবে। ধর্মীয় অনুষ্ঠানে অংশগ্রহণের সুযোগ মিলবে।",
+            kumbha: "কুম্ভ রাশির কর্মক্ষেত্রে প্রসংশা লাভ হবে। পারিবারিক শান্তি ও সম্প্রীতি বজায় থাকবে।",
+            meen: "মীন রাশির জাতক-জাতিকাদের মানসিক প্রফুল্লতা বৃদ্ধি পাবে। ভক্তি ও জপ সাধনায় শুভ ফল মিলবে।"
+        };
+
+        function updateRashiData() {
+            const key = document.getElementById('rashiSelect').value;
+            document.getElementById('rashiOutput').innerText = rashiDict[key] || "আজকের দিনটি সার্বিকভাবে শুভ।";
+        }
+
+        // মাসিক ক্যালেণ্ডার গ্রিড রেন্ডার
+        function renderCalendarGrid() {
+            const grid = document.getElementById('calendarGrid');
+            grid.innerHTML = '<div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>';
+            
+            // ৩১ দিনের ডেমো স্যাম্পল মাস গ্রিড
+            const banglaNums = ['১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '১০', '১১', '১২', '১৩', '১৪', '১৫', '১৬', '১৭', '১৮', '১৯', '২০', '২১', '২২', '২৩', '২৪', '২৫', '২৬', '২৭', '২৮', '২৯', '৩০', '৩১'];
+            
+            for (let i = 0; i < 30; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cal-date-cell' + (i === 28 ? ' today' : '');
+                cell.innerHTML = `<strong>${banglaNums[i]}</strong><span class="eng-sub">${i+1} Oct</span>`;
+                grid.appendChild(cell);
+            }
+        }
 
         function switchTab(tabId, navElement) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             navElement.classList.add('active');
-            if(tabId === 'tab-panjika') renderEvents(panjikaData);
+            if(tabId === 'tab-panjika') {
+                renderCalendarGrid();
+                renderEvents(panjikaData);
+            }
         }
 
         function renderEvents(items) {
