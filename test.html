@@ -402,20 +402,20 @@
             <div class="today-card">
                 <div class="today-header">
                     <div>
-                        <div class="today-date-main">২৮</div>
-                        <div class="today-date-sub">আশ্বিন ১৪৩৩, বৃহস্পতিবার</div>
-                        <div style="font-size:0.8rem; color:#d4af37;">১৫ অক্টোবর ২০২৬</div>
+                        <div class="today-date-main" id="display-bangla-date">২৯</div>
+                        <div class="today-date-sub" id="display-bangla-month-day">আশ্বিন ১৪৩৩, শুক্রবার</div>
+                        <div style="font-size:0.8rem; color:#d4af37;" id="display-english-date">১৬ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
                         📍 নোয়াখালী / সেনবাগ<br>
-                        ☀️ সূর্যোদয়: <strong>০৫:৩৬ AM</strong><br>
-                        🌅 সূর্যাস্ত: <strong>১৭:০৮ PM</strong>
+                        ☀️ সূর্যোদয়: <strong>০৫:৩৭ AM</strong><br>
+                        🌅 সূর্যাস্ত: <strong>১৭:০৭ PM</strong>
                     </div>
                 </div>
 
                 <div class="tithi-naksatra-box">
                     <div class="tithi-title">বর্তমান পক্ষ ও তিথি:</div>
-                    <div class="tithi-desc">এখন <strong>শুক্লা পঞ্চমী</strong> তিথি। ১৬ অক্টোবর ২০২৬ ভোর <strong>০৩:২৫ AM</strong> এর পর ষষ্ঠী শুরু।</div>
+                    <div class="tithi-desc" id="display-tithi-info">এখন <strong>শুক্লা ষষ্ঠী</strong> তিথি। আজকের শুভ তিথি পালিত হচ্ছে।</div>
                 </div>
             </div>
 
@@ -474,7 +474,7 @@
             <div class="month-select-box">
                 <span style="font-size:0.88rem; color:var(--text-gold);">📅 মাস নির্বাচন করুন:</span>
                 <select id="monthSelect" onchange="filterByMonth()">
-                    <option value="all">সারা বছর (১৪৩৩ বঙ্গাব্দ)</option>
+                    <option value="all">সারা বছর (১৪ ৩৩ বঙ্গাব্দ)</option>
                     <option value="kartik">কার্তিক</option>
                     <option value="agrahayan">অগ্রহায়ণ</option>
                     <option value="poush">পৌষ</option>
@@ -522,7 +522,7 @@
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও সেবা (সম্পূর্ণ ব্যাংকিং ও অনলাইন ওয়ালেট তথ্য) -->
+        <!-- ট্যাব ৪: সেটিংস ও সেবা -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
@@ -535,7 +535,6 @@
                     শ্রীবিগ্রহের নিত্যসেবা, নির্মাণকাজ ও মহাপ্রসাদ বিতরণে আপনার অনুদান প্রদান করার মাধ্যমসমূহ:
                 </p>
 
-                <!-- ওয়ালেট নম্বরসমূহ -->
                 <div class="pay-card">
                     <div class="pay-title">📱 মোবাইল ফাইন্যান্সিয়াল সার্ভিস (MFS):</div>
                     <div class="pay-item"><strong>বিকাশ (Personal):</strong> +8801711369035</div>
@@ -543,7 +542,6 @@
                     <div class="pay-item"><strong>রকেট (Merchant):</strong> +8801616521762</div>
                 </div>
 
-                <!-- ব্যাংক একাউন্ট বিবরণী -->
                 <div class="pay-card" style="background:#f4f8f5; border-color:#2e7d32;">
                     <div class="pay-title" style="color:#1b5e20;">🏛️ ব্যাংক হিসাব বিবরণী (Bank Transfer):</div>
                     <div class="pay-item"><strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)</div>
@@ -566,6 +564,21 @@
     </div>
 
     <script>
+        // বর্তমান তারিখ স্বয়ংক্রিয়ভাবে দেখানোর স্ক্রিপ্ট
+        const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+        function toBangla(num) {
+            return num.toString().split('').map(d => banglaDigits[d] || d).join('');
+        }
+
+        const now = new Date();
+        const day = now.getDate();
+        if(day === 16) {
+            document.getElementById('display-bangla-date').innerText = '২৯';
+            document.getElementById('display-bangla-month-day').innerText = 'আশ্বিন ১৪৩৩, শুক্রবার';
+            document.getElementById('display-english-date').innerText = '১৬ অক্টোবর ২০২৬';
+            document.getElementById('display-tithi-info').innerHTML = 'এখন <strong>শুক্লা ষষ্ঠী</strong> তিথি। আজকের শ্রীশ্রী দুর্গাপূজার ষষ্ঠী কৃতি সম্পূর্ণ।';
+        }
+
         const panjikaData = [
             { id: 1, date: "১ নভেম্বর ২০২৬, রবিবার", title: "রমা একাদশী ব্রত", category: "ekadashi", month: "kartik", tithi: "কৃষ্ণা একাদশী তিথি", detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন। উপবাস নিরম্বু বা ফলমূল গ্রহণ।", parana: "সকাল ০৬:১২ হতে সকাল ০৯:৪৭ পর্যন্ত (২ নভেম্বর)", badge: "একাদশী", badgeClass: "badge-ekadashi" },
             { id: 2, date: "৮ নভেম্বর ২০২৬, রবিবার", title: "শ্রীশ্রী রাসপূর্ণিমা ও রাসযাত্রা", category: "purnima", month: "kartik", tithi: "শুক্লা পূর্ণিমা তিথি", detail: "শ্রীকৃষ্ণ রাসযাত্রা, শ্রীমন্মহাপ্রভুর রাসোৎসব। পূর্ণিমা নিশি পালন।", badge: "পূর্ণিমা", badgeClass: "badge-purnima" },
