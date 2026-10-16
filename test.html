@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - পূর্ণাঙ্গ বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা</title>
     <style>
         :root {
             --bg-primary: #1f0204;
@@ -162,6 +162,17 @@
             line-height: 1.4;
         }
 
+        .tz-banner {
+            background: rgba(128, 0, 0, 0.4);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--text-gold);
+        }
+
         .calc-toggle {
             display: flex;
             gap: 10px;
@@ -306,6 +317,12 @@
             text-align: center;
             text-decoration: none;
             font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .map-btn {
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            color: #fff;
         }
 
         .share-btn { background: #25d366; color: white; }
@@ -325,15 +342,29 @@
         .photo-grid img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; border: 1px solid var(--accent-gold); }
         .audio-player { width: 100%; margin-top: 8px; border-radius: 30px; }
 
-        .bank-details {
-            background: #fff8e1;
-            padding: 10px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-gold);
-            font-size: 0.85rem;
+        .pay-card {
+            background: #fdfbf7;
+            border: 1.5px solid var(--accent-gold);
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 10px;
             color: #333;
-            margin-top: 8px;
-            line-height: 1.5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pay-title {
+            font-weight: bold;
+            color: var(--accent-red);
+            font-size: 0.95rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        .pay-item {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #2c0003;
         }
 
         .nav-bar {
@@ -388,7 +419,9 @@
                 </div>
             </div>
 
-            <!-- অডিও প্রবচন ও কীর্তন (সরাসরি সচল ইন্টারনেট স্ট্রিম) -->
+            <div class="tz-banner">📍 স্থানীয় সময় অঞ্চল: <span id="user-tz">Asia/Dhaka</span> (UTC+06:00)</div>
+
+            <!-- অডিও প্রবচন ও কীর্তন -->
             <div class="mantra-card">
                 <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন ও ভাগবত অডিও</div>
                 <p style="font-size:0.82rem; color:#444; margin-top:4px;">শ্রবণ করুন মধুর হরে কৃষ্ণ কীর্তন:</p>
@@ -397,6 +430,11 @@
                     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 </audio>
             </div>
+
+            <!-- গুগলে মন্দিরের লোকেশন ম্যাপ বাটন -->
+            <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
+                📍 গুগল ম্যাপে মন্দিরের অবস্থান দেখুন (Google Maps)
+            </a>
 
             <!-- গ্রহণ ও সূতক কাল নিয়মাবলি -->
             <div class="mantra-card">
@@ -433,7 +471,6 @@
                 <button class="calc-btn" onclick="setCalcMode('drik', this)">দৃক সিদ্ধান্ত</button>
             </div>
 
-            <!-- মাস নির্বাচন ফিল্টার -->
             <div class="month-select-box">
                 <span style="font-size:0.88rem; color:var(--text-gold);">📅 মাস নির্বাচন করুন:</span>
                 <select id="monthSelect" onchange="filterByMonth()">
@@ -445,7 +482,6 @@
                 </select>
             </div>
 
-            <!-- শুভ লগ্ন ও ব্রতের সব বিভাগ -->
             <div class="filter-scroll">
                 <button class="filter-chip active" onclick="filterEvents('all', this)">🌸 সকল লগ্ন ও দিন</button>
                 <button class="filter-chip" onclick="filterEvents('ekadashi', this)">🌺 একাদশী ব্রত</button>
@@ -486,7 +522,7 @@
             </div>
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও অনুদান ব্যাংকিং তথ্য -->
+        <!-- ট্যাব ৪: সেটিংস ও সেবা (সম্পূর্ণ ব্যাংকিং ও অনলাইন ওয়ালেট তথ্য) -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
@@ -494,21 +530,28 @@
             </div>
 
             <div class="mantra-card">
-                <div class="mantra-title">🙏 মন্দির সেবা ও ডিজিটাল প্রণামী একাউন্ট</div>
-                <div class="bank-details">
-                    📱 <strong>বিকাশ পার্সোনাল:</strong> +8801711369035<br>
-                    📱 <strong>নগদ পার্সোনাল:</strong> +8801711369035<br>
-                    🚀 <strong>রকেট মার্চেন্ট:</strong> +8801616521762
+                <div class="mantra-title">🙏 মন্দির সেবা ও ডিজিটাল প্রণামী একাউন্টসমূহ</div>
+                <p style="font-size:0.85rem; color:#333; text-align:center; margin-top:5px;">
+                    শ্রীবিগ্রহের নিত্যসেবা, নির্মাণকাজ ও মহাপ্রসাদ বিতরণে আপনার অনুদান প্রদান করার মাধ্যমসমূহ:
+                </p>
+
+                <!-- ওয়ালেট নম্বরসমূহ -->
+                <div class="pay-card">
+                    <div class="pay-title">📱 মোবাইল ফাইন্যান্সিয়াল সার্ভিস (MFS):</div>
+                    <div class="pay-item"><strong>বিকাশ (Personal):</strong> +8801711369035</div>
+                    <div class="pay-item"><strong>নগদ (Personal):</strong> +8801711369035</div>
+                    <div class="pay-item"><strong>রকেট (Merchant):</strong> +8801616521762</div>
                 </div>
 
-                <div class="bank-details" style="margin-top:10px; background:#f0f4c3; border-left-color:#2e7d32;">
-                    🏛️ <strong>অফিসিয়াল ব্যাংক একাউন্ট বিবরণী:</strong><br>
-                    <strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)<br>
-                    <strong>ব্রাঞ্চ:</strong> সেনবাগ বিআর ৭১৭৯<br>
-                    <strong>অ্যাকাউন্ট নাম:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন<br>
-                    <strong>অ্যাকাউন্ট নম্বর:</strong> 0200016213678<br>
-                    <strong>কাস্টমার আইডি:</strong> 3177228<br>
-                    <strong>রাউটিং নম্বর:</strong> 010751631
+                <!-- ব্যাংক একাউন্ট বিবরণী -->
+                <div class="pay-card" style="background:#f4f8f5; border-color:#2e7d32;">
+                    <div class="pay-title" style="color:#1b5e20;">🏛️ ব্যাংক হিসাব বিবরণী (Bank Transfer):</div>
+                    <div class="pay-item"><strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)</div>
+                    <div class="pay-item"><strong>শাখা / ব্রাঞ্চ:</strong> সেনবাগ বিআর ৭১৭৯ (Senbag BR 7179)</div>
+                    <div class="pay-item"><strong>অ্যাকাউন্ট নাম:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন</div>
+                    <div class="pay-item"><strong>অ্যাকাউন্ট নম্বর:</strong> 0200016213678</div>
+                    <div class="pay-item"><strong>কাস্টমার আইডি:</strong> 3177228</div>
+                    <div class="pay-item"><strong>রাউটিং নম্বর:</strong> 010751631</div>
                 </div>
             </div>
         </div>
