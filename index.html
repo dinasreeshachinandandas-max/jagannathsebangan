@@ -1,459 +1,514 @@
 <!DOCTYPE html>
-<html lang="bn" class="scroll-smooth">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ | Global Portal</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- QR Code Generator Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা</title>
     <style>
+        :root {
+            --bg-primary: #7a0000;
+            --bg-secondary: #990000;
+            --card-bg: #fffdf5;
+            --card-border: #d4af37;
+            --text-dark: #2a0003;
+            --text-gold: #ffee55;
+            --accent-gold: #d4af37;
+            --accent-red: #a80000;
+            --accent-green: #1b5e20;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'SolaimanLipi', 'Kalpurush', Arial, sans-serif;
+        }
+
         body {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif;
-            background-color: #fdfbf7;
-            color: #2d2d2d;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #4a0000 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding-bottom: 85px;
         }
-        .hero-pattern {
-            background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fdfbf7 0.75px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
+
+        .header {
+            background: linear-gradient(135deg, #a00000 0%, #500000 100%);
+            padding: 16px 10px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
+
+        .logo-box {
+            margin: 0 auto 6px;
+            display: inline-block;
+            background: #fff;
+            padding: 2px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .logo-box img {
+            height: 65px;
+            width: 65px;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            color: var(--text-gold);
+            font-size: 1.25rem;
+            text-shadow: 1px 1px 2px #000;
+            margin-bottom: 3px;
+        }
+
+        .header .sub-title {
+            color: #fff8e1;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .header .org-tag {
+            background: rgba(212, 175, 55, 0.25);
+            border: 1px solid var(--accent-gold);
+            color: #ffe082;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            margin-top: 5px;
+        }
+
+        .container {
+            padding: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .today-card {
+            background: linear-gradient(135deg, #990000 0%, #660000 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .today-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .today-date-main {
+            font-size: 2.3rem;
+            font-weight: bold;
+            color: var(--text-gold);
+            line-height: 1;
+        }
+
+        .today-date-sub {
+            font-size: 0.95rem;
+            color: #fff8e1;
+        }
+
+        .sun-times {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #ffe082;
+            line-height: 1.4;
+        }
+
+        .location-select {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            border: 1px solid var(--accent-gold);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .tithi-time-box {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 8px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .mantra-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 1.5px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .mantra-title {
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent-red);
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+            border-bottom: 1px dashed var(--accent-gold);
+            padding-bottom: 4px;
+        }
+
+        .mantra-box {
+            background: #fdfae8;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 6px;
+            border-left: 3px solid var(--accent-red);
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gold);
+            margin-top: 6px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .calc-toggle {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .calc-btn {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--accent-gold);
+            background: var(--bg-secondary);
+            color: var(--text-gold);
+            border-radius: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .calc-btn.active {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            background: var(--card-bg);
+            padding: 8px;
+            border-radius: 10px;
+            border: 1.5px solid var(--accent-gold);
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .cal-day-head {
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            padding-bottom: 4px;
+        }
+
+        .cal-date-cell {
+            background: #fffdf0;
+            border: 1px solid #e2d2b0;
+            border-radius: 5px;
+            min-height: 40px;
+            padding: 2px;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        .cal-date-cell.special-ekadashi {
+            background: #ffebee;
+            border: 1.5px solid #c62828;
+            font-weight: bold;
+            color: #b71c1c;
+        }
+
+        .cal-date-cell .eng-sub {
+            font-size: 0.65rem;
+            color: #555;
+            display: block;
+        }
+
+        /* গুগল ক্যালেন্ডার কার্ড */
+        .google-cal-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 1.5px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .google-cal-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .google-cal-badge {
+            background: #fff8e1;
+            border: 1px solid var(--accent-gold);
+            color: #b71c1c;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .google-cal-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--accent-red);
+        }
+
+        .google-cal-desc {
+            font-size: 0.8rem;
+            color: #444;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .google-iframe-box {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--accent-gold);
+            background: #fff;
+        }
+
+        .rashi-select {
+            width: 100%;
+            padding: 7px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 8px;
+            background: #fff;
+            color: var(--text-dark);
+        }
+
+        .rashi-card-result {
+            background: #fffdf2;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+            color: #333;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #2c0003;
+            border: none;
+            padding: 9px;
+            border-radius: 20px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 8px;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .map-btn { background: linear-gradient(135deg, #1976d2, #0d47a1); color: #fff; }
+        .share-btn { background: #2e7d32; color: white; }
+        .youtube-channel-btn { background: #cc0000; color: white; margin-top: 6px; }
+
+        .nav-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #500000;
+            border-top: 2px solid var(--accent-gold);
+            display: flex;
+            justify-content: space-around;
+            padding: 6px 0;
+            z-index: 1000;
+        }
+        .nav-item { color: #ffe082; text-decoration: none; text-align: center; font-size: 0.7rem; flex: 1; cursor: pointer; background: none; border: none; }
+        .nav-item.active { color: var(--text-gold); font-weight: bold; }
+        .nav-item div { font-size: 1.1rem; }
     </style>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="/temple_logo.png">
-    <meta name="theme-color" content="#ff6600">
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <!-- মহোৎসব ও সেবা বুকিং বাটন -->
-    <div style="text-align: center; margin: 15px 0;">
-        <a href="#booking-form" style="background-color: #8b4513; color: #ffffff; padding: 10px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 25px; border: 2px solid #d4a373; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: inline-block;">
-          📅 মহোৎসব ও অনুষ্ঠান বুকিং করুন
-        </a>
+    <div class="header">
+        <div class="logo-box">
+            <img src="images/uploads/temple-logo.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.src='1000058168.jpg';">
+        </div>
+        <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
+        <div class="sub-title">শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির</div>
+        <div class="org-tag">আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ দ্বারা পরিচালিত</div>
+        <div style="font-size:0.7rem; color:#ffe082; margin-top:3px;">উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ</div>
     </div>
 
-    <header class="bg-amber-950 text-amber-50 shadow-lg py-4 px-4 sm:px-8 sticky top-0 z-50 flex flex-wrap justify-between items-center border-b border-amber-800">
-        <div class="flex items-center space-x-3">
-            <span class="text-base sm:text-xl font-bold tracking-wide">🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন (Global Portal)</span>
+    <div class="container">
+        
+        <!-- ট্যাব ১: এক নজরে -->
+        <div id="tab-home" class="tab-content active">
+            <div class="today-card">
+                <div class="today-header">
+                    <div>
+                        <div class="today-date-main">২৯</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শুক্রবার</div>
+                        <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
+                    </div>
+                    <div class="sun-times">
+                        <select id="locationSelect" class="location-select">
+                            <option value="senbag">📍 সেনবাগ, নোয়াখালী</option>
+                            <option value="dhaka">📍 ঢাকা, বাংলাদেশ</option>
+                            <option value="kolkata">📍 কোলকাতা, ভারত</option>
+                        </select><br>
+                        ☀️ সূর্যোদয়: <strong id="sunriseTime">০৫:৩৭ AM</strong><br>
+                        🌅 সূর্যাস্ত: <strong id="sunsetTime">১৭:০৭ PM</strong>
+                    </div>
+                </div>
+
+                <div class="tithi-time-box">
+                    <strong style="color:var(--text-gold);">বর্তমান তিথি ও নক্ষত্র প্রারম্ভ-সমাপ্তি:</strong><br>
+                    • <strong>তিথি:</strong> শুক্লা ষষ্ঠী (প্রারম্ভ: ১৫ অক্টোবর রাত ০৩:২৫ AM, সমাপ্তি: ১৬ অক্টোবর শেষ রাত ০২:১০ AM)।<br>
+                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র (সমাপ্তি: ১৭ অক্টোবর সকাল ০৭:১৫ AM)।<br>
+                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার ষষ্ঠী পূজা ও দুর্গোৎসব প্রারম্ভ।</em>
+                </div>
+            </div>
+
+            <!-- ছবিতে থাকা গুগল ক্যালেন্ডার ও লাইভ সিডিউল সেকশন -->
+            <div class="google-cal-card">
+                <div class="google-cal-header">
+                    <div class="google-cal-badge">⚡ ডিজিটাইলাইজড অটোমেটিক সিস্টেম</div>
+                    <div class="google-cal-title">📅 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - লাইভ সিডিউল ও গুগল ক্যালেন্ডার</div>
+                </div>
+                <div class="google-cal-desc">
+                    নিচে মন্দিরের অফিসিয়াল গুগল ক্যালেন্ডারের খালি তারিখ ও নির্ধারিত অনুষ্ঠান দেখে আপনার অনুষ্ঠান বুকিং করুন:
+                </div>
+                <div class="google-iframe-box">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=en.bangladesh%23holiday%40group.v.calendar.google.com&ctz=Asia%2FDhaka" style="border: 0" width="100%" height="320" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+
+            <!-- অটোমেটিক দৈনিক রাশিফল -->
+            <div class="mantra-card">
+                <div class="mantra-title">✨ দৈনিক অটোমেটিক রাশিফল</div>
+                <select id="rashiSelect" class="rashi-select">
+                    <option value="mesh">মেষ রাশি (Aries)</option>
+                    <option value="vrish">বৃষ রাশি (Taurus)</option>
+                    <option value="mithun">মিথুন রাশি (Gemini)</option>
+                </select>
+                <div id="rashiOutput" class="rashi-card-result">
+                    আজ বৈষ্ণবীয় কৃপায় আপনার কাজে উন্নতি ও মানসিক শান্তি বজায় থাকবে। ধর্মীয় জপ ও নামসংকীর্তনে মনোযোগ দিন।
+                </div>
+            </div>
+
+            <!-- ভিডিও প্লেয়ার -->
+            <div class="mantra-card">
+                <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jTo_g_4BDF0" title="Paramarthik Pathshala Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="btn-main youtube-channel-btn">
+                    📺 আমাদের ইউটিউব চ্যানেল ভিজিট করুন (Paramarthik Pathshala)
+                </a>
+            </div>
+
+            <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
+                📍 গুগল ম্যাপে মন্দিরের অবস্থান দেখুন (Google Maps)
+            </a>
+
+            <div class="mantra-card">
+                <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
+                <div class="mantra-box">
+                    <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
+                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+                </div>
+                <div class="mantra-box" style="margin-top:6px;">
+                    <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
+                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+                </div>
+            </div>
+
+            <button class="btn-main share-btn">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
         </div>
-        <div id="google_translate_element" class="mt-2 sm:mt-0 text-xs sm:text-sm"></div>
-    </header>
 
-    <!-- হিরো সেকশন -->
-    <section class="hero-pattern bg-gradient-to-b from-amber-100/80 via-amber-50 to-white py-14 sm:py-20 px-4 sm:px-6 text-center border-b border-amber-200">
-        <div class="max-w-5xl mx-auto">
-            <img src="images/uploads/IMG-20260714-WA0008.jpg" alt="Temple Monogram" class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full object-cover shadow-md mb-4" onerror="this.src='https://via.placeholder.com/150?text=Temple+Logo';">  
-            <div class="text-amber-800 font-bold text-sm sm:text-base mb-2">
-                🌟 International Sanatan Spiritual & Humanitarian Hub
+        <!-- ট্যাব ২: পঞ্জিকা -->
+        <div id="tab-panjika" class="tab-content">
+            <div class="calc-toggle">
+                <button class="calc-btn active">সূর্য সিদ্ধান্ত গণনা</button>
+                <button class="calc-btn">দৃক সিদ্ধান্ত গণনা</button>
             </div>
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-amber-950 mb-4 leading-tight">
-                শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
-            </h1>
-            <p class="text-base sm:text-xl text-amber-900 font-bold mb-3 bg-amber-100/80 inline-block px-4 py-1.5 rounded-xl border border-amber-300 shadow-xs">
-                স্থাপিত: <span class="text-rose-800 font-extrabold text-lg sm:text-2xl tracking-wide underline decoration-amber-500">১৩৮০ বঙ্গাব্দ</span> | উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ
-            </p>
-            <div class="bg-white/95 border-2 border-amber-300 p-5 sm:p-6 rounded-2xl shadow-md max-w-4xl mx-auto mb-8 text-xs sm:text-sm md:text-base text-amber-950 font-medium leading-relaxed">
-                <p class="mb-2">
-                    শ্রীধাম বৃন্দাবনস্থিত পবিত্র <strong>কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জ</strong>-এর শাখা মন্দির এবং <strong>আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ</strong> কর্তৃক বিশ্বব্যাপী সনাতন ধর্ম প্রচার, ভক্তি সাধনা ও আর্তমানবতার সেবায় পরিচালিত একটি পবিত্র তীর্থপীঠ।
-                </p>
-            </div>
-            
-            <!-- নেভিগেশন হাব -->
-            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-                <a href="#committee" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">👥 পরিচালনা পর্ষদ</a>
-                <a href="#patrons-advisors" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌟 উপদেষ্টা মন্ডলী</a>
-                <a href="#future-plans" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌱 ভবিষ্যৎ কর্মপন্থা</a>
-                <a href="#constitution" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📜 সংবিধান</a>
-                <a href="#google-calendar-section" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📅 লাইভ গুগল ক্যালেন্ডার</a>
-                <a href="#booking-form" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📝 বুকিং ফর্ম</a>
-                <a href="#donation-section" class="bg-rose-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-800 transition">🙏 ডোনেশন ও QR</a>
-                <a href="#contact-section" class="bg-amber-950 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-black transition">📞 যোগাযোগ</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- ১. পরিচালনা পর্ষদ -->
-    <section id="committee" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-400">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
-                মন্দিরের নব নির্বাচিত পরিচালনা পর্ষদ (Managing Committee)
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-300 shadow-sm text-center">
-                    <span class="inline-block bg-amber-200 text-amber-950 text-xs font-bold px-3 py-1 rounded-full mb-2">সভাপতি (President)</span>
-                    <h3 class="text-xl font-extrabold text-amber-950 mb-1">শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা</h3>
-                    <p class="text-sm text-gray-700 mb-3">মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801717300520" class="text-rose-700 font-bold hover:underline">+880 1717-300520</a></p>
-                </div>
-                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-300 shadow-sm text-center">
-                    <span class="inline-block bg-amber-200 text-amber-950 text-xs font-bold px-3 py-1 rounded-full mb-2">সাধারণ সম্পাদক (General Secretary)</span>
-                    <h3 class="text-xl font-extrabold text-amber-950 mb-1">শ্রীযুক্ত বাবু শংকর মজুমদার</h3>
-                    <p class="text-sm text-gray-700 mb-3">মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801836188118" class="text-rose-700 font-bold hover:underline">+880 1836-188118</a></p>
-                </div>
+            <div style="background:var(--bg-secondary); padding:8px 12px; border-radius:8px; border:1px solid var(--accent-gold); margin-bottom:10px; text-align:center;">
+                <strong style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</strong>
             </div>
-        </div>   
-    </section>
 
-    <!-- ২. পৃষ্ঠপোষক ও উপদেষ্টা মন্ডলী -->
-    <section id="patrons-advisors" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-300">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
-                🌟 পৃষ্ঠপোষক ও উপদেষ্টা মন্ডলী (Patrons & Advisory Board)
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-amber-50/70 p-6 rounded-2xl border border-amber-200">
-                    <h3 class="text-lg font-bold text-amber-900 mb-3">🌟 উপদেষ্টা কমিটি (Advisory Board)</h3>
-                    <ul class="text-xs sm:text-sm text-gray-700 space-y-2 list-disc list-inside">
-                        <li><strong>আন্তর্জাতিক মঠ ও সংঘ প্রতিনিধি:</strong> শ্রীধাম বৃন্দাবন কেশীঘাট কুঞ্জ ও আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘের প্রবীণ সাধু ও মহারাজবৃন্দ।</li>
-                        <li><strong>স্থানীয় গুণীবৃন্দ:</strong> সেনবাগ ও নোয়াখালীর বিশিষ্ট সনাতনী সমাজসেবক ও বিজ্ঞ পরামর্শকগণ।</li>
-                        <li><strong>আইটি ও প্রবাসী উপদেষ্টা:</strong> আমেরিকা, ইউরোপ ও মধ্যপ্রাচ্যের প্রবাসী ধামসেবক এবং প্রযুক্তি বিশেষজ্ঞবৃন্দ।</li>
-                    </ul>
-                </div>
-                <div class="bg-amber-50/70 p-6 rounded-2xl border border-amber-200">
-                    <h3 class="text-lg font-bold text-amber-900 mb-3">🏛️ পৃষ্ঠপোষক মন্ডলী (Patrons)</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                        দেশ-বিদেশের অনুরাগী ভক্তিমান দাতা ভক্তবৃন্দ ও মানবসেবায় নিবেদিত সনাতন সমাজসেবী অনুরাগীগণ, যাদের অকৃপণ আর্থিক ও নৈতিক সমর্থনে মন্দিরের সেবা ও উন্নয়ন প্রকল্পসমূহ নিরবচ্ছিন্নভাবে পরিচালিত হচ্ছে।
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ৩. মন্দিরের ভবিষ্যৎ কর্মপন্থা ও পরিকল্পনা -->
-    <section id="future-plans" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-300">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
-                🌱 মন্দিরের ভবিষ্যৎ কর্মপন্থা ও সেবা পরিকল্পনা
-            </h2>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">🕊️</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">অহিংস নীতি ও সদাচার</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">সর্বভূতে দয়া, অহিংসা ও বৈষ্ণবীয় সদাচার পালনের মাধ্যমে সমাজ গঠনে ব্রতী হওয়া।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">📖</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">ধর্মীয় শিক্ষা কার্যক্রম</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">পারমার্থিক পাঠশালা ও গীতা ক্লাসের মাধ্যমে নৈতিক ও ধর্মীয় শিক্ষা প্রদান।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">🍲</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">অন্নদান ও বস্ত্রদান সেবা</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">নিত্য মহাপ্রসাদ বিতরণ এবং অসহায়দের মাঝে শীতবস্ত্র ও নিত্যপণ্য বিতরণ।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">🐄</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">গোমাতা পালন ও সেবা</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">দেশীয় গবাদি পশু সংরক্ষণ, গোশালা স্থাপন ও সুষম খাদ্যের মাধ্যমে গো-সেবা।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">🎓</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">শিক্ষার্থী বৃত্তি প্রদান</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">দরিদ্র ও মেধাবী শিক্ষার্থীদের উচ্চশিক্ষায় উৎসাহিত করতে শিক্ষাবৃত্তি প্রদান।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">🏥</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">চিকিৎসা সেবা ও সহায়তা</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">অসহায় ও দরিদ্র রোগীদের জন্য বিনামূল্যে চিকিৎসা পরামর্শ ও ঔষুধ সহায়তা।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm">
-                    <div class="text-2xl mb-2">💻</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">কর্মসংস্থান প্রশিক্ষণ</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">বেকার যুবক ও যুবতীদের আত্মনির্ভরশীল করতে কর্মমুখী প্রশিক্ষণের ব্যবস্থা।</p>
-                </div>
-                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 shadow-sm col-span-1 sm:col-span-2">
-                    <div class="text-2xl mb-2">🏡</div>
-                    <h3 class="font-bold text-amber-950 text-base mb-1">অনাথ আশ্রম ও বৃদ্ধাশ্রম নির্মাণ</h3>
-                    <p class="text-xs text-gray-700 leading-relaxed">অসহায় প্রবীণ ও অনাথ শিশুদের আশ্রয়, অন্ন, বস্ত্র ও নিরাপদ আবাসনের জন্য আশ্রম নির্মাণ ও পরিচালনা।</p>
-                </div>
+            <div class="calendar-grid">
+                <div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>
+                <div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">19 Oct</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">20 Oct</span></div><div class="cal-date-cell"><strong>৩</strong><span class="eng-sub">21 Oct</span></div>
             </div>
         </div>
-    </section>
 
-    <!-- ৪. মন্দিরের সংবিধান (Constitution) -->
-    <section id="constitution" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-300">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
-                📜 শ্রী শ্রী জগন্নাথ সেবাঙ্গনের মূল সংবিধান ও নীতিমালা
-            </h2>
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 text-xs sm:text-sm text-gray-800 space-y-4 leading-relaxed">
-                <p><strong>ধারা ১ (নাম ও পরিচয়):</strong> এই তীর্থপীঠ ও সেবা প্রতিষ্ঠানের নাম "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ"। এটি শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা এবং আন্তর্জাতিক সংঘের আদর্শে পরিচালিত।</p>
-                <p><strong>ধারা ২ (মূল উদ্দেশ্য):</strong> সনাতন ধর্মের শাশ্বত বাণী প্রচার, শ্রীবিগ্রহের নিত্য সেবা-পূজা, ভক্তসেবা, ভাগবত আলোচনা এবং আর্তমানবতার সেবায় নিঃস্বার্থভাবে কাজ করা।</p>
-                <p><strong>ধারা ৩ (পরিচালনা ও প্রশাসন):</strong> একটি নির্বাচিত কার্যকরী কমিটি এবং উপদেষ্টা মণ্ডলীর যৌথ পরামর্শ ও তত্ত্বাবধানে মন্দিরের সমস্ত প্রশাসনিক ও আধ্যাত্মিক কার্যক্রম পরিচালিত হবে।</p>
-                <p><strong>ধারা ৪ (আর্থিক স্বচ্ছতা ও তহবিল):</strong> ভক্তদের প্রণামী, অনুদান এবং দাতা সংস্থার সাহায্য সম্পূর্ণ স্বচ্ছতার সাথে মন্দিরের ব্যাংক অ্যাকাউন্ট ও ডিজিটাল তহবিলে জমা হবে এবং মানবসেবায় ব্যয় করা হবে।</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- দীন সেবক -->
-    <div class="bg-amber-50/85 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg my-8 text-center max-w-xl mx-auto">
-      <span class="inline-block bg-amber-200 text-amber-900 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-sm mb-3">🙏 দীন সেবক 🙏</span>
-      <h4 class="text-sm sm:text-base font-bold text-amber-900 leading-relaxed mb-2">মহান্ত ১০৮ শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ্জীর শ্রীচরণাশ্রিত ও কৃপা ধন্য</h4>
-      <h3 class="text-xl sm:text-2xl font-black text-amber-950 tracking-wide my-2 bg-amber-100/60 py-2 px-4 rounded-xl border border-amber-200 inline-block">"দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস"</h3>
-      <div class="mt-4 pt-3 border-t border-amber-200/60">
-        <p class="text-amber-900 text-sm sm:text-base font-bold">মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801711369035" class="text-amber-950 underline hover:text-amber-700 font-extrabold">+8801711369035</a></p>
-      </div>
     </div>
 
-    <!-- ৫. লাইভ গুগল ক্যালেন্ডার অ্যাপ সেকশন (আপনার নির্দিষ্ট ক্যালেন্ডার আইডি সংযুক্ত) -->
-    <section id="google-calendar-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200 text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-3 border-b-2 border-amber-200 pb-3">
-                📅 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - লাইভ সিডিউল ও গুগল ক্যালেন্ডার অ্যাপ
-            </h2>
-            <p class="text-gray-700 text-sm sm:text-base mb-6">
-                নিচে মন্দিরের অফিশিয়াল গুগল ক্যালেন্ডারের খালি তারিখ দেখে আপনার অনুষ্ঠান বুকিং করুন:
-            </p>
-            <div class="w-full h-[550px] rounded-2xl overflow-hidden border-2 border-amber-300 shadow-md bg-amber-50">
-                <iframe src="https://calendar.google.com/calendar/embed?src=a772e069b143169840148bfc3647160b489ef652b142e1fbbe40a01d36eb0cae%40group.calendar.google.com&ctz=Asia%2FDhaka" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- ৬. অনুষ্ঠান বুকিং ও প্রসাদ বরাদ্দের আবেদন ফর্ম -->
-    <section id="booking-form" class="py-12 px-4 sm:px-6 max-w-3xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border-2 border-amber-300">
-            <div class="text-center mb-6">
-                <span class="inline-block bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full mb-2">অটোমেটেড বুকিং পোর্টাল</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-amber-950">
-                    📝 অনুষ্ঠান বুকিং ও প্রসাদ বরাদ্দের আবেদন ফর্ম
-                </h2>
-                <p class="text-xs sm:text-sm text-gray-600 mt-1">
-                    ক্যালেন্ডারের খালি তারিখ দেখে বুকিংয়ের আবেদন জমা দিন।
-                </p>
-            </div>
-
-            <form id="templeBookingForm" class="space-y-4">
-                <div>
-                    <label class="block text-gray-700 font-bold text-sm mb-1">আবেদনকারী ভক্তের নাম *</label>
-                    <input type="text" id="applicantName" placeholder="আপনার পূর্ণ নাম লিখুন" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-bold text-sm mb-1">মোবাইল নম্বর (হোয়াটসঅ্যাপ সহ) *</label>
-                    <input type="tel" id="applicantPhone" placeholder="01XXXXXXXXX" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-bold text-sm mb-1">পূর্ণ ঠিকানা *</label>
-                    <input type="text" id="applicantAddress" placeholder="গ্রাম/মহল্লা, সেনবাগ, নোয়াখালী..." class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                </div>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-700 font-bold text-sm mb-1">অনুষ্ঠানের তারিখ *</label>
-                        <input type="date" id="eventDate" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-bold text-sm mb-1">সময় / বেলা *</label>
-                        <select id="eventTimeSlot" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                            <option value="">সময় নির্বাচন করুন...</option>
-                            <option value="সকালে বাল্য ভোগ">সকালে বাল্য ভোগ</option>
-                            <option value="দুপুরে রাজভোগ">দুপুরে রাজভোগ</option>
-                            <option value="সন্ধ্যা আরতি ও ভোগ">সন্ধ্যা আরতি ও ভোগ</option>
-                            <option value="সারাদিন ব্যাপী মহোৎসব">সারাদিন ব্যাপী মহোৎসব</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-bold text-sm mb-1">কত ভক্তের প্রসাদ বা বাটা? *</label>
-                    <input type="text" id="guestCount" placeholder="যেমন: ৫০ জন বা ৫টি বাটা" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:outline-none focus:border-amber-600" required>
-                </div>
-                <div class="text-center pt-2">
-                    <button type="submit" class="w-full bg-amber-900 hover:bg-amber-950 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition duration-200 text-base">
-                        🚀 আবেদন সাবমিট করুন (অটোমেটেড বুকিং)
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- ৭. অনলাইন ডোনেশন হাব -->
-    <section id="donation-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200 text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 border-b-2 border-amber-200 pb-3">অনলাইন ডোনেশন হাব</h2>
-            <div class="w-full bg-amber-50/80 p-6 rounded-3xl border-2 border-dashed border-amber-400 flex flex-col items-center justify-center my-4">
-                <div class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm text-center border border-amber-200 mb-4">
-                    <h3 class="text-lg font-bold text-amber-950 mb-2">🙏 সরাসরি অনলাইন ডোনেশন ফর্ম</h3>
-                    <a href="https://form.jotform.com/262480864636062" target="_blank" class="inline-block bg-rose-700 hover:bg-rose-800 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-200">
-                        🙏 Donate via Jotform (অনলাইন ডোনেশন ফর্ম খুলুন)
-                    </a>
-                </div>
-
-                <div class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm text-center border border-amber-200 mb-4">
-                    <h3 class="text-lg font-bold text-amber-950 mb-2">📱 মোবাইল ফাইন্যান্সিয়াল সার্ভিস (MFS)</h3>
-                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 inline-block">
-                        <p class="text-xs font-bold text-gray-800">বিকাশ ও নগদ (পার্সোনাল):</p>
-                        <p class="text-lg font-extrabold text-rose-700 tracking-wider">+8801711369035</p>
-                    </div>
-                </div>
-
-                <div class="w-full max-w-xl bg-white p-6 rounded-2xl shadow-sm text-center border border-amber-200 text-left">
-                    <h3 class="text-xl font-bold text-red-600 mb-4 text-center">ব্যাংক অ্যাকাউন্ট বিবরণী</h3>
-                    <p class="text-gray-700 mb-2"><strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)</p>
-                    <p class="text-gray-700 mb-2"><strong>ব্রাঞ্চ:</strong> সেনবাগ বিআর ৭১৭৯ (Senbag BR 7179)</p>
-                    <p class="text-gray-700 mb-2"><strong>অ্যাকাউন্ট নাম:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন</p>
-                    <p class="text-gray-700 mb-2"><strong>অ্যাকাউন্ট নম্বর:</strong> 0200016213678</p>
-                    <p class="text-gray-700 mb-2"><strong>রাউটিং নম্বর:</strong> 010751631</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ৮. অফিশিয়াল কিউআর কোড হাব (Official QR Hub) -->
-    <section id="contact-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
-            <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 border-b-2 border-amber-200 pb-3 text-center">
-                যোগাযোগের ঠিকানা, অফিশিয়াল পেজ ও কিউআর কোড হাব (Official QR Hub)
-            </h2>
-            
-            <div class="mb-8 text-center bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <p class="text-lg sm:text-xl text-amber-950 font-bold mb-3">
-                    শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
-                </p>
-                <p class="text-sm text-gray-800 mb-2"><strong>ঠিকানা:</strong> উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।</p>
-                <p class="text-sm text-gray-800 mb-2"><strong>মোবাইল ও হোয়াটসঅ্যাপ:</strong> <a href="tel:+8801711369035" class="text-rose-700 font-bold hover:underline">+8801711369035</a></p>
-            </div>
-
-            <!-- QR Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 my-6 p-6 bg-amber-50/70 rounded-2xl border border-amber-200">
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-website" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ওয়েবসাইট কিউআর</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-map" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ম্যাপ লোকেশন কিউআর</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-fb-page" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ফেসবুক পেজ কিউআর</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-fb-profile" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ফেসবুক আইডি কিউআর</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-blog" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ব্লগ কিউআর কোড</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                    <div id="qrcode-form" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">ডোনেশন ফর্ম কিউআর</span>
-                </div>
-                <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center col-span-2 sm:col-span-1">
-                    <div id="qrcode-doc" class="mb-2 flex justify-center"></div>
-                    <span class="text-xs font-bold text-amber-950">গঠনতন্ত্র কিউআর</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-amber-950 text-amber-100 text-center py-8 mt-auto px-4 text-xs sm:text-sm border-t border-amber-800">
-        <p class="mb-2">&copy; ২০২৬ শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ। সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
-
-    <!-- Google Translate & QR Generator Scripts -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'bn', includedLanguages: 'en,bn,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- নিচের নেভবার -->
+    <div class="nav-bar">
+        <button class="nav-item active" onclick="switchTab('home')">
+            <div>🏠</div>এক নজরে
+        </button>
+        <button class="nav-item" onclick="switchTab('panjika')">
+            <div>📅</div>পঞ্জিকা
+        </button>
+    </div>
 
     <script>
-        function renderQRCode(elementId, text, cellSize) {
-            try {
-                var container = document.getElementById(elementId);
-                if (!container) return;
-                var qr = qrcode(0, 'L');
-                qr.addData(text);
-                qr.make();
-                container.innerHTML = qr.createSvgTag({cellSize: cellSize || 3, margin: 2});
-            } catch (e) { console.log(e); }
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            if(tabName === 'home') {
+                document.getElementById('tab-home').classList.add('active');
+                event.currentTarget.classList.add('active');
+            } else if(tabName === 'panjika') {
+                document.getElementById('tab-panjika').classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
         }
-
-        window.onload = function() {
-            renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com', 3);
-            renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali', 3);
-            renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/', 3);
-            renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/', 3);
-            renderQRCode('qrcode-blog', 'https://jagannathsebangan.blogspot.com', 3);
-            renderQRCode('qrcode-form', 'https://form.jotform.com/262480864636062', 3);
-            renderQRCode('qrcode-doc', 'https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk', 3);
-        };
-
-        document.getElementById('templeBookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('ধন্যবাদ! আপনার অনুষ্ঠান ও প্রসাদ বরাদ্দের আবেদনটি সফলভাবে জমা হয়েছে।');
-            this.reset();
-        });
     </script>
-    <!-- ==================== ১. মূল গঠনতন্ত্র ও পরিচালনা বিধিমালা ==================== -->
-<section id="constitution" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-    <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-300">
-        <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">
-            📜 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - গঠনতন্ত্র ও পরিচালনা বিধিমালা
-        </h2>
-        
-        <div class="space-y-6 text-sm sm:text-base text-gray-800 leading-relaxed">
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <h3 class="font-bold text-amber-950 text-lg mb-2">ধারা ১: নাম ও পরিচিতি</h3>
-                <p class="mb-1"><strong>১.১.</strong> এই প্রতিষ্ঠানটি <em>"শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ"</em> নামে অভিহিত হবে।</p>
-                <p><strong>১.২.</strong> প্রতিষ্ঠানটি ভারতের শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট <em>"শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জ"</em>-এর শাখা মন্দির হিসেবে পরিচালিত হবে।</p>
-            </div>
-
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <h3 class="font-bold text-amber-950 text-lg mb-2">ধারা ২: আদর্শ ও সিদ্ধান্ত গ্রহণের মূলনীতি</h3>
-                <p class="mb-1"><strong>২.১.</strong> মন্দির পরিচালনা, অবকাঠামো নির্মাণ, সাজ-সজ্জা, নিত্য-নৈমিত্তিক সেবা-অর্চন এবং ছোট-বড় উৎসব উদযাপন—এসবই সম্পূর্ণ গৌড়ীয় বৈষ্ণবীয় আচার-শাস্ত্রজ্ঞ, শুদ্ধ-সাত্ত্বিক ভজনীয় বৈষ্ণব এবং মন্দিরের প্রধান পূজারীর পরামর্শ ও মতামতের ভিত্তিতে সিদ্ধান্ত গৃহীত ও পরিচালিত হবে।</p>
-                <p><strong>২.২.</strong> মন্দিরের কোনো ধর্মীয়, পূজা-পার্বণ বা উৎসব সংক্রান্ত বিষয়ে প্রশাসনিক বা কার্যকরী কমিটি একক সিদ্ধান্ত নিতে পারবে না; পূজারী ও ভজনীয় বৈষ্ণবদের শাস্ত্রীয় অভিমত চূড়ান্ত বলে গণ্য হবে।</p>
-            </div>
-
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <h3 class="font-bold text-amber-950 text-lg mb-2">ধারা ৩: নিত্য-নৈমিত্তিক সেবা ও প্রধান উৎসবসমূহ</h3>
-                <p class="mb-1"><strong>৩.১.</strong> শ্রীবিগ্রহের প্রাতঃ আরতি থেকে নৈশ শয়ন পর্যন্ত প্রতিটি রাজভোগ, ভোগরাগ ও পূজা-অর্চন বৈষ্ণবীয় শাস্ত্রীয় তিথি ও বিশুদ্ধ নিয়ম অনুযায়ী সম্পন্ন করা হবে।</p>
-                <p><strong>৩.২.</strong> প্রধান উৎসবসমূহ: শ্রী শ্রী জগন্নাথ দেবের রথযাত্রা উৎসব, শ্রী শ্রী গিরি গোবর্ধন পূজা ও অন্নকূট উৎসব, মন্দিরের বাৎসরিক প্রতিষ্ঠা বার্ষিকী উৎসব, শ্রীকৃষ্ণের জন্মাষ্টমী, শ্রীগৌরপূর্ণিমা, ঝুলনযাত্রা এবং অন্যান্য বৈষ্ণবীয় তিথি ও মহোৎসব ধুমধামের সাথে পালিত হবে।</p>
-            </div>
-
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <h3 class="font-bold text-amber-950 text-lg mb-2">ধারা ৪: পূজারী নিয়োগ ও দায়িত্ব সংক্রান্ত বিধান</h3>
-                <p class="mb-1"><strong>৪.১.</strong> পরম সেবক দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস শারীরিক ও মানসিকভাবে সক্ষম থাকা পর্যন্ত তিনিই মন্দিরের প্রধান পূজারী হিসেবে দায়িত্ব পালন করবেন।</p>
-                <p class="mb-1"><strong>৪.২.</strong> উনার শারীরিক অক্ষমতা বা অনুপস্থিতিতে, উনার কোনো যোগ্য ও দীক্ষিত উত্তরসূরী থাকলে, কমিটি ও বৈষ্ণব সমাজের সম্মতিক্রমে তাকে পূজারী হিসেবে গ্রহণ করা হবে।</p>
-                <p><strong>৪.৩.</strong> যোগ্য উত্তরসূরী না থাকলে, বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের সম্মানীত মহারাজের মনোনীত, পছন্দনীয়, সম্পূর্ণ শুদ্ধ-সাত্ত্বিক জীবনযাপনে অভ্যস্ত এবং বিশুদ্ধ মহাপ্রসাদভোজী ব্যক্তিকে পূজারী হিসেবে নিয়োগ দেওয়া হবে।</p>
-            </div>
-
-            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200">
-                <h3 class="font-bold text-amber-950 text-lg mb-2">ধারা ৫: সাংগঠনিক কাঠামো, পদবিন্যাস ও কার্যপরিধি</h3>
-                <p class="mb-2">মন্দির পরিচালনার জন্য ৩ (তিন) বছর মেয়াদের একটি ৭১ (একাত্তর) সদস্য বিশিষ্ট কার্যকরী পরিষদ থাকবে। এছাড়া অভিভাবক ও উপদেষ্টা হিসেবে পৃষ্ঠপোষক মণ্ডলী ও উপদেষ্টা মণ্ডলী থাকবে।</p>
-                <p class="font-bold text-amber-900 mb-1">৫.১. অভিভাবক পরিষদ:</p>
-                <p class="text-xs sm:text-sm text-gray-700">• <strong>পৃষ্ঠপোষক মণ্ডলী:</strong> মন্দিরের ধর্মীয়, আর্থিক ও সার্বিক বিষয়ে সদয় অভিভাবকত্ব ও পৃষ্ঠপোষকতা প্রদান করবেন।<br>• <strong>উপদেষ্টা মণ্ডলী:</strong> বৈষ্ণবীয় আদর্শ অক্ষুণ্ণ রাখা ও মন্দিরের সুপরিচালনার জন্য প্রবীণ ও বিদগ্ধ ব্যক্তিরা পরামর্শ প্রদান করবেন।</p>
-            </div>
-        </div>
-
-        <div class="text-center mt-8">
-            <a href="https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk" target="_blank" class="inline-block bg-amber-900 text-white font-bold px-6 py-3 rounded-xl shadow hover:bg-amber-950 transition text-sm sm:text-base">
-                📜 সম্পূর্ণ গঠনতন্ত্র ডকুমেন্ট খুলুন (Google Doc)
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== ২. লাইভ গুগল ক্যালেন্ডার ও পঞ্জিকা অ্যাপ ==================== -->
-<section id="google-calendar-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
-    <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border-2 border-amber-300 text-center">
-        <span class="inline-block bg-amber-200 text-amber-950 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-sm mb-3">
-            ⚡ ডিজিটালাইজড অটোমেটিক সিস্টেম
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-3 border-b-2 border-amber-200 pb-3">
-            📅 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - লাইভ সিডিউল ও গুগল ক্যালেন্ডার
-        </h2>
-        <p class="text-gray-700 text-sm sm:text-base mb-6">
-            নিচে মন্দিরের অফিশিয়াল গুগল ক্যালেন্ডারের খালি তারিখ ও নির্ধারিত অনুষ্ঠান দেখে আপনার অনুষ্ঠান বুকিং করুন:
-        </p>
-        <div class="w-full h-[550px] rounded-2xl overflow-hidden border-2 border-amber-300 shadow-md bg-amber-50">
-            <iframe src="https://calendar.google.com/calendar/embed?src=a772e069b143169840148bfc3647160b489ef652b142e1fbbe40a01d36eb0cae%40group.calendar.google.com&ctz=Asia%2FDhaka" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-        </div>
-    </div>
-</section>
 </body>
 </html>
