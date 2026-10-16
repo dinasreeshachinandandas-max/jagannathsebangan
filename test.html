@@ -126,6 +126,18 @@
             line-height: 1.4;
         }
 
+        .location-select {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            border: 1px solid var(--accent-gold);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
         .tithi-time-box {
             background: rgba(255, 255, 255, 0.12);
             border-radius: 8px;
@@ -461,9 +473,15 @@
                         <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
-                        📍 নোয়াখালী / সেনবাগ<br>
-                        ☀️ সূর্যোদয়: <strong>০৫:৩৭ AM</strong><br>
-                        🌅 সূর্যাস্ত: <strong>১৭:০৭ PM</strong>
+                        <select id="locationSelect" class="location-select" onchange="updateLocationTime()">
+                            <option value="senbag">📍 সেনবাগ, নোয়াখালী</option>
+                            <option value="dhaka">📍 ঢাকা, বাংলাদেশ</option>
+                            <option value="kolkata">📍 কোলকাতা, ভারত</option>
+                            <option value="london">📍 লন্ডন, যুক্তরাজ্য</option>
+                            <option value="newyork">📍 নিউ ইয়র্ক, যুক্তরাষ্ট্র</option>
+                        </select><br>
+                        ☀️ সূর্যোদয়: <strong id="sunriseTime">০৫:৩৭ AM</strong><br>
+                        🌅 সূর্যাস্ত: <strong id="sunsetTime">১৭:০৭ PM</strong>
                     </div>
                 </div>
 
@@ -497,7 +515,7 @@
                 </div>
             </div>
 
-            <!-- ভিডিও প্লেয়ার -->
+            <!-- ভিডিও প্লেয়ার (সচল ইউটিউব লিংক) -->
             <div class="mantra-card">
                 <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
                 <div class="video-container">
@@ -549,14 +567,13 @@
                 <div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Nov</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Nov</span></div><div class="cal-date-cell"><strong>৩০</strong><span class="eng-sub">17 Nov</span></div>
             </div>
 
-            <!-- কার্তিক মাসের উভয় একাদশী ব্রতের নিখুঁত সময়সূচি -->
             <div id="events-container">
                 <div class="event-card ekadashi">
                     <span style="background:#c62828; color:#fff; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:bold;">১ম একাদশী (শুক্লপক্ষ)</span>
                     <div class="event-date">📅 ৪ কার্তিক (২২ অক্টোবর ২০২৬, বৃহস্পতিবার)</div>
                     <div class="event-title">শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত</div>
                     <div class="event-detail">নিয়মসেবা বা কার্তিক ব্রত আরম্ভ। শ্রীহরি প্রীতি কামনায় সর্বপাপবিনাশী উপবাস।</div>
-                    <div class="parana-time">⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯:৪৪ গতে ০৯:৫৬:৫২ মধ্যে।</div>
+                    <div class="parana-time" id="parana1">⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯:৪৪ গতে ০৯:৫৬:৫২ মধ্যে (স্থানীয় মান অনুযায়ী)।</div>
                 </div>
 
                 <div class="event-card ekadashi">
@@ -564,17 +581,17 @@
                     <div class="event-date">📅 ১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার)</div>
                     <div class="event-title">শ্রীশ্রী রমা একাদশী ব্রত</div>
                     <div class="event-detail">কার্তিক কৃষ্ণপক্ষের মহাপবিত্র রমা একাদশী ব্রত উপবাস।</div>
-                    <div class="parana-time">⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে।</div>
+                    <div class="parana-time" id="parana2">⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে (স্থানীয় মান অনুযায়ী)।</div>
                 </div>
             </div>
         </div>
 
-        <!-- ট্যাব ৩: বিবিধ (সকল সঠিক তথ্য ও উপাত্তসহ সম্পূর্ণ মোডাল উইন্ডোজ) -->
+        <!-- ট্যাব ৩: বিবিধ -->
         <div id="tab-bibidh" class="tab-content">
             
             <div class="bibidh-section-title">উৎসব ও ছুটির তালিকা</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="openPopup('সরকারি ছুটি ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সরকারি ও ঐচ্ছিক ছুটির তালিকা:\n• শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস: ২১ ফেব্রুয়ারি ২০২৬\n• স্বাধীনতা দিবস: ২৬ মার্চ ২০২৬\n• ঈদুল ফিতর ও বৈশাখী উৎসব: এপ্রিল ২০২৬\n• দুর্গাপূজা (বিজয়া দশমী): ২২ অক্টোবর ২০২৬\n• বিজয় দিবস: ১৬ ডিসেম্বর ২০২৬')">
+                <div class="icon-item" onclick="openPopup('সরকারি ছুটি ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সরকারি ও ঐচ্ছিক ছুটির তালিকা:\n• শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস: ২১ ফেব্রুয়ারি ২০২৬\n• স্বাধীনতা দিবস: ২৬ মার্চ ২০২৬\n• দুর্গাপূজা (বিজয়া দশমী): ২২ অক্টোবর ২০২৬\n• বিজয় দিবস: ১৬ ডিসেম্বর ২০২৬')">
                     <div class="icon-circle">📜</div>
                     <div class="icon-label">সরকারি ছুটি</div>
                 </div>
@@ -582,7 +599,7 @@
                     <div class="icon-circle">🪔</div>
                     <div class="icon-label">দুর্গাপূজা নির্ঘণ্ট</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('পর্বদিন ১৪৩৩', '১৪৩৩ বঙ্গাব্দের প্রধান পর্বদিনসমূহ:\n• রথযাত্রা: ২০ জুন ২০২৬\n• জন্মাষ্টমী: ৪ সেপ্টেম্বর ২০২৬\n• শ্রীশ্রী রাধাষ্টমী: ২১ সেপ্টেম্বর ২০২৬\n• দেওয়ালী ও শ্যামাপূজা: ৮ নভেম্বর ২০২৬\n• কার্তিক পূর্ণিমা (রাসযাত্রা): ২৪ নভেম্বর ২০২৬')">
+                <div class="icon-item" onclick="openPopup('পর্বদিন ১৪৩৩', '১৪৩৩ বঙ্গাব্দের প্রধান পর্বদিনসমূহ:\n• রথযাত্রা: ২০ জুন ২০২৬\n• জন্মাষ্টমী: ৪ সেপ্টেম্বর ২০২৬\n• শ্রীশ্রী রাধাষ্টমী: ২১ সেপ্টেম্বর ২০২৬\n• কার্তিক পূর্ণিমা (রাসযাত্রা): ২৪ নভেম্বর ২০২৬')">
                     <div class="icon-circle">🌸</div>
                     <div class="icon-label">পর্বদিন ১৪৩৩</div>
                 </div>
@@ -602,7 +619,7 @@
                     <div class="icon-circle">🌗</div>
                     <div class="icon-label">পূর্ণিমা অমাবস্যা</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('স্নান যাত্রা উৎসব', 'শ্রীশ্রী জগন্নাথদেবের মহাপবিত্র স্নান যাত্রা:\n• জ্যৈষ্ঠ পূর্ণিমা তিথিতে (জুন ২০২৬) অনুষ্ঠিত হয়। এই দিন শ্রীমূর্তিগণের ১০৮ কলস সুবাসিত জলে মহাস্নান সম্পন্ন হয় এবং পরবর্তীতে অসুস্থলীলা ও নবসংযম পালিত হয়।')">
+                <div class="icon-item" onclick="openPopup('স্নান যাত্রা উৎসব', 'শ্রীশ্রী জগন্নাথদেবের মহাপবিত্র স্নান যাত্রা:\n• জ্যৈষ্ঠ পূর্ণিমা তিথিতে (জুন ২০২৬) অনুষ্ঠিত হয়। এই দিন শ্রীমূর্তিগণের ১০৮ কলস সুবাসিত জলে মহাস্নান সম্পন্ন হয়।')">
                     <div class="icon-circle">🌅</div>
                     <div class="icon-label">স্নান যাত্রা</div>
                 </div>
@@ -658,7 +675,7 @@
                     <div class="icon-circle">🌐</div>
                     <div class="icon-label">সময় মন্ডল</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('আবহাওয়া পূর্বাভাস', 'সেনবাগ, নোয়াখালী এবং বাংলাদেশ অঞ্চলের রিয়েল-টাইম আবহাওয়া ও তাপমাত্রা।')">
+                <div class="icon-item" onclick="openPopup('আবহাওয়া পূর্বাভাস', 'নির্বাচিত অঞ্চলের রিয়েল-টাইম আবহাওয়া ও তাপমাত্রা।')">
                     <div class="icon-circle">🌦️</div>
                     <div class="icon-label">আবহাওয়া</div>
                 </div>
@@ -678,7 +695,7 @@
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
                 <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও লোকেশন</div>
-                <p style="font-size:0.85rem; color:#333; margin-top:6px;">📍 বর্তমান লোকেশন: <strong>সেনবাগ, নোয়াখালী, বাংলাদেশ</strong></p>
+                <p style="font-size:0.85rem; color:#333; margin-top:6px;">📍 বর্তমান লোকেশন: <strong id="setLocationText">সেনবাগ, নোয়াখালী, বাংলাদেশ</strong></p>
             </div>
 
             <div class="mantra-card">
@@ -722,6 +739,42 @@
             }
         }
 
+        // স্থানীয় সময় অনুযায়ী সূর্যোদয়, সূর্যাস্ত ও পারণ সময় আপডেট করার ডাইনামিক ফাংশন
+        function updateLocationTime() {
+            const loc = document.getElementById('locationSelect').value;
+            const sunriseEl = document.getElementById('sunriseTime');
+            const sunsetEl = document.getElementById('sunsetTime');
+            const parana1El = document.getElementById('parana1');
+            const parana2El = document.getElementById('parana2');
+            const setLocationText = document.getElementById('setLocationText');
+
+            if(loc === 'senbag' || loc === 'dhaka') {
+                sunriseEl.innerText = "০৫:৩৭ AM";
+                sunsetEl.innerText = "১৭:০৭ PM";
+                parana1El.innerText = "⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯:৪৪ গতে ০৯:৫৬:৫২ মধ্যে (বাংলাদেশ সময়)।";
+                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে (বাংলাদেশ সময়)।";
+                setLocationText.innerText = loc === 'senbag' ? "সেনবাগ, নোয়াখালী, বাংলাদেশ" : "ঢাকা, বাংলাদেশ";
+            } else if(loc === 'kolkata') {
+                sunriseEl.innerText = "০৫:৫৪ AM";
+                sunsetEl.innerText = "১৭:২৪ PM";
+                parana1El.innerText = "⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:২৪:০০ গতে ১০:১২:০০ মধ্যে (ভারত সময়)।";
+                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:৩৩:০০ গতে ১০:১৩:০০ মধ্যে (ভারত সময়)।";
+                setLocationText.innerText = "কোলকাতা, ভারত";
+            } else if(loc === 'london') {
+                sunriseEl.innerText = "০৭:৪০ AM";
+                sunsetEl.innerText = "১৭:৫০ PM";
+                parana1El.innerText = "⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৭:১৫ AM গতে ১১:০০ AM মধ্যে (লন্ডন স্থানীয় সময়)।";
+                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৭:২৫ AM গতে ১১:১০ AM মধ্যে (লন্ডন স্থানীয় সময়)।";
+                setLocationText.innerText = "লন্ডন, যুক্তরাজ্য";
+            } else if(loc === 'newyork') {
+                sunriseEl.innerText = "০৭:১৫ AM";
+                sunsetEl.innerText = "১৮:১০ PM";
+                parana1El.innerText = "⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:৫০ AM গতে ১০:৩০ AM মধ্যে (নিউ ইয়র্ক স্থানীয় সময়)।";
+                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৭:০০ AM গতে ১০:৪০ AM মধ্যে (নিউ ইয়র্ক স্থানীয় সময়)।";
+                setLocationText.innerText = "নিউ ইয়র্ক, যুক্তরাষ্ট্র";
+            }
+        }
+
         function openPopup(title, content) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalBody').innerText = content;
@@ -729,7 +782,7 @@
         }
 
         function openEkadashiListModal() {
-            const ekadashiData = `🌙 বাৎসরিক একাদশী ব্রত ও পারণের সময়কাল (শ্রীহরিভক্তিবিলাস অনুযায়ী):
+            const ekadashiData = `🌙 বাৎসরিক একাদশী ব্রত ও পারণের সময়কাল (স্থানীয় মান অনুযায়ী):
 
 ১. অপরা একাদশী:
 • তিথি প্রারম্ভ: ১২ মে দুপুর ০২:৫২ PM হতে ১৩ মে দুপুর ০১:৩০ PM পর্যন্ত।
@@ -738,11 +791,11 @@
 
 ২. পাশাঙ্কুশা একাদশী (কার্তিক শুক্লপক্ষ):
 • ২২ অক্টোবর ২০২৬ (বৃহস্পতিবার)।
-• পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯ AM হতে ০৯:৫৬ AM মধ্যে।
+• পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯ AM হতে ০৯:৫৬ AM মধ্যে (স্থানীয় সময় অনুযায়ী)।
 
 ৩. রমা একাদশী (কার্তিক কৃষ্ণপক্ষ):
 • ০৫ নভেম্বর ২০২৬ (বৃহস্পতিবার)।
-• পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮ AM হতে ০৯:৫৮ AM মধ্যে।`;
+• পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮ AM হতে ০৯:৫৮ AM মধ্যে (স্থানীয় সময় অনুযায়ী)।`;
 
             openPopup('একাদশী উপবাস ও পারণ নির্ঘণ্ট', ekadashiData);
         }
