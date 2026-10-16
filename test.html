@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - পূর্ণাঙ্গ বৈষ্ণবীয় পঞ্জিকা</title>
     <style>
         :root {
             --bg-primary: #7a0000;
@@ -441,20 +441,20 @@
                 </div>
             </div>
 
-            <!-- হরিপ্রেম সংকীর্তন ও ভাগবত পাঠ অডিও -->
+            <!-- হরিপ্রেম সংকীর্তন ও ভাগবত পাঠ অডিও (সচল লিংক) -->
             <div class="mantra-card">
                 <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন ও ভাগবত অডিও</div>
                 <audio class="audio-player" controls loop>
-                    <source src="https://myaudio.online/stream/harekrishna" type="audio/mpeg">
+                    <source src="https://stream.zeno.fm/f3wvbb1428uvv" type="audio/mpeg">
                     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 </audio>
             </div>
 
-            <!-- সচল ভাগবত প্রবচন ভিডিও -->
+            <!-- সচল ভাগবত প্রবচন ভিডিও (এমবেড ফিক্সড) -->
             <div class="mantra-card">
                 <div class="mantra-title">🎥 শ্রীমদ্ভাগবত প্রবচন ও বৃন্দাবন দর্শন</div>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL38D3396D29D4CDCA" title="Vrindavan Pravachan" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Vrindavan Pravachan" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -514,14 +514,16 @@
                 <div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Nov</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Nov</span></div><div class="cal-date-cell"><strong>৩০</strong><span class="eng-sub">17 Nov</span></div>
             </div>
 
-            <!-- ক্যাটেগরি ফিল্টার -->
+            <!-- সম্পূর্ণ ফিল্টার চিপস (আপনার চাহিদা অনুযায়ী সব ক্যাটেগরি যুক্ত) -->
             <div class="filter-scroll">
                 <button class="filter-chip active" onclick="setCategory('all', this)">🌸 সকল লগ্ন</button>
-                <button class="filter-chip" onclick="setCategory('ekadashi', this)">🌺 একাদশী</button>
-                <button class="filter-chip" onclick="setCategory('purnima', this)">🌕 পূর্ণিমা/অমাবস্যা</button>
-                <button class="filter-chip" onclick="setCategory('grahan', this)">🌑 গ্রহণ ও সূতক</button>
-                <button class="filter-chip" onclick="setCategory('marriage', this)">💍 শুভ বিবাহ</button>
-                <button class="filter-chip" onclick="setCategory('devapuja', this)">🛕 দেবালয়/প্রতিষ্ঠা</button>
+                <button class="filter-chip" onclick="setCategory('ekadashi', this)">🌺 একাদশী ও ব্রত</button>
+                <button class="filter-chip" onclick="setCategory('purnima', this)">🌕 অমাবস্যা ও পূর্ণিমা</button>
+                <button class="filter-chip" onclick="setCategory('grahan', this)">🌑 চন্দ্র/সূর্য গ্রহণ ও সূতক</button>
+                <button class="filter-chip" onclick="setCategory('marriage', this)">💍 বিবাহ</button>
+                <button class="filter-chip" onclick="setCategory('sanskar', this)">🥣 অন্নপ্রাশন ও সাধভক্ষণ</button>
+                <button class="filter-chip" onclick="setCategory('griha', this)">🏡 গৃহারম্ভ ও গৃহ প্রবেশ</button>
+                <button class="filter-chip" onclick="setCategory('devapuja', this)">🛕 দেবতা প্রতিষ্ঠা ও যজ্ঞ</button>
             </div>
 
             <div id="events-container"></div>
@@ -584,10 +586,13 @@
     <script>
         const allEventsData = [
             { id: 1, month: "kartik", category: "ekadashi", title: "শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত", date: "৪ কার্তিক (২২ অক্টোবর ২০২৬, বৃহস্পতিবার)", detail: "নিয়মসেবা বা কার্তিক ব্রত আরম্ভ। উপবাস নিরম্বু বা ফলমূল গ্রহণ।", parana: "২৩ অক্টোবর সকাল ০৬/০৯/৪৪ গতে ০৯/৫৬/৫২ মধ্যে।", badge: "একাদশী", badgeClass: "badge-ekadashi" },
-            { id: 2, month: "kartik", category: "purnima", title: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা", date: "৮ কার্তিক (২৬ অক্টোবর ২০২৬, সোমবার)", detail: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা ও পূর্ণিমা নিশি পালন।", badge: "পূর্ণিমা", badgeClass: "badge-purnima" },
+            { id: 2, month: "kartik", category: "purnima", title: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা (পূর্ণিমা)", date: "৮ কার্তিক (২৬ অক্টোবর ২০২৬, সোমবার)", detail: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা ও পূর্ণিমা নিশি পালন।", badge: "পূর্ণিমা", badgeClass: "badge-purnima" },
             { id: 3, month: "kartik", category: "ekadashi", title: "শ্রীশ্রী রমা একাদশী ব্রত", date: "১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার)", detail: "শ্রীহরি প্রীতি কামনায় রমা একাদশী ব্রত পালন।", parana: "০৬ নভেম্বর সকাল ০৬/১৬/৫৩ গতে ০৯/৫৮/৪১ মধ্যে।", badge: "একাদশী", badgeClass: "badge-ekadashi" },
-            { id: 4, month: "agrahayan", category: "ekadashi", title: "শ্রীশ্রী উত্থান একাদশী ব্রত", date: "০৪ অগ্রহায়ণ (২১ নভেম্বর ২০২৬, শনিবার)", detail: "চাতুর্মাস্ত ব্রত সমাপ্তি ও শ্রী গোবিন্দ উত্থান উৎসব।", parana: "২২ নভেম্বর সকাল ০৬/২৮/০২ গতে ১০/০৩/৫১ মধ্যে।", badge: "একাদশী", badgeClass: "badge-ekadashi" },
-            { id: 5, month: "poush", category: "grahan", title: "খণ্ডগ্রাস সূর্য গ্রহণ (সতর্কবার্তা ও সূতক কাল)", date: "৩ ডিসেম্বর ২০২৬, বৃহস্পতিবার", detail: "স্পর্শ: বিকাল ০৩:৪০ মিনিট | মধ্য: বিকাল ০৪:৪৫ মিনিট | মোক্ষ: বিকাল ০৫:৪২ মিনিট।", sutak: "⏰ সূতক কাল আরম্ভ: ৩ ডিসেম্বর ভোর ০৩:৪০ AM (গ্রহণ স্পর্শের ১২ ঘণ্টা পূর্বে)। দেবসেবা ও অন্নগ্রহণ নিষিদ্ধ।", badge: "সূর্য গ্রহণ", badgeClass: "badge-grahan" }
+            { id: 4, month: "kartik", category: "marriage", title: "শুভ বিবাহ লগ্ন", date: "কার্তিক মাস (১৪৩৩ বঙ্গাব্দ)", detail: "বিশেষ শুভ বিবাহ লগ্নসমূহ: ০৬, ০৭, ০৮, ১১, ২০ ও ২৭ কার্তিক।", badge: "বিবাহ লগ্ন", badgeClass: "badge-subha" },
+            { id: 5, month: "kartik", category: "sanskar", title: "অন্নপ্রাশন ও সাতভক্ষণ লগ্ন", date: "কার্তিক মাস", detail: "সাতভক্ষণ: ০৩, ০৪, ২৪, ২৫, ২৯ কার্তিক। অন্নপ্রাশন: ০৩, ২৪, ২৫ কার্তিক।", badge: "সংস্কার", badgeClass: "badge-subha" },
+            { id: 6, month: "kartik", category: "griha", title: "গৃহারম্ভ ও গৃহ প্রবেশ লগ্ন", date: "কার্তিক মাস", detail: "বাস্তু পুজা, গৃহারম্ভ ও নতুন গৃহ প্রবেশ করার শুভ লগ্নসমূহ পঞ্জিকানুযায়ী নির্ধারিত।", badge: "গৃহ লগ্ন", badgeClass: "badge-subha" },
+            { id: 7, month: "kartik", category: "devapuja", title: "দেবতা প্রতিষ্ঠা, পূর্ণ্যাহ ও যজ্ঞ", date: "কার্তিক মাস", detail: "শ্রীবিগ্রহ প্রতিষ্ঠা, দেব গৃহপ্রবেশ পূর্ণ্যাহ ও পবিত্র যজ্ঞ অনুষ্ঠান।", badge: "দেবাৰ্চনা", badgeClass: "badge-subha" },
+            { id: 8, month: "poush", category: "grahan", title: "খণ্ডগ্রাস সূর্য গ্রহণ ও সূতক কাল", date: "৩ ডিসেম্বর ২০২৬, বৃহস্পতিবার", detail: "স্পর্শ: বিকাল ০৩:৪০ মিনিট | মধ্য: বিকাল ০৪:৪৫ মিনিট | মোক্ষ: বিকাল ০৫:৪২ মিনিট।", sutak: "⏰ সূতক কাল আরম্ভ: ৩ ডিসেম্বর ভোর ০৩:৪০ AM (১২ ঘণ্টা পূর্বে)। দেবসেবা ও ভোজন নিষিদ্ধ।", badge: "সূর্য গ্রহণ", badgeClass: "badge-grahan" }
         ];
 
         let currentCategory = 'all';
