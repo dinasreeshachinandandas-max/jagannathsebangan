@@ -237,7 +237,7 @@
             display: block;
         }
 
-        /* বিবিধ পেজের আইকন গ্রিড লেআউট (স্ক্রিনশট অনুযায়ী) */
+        /* বিবিধ পেজের আইকন গ্রিড লেআউট */
         .bibidh-section-title {
             text-align: center;
             color: var(--text-gold);
@@ -285,35 +285,58 @@
             font-weight: 500;
         }
 
-        .event-card {
-            background: var(--card-bg);
-            color: var(--text-dark);
-            border-radius: 10px;
-            border: 1.5px solid var(--card-border);
-            padding: 10px;
-            margin-bottom: 10px;
+        /* পপ-আপ মোডাল উইন্ডো ডিজাইন */
+        #modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 15px;
+        }
+
+        .modal-box {
+            background: #fffdf5;
+            color: #2a0003;
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+            border: 2px solid var(--accent-gold);
+            padding: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
             position: relative;
         }
 
-        .badge {
-            position: absolute;
-            top: 8px; right: 8px;
-            padding: 2px 7px;
-            border-radius: 10px;
-            font-size: 0.68rem;
+        .modal-title {
+            font-size: 1.1rem;
             font-weight: bold;
-            color: #fff;
+            color: #a80000;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 6px;
+            margin-bottom: 10px;
         }
-        .badge-ekadashi { background: #b71c1c; }
-        .badge-purnima { background: #e65100; }
-        .badge-subha { background: #1b5e20; }
-        .badge-grahan { background: #4a148c; }
 
-        .event-date { font-size: 0.95rem; font-weight: bold; color: var(--accent-red); }
-        .event-title { font-size: 0.9rem; font-weight: bold; margin: 3px 0; }
-        .event-detail { font-size: 0.82rem; color: #333; line-height: 1.35; }
-        .parana-time { background: #e8f5e9; color: #1b5e20; padding: 4px; border-radius: 4px; font-size: 0.78rem; font-weight: bold; margin-top: 4px; }
-        .sutak-box { background: #ffebee; color: #b71c1c; padding: 5px; border-radius: 5px; font-size: 0.78rem; margin-top: 5px; border: 1px solid #ffcdd2; font-weight: bold; }
+        .modal-body {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-close-btn {
+            background: var(--accent-red);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
 
         .rashi-select {
             width: 100%;
@@ -355,15 +378,6 @@
         .map-btn { background: linear-gradient(135deg, #1976d2, #0d47a1); color: #fff; }
         .share-btn { background: #2e7d32; color: white; }
 
-        .video-box-custom {
-            background: #111;
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            border: 1px solid var(--accent-gold);
-            margin-top: 8px;
-        }
-
         .nav-bar {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -380,6 +394,15 @@
     </style>
 </head>
 <body>
+
+    <!-- পপ-আপ মোডাল উইন্ডো কন্টেইনার -->
+    <div id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="modal-title" id="modalTitle">শিরোনাম</div>
+            <div class="modal-body" id="modalBody">বিস্তারিত তথ্য এখানে প্রদর্শিত হবে।</div>
+            <button class="modal-close-btn" onclick="closeModalDirect()">বন্ধ করুন</button>
+        </div>
+    </div>
 
     <div class="header">
         <div class="logo-box">
@@ -398,9 +421,9 @@
             <div class="today-card">
                 <div class="today-header">
                     <div>
-                        <div class="today-date-main" id="auto-day-num">২৯</div>
-                        <div class="today-date-sub" id="auto-day-text">আশ্বিন ১৪৩৩, শুক্রবার</div>
-                        <div style="font-size:0.8rem; color:var(--text-gold);" id="auto-eng-text">১৬ অক্টোবর ২০২৬</div>
+                        <div class="today-date-main">২৯</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শুক্রবার</div>
+                        <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
                         📍 নোয়াখালী / সেনবাগ<br>
@@ -439,56 +462,42 @@
                 </div>
             </div>
 
-            <!-- ১০০% সচল গ্যারান্টিযুক্ত অডিও সেকশন -->
+            <!-- অডিও ও ভিডিও -->
             <div class="mantra-card">
-                <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন ও প্রবচন অডিও</div>
-                <p style="font-size:0.8rem; color:#444; margin-bottom:6px;">প্লে বাটনে ক্লিক করে শ্রবণ করুন:</p>
+                <div class="mantra-title">🎵 শ্রীহরি নামসংকীর্তন অডিও</div>
                 <audio controls style="width:100%; border-radius:20px;">
                     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    আপনার ব্রাউজার অডিও সাপোর্ট করে না।
                 </audio>
             </div>
 
-            <!-- সচল ভাগবত প্রবচন ও ভিডিও প্লেয়ার -->
-            <div class="mantra-card">
-                <div class="mantra-title">🎥 শ্রীমদ্ভাগবত প্রবচন ও বৃন্দাবন দর্শন</div>
-                <div class="video-box-custom">
-                    <p style="color:#ffe082; font-size:0.85rem; margin-bottom:8px;">📺 বৃন্দাবন ধাম ও গৌরকথা প্রবচন দর্শন করুন:</p>
-                    <a href="https://www.youtube.com/results?search_query=vrindavan+kirtan+pravachan" target="_blank" class="btn-main" style="margin-top:0;">▶️ ইউটিউবে সরাসরি লাইভ প্রবচন দেখুন</a>
-                </div>
-            </div>
-
-            <!-- ম্যাপ লোকেশন -->
             <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
                 📍 গুগল ম্যাপে মন্দিরের অবস্থান দেখুন (Google Maps)
             </a>
 
-            <!-- সমর্পণ ও পারণ মন্ত্র -->
             <div class="mantra-card">
                 <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
                 <div class="mantra-box">
                     <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
                     <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
                 </div>
-                <div class="mantra-box">
+                <div class="mantra-box" style="margin-top:6px;">
                     <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
                     <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
-                    <div style="font-size:0.75rem; color:#666; margin-top:2px;">📖 রেফারেন্স: শ্রীহরিভক্তিবিলাস (১৫/২৯১)</div>
                 </div>
             </div>
 
             <button class="btn-main share-btn" onclick="shareApp()">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
         </div>
 
-        <!-- ট্যাব ২: পঞ্জিকা ও কার্তিক মাসের ক্যালেণ্ডার -->
+        <!-- ট্যাব ২: পঞ্জিকা ও সূর্য সিদ্ধান্ত/দৃক সিদ্ধান্ত মোড -->
         <div id="tab-panjika" class="tab-content">
             <div class="calc-toggle">
-                <button class="calc-btn active" id="btn-surya" onclick="setCalcMode('surya')">সূর্য সিদ্ধান্ত</button>
-                <button class="calc-btn" id="btn-drik" onclick="setCalcMode('drik')">দৃক সিদ্ধান্ত</button>
+                <button class="calc-btn active" id="btn-surya" onclick="setCalcMode('surya')">সূর্য সিদ্ধান্ত গণনা</button>
+                <button class="calc-btn" id="btn-drik" onclick="setCalcMode('drik')">দৃক সিদ্ধান্ত গণনা</button>
             </div>
 
             <div style="background:var(--bg-secondary); padding:8px 12px; border-radius:8px; border:1px solid var(--accent-gold); margin-bottom:10px; text-align:center;">
-                <strong style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</strong>
+                <strong id="calcModeTitle" style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ (সূর্য সিদ্ধান্ত মতে)</strong>
             </div>
 
             <div class="calendar-grid">
@@ -513,42 +522,27 @@
                     <div class="event-detail">নিয়মসেবা বা কার্তিক ব্রত আরম্ভ। শ্রীহরি প্রীতি কামনায় উপবাস।</div>
                     <div class="parana-time">⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬/০৯/৪৪ গতে ০৯/৫৬/৫২ মধ্যে।</div>
                 </div>
-
-                <div class="event-card purnima">
-                    <span class="badge badge-purnima">পূর্ণিমা</span>
-                    <div class="event-date">📅 ৮ কার্তিক (২৬ অক্টোবর ২০২৬, সোমবার)</div>
-                    <div class="event-title">শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা</div>
-                    <div class="event-detail">শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা ও পূর্ণিমা নিশি পালন।</div>
-                </div>
-
-                <div class="event-card ekadashi">
-                    <span class="badge badge-ekadashi">একাদশী ব্রত</span>
-                    <div class="event-date">📅 ১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার)</div>
-                    <div class="event-title">শ্রীশ্রী রমা একাদশী ব্রত</div>
-                    <div class="event-detail">শ্রীহরি প্রীতি কামনায় শুভ রমা একাদশী ব্রত পালন।</div>
-                    <div class="parana-time">⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬/১৬/৫৩ গতে ০৯/৫৮/৪১ মধ্যে।</div>
-                </div>
             </div>
         </div>
 
-        <!-- ট্যাব ৩: বিবিধ (আপনার প্রদানকৃত ৬টি স্ক্রিনশটের সম্পূর্ণ ক্যাটেগরি ও টুলস) -->
+        <!-- ট্যাব ৩: বিবিধ (আইকনসমূহে ক্লিক করলে সচল পপ-अप ওপেন হবে) -->
         <div id="tab-bibidh" class="tab-content">
             
             <div class="bibidh-section-title">উৎসব ও ছুটির তালিকা</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="showPopup('সরকারি ছুটি', '১৪৩৩ বঙ্গাব্দের সকল সরকারি ও ঐচ্ছিক ছুটির তালিকা এখানে সংরক্ষিত।')">
+                <div class="icon-item" onclick="openPopup('সরকারি ছুটি', '১৪৩৩ বঙ্গাব্দের সরকারি ও ঐচ্ছিক ছুটির পূর্ণাঙ্গ তালিকা এখানে প্রদর্শিত হচ্ছে। সকল গেজেটেড ছুটি ও মন্দির পরিচালনা পর্ষদের ছুটির দিনসমূহ অন্তর্ভুক্ত।')">
                     <div class="icon-circle">📜</div>
                     <div class="icon-label">সরকারি ছুটি</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('দুর্গাপূজা নির্ঘণ্ট', 'শ্রীশ্রী দুর্গাপূজার মহাষষ্ঠী হতে বিজয়া দশমীর নির্ভুল সময়সূচি।')">
+                <div class="icon-item" onclick="openPopup('দুর্গাপূজা নির্ঘণ্ট', 'শ্রীশ্রী দুর্গাপূজা ১৪৩৩: মহাষষ্ঠী (১৮ অক্টোবর), মহাসপ্তমী (১৯ অক্টোবর), মহাঅষ্টমী (২০ অক্টোবর), মহানবমী (২১ অক্টোবর) এবং বিজয়া দশমী (২২ অক্টোবর)।')">
                     <div class="icon-circle">🪔</div>
                     <div class="icon-label">দুর্গাপূজা নির্ঘণ্ট</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('পর্বদিন ১৪৩৩', 'বাৎসরিক সকল ধর্মীয় ও উৎসব পর্বদিনের পূর্ণাঙ্গ তালিকা।')">
+                <div class="icon-item" onclick="openPopup('পর্বদিন ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সকল প্রধান ধর্মীয় ও ঐতিহাসিক পর্বদিনের নির্ঘণ্ট ও বিশেষ তিথি বিবরণ।')">
                     <div class="icon-circle">🌸</div>
                     <div class="icon-label">পর্বদিন ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('বৈষ্ণব পর্ব', 'গৌড়ীয় বৈষ্ণবীয় আচার্যদের আবির্ভাব, তিরোধান ও ব্রতৎসব।')">
+                <div class="icon-item" onclick="openPopup('বৈষ্ণব পর্ব', 'গৌড়ীয় বৈষ্ণবীয় প্রধান আচার্যবৃন্দের আবির্ভাব ও তিরোধান তিথি, রাসপূর্ণিমা, ঝুলন যাত্রা ও জন্মাষ্টমী উৎসব।')">
                     <div class="icon-circle">📿</div>
                     <div class="icon-label">বৈষ্ণব পর্ব</div>
                 </div>
@@ -556,19 +550,19 @@
 
             <div class="bibidh-section-title">ব্রত উপবাস ও পারণ</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="showPopup('একাদশী উপবাস', 'বাৎসরিক ২৬টি একাদশী ব্রতের নিখুঁত তারিখ ও পারণ সময়।')">
+                <div class="icon-item" onclick="openPopup('একাদশী উপবাস', 'সারা বছরের ২৬টি একাদশী ব্রতের নাম, পালনের নিয়ম এবং পারণের সূক্ষ্ম সময়কাল। শ্রীহরিভক্তিবিলাস অনুযায়ী নির্দেশিত।')">
                     <div class="icon-circle">🌙</div>
                     <div class="icon-label">একাদশী উপবাস</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('পূর্ণিমা অমাবস্যা', 'সারা বছরের সকল পূর্ণিমা, অমাবস্যা ও নিশিপালনের সময়সূচি।')">
+                <div class="icon-item" onclick="openPopup('পূর্ণিমা অমাবস্যা', 'পূর্ণিমা, অমাবস্যা এবং মধুপূর্ণিমা নিশিপালনের সঠিক তিথি ও মুহূর্ত।')">
                     <div class="icon-circle">🌗</div>
                     <div class="icon-label">পূর্ণিমা অমাবস্যা</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('স্নান যাত্রা', 'শ্রীশ্রী জগন্নাথদেবের মহাপবিত্র স্নান যাত্রা ও উৎসব তথ্য।')">
+                <div class="icon-item" onclick="openPopup('স্নান যাত্রা', 'শ্রীশ্রী জগন্নাথদেবের জ্যৈষ্ঠ পূর্ণিমার মহাস্নান যাত্রা ও সুদৃশ্য উৎসবের বিবরণ।')">
                     <div class="icon-circle">🌅</div>
                     <div class="icon-label">স্নান যাত্রা</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('বিবিধ ব্রত', 'জন্মাষ্টমী, রাধাষ্টমী, গৌরপূর্ণিমা ও শিবরাত্রি ব্রত নিয়ম।')">
+                <div class="icon-item" onclick="openPopup('বিবিধ ব্রত', 'প্রদোষ ব্রত, সঙ্কষ্ট চতুর্থী, শিবরাত্রি এবং অন্যান্য বিশেষ ব্রত পালনের নিয়মাবলী।')">
                     <div class="icon-circle">🪷</div>
                     <div class="icon-label">বিবিধ ব্রত</div>
                 </div>
@@ -576,19 +570,19 @@
 
             <div class="bibidh-section-title">শুভকর্ম ও লগ্ন</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="showPopup('বিবাহ ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সকল মাসের শুভ বিবাহ লগ্ন।')">
+                <div class="icon-item" onclick="openPopup('বিবাহ ১৪৩৩', '১৪৩৩ বঙ্গাব্দের কার্তিক, অগ্রহায়ণ, মাঘ ও ফাল্গুন মাসের সকল শুভ বিবাহ লগ্ন ও দিনক্ষণ।')">
                     <div class="icon-circle">🦋</div>
                     <div class="icon-label">বিবাহ ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('শুভকর্ম ১৪৩৩', 'অন্নপ্রাশন, সাধভক্ষণ, গৃহারম্ভ, গৃহপ্রবেশ ও দেব প্রতিষ্ঠা।')">
+                <div class="icon-item" onclick="openPopup('শুভকর্ম ১৪৩৩', 'অন্নপ্রাশন, সাধভক্ষণ, গৃহারম্ভ, গৃহপ্রবেশ, দেবতা প্রতিষ্ঠা, পূর্ণ্যাহ ও পবিত্র যজ্ঞের শুভ লগ্ন।')">
                     <div class="icon-circle">卐</div>
                     <div class="icon-label">শুভকর্ম ১৪৩৩</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('গ্রহণ বিবরণ', 'সূর্য ও চন্দ্র গ্রহণের স্পর্শ, মধ্য, মোক্ষ এবং সূতক কাল।')">
+                <div class="icon-item" onclick="openPopup('গ্রহণ বিবরণ ও সূতক কাল', 'সূর্য গ্রহণ ও চন্দ্র গ্রহণের স্পর্শ, মধ্য, মোক্ষ কাল এবং গ্রহণের ১২/৯ ঘণ্টা পূর্বের সূতক কালের বিধান।')">
                     <div class="icon-circle">🌑</div>
                     <div class="icon-label">গ্রহণ বিবরণ</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('তর্পণ বিধি', 'শ্রাদ্ধ ও তর্পণ অনুষ্ঠানের পূর্ণাঙ্গ বৈষ্ণবীয় শাস্ত্রীয় নিয়ম।')">
+                <div class="icon-item" onclick="openPopup('তর্পণ বিধি', 'পূর্বপুরুষের উদ্দেশ্যে পিন্ডদান, শ্রাদ্ধ এবং বৈষ্ণবীয় তর্পণ সম্পাদনের শাস্ত্রীয় বিধি।')">
                     <div class="icon-circle">🪶</div>
                     <div class="icon-label">তর্পণ বিধি</div>
                 </div>
@@ -596,19 +590,19 @@
 
             <div class="bibidh-section-title">পঞ্জিকা বিষয়ক জ্যোতিষ তত্ত্ব</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="showPopup('দৈনিক রাশিফল', '১২টি রাশির দৈনিক গ্রহগত অবস্থান ও ফলফলাদি।')">
+                <div class="icon-item" onclick="openPopup('দৈনিক রাশিফল', 'আপনার নির্বাচিত রাশির আজকের গ্রহাবস্থান ও ফলিত জ্যোতিষ পূর্বাভাস।')">
                     <div class="icon-circle">☸️</div>
                     <div class="icon-label">দৈনিক রাশিফল</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('জন্মরাশি', 'জন্মতারিখ ও সময় অনুযায়ী নিজ জন্মরাশি গণনাকরণ।')">
+                <div class="icon-item" onclick="openPopup('জন্মরাশি', 'জন্মতারিখ ও লগ্ন অনুযায়ী আপনার সঠিক জন্মরাশি ও নক্ষত্র নির্ণয় পদ্ধতি।')">
                     <div class="icon-circle">⚛️</div>
                     <div class="icon-label">জন্মরাশি</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('টিকটিকি তত্ত্ব', 'শরীরের বিভিন্ন অঙ্গে টিকটিকি পতনের ফলকথা।')">
+                <div class="icon-item" onclick="openPopup('টিকটিকি তত্ত্ব', 'প্রাচীন জ্যোতিষশাস্ত্র অনুযায়ী শরীরের বিভিন্ন অঙ্গে টিকটিকি পড়ার শুভাশুভ ফল।')">
                     <div class="icon-circle">🦎</div>
                     <div class="icon-label">টিকটিকি তত্ত্ব</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('তিল তত্ত্ব', 'মানবদেহের বিভিন্ন স্থানে তিল থাকার তাত্ত্বিক বিশ্লেষণ।')">
+                <div class="icon-item" onclick="openPopup('তিল তত্ত্ব', 'শরীরের বিভিন্ন অঙ্গে তিল বা জন্মদাগ থাকার তাত্ত্বিক ও সাুদৃশ্য ফলবিচার।')">
                     <div class="icon-circle">👤</div>
                     <div class="icon-label">তিল তত্ত্ব</div>
                 </div>
@@ -616,19 +610,19 @@
 
             <div class="bibidh-section-title">ডিজিটাল উপযোগিতা ও টুলস</div>
             <div class="icon-grid">
-                <div class="icon-item" onclick="showPopup('সময় মন্ডল', 'বিশ্বের বিভিন্ন শহরের সময় নির্ধারণী ডিজিটাল ঘড়ি।')">
+                <div class="icon-item" onclick="openPopup('সময় মন্ডল', 'বিশ্বের বিভিন্ন দেশের প্রধান শহরসমূহের বর্তমান স্থানীয় সময়।')">
                     <div class="icon-circle">🌐</div>
                     <div class="icon-label">সময় মন্ডল</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('আবহাওয়া', 'আপনার বর্তমান স্থানের রিয়েল-টাইম আবহাওয়া পূর্বাভাস।')">
+                <div class="icon-item" onclick="openPopup('আবহাওয়া পূর্বাভাস', 'সেনবাগ, নোয়াখালী এবং বাংলাদেশ অঞ্চলের রিয়েল-টাইম আবহাওয়া ও তাপমাত্রা।')">
                     <div class="icon-circle">🌦️</div>
                     <div class="icon-label">আবহাওয়া</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('বয়স গণনা', 'আপনার সঠিক বয়স বছর, মাস ও দিনে রূপান্তর করুন।')">
+                <div class="icon-item" onclick="openPopup('বয়স গণনা টুল', 'আপনার জন্মতারিখ ইনপুট দিয়ে সুনির্দিষ্ট বয়স বছর, মাস ও দিনে বের করার ক্যালকুলেটর।')">
                     <div class="icon-circle">⏳</div>
                     <div class="icon-label">বয়স গণনা</div>
                 </div>
-                <div class="icon-item" onclick="showPopup('দিক নির্ণয়', 'ডিজিটাল কম্পাসের মাধ্যমে বাস্তু ও পূজা দিক নির্ণয়।')">
+                <div class="icon-item" onclick="openPopup('দিক নির্ণয় কম্পাস', 'বাস্তুশাস্ত্র ও মন্দির পূজার জন্য সঠিক উত্তর-দক্ষিণ দিক নির্ণায়ক ডিজিটাল কম্পাস।')">
                     <div class="icon-circle">🧭</div>
                     <div class="icon-label">দিক নির্ণয়</div>
                 </div>
@@ -636,29 +630,20 @@
 
         </div>
 
-        <!-- ট্যাব ৪: সেটিংস ও সেবা -->
+        <!-- ট্যাব ৪: সেটিংস -->
         <div id="tab-settings" class="tab-content">
             <div class="mantra-card">
-                <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও নোটিফিকেশন</div>
+                <div class="mantra-title">⚙️ অ্যাপ সেটিংস ও লোকেশন</div>
                 <p style="font-size:0.85rem; color:#333; margin-top:6px;">📍 বর্তমান লোকেশন: <strong>সেনবাগ, নোয়াখালী, বাংলাদেশ</strong></p>
             </div>
 
             <div class="mantra-card">
-                <div class="mantra-title">🙏 মন্দির সেবা ও ডিজিটাল প্রণামী একাউন্টসমূহ</div>
-                <div style="background:#fffdf8; border:1px solid var(--accent-gold); border-radius:8px; padding:10px; margin-top:8px; color:#333;">
-                    <div style="font-weight:bold; color:var(--accent-red); font-size:0.9rem; border-bottom:1px solid #e0e0e0; padding-bottom:4px; margin-bottom:6px;">📱 মোবাইল ফাইন্যান্সিয়াল সার্ভিস (MFS):</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>বিকাশ (Personal):</strong> +8801711369035</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>নগদ (Personal):</strong> +8801711369035</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>রকেট (Merchant):</strong> +8801616521762</div>
-                </div>
-
-                <div style="background:#f4f8f5; border:1px solid #2e7d32; border-radius:8px; padding:10px; margin-top:8px; color:#333;">
-                    <div style="font-weight:bold; color:#1b5e20; font-size:0.9rem; border-bottom:1px solid #e0e0e0; padding-bottom:4px; margin-bottom:6px;">🏛️ ব্যাংক হিসাব বিবরণী (Bank Transfer):</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>ব্যাংক নাম:</strong> অগ্রণী ব্যাংক পিএলসি (Agrani Bank PLC.)</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>শাখা:</strong> সেনবাগ বিআর ৭১৭৯ (Senbag BR 7179)</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>অ্যাকাউন্ট নাম:</strong> শ্রী শ্রী জগন্নাথ সেবাঙ্গন</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>অ্যাকাউন্ট নম্বর:</strong> 0200016213678</div>
-                    <div style="font-size:0.85rem; line-height:1.5;"><strong>রাউটিং নম্বর:</strong> 010751631</div>
+                <div class="mantra-title">🙏 মন্দির সেবা ও প্রণামী একাউন্ট</div>
+                <div style="background:#fffdf8; border:1px solid var(--accent-gold); border-radius:8px; padding:10px; color:#333;">
+                    <div style="font-weight:bold; color:var(--accent-red); font-size:0.9rem; margin-bottom:4px;">📱 বিকাশ ও নগদ (Personal):</div>
+                    <div style="font-size:0.85rem;">+8801711369035</div>
+                    <div style="font-weight:bold; color:var(--accent-red); font-size:0.9rem; margin-top:8px; margin-bottom:4px;">🏛️ অগ্রণী ব্যাংক (Senbag BR):</div>
+                    <div style="font-size:0.85rem;">অ্যাকাউন্ট: 0200016213678 (শ্রী শ্রী জগন্নাথ সেবাঙ্গন)</div>
                 </div>
             </div>
         </div>
@@ -680,11 +665,33 @@
             navElement.classList.add('active');
         }
 
+        // সূর্য সিদ্ধান্ত ও দৃক সিদ্ধান্ত পরিবর্তন সিস্টেম
         function setCalcMode(mode) {
             document.getElementById('btn-surya').classList.remove('active');
             document.getElementById('btn-drik').classList.remove('active');
-            if(mode === 'surya') document.getElementById('btn-surya').classList.add('active');
-            else document.getElementById('btn-drik').classList.add('active');
+            const titleEl = document.getElementById('calcModeTitle');
+            if(mode === 'surya') {
+                document.getElementById('btn-surya').classList.add('active');
+                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ (সূর্য সিদ্ধান্ত মতে)";
+            } else {
+                document.getElementById('btn-drik').classList.add('active');
+                titleEl.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ (দৃক সিদ্ধান্ত মতে)";
+            }
+        }
+
+        // পপ-আপ মোডাল কন্ট্রোল সিস্টেম
+        function openPopup(title, content) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = content;
+            document.getElementById('modal-overlay').style.display = 'flex';
+        }
+
+        function closeModal(event) {
+            document.getElementById('modal-overlay').style.display = 'none';
+        }
+
+        function closeModalDirect() {
+            document.getElementById('modal-overlay').style.display = 'none';
         }
 
         const rashiDict = {
@@ -703,12 +710,8 @@
         };
 
         function updateRashiData() {
-            const key = document.getElementById('rashiSelect').value;
+            const key = document.getElementById('rashiSelect', 10).value;
             document.getElementById('rashiOutput').innerText = rashiDict[key] || "আজকের দিনটি সার্বিকভাবে শুভ।";
-        }
-
-        function showPopup(title, desc) {
-            alert("📌 " + title + ":\n\n" + desc);
         }
 
         function shareApp() {
