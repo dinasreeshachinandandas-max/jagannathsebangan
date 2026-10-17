@@ -28,7 +28,7 @@
             background: linear-gradient(180deg, var(--bg-primary) 0%, #4a0000 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 85px;
+            padding-bottom: 95px;
         }
 
         .header {
@@ -329,7 +329,6 @@
             font-weight: 500;
         }
 
-        /* মোডাল উইন্ডো */
         #modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -443,7 +442,6 @@
 </head>
 <body>
 
-    <!-- পপ-আপ মোডাল উইন্ডো -->
     <div id="modal-overlay" onclick="closeModal(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
             <div class="modal-title" id="modalTitle">শিরোনাম</div>
@@ -470,8 +468,8 @@
                 <div class="today-header">
                     <div>
                         <div class="today-date-main">২৯</div>
-                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শুক্রবার</div>
-                        <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শনিবার</div>
+                        <div style="font-size:0.8rem; color:var(--text-gold);">১৭ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
                         <select id="locationSelect" class="location-select" onchange="updateLocationTime()">
@@ -488,13 +486,12 @@
 
                 <div class="tithi-time-box">
                     <strong style="color:var(--text-gold);">বর্তমান তিথি ও নক্ষত্র প্রারম্ভ-সমাপ্তি:</strong><br>
-                    • <strong>তিথি:</strong> শুক্লা ষষ্ঠী (প্রারম্ভ: ১৫ অক্টোবর রাত ০৩:২৫ AM, সমাপ্তি: ১৬ অক্টোবর শেষ রাত ০২:১০ AM)।<br>
-                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র (সমাপ্তি: ১৭ অক্টোবর সকাল ০৭:১৫ AM)।<br>
-                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার ষষ্ঠী পূজা ও দুর্গোৎসব প্রারম্ভ।</em>
+                    • <strong>তিথি:</strong> শুক্লা সপ্তমী (প্রারম্ভ: ১৬ অক্টোবর শেষ রাত ০২:১০ AM, সমাপ্তি: ১৭ অক্টোবর রাত ১১:৫০ PM)।<br>
+                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র সমাপ্তি ও মূল নক্ষত্র প্রারম্ভ।<br>
+                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার মহাসপ্তমী ও নবপত্রিকা প্রবেশ ও স্থাপন।</em>
                 </div>
             </div>
 
-            <!-- অটোমেটিক দৈনিক রাশিফল -->
             <div class="mantra-card">
                 <div class="mantra-title">✨ দৈনিক অটোমেটিক রাশিফল</div>
                 <select id="rashiSelect" class="rashi-select" onchange="updateRashiData()">
@@ -516,7 +513,6 @@
                 </div>
             </div>
 
-            <!-- আপনার দেওয়া নতুন ভিডিও লিংক দিয়ে আপডেটকৃত ভিডিও প্লেয়ার -->
             <div class="mantra-card">
                 <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
                 <div class="video-container">
@@ -592,14 +588,13 @@
 
         <!-- ট্যাব ৩: বিবিধ -->
         <div id="tab-bibidh" class="tab-content">
-            
             <div class="bibidh-section-title">উৎসব ও ছুটির তালিকা</div>
             <div class="icon-grid">
                 <div class="icon-item" onclick="openPopup('সরকারি ছুটি ১৪৩৩', '১৪৩৩ বঙ্গাব্দের সরকারি ও ঐচ্ছিক ছুটির তালিকা:\n• শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস: ২১ ফেব্রুয়ারি ২০২৬\n• স্বাধীনতা দিবস: ২৬ মার্চ ২০২৬\n• দুর্গাপূজা (বিজয়া দশমী): ২২ অক্টোবর ২০২৬\n• বিজয় দিবস: ১৬ ডিসেম্বর ২০২৬')">
                     <div class="icon-circle">📜</div>
                     <div class="icon-label">সরকারি ছুটি</div>
                 </div>
-                <div class="icon-item" onclick="openPopup('দুর্গাপূজা নির্ঘণ্ট ১৪৩৩', 'শ্রীশ্রী দুর্গাপূজা ১৪৩৩:\n• ১৮ অক্টোবর (মহাষষ্ঠী): বোধন ও আমন্ত্রণ अधिवास।\n• ১৯ অক্টোবর (মহাসপ্তমী): নবপত্রিকা প্রবেশ ও স্থাপন।\n• ২০ অক্টোবর (মহাঅষ্টমী): মহাষ্টমী পূজা ও কুমারী পূজা।\n• ২১ অক্টোবর (মহানবমী): মহানবমী কল্পারম্ভ ও বলিদান।\n• ২২ অক্টোবর (বিজয়া দশমী): প্রতিমা বিসর্জন ও শান্তিজল গ্রহণ।')">
+                <div class="icon-item" onclick="openPopup('দুর্গাপূজা নির্ঘণ্ট ১৪৩৩', 'শ্রীশ্রী দুর্গাপূজা ১৪৩৩:\n• ১৮ অক্টোবর (মহাষষ্ঠী): বোধন ও আমন্ত্রণ অধিवास।\n• ১৯ অক্টোবর (মহাসপ্তমী): নবপত্রিকা প্রবেশ ও স্থাপন।\n• ২০ অক্টোবর (মহাঅষ্টমী): মহাষ্টমী পূজা ও কুমারী পূজা।\n• ২১ অক্টোবর (মহানবমী): মহানবমী কল্পারম্ভ ও বলিদান।\n• ২২ অক্টোবর (বিজয়া দশমী): প্রতিমা বিসর্জন ও শান্তিজল গ্রহণ।')">
                     <div class="icon-circle">🪔</div>
                     <div class="icon-label">দুর্গাপূজা নির্ঘণ্ট</div>
                 </div>
@@ -692,7 +687,6 @@
                     <div class="icon-label">দিক নির্ণয়</div>
                 </div>
             </div>
-
         </div>
 
         <!-- ট্যাব ৪: সেটিংস -->
@@ -715,6 +709,7 @@
 
     </div>
 
+    <!-- নিচের নেভিগেশন বার -->
     <div class="nav-bar">
         <div class="nav-item active" onclick="switchTab('tab-home', this)"><div>🏠</div>এক নজরে</div>
         <div class="nav-item" onclick="switchTab('tab-panjika', this)"><div>📅</div>পঞ্জিকা</div>
@@ -728,6 +723,7 @@
             document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             navElement.classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function setCalcMode(mode) {
@@ -755,7 +751,7 @@
                 sunriseEl.innerText = "০৫:৩৭ AM";
                 sunsetEl.innerText = "১৭:০৭ PM";
                 parana1El.innerText = "⏰ পারণ সময়: ২৩ অক্টোবর সকাল ০৬:০৯:৪৪ গতে ০৯:৫৬:৫২ মধ্যে (বাংলাদেশ সময়)।";
-                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০6:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে (বাংলাদেশ সময়)।";
+                parana2El.innerText = "⏰ পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮:১০ গতে ০৯:৫৮:৩০ মধ্যে (বাংলাদেশ সময়)।";
                 setLocationText.innerText = loc === 'senbag' ? "সেনবাগ, নোয়াখালী, বাংলাদেশ" : "ঢাকা, বাংলাদেশ";
             } else if(loc === 'kolkata') {
                 sunriseEl.innerText = "০৫:৫৪ AM";
@@ -788,7 +784,7 @@
             const ekadashiData = `🌙 বাৎসরিক একাদশী ব্রত ও পারণের সময়কাল (স্থানীয় মান অনুযায়ী):
 
 ১. অপরা একাদশী:
-• তিথি প্রারম্ভ: ১২ মে দুপুর ০২:৫২ PM হতে ১৩ মে দুপুর ০১:৩০ PM পর্যন্ত[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)।
+• তিথি প্রারম্ভ: ১২ মে দুপুর ০২:৫২ PM হতে ১৩ মে দুপুর ০১:৩০ PM পর্যন্ত।
 • পারণ সময়: ১৪ মে সকাল ০৯:২২ AM এর মধ্যে।
 • পারণ মন্ত্র: "একাদশ্যাং নিরাহারব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ মুক্তি দৃষ্টি প্রদো ভব।।"
 
@@ -798,7 +794,7 @@
 
 ৩. রমা একাদশী (কার্তিক কৃষ্ণপক্ষ):
 • ০৫ নভেম্বর ২০২৬ (বৃহস্পতিবার)।
-• পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮ AM হতে ০৯:৫৮ AM মধ্যে (স্থানীয় সময় অনুযায়ী)।`;
+• পারণ সময়: ০৬ নভেম্বর সকাল ০৬:১৮ AM হতে ০৯:৫৮ AM মধ্যে (স্থানীয় সময় অনুযায়ী)।`;
 
             openPopup('একাদশী উপবাস ও পারণ নির্ঘণ্ট', ekadashiData);
         }
@@ -834,15 +830,15 @@
             mesh: "আজ মেষ রাশির জাতক-জাতিকাদের মানসিক শক্তি বৃদ্ধি পাবে। নামসংকীর্তনে আনন্দ লাভ করবেন।",
             vrish: "বৃষ রাশির জন্য শুভ দিন। পরিবারের গুরুজনদের আশীর্বাদ পাবেন। মন্দির দর্শনে আত্মিক তৃপ্তি মিলবে।",
             mithun: "মিথুন রাশির জাতক-জাতিকাদের আর্থিক দিক শুভ। বন্ধুদের সাহায্য পাবেন।",
-            karkat: "কর্কট রাশির কর্মক্ষেত্রে সফলতা আসবে[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span)। বৈষ্ণব সেবায় অংশ গ্রহণে শান্তি মিলবে।",
+            karkat: "কর্কট রাশির কর্মক্ষেত্রে সফলতা আসবে। বৈষ্ণব সেবায় অংশ গ্রহণে শান্তি মিলবে।",
             singha: "সিংহ রাশির প্রতিপত্তি ও সম্মান বৃদ্ধি পাবে। শুভ কাজে অগ্রগতির যোগ।",
             kanya: "কন্যা রাশির শুভ যোগাযোগ দেখা যাচ্ছে। ছাত্র-ছাত্রীদের জন্য দিনটি ফলপ্রসূ।",
             tula: "তুলা রাশির দাম্পত্য জীবনে মধুরতা বজায় থাকবে। বিগ্রহ দর্শনে শক্তি পাবেন।",
             vrischick: "বৃশ্চিক রাশির স্বাস্থ্যের দিকটি ভালো যাবে। আটকে থাকা অর্থ পুনরুদ্ধارهای যোগ।",
-            dhanu: "ধনু রাশির আর্থিক উপার্জন বৃদ্ধির যোগ[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)[span_17](start_span)[span_17](end_span)। গৃহে শুভ অনুষ্ঠানের পরিকল্পনা হতে পারে।",
-            makar: "মকর রাশির আত্মবিশ্বাস বৃদ্ধি পাবে[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span)[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span)। ধর্মীয় অনুষ্ঠানে অংশগ্রহণের সুযোগ।",
-            kumbha: "কুম্ভ রাশির কর্মক্ষেত্রে প্রশংসা লাভ হবে[span_24](start_span)[span_24](end_span)[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)[span_27](start_span)[span_27](end_span)[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span)। পারিবারিক শান্তি বজায় থাকবে।",
-            meen: "মীন রাশির জাতক-জাতিকাদের মানসিক প্রফুল্লতা বৃদ্ধি পাবে[span_30](start_span)[span_30](end_span)[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span)[span_34](start_span)[span_34](end_span)[span_35](start_span)[span_35](end_span)। ভক্তি ও জপে শুভ ফল।"
+            dhanu: "ধনু রাশির আর্থিক উপার্জন বৃদ্ধির যোগ। গৃহে শুভ অনুষ্ঠানের পরিকল্পনা হতে পারে।",
+            makar: "মকর রাশির আত্মবিশ্বাস বৃদ্ধি পাবে। ধর্মীয় অনুষ্ঠানে অংশগ্রহণের সুযোগ।",
+            kumbha: "কুম্ভ রাশির কর্মক্ষেত্রে প্রশংসা লাভ হবে। পারিবারিক শান্তি বজায় থাকবে।",
+            meen: "মীন রাশির জাতক-জাতিকাদের মানসিক প্রফুল্লতা বৃদ্ধি পাবে। ভক্তি ও জপে শুভ ফল।"
         };
 
         function updateRashiData() {
