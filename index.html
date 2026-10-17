@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <!-- PWA Web App Manifest and Meta Tags -->
-<link rel="manifest" href="manifest.json">
-<meta name="application-name" content="শ্রী শ্রী জগন্নাথ সেবাঙ্গন">
-<meta name="apple-mobile-web-app-title" content="জগন্নাথ সেবাঙ্গন">
-<meta name="theme-color" content="#8b4513">
-<meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <meta name="application-name" content="শ্রী শ্রী জগন্নাথ সেবাঙ্গন">
+    <meta name="apple-mobile-web-app-title" content="জগন্নাথ সেবাঙ্গন">
+    <meta name="theme-color" content="#8b4513">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ | Global Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
         :root {
             --bg-primary: #7a0000;
@@ -34,7 +34,7 @@
             background: linear-gradient(180deg, var(--bg-primary) 0%, #4a0000 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 85px;
+            padding-bottom: 95px;
         }
 
         .header {
@@ -55,8 +55,8 @@
         }
 
         .logo-box img {
-            height: 65px;
-            width: 65px;
+            height: 75px;
+            width: 75px;
             object-fit: cover;
             display: block;
             border-radius: 50%;
@@ -88,20 +88,40 @@
 
         .container {
             padding: 12px;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
+        .card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 1.5px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: var(--accent-red);
+            font-size: 1.05rem;
+            border-bottom: 1px dashed var(--accent-gold);
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
         .today-card {
             background: linear-gradient(135deg, #990000 0%, #660000 100%);
             border: 2px solid var(--accent-gold);
             border-radius: 14px;
             padding: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            color: #fff;
         }
 
         .today-header {
@@ -154,34 +174,39 @@
             line-height: 1.5;
         }
 
-        .mantra-card {
-            background: var(--card-bg);
-            color: var(--text-dark);
-            border: 1.5px solid var(--card-border);
-            border-radius: 12px;
+        .info-box {
+            background: #fefae0;
             padding: 12px;
-            margin-bottom: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
-
-        .mantra-title {
-            text-align: center;
-            font-weight: bold;
-            color: var(--accent-red);
-            margin-bottom: 6px;
-            font-size: 0.92rem;
-            border-bottom: 1px dashed var(--accent-gold);
-            padding-bottom: 4px;
-        }
-
-        .mantra-box {
-            background: #fdfae8;
-            padding: 8px;
+            border-left: 4px solid var(--accent-red);
+            margin: 8px 0;
             border-radius: 6px;
-            margin-top: 6px;
-            border-left: 3px solid var(--accent-red);
-            font-size: 0.82rem;
-            line-height: 1.4;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .qr-hub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .qr-item {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--text-dark);
         }
 
         .video-container {
@@ -200,29 +225,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .calc-toggle {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-
-        .calc-btn {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid var(--accent-gold);
-            background: var(--bg-secondary);
-            color: var(--text-gold);
-            border-radius: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
-        .calc-btn.active {
-            background: var(--accent-gold);
-            color: var(--text-dark);
         }
 
         .calendar-grid {
@@ -262,81 +264,15 @@
             color: #b71c1c;
         }
 
+        .cal-date-cell.special-purnima {
+            background: #fff3e0;
+            border: 1.5px solid #ef6c00;
+        }
+
         .cal-date-cell .eng-sub {
             font-size: 0.65rem;
             color: #555;
             display: block;
-        }
-
-        /* গুগল ক্যালেন্ডার কার্ড */
-        .google-cal-card {
-            background: var(--card-bg);
-            color: var(--text-dark);
-            border: 1.5px solid var(--card-border);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
-
-        .google-cal-header {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .google-cal-badge {
-            background: #fff8e1;
-            border: 1px solid var(--accent-gold);
-            color: #b71c1c;
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .google-cal-title {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--accent-red);
-        }
-
-        .google-cal-desc {
-            font-size: 0.8rem;
-            color: #444;
-            margin-bottom: 10px;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        .google-iframe-box {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--accent-gold);
-            background: #fff;
-        }
-
-        .rashi-select {
-            width: 100%;
-            padding: 7px;
-            border-radius: 6px;
-            border: 1px solid var(--accent-gold);
-            font-weight: bold;
-            margin-bottom: 8px;
-            background: #fff;
-            color: var(--text-dark);
-        }
-
-        .rashi-card-result {
-            background: #fffdf2;
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-gold);
-            color: #333;
-            font-size: 0.85rem;
-            line-height: 1.4;
         }
 
         .btn-main {
@@ -357,7 +293,7 @@
 
         .map-btn { background: linear-gradient(135deg, #1976d2, #0d47a1); color: #fff; }
         .share-btn { background: #2e7d32; color: white; }
-        .youtube-channel-btn { background: #cc0000; color: white; margin-top: 6px; }
+        .whatsapp-btn { background: #25d366; color: white; }
 
         .nav-bar {
             position: fixed;
@@ -378,7 +314,7 @@
 
     <div class="header">
         <div class="logo-box">
-            <img src="images/uploads/temple-logo.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.src='1000058168.jpg';">
+            <img src="images/uploads/IMG-20260714-WA0008.jpg" alt="মন্দিরের মনোগ্রাম" onerror="this.src='1000058168.jpg';">
         </div>
         <h1>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</h1>
         <div class="sub-title">শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের শাখা মন্দির</div>
@@ -388,14 +324,15 @@
 
     <div class="container">
         
-        <!-- ট্যাব ১: এক নজরে -->
+        <!-- ট্যাব ১: এক নজরে (মূল পোর্টাল, পরিচিতি, লাইভ বুকিং ও সেবা প্রকল্প) -->
         <div id="tab-home" class="tab-content active">
+            
             <div class="today-card">
                 <div class="today-header">
                     <div>
                         <div class="today-date-main">২৯</div>
-                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শুক্রবার</div>
-                        <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শনিবার</div>
+                        <div style="font-size:0.8rem; color:var(--text-gold);">১৭ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
                         <select id="locationSelect" class="location-select">
@@ -410,110 +347,193 @@
 
                 <div class="tithi-time-box">
                     <strong style="color:var(--text-gold);">বর্তমান তিথি ও নক্ষত্র প্রারম্ভ-সমাপ্তি:</strong><br>
-                    • <strong>তিথি:</strong> শুক্লা ষষ্ঠী (প্রারম্ভ: ১৫ অক্টোবর রাত ০৩:২৫ AM, সমাপ্তি: ১৬ অক্টোবর শেষ রাত ০২:১০ AM)।<br>
-                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র (সমাপ্তি: ১৭ অক্টোবর সকাল ০৭:১৫ AM)।<br>
-                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার ষষ্ঠী পূজা ও দুর্গোৎসব প্রারম্ভ।</em>
+                    • <strong>তিথি:</strong> শুক্লা সপ্তমী (প্রারম্ভ: ১৬ অক্টোবর শেষ রাত ০২:১০ AM, সমাপ্তি: ১৭ অক্টোবর রাত ১১:৫০ PM)।<br>
+                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র সমাপ্তি ও মূল নক্ষত্র প্রারম্ভ।<br>
+                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার মহাসপ্তমী ও নবপত্রিকা প্রবেশ ও স্থাপন।</em>
                 </div>
             </div>
 
-            <!-- ছবিতে থাকা গুগল ক্যালেন্ডার ও লাইভ সিডিউল সেকশন -->
-            <div class="google-cal-card">
-                <div class="google-cal-header">
-                    <div class="google-cal-badge">⚡ ডিজিটাইলাইজড অটোমেটিক সিস্টেম</div>
-                    <div class="google-cal-title">📅 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - লাইভ সিডিউল ও গুগল ক্যালেন্ডার</div>
+            <!-- পথ পরিচিতি ও অবস্থান -->
+            <div class="card">
+                <h2>📍 মন্দিরের পথ পরিচিতি ও যোগাযোগ</h2>
+                <div class="info-box">
+                    <strong>পথ পরিচিতি:</strong> সেনবাগ উপজেলা বাজার থেকে 2.0 কিলোমিটার দক্ষিণে, সেনবাগ রাস্তার মাথা থেকে 1.5 কিলোমিটার উত্তরে ষ্টিল ব্রীজের পূর্ব পাশে সাহা বাড়ি সংলগ্ন শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।<br><br>
+                    <strong>প্রয়োজনে:</strong> <a href="https://wa.me/8801711369035" target="_blank" style="color:#1b5e20; font-weight:bold; text-decoration:underline;">+8801711369035 (WhatsApp)</a>
                 </div>
-                <div class="google-cal-desc">
-                    নিচে মন্দিরের অফিসিয়াল গুগল ক্যালেন্ডারের খালি তারিখ ও নির্ধারিত অনুষ্ঠান দেখে আপনার অনুষ্ঠান বুকিং করুন:
-                </div>
-                <div class="google-iframe-box">
-                    <iframe src="https://calendar.google.com/calendar/embed?src=en.bangladesh%23holiday%40group.v.calendar.google.com&ctz=Asia%2FDhaka" style="border: 0" width="100%" height="320" frameborder="0" scrolling="no"></iframe>
-                </div>
-            </div>
-
-            <!-- অটোমেটিক দৈনিক রাশিফল -->
-            <div class="mantra-card">
-                <div class="mantra-title">✨ দৈনিক অটোমেটিক রাশিফল</div>
-                <select id="rashiSelect" class="rashi-select">
-                    <option value="mesh">মেষ রাশি (Aries)</option>
-                    <option value="vrish">বৃষ রাশি (Taurus)</option>
-                    <option value="mithun">মিথুন রাশি (Gemini)</option>
-                </select>
-                <div id="rashiOutput" class="rashi-card-result">
-                    আজ বৈষ্ণবীয় কৃপায় আপনার কাজে উন্নতি ও মানসিক শান্তি বজায় থাকবে। ধর্মীয় জপ ও নামসংকীর্তনে মনোযোগ দিন।
-                </div>
-            </div>
-
-            <!-- ভিডিও প্লেয়ার -->
-            <div class="mantra-card">
-                <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/jTo_g_4BDF0" title="Paramarthik Pathshala Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="btn-main youtube-channel-btn">
-                    📺 আমাদের ইউটিউব চ্যানেল ভিজিট করুন (Paramarthik Pathshala)
+                <a href="https://maps.google.com/?q=North+Sahapur,+Senbagh,+Noakhali" target="_blank" class="btn-main map-btn">
+                    🗺️ গুগল ম্যাপে দিকনির্দেশনা দেখুন (Google Maps)
                 </a>
             </div>
 
-            <a href="https://maps.google.com/?q=Senbag,+Noakhali" target="_blank" class="btn-main map-btn">
-                📍 গুগল ম্যাপে মন্দিরের অবস্থান দেখুন (Google Maps)
-            </a>
-
-            <div class="mantra-card">
-                <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
-                <div class="mantra-box">
-                    <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
-                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+            <!-- লাইভ অটোমেটেড বুকিং ক্যালেন্ডার (গুগল শিট, টেলিগ্রাম, হোয়াটসঅ্যাপ সংযোজিত) -->
+            <div class="card">
+                <h2>📅 লাইভ সিডিউল ও অনুষ্ঠান বুকিং ক্যালেন্ডার</h2>
+                <p style="font-size:0.8rem; text-align:center; margin-bottom:8px; color:#444;">
+                    গুগল শিট, টেলিগ্রাম ও হোয়াটসঅ্যাপের সাথে সংযুক্ত অটোমেশন সিস্টেমের মাধ্যমে মন্দিরের খালি ও বরাদ্দ তারিখ যাচাই করে আপনার অনুষ্ঠান বুকিং করুন:
+                </p>
+                <div style="width:100%; border-radius:8px; overflow:hidden; border:1px solid var(--accent-gold); background:#fff;">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=en.bangladesh%23holiday%40group.v.calendar.google.com&ctz=Asia%2FDhaka" style="border: 0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
                 </div>
-                <div class="mantra-box" style="margin-top:6px;">
-                    <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
-                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+                <a href="https://wa.me/8801711369035" target="_blank" class="btn-main whatsapp-btn">
+                    💬 হোয়াটসঅ্যাপে সরাসরি বুকিং বা যোগাযোগ করুন (+8801711369035)
+                </a>
+            </div>
+
+            <!-- আইনি স্বীকৃতি ও নিবন্ধন -->
+            <div class="card">
+                <h2>📜 আইনি স্বীকৃতি, নিবন্ধন ও দাতা সংস্থা</h2>
+                <ul style="font-size:0.85rem; padding-left:18px; line-height:1.6; color:#333;">
+                    <li><strong>হিন্দু ধর্মীয় কল্যাণ ট্রাস্ট:</strong> আইনগতভাবে নিবন্ধিত ও অনুমোদিত।</li>
+                    <li><strong>আন্তর্জাতিক দাতা সংস্থার স্বীকৃতি:</strong> বিশ্বব্যাপী সনাতন ধর্ম প্রচার ও মানবসেবায় আন্তর্জাতিক দাতা ও ট্রাস্ট মহলের স্বীকৃতিপ্রাপ্ত।</li>
+                    <li><strong>সাধু ও মহাত্মাদের আশীর্বাদ:</strong> শ্রীধাম বৃন্দাবন ও দেশ-বিদেশের প্রবীণ সাধু ও মহাত্মাগণের প্রশংসাপত্র ও দিকনির্দেশনাপুষ্ট।</li>
+                </ul>
+            </div>
+
+            <!-- পরিচালনা পর্ষদ -->
+            <div class="card">
+                <h2>👥 পরিচালনা পর্ষদ ও দীন সেবক</h2>
+                <div class="grid-2">
+                    <div style="background:#fefae0; padding:8px; border-radius:6px; font-size:0.82rem;">
+                        <strong>সভাপতি:</strong> শ্রীযুক্ত বাবু কৃষ্ণ গোপাল সাহা<br>📞 01717-300520
+                    </div>
+                    <div style="background:#fefae0; padding:8px; border-radius:6px; font-size:0.82rem;">
+                        <strong>সাধারণ সম্পাদক:</strong> শ্রীযুক্ত বাবু শংকর মজুমদার<br>📞 01836-188118
+                    </div>
+                </div>
+                <div style="background:#fff3e0; padding:8px; border-radius:6px; font-size:0.82rem; margin-top:8px; text-align:center;">
+                    🙏 <strong>দীন সেবক:</strong> মহান্ত ১০৮ শ্রী শ্রী মুরারী দাস বাবাজি মহারাজের শ্রীচরণাশ্রিত — <strong>দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস</strong> (📞 01711369035)
                 </div>
             </div>
 
-            <button class="btn-main share-btn">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
+            <!-- ভবিষ্যৎ কর্মপন্থা ও সমাজসেবামূলক প্রকল্প -->
+            <div class="card">
+                <h2>🚩 ভবিষ্যৎ কর্মপন্থা ও মানবসেবা প্রকল্প</h2>
+                <p style="font-size:0.83rem; line-height:1.5; color:#333; margin-bottom:6px;">
+                    মানবসেবাই মাধবসেবা—এই আদর্শে উদ্বুদ্ধ হয়ে মন্দির পরিচালনা পর্ষদের মাধ্যমে নিম্নলিখিত যুগোপযোগী প্রকল্পসমূহ বাস্তবায়নাধীন রয়েছে:
+                </p>
+                <ul style="font-size:0.83rem; padding-left:18px; line-height:1.6; color:#333;">
+                    <li><strong>অহিংস নীতি ও সদাচার:</strong> সমাজে অহিংসা ও সনাতন বৈষ্ণবীয় সদাচরণের প্রসার।</li>
+                    <li><strong>অনাথ আশ্রম ও বৃদ্ধাশ্রম:</strong> অসহায় প্রবীণ ও এতিম শিশুদের জন্য নিরাপদ বাসস্থান ও সেবা নির্মাণ।</li>
+                    <li><strong>শিক্ষা ও মেধাবৃত্তি:</strong> দরিদ্র ও মেধাবী শিক্ষার্থীদের নিয়মিত শিক্ষাবৃত্তি প্রদান।</li>
+                    <li><strong>চিকিৎসা সেবা:</strong> অসহায় ও দরিদ্র রোগীদের জন্য ফ্রি চিকিৎসা ক্যাম্প ও ওষুধ বিতরণ।</li>
+                    <li><strong>অন্নদান ও বস্ত্রদান:</strong> দুস্থ মানুষের মাঝে নিয়মিত অন্ন ও বস্ত্র বিতরণ।</li>
+                    <li><strong>কর্মসংস্থান ও প্রশিক্ষণ:</strong> শিক্ষিত বেকার যুবকদের জন্য কর্মমুখী প্রশিক্ষণের ব্যবস্থা।</li>
+                    <li><strong>গো-মাতা সেবা:</strong> বৈষ্ণবীয় সংস্কৃতির অঙ্গ হিসেবে গো-সেবা ও লালন-পালন।</li>
+                </ul>
+            </div>
+
+            <!-- অনলাইন ডোনেশন ও সহায়তা -->
+            <div class="card" style="text-align: center;">
+                <h2>🙏 অনলাইন ডোনেশন ও সহায়তা প্রদান</h2>
+                <p style="font-size:0.83rem; color:#444; margin-bottom:8px;">
+                    আমাদের মানবসেবামূলক ও মন্দির উন্নয়ন কার্যক্রমে আপনার সাধ্যমতো আর্থিক অনুদান পাঠিয়ে অংশীদার হোন:
+                </p>
+                <div style="background:#fefae0; padding:10px; border-radius:6px; font-size:0.85rem; text-align:left; color:#333; margin-bottom:8px;">
+                    📱 <strong>বিকাশ ও নগদ (Personal):</strong> 01711369035<br>
+                    🏛️ <strong>অগ্রণী ব্যাংক (সেনবাগ শাখা):</strong> 0200016213678 (শ্রী শ্রী জগন্নাথ সেবাঙ্গন)
+                </div>
+                <a href="https://form.jotform.com" target="_blank" class="btn-main" style="background:#c62828; color:#fff;">
+                    📝 অনলাইন ডোনেশন ফর্ম পূরণ করুন (Jotform)
+                </a>
+            </div>
+
         </div>
 
-        <!-- ট্যাব ২: পঞ্জিকা -->
+        <!-- ট্যাব ২: পঞ্জিকা ও জ্যোতিষ নির্দেশিকা (Dedicated Panjika Hub) -->
         <div id="tab-panjika" class="tab-content">
-            <div class="calc-toggle">
-                <button class="calc-btn active">সূর্য সিদ্ধান্ত গণনা</button>
-                <button class="calc-btn">দৃক সিদ্ধান্ত গণনা</button>
+            
+            <div class="card">
+                <h2>📖 গীতা, ভাগবত ও পূজার উপকরণ</h2>
+                <div class="info-box">
+                    এখানে সর্বপ্রকার সনাতন ধর্মীয় গ্রন্থ, ধাতব (পিতল) বিগ্রহ, তুলসী জপমালা, কষ্ঠিমালা, জপথলি, বিগ্রহের পোশাকসহ যাবতীয় পূজার সামগ্রী পাওয়া যায়। এছাড়া অন্নপ্রাশন, জাতকর্ম, বৈদিক বিবাহ ও বৈষ্ণবীয় শ্রদ্ধাসম্পন্ন বিভিন্ন অনুষ্ঠানে পরোহিত ও মহাপ্রসাদ দ্বারা সুসম্পন্ন করার ব্যবস্থা রয়েছে।
+                </div>
+            </div>
+
+            <div class="calc-toggle" style="display:flex; gap:8px; margin-bottom:10px;">
+                <button class="calc-btn active" style="flex:1; padding:8px; border:1px solid var(--accent-gold); background:var(--accent-gold); color:var(--text-dark); border-radius:18px; font-weight:bold;">সূর্য সিদ্ধান্ত গণনা</button>
+                <button class="calc-btn" style="flex:1; padding:8px; border:1px solid var(--accent-gold); background:var(--bg-secondary); color:var(--text-gold); border-radius:18px; font-weight:bold;">দৃক সিদ্ধান্ত গণনা</button>
             </div>
 
             <div style="background:var(--bg-secondary); padding:8px 12px; border-radius:8px; border:1px solid var(--accent-gold); margin-bottom:10px; text-align:center;">
-                <strong style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</strong>
+                <strong style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪ ৩৩ বঙ্গাব্দ (পঞ্জিকা নির্দেশিকা)</strong>
             </div>
 
             <div class="calendar-grid">
                 <div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>
+                
                 <div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">19 Oct</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">20 Oct</span></div><div class="cal-date-cell"><strong>৩</strong><span class="eng-sub">21 Oct</span></div>
+                <div class="cal-date-cell special-ekadashi"><strong>৪</strong><span class="eng-sub">22 Oct</span></div><div class="cal-date-cell"><strong>৫</strong><span class="eng-sub">23 Oct</span></div><div class="cal-date-cell"><strong>৬</strong><span class="eng-sub">24 Oct</span></div>
+                
+                <div class="cal-date-cell special-purnima"><strong>৭</strong><span class="eng-sub">25 Oct</span></div><div class="cal-date-cell"><strong>৮</strong><span class="eng-sub">26 Oct</span></div><div class="cal-date-cell"><strong>৯</strong><span class="eng-sub">27 Oct</span></div><div class="cal-date-cell"><strong>১০</strong><span class="eng-sub">28 Oct</span></div><div class="cal-date-cell"><strong>১১</strong><span class="eng-sub">29 Oct</span></div><div class="cal-date-cell special-ekadashi"><strong>১২</strong><span class="eng-sub">30 Oct</span></div><div class="cal-date-cell"><strong>১৩</strong><span class="eng-sub">31 Oct</span></div>
+                
+                <div class="cal-date-cell"><strong>১৪</strong><span class="eng-sub">01 Nov</span></div><div class="cal-date-cell"><strong>১৫</strong><span class="eng-sub">02 Nov</span></div><div class="cal-date-cell"><strong>১৬</strong><span class="eng-sub">03 Nov</span></div><div class="cal-date-cell"><strong>১৭</strong><span class="eng-sub">04 Nov</span></div><div class="cal-date-cell special-ekadashi"><strong>১৮</strong><span class="eng-sub">05 Nov</span></div><div class="cal-date-cell"><strong>১৯</strong><span class="eng-sub">06 Nov</span></div><div class="cal-date-cell"><strong>২০</strong><span class="eng-sub">07 Nov</span></div>
+                
+                <div class="cal-date-cell"><strong>২১</strong><span class="eng-sub">08 Nov</span></div><div class="cal-date-cell"><strong>২২</strong><span class="eng-sub">09 Nov</span></div><div class="cal-date-cell"><strong>২৩</strong><span class="eng-sub">10 Nov</span></div><div class="cal-date-cell"><strong>২৪</strong><span class="eng-sub">11 Nov</span></div><div class="cal-date-cell"><strong>২৫</strong><span class="eng-sub">12 Nov</span></div><div class="cal-date-cell"><strong>২৬</strong><span class="eng-sub">13 Nov</span></div><div class="cal-date-cell"><strong>২৭</strong><span class="eng-sub">14 Nov</span></div>
+                <div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Nov</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Nov</span></div><div class="cal-date-cell"><strong>৩০</strong><span class="eng-sub">17 Nov</span></div>
+            </div>
+        </div>
+
+        <!-- ট্যাব ৩: কিউআর হাব ও লিংক (QR Code Hub) -->
+        <div id="tab-qr" class="tab-content">
+            <div class="card">
+                <h2>📱 অফিশিয়াল কিউআর কোড ও লিংক হাব</h2>
+                <p style="font-size:0.8rem; text-align:center; color:#555; margin-bottom:8px;">
+                    এক ক্লিকে বা স্ক্যান করে আমাদের সকল অফিশিয়াল প্ল্যাটফর্মে যুক্ত হোন:
+                </p>
+                <div class="qr-hub-grid">
+                    <div class="qr-item">🌐 ওয়েবসাইট হাব</div>
+                    <div class="qr-item">📝 ডোনেশন ফর্ম</div>
+                    <div class="qr-item">🗺️ গুগল ম্যাপ</div>
+                    <div class="qr-item">📰 ব্লগ পেইজ</div>
+                    <div class="qr-item">📺 পারমার্থিক পাঠশালা</div>
+                    <div class="qr-item">👤 ফেসবুক আইডি</div>
+                    <div class="qr-item">👍 ফেসবুক পেইজ</div>
+                    <div class="qr-item">📜 গঠনতন্ত্র</div>
+                    <div class="qr-item">📅 ক্যালেন্ডার অ্যাপ</div>
+                </div>
+            </div>
+
+            <!-- ভিডিও প্লেয়ার ও ইউটিউব চ্যানেল -->
+            <div class="card">
+                <h2>🎬 পারমার্থিক পাঠশালা (ইউটিউব চ্যানেল)</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jTo_g_4BDF0" title="Paramarthik Pathshala" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A" target="_blank" class="btn-main" style="background:#cc0000; color:#fff; margin-top:8px;">
+                    📺 আমাদের ইউটিউব চ্যানেল সাবস্ক্রাইব করুন
+                </a>
             </div>
         </div>
 
     </div>
 
-    <!-- নিচের নেভবার -->
+    <!-- নিচের আধুনিক নেভবার -->
     <div class="nav-bar">
-        <button class="nav-item active" onclick="switchTab('home')">
-            <div>🏠</div>এক নজরে
+        <button class="nav-item active" onclick="switchTab('home', event)">
+            <div>🏠</div>মুখ্য পাতা
         </button>
-        <button class="nav-item" onclick="switchTab('panjika')">
-            <div>📅</div>পঞ্জিকা
+        <button class="nav-item" onclick="switchTab('panjika', event)">
+            <div>📅</div>পঞ্জিকা ও সেবা
+        </button>
+        <button class="nav-item" onclick="switchTab('qr', event)">
+            <div>🔗</div>কিউআর ও লিংক
         </button>
     </div>
 
     <script>
-        function switchTab(tabName) {
+        function switchTab(tabName, event) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             
             if(tabName === 'home') {
                 document.getElementById('tab-home').classList.add('active');
-                event.currentTarget.classList.add('active');
             } else if(tabName === 'panjika') {
                 document.getElementById('tab-panjika').classList.add('active');
-                event.currentTarget.classList.add('active');
+            } else if(tabName === 'qr') {
+                document.getElementById('tab-qr').classList.add('active');
             }
+            event.currentTarget.classList.add('active');
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
