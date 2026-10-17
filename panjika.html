@@ -44,7 +44,7 @@
     <header class="app-gradient text-white p-4 text-center shadow-lg border-b-4 border-amber-400">
         <div class="max-w-3xl mx-auto space-y-2">
             
-            <!-- মন্দিরের লোগো (সঠিক পাথ ও ফলব্যাক সহ) -->
+            <!-- মন্দিরের লোগো -->
             <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full bg-white p-1 shadow-2xl border-2 border-amber-300">
                 <img src="1000071609.png" onerror="this.onerror=null; this.src='images/uploads/1000071609.png';" alt="শ্রী শ্রী জগন্নাথ সেবাঙ্গন লোগো" class="w-full h-full object-contain rounded-full">
             </div>
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="mt-4 pt-3 border-t border-white/20 text-center text-sm font-bold text-amber-200">
-                    ✨ শ্রীশ্রী শারদীয়া দুর্গা ষষ্ঠী পূজা ও অধিবাস
+                    ✨ শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা
                 </div>
             </div>
 
@@ -156,8 +156,17 @@
             </div>
         </section>
 
-        <!-- TAB 3: বিবিধ ও মন্ত্র -->
+        <!-- TAB 3: বিবিধ, শুভকর্ম ও মন্ত্র -->
         <section id="view-bibidh" class="view-panel space-y-6">
+            <div class="bg-white p-5 rounded-3xl border border-amber-300 card-shadow space-y-4">
+                <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-rose-700 pb-2">
+                    <i class="fa-solid fa-kaaba text-rose-700"></i> নির্বাচিত মাসের মাঙ্গলিক দিনসূচী ও শুভ লগ্ন
+                </h3>
+                <div id="dynamic-shubh-karma" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <!-- Dynamic Month Wise Details -->
+                </div>
+            </div>
+
             <div class="bg-amber-100/80 border-2 border-amber-300 rounded-3xl p-5 shadow-sm space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2">
                     <i class="fa-solid fa-scroll text-amber-900"></i> ব্রত সমর্পণ ও পারণ মন্ত্র
@@ -165,13 +174,13 @@
                 <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
                     <p class="font-bold text-rose-800">📜 ব্রত সমর্পণ মন্ত্র:</p>
                     <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
-                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥[span_1](start_span)"[span_1](end_span)
+                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥"
                     </p>
                 </div>
                 <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
                     <p class="font-bold text-rose-800">📜 পারণ মন্ত্র:</p>
                     <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
-                        "তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥[span_2](start_span)"[span_2](end_span)
+                        "তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥"
                     </p>
                 </div>
             </div>
@@ -196,7 +205,7 @@
         </div>
     </nav>
 
-    <!-- জাভাস্ক্রিপ্ট লজিক ও ১২ মাসের ডাটা -->
+    <!-- জাভাস্ক্রিপ্ট ডাটা ও লজিক -->
     <script>
         const panjikaData = [
             // ০. বৈশাখ
@@ -224,7 +233,7 @@
             // ৫. আশ্বিন
             [
                 { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৫/৫৬ গতে ০৯/৫৮ মধ্যে" },
-                { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী শারদীয়া মহাষ্টমী বিহিত পূজা প্রশস্তা", p: "-" }
+                { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা", p: "-" }
             ],
             // ৬. কার্তিক
             [
@@ -250,6 +259,21 @@
             [
                 { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", w: "সোমবার", v: "৫৪২তম শ্রীশ্রী গৌরপূর্ণিমা জন্ম-জয়ন্তী মহোৎসব", p: "-" }
             ]
+        ];
+
+        const shubhKarmaData = [
+            { b: "০৭,১৯,২৩,২৪ বৈশাখ", a: "০৫,১৫,১৯,২৭ বৈশাখ", s: "০৬,০৯,১০,১৫,১৭ বৈশাখ", g: "পঞ্জিকা মতে প্রশস্ত দিন", d: "শুভ শুভক্ষণ ও পুণ্যাহ", m: "০৪,১৫,১৮,২৯ বৈশাখ" },
+            { b: "নাই", a: "০৩,০৭,১৩ জ্যৈষ্ঠ", s: "০৬,০৭,১৩ জ্যৈষ্ঠ", g: "জ্যৈষ্ঠে গৃহপ্রবেশ নিষিদ্ধ", d: "দেবতা প্রতিষ্ঠা নিষিদ্ধ", m: "০৩,০৭,১৩,১৬,২৩ জ্যৈষ্ঠ" },
+            { b: "২১,২৭ আষাঢ়", a: "০২ আষাঢ়", s: "২/৩০ আষাঢ়", g: "০২,২১,২৭ আষাঢ়", d: "দেব প্রতিষ্ঠা ২/২১ আষাঢ়", m: "২১,২৭ আষাঢ়" },
+            { b: "০৩,০৪,০৬,০৭,১২,১৩,১৬,১৭,২১ শ্রাবণ", a: "০২,০۶,০৭ শ্রাবণ", s: "০২,০৩,০৪,০৫,০৭ শ্রাবণ", g: "শ্রাবণে গৃহারম্ভ শুভ", d: "দেবালয় নির্মাণ", m: "০৪,০৬,০৭,২১ শ্রাবণ" },
+            { b: "০৪,০৬,০৭,১২,১৬,১৭,১৮ ভাদ্র", a: "০২,০৬,২৭ ভাদ্র", s: "০১,০৮,১০,২৬,২৭ ভাদ্র", g: "ভাদ্রে গৃহপ্রবেশ অশুভ", d: "দেবালয় সংস্কার", m: "০৪,০৬,১২,১৭ ভাদ্র" },
+            { b: "০৩,১০,১৩,১৪,২৮ আশ্বিন", a: "০৫,২৮,২৯ আশ্বিন", s: "০৫,২৮,২৯ আশ্বিন", g: "শারদীয় শুভদিন", d: "ঘটে আগমন ও দুর্গোৎসব", m: "০৩,১০,১৩,২৮ আশ্বিন" },
+            { b: "০৬,০৭,০৮,১১,২০,২৭ কার্তিক", a: "০৩,২৪,২৫ কার্তিক", s: "০৩,০৪,২৮,২৫ কার্তিক", g: "কার্তিকে দীপদান শুভ", d: "গো-গোবর্ধন পূজা", m: "০৬,০৭,১১,২০ কার্তিক" },
+            { b: "০৪,০৭,০৮,০৯,১৮,২২,২৩,২৪,২৬ অগ্রহায়ণ", a: "২৭ অগ্রহায়ণ", s: "২২,২৬,২৭ অগ্রহায়ণ", g: "অগ্রহায়ণে নবগৃহ প্রবেশ", d: "দেবালয় ও যজ্ঞ", m: "০৪,০৭,১৮,২২,২৪ অগ্রহায়ণ" },
+            { b: "নাই", a: "নাই", s: "২৬ পৌষ", g: "নিয়মসেবা দিন", d: "বিশেষ ব্রত", m: "পৌষালি ব্রত" },
+            { b: "০৩,১১,১৩,১৪,১৭,২৭,২৮ মাঘ", a: "০৫,২৪,২৭ মাঘ", s: "০১,২৩,২৪,২৭,২৮ মাঘ", g: "মাঘে গৃহপ্রবেশ শুভ", d: "দেবতা প্রতিষ্ঠা ও যজ্ঞ", m: "০৩,১১,১৩,১৭,২৮ মাঘ" },
+            { b: "০৩,০৯,১১,১৬,২৬,২৭,২৮ ফাল্গুন", a: "০৫,০৬,২৬ ফাল্গুন", s: "০৫,০৬,২৫,২৬,২৭ ফাল্গুন", g: "ফাল্গুনে গৃহারম্ভ শুভ", d: "প্রতিষ্ঠাবার্ষিকী মহোৎসব", m: "০৩,০৯,১৬,২৭,২৮ ফাল্গুন" },
+            { b: "নাই", a: "০৩,২৪,২৭ চৈত্র", s: "০২,০৩,০৭,২০,২৭ চৈত্র", g: "চৈত্রে গৃহপ্রবেশ অশুভ", d: "গৌরপূর্ণিমা মহোৎসব", m: "০৩,২৪,২৭ চৈত্র" }
         ];
 
         function switchTab(viewId) {
@@ -292,6 +316,15 @@
                 `;
                 tableBody.innerHTML += row;
             });
+
+            const sk = shubhKarmaData[selectedMonth] || shubhKarmaData[0];
+            document.getElementById("dynamic-shubh-karma").innerHTML = `
+                <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200 font-bold"><p class="text-rose-800">💍 শুভ বিবাহ & লগ্ন:</p><p class="text-gray-700">${sk.b}</p></div>
+                <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 font-bold"><p class="text-amber-900">👶 অন্নপ্রাশন & সাতভক্ষণ:</p><p class="text-gray-700">${sk.a}</p></div>
+                <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200 font-bold"><p class="text-blue-800">🤰 সাধভক্ষণ & পঞ্চামৃত:</p><p class="text-gray-700">${sk.s}</p></div>
+                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 font-bold"><p class="text-purple-800">🏡 গৃহারম্ভ & গৃহপ্রবেশ:</p><p class="text-gray-700">${sk.g}</p></div>
+                <div class="bg-green-50 p-3 rounded-2xl border border-green-200 font-bold sm:col-span-2"><p class="text-green-800">🛕 দেব প্রতিষ্ঠা, পূর্ণ্যাহ & যজ্ঞ:</p><p class="text-gray-700">${sk.d}</p></div>
+            `;
         }
 
         document.addEventListener("DOMContentLoaded", function() {
