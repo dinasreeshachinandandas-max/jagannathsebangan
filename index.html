@@ -9,7 +9,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা</title>
+    <title>শ্রী শ্রী জগন্নাথ সেবাঙ্গন - সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা ও গ্লোবাল পোর্টাল</title>
     <style>
         :root {
             --bg-primary: #7a0000;
@@ -34,7 +34,7 @@
             background: linear-gradient(180deg, var(--bg-primary) 0%, #4a0000 100%);
             color: #fff;
             min-height: 100vh;
-            padding-bottom: 85px;
+            padding-bottom: 95px;
         }
 
         .header {
@@ -132,17 +132,16 @@
             line-height: 1.4;
         }
 
-        .location-select, .month-select {
+        .location-select {
             background: rgba(255, 255, 255, 0.9);
             color: var(--text-dark);
             border: 1px solid var(--accent-gold);
-            padding: 5px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             cursor: pointer;
-            width: 100%;
         }
 
         .tithi-time-box {
@@ -175,45 +174,14 @@
             padding-bottom: 4px;
         }
 
-        .donor-card {
-            background: linear-gradient(135deg, #fffdf5 0%, #fef7e0 100%);
-            color: var(--text-dark);
-            border: 2px solid var(--accent-gold);
-            border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .donor-title {
-            text-align: center;
-            font-weight: bold;
-            color: var(--accent-red);
-            font-size: 1.05rem;
-            border-bottom: 1.5px dashed var(--accent-gold);
-            padding-bottom: 6px;
-            margin-bottom: 10px;
-        }
-
-        .donor-list {
-            background: #fff;
-            border: 1px solid #e2d2b0;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-            line-height: 1.6;
-        }
-
-        .donor-list ol {
-            padding-left: 20px;
-        }
-
-        .donor-desc {
+        .mantra-box {
+            background: #fdfae8;
+            padding: 8px;
+            border-radius: 6px;
+            margin-top: 6px;
+            border-left: 3px solid var(--accent-red);
             font-size: 0.82rem;
-            color: #444;
-            line-height: 1.5;
-            text-align: justify;
+            line-height: 1.4;
         }
 
         .video-container {
@@ -294,17 +262,13 @@
             color: #b71c1c;
         }
 
-        .cal-date-cell.special-purnima {
-            background: #fff3e0;
-            border: 1.5px solid #ef6c00;
-        }
-
         .cal-date-cell .eng-sub {
             font-size: 0.65rem;
             color: #555;
             display: block;
         }
 
+        /* গুগল ক্যালেন্ডার কার্ড */
         .google-cal-card {
             background: var(--card-bg);
             color: var(--text-dark);
@@ -352,6 +316,27 @@
             overflow: hidden;
             border: 1px solid var(--accent-gold);
             background: #fff;
+        }
+
+        .rashi-select {
+            width: 100%;
+            padding: 7px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 8px;
+            background: #fff;
+            color: var(--text-dark);
+        }
+
+        .rashi-card-result {
+            background: #fffdf2;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+            color: #333;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         .btn-main {
@@ -403,17 +388,17 @@
 
     <div class="container">
         
-        <!-- ট্যাব ১: এক নজরে -->
+        <!-- ট্যাব ১: মূল ওয়েবসাইট ও এক নজরে সেকশন -->
         <div id="tab-home" class="tab-content active">
             <div class="today-card">
                 <div class="today-header">
                     <div>
                         <div class="today-date-main">২৯</div>
-                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শনিবার</div>
-                        <div style="font-size:0.8rem; color:var(--text-gold);">১৭ অক্টোবর ২০২৬</div>
+                        <div class="today-date-sub">আশ্বিন ১৪৩৩, শুক্রবার</div>
+                        <div style="font-size:0.8rem; color:var(--text-gold);">১৬ অক্টোবর ২০২৬</div>
                     </div>
                     <div class="sun-times">
-                        <select id="locationSelect" class="location-select" style="width:auto;">
+                        <select id="locationSelect" class="location-select">
                             <option value="senbag">📍 সেনবাগ, নোয়াখালী</option>
                             <option value="dhaka">📍 ঢাকা, বাংলাদেশ</option>
                             <option value="kolkata">📍 কোলকাতা, ভারত</option>
@@ -425,32 +410,13 @@
 
                 <div class="tithi-time-box">
                     <strong style="color:var(--text-gold);">বর্তমান তিথি ও নক্ষত্র প্রারম্ভ-সমাপ্তি:</strong><br>
-                    • <strong>তিথি:</strong> শুক্লা সপ্তমী (প্রারম্ভ: ১৬ অক্টোবর শেষ রাত ০২:১০ AM, সমাপ্তি: ১৭ অক্টোবর রাত ১১:৫০ PM)।<br>
-                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র সমাপ্তি ও মূল নক্ষত্র প্রারম্ভ।<br>
-                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার মহাসপ্তমী ও নবপত্রিকা প্রবেশ ও স্থাপন।</em>
+                    • <strong>তিথি:</strong> শুক্লা ষষ্ঠী (প্রারম্ভ: ১৫ অক্টোবর রাত ০৩:২৫ AM, সমাপ্তি: ১৬ অক্টোবর শেষ রাত ০২:১০ AM)।<br>
+                    • <strong>নক্ষত্র:</strong> জ্যেষ্ঠা নক্ষত্র (সমাপ্তি: ১৭ অক্টোবর সকাল ০৭:১৫ AM)।<br>
+                    📌 <em>আজকের বিশেষ কৃতি: শ্রীশ্রী দুর্গাপূজার ষষ্ঠী পূজা ও দুর্গোৎসব প্রারম্ভ।</em>
                 </div>
             </div>
 
-            <!-- ভূমি দাতাদের প্রতি অশেষ কৃতজ্ঞতা সেকশন -->
-            <div class="donor-card">
-                <div class="donor-title">🙏 ভূমি দাতাদের প্রতি অশেষ কৃতজ্ঞতা ও সর্বাঙ্গীন মঙ্গল কামনা[span_0](start_span)[span_0](end_span)</div>
-                <div class="donor-desc" style="margin-bottom: 8px;">
-                    আমাদের এই পবিত্র সেবাকুঞ্জের প্রতিষ্ঠাতা ও ভূমি দানকারী পূজ্যপাদ মহানুভবগণ:[span_1](start_span)[span_1](end_span)
-                </div>
-                <div class="donor-list">
-                    <ol>
-                        <li><strong>শ্রীযুক্ত ননী গোপাল সাহা</strong> (নিত্যাধাম গতস্যা)[span_2](start_span)[span_2](end_span)</li>
-                        <li><strong>শ্রীযুক্ত অনিল চন্দ্র সাহা</strong> (নিত্যাধাম গতস্যা)[span_3](start_span)[span_3](end_span)</li>
-                        <li><strong>শ্রীযুক্ত পরিমল চন্দ্র সাহা</strong>[span_4](start_span)[span_4](end_span)</li>
-                        <li><strong>শ্রীযুক্ত জয়দেব চন্দ্র সাহা</strong>[span_5](start_span)[span_5](end_span)</li>
-                    </ol>
-                </div>
-                <div class="donor-desc">
-                    শ্রী শ্রী জগন্নাথ দেব ও শ্রী শ্রী রাধা-কৃষ্ণ, গৌর-নিত্যানন্দের পরম সেবায় আত্মোৎসর্গকারী এই মহাত্মাদের প্রতি এবং ওনাদের পরিবারবর্গের সকলের প্রতি আমরা আমাদের গভীর কৃতজ্ঞতা প্রকাশ করছি[span_6](start_span)[span_6](end_span)। আমরা শ্রী ভগবানের শ্রীচরণ কমলে প্রার্থনা করি, ওনাদের সকলের ও ওনাদের পরিবারের সবার সর্বদা শারীরিক, মানসিক ও আধ্যাত্মিক স্বাস্থ্য, সমৃদ্ধি এবং সর্বাঙ্গীন মঙ্গল সাধিত হোক[span_7](start_span)[span_7](end_span)। ওনাদের সেবার এই দৃষ্টান্ত আমাদের সবার জন্য অনুপ্রেরণা[span_8](start_span)[span_8](end_span)।
-                </div>
-            </div>
-
-            <!-- লাইভ গুগল ক্যালেন্ডার -->
+            <!-- ছবিতে থাকা গুগল ক্যালেন্ডার ও লাইভ সিডিউল সেকশন -->
             <div class="google-cal-card">
                 <div class="google-cal-header">
                     <div class="google-cal-badge">⚡ ডিজিটাইলাইজড অটোমেটিক সিস্টেম</div>
@@ -464,6 +430,20 @@
                 </div>
             </div>
 
+            <!-- অটোমেটিক দৈনিক রাশিফল -->
+            <div class="mantra-card">
+                <div class="mantra-title">✨ দৈনিক অটোমেটিক রাশিফল</div>
+                <select id="rashiSelect" class="rashi-select">
+                    <option value="mesh">মেষ রাশি (Aries)</option>
+                    <option value="vrish">বৃষ রাশি (Taurus)</option>
+                    <option value="mithun">মিথুন রাশি (Gemini)</option>
+                </select>
+                <div id="rashiOutput" class="rashi-card-result">
+                    আজ বৈষ্ণবীয় কৃপায় আপনার কাজে উন্নতি ও মানসিক শান্তি বজায় থাকবে। ধর্মীয় জপ ও নামসংকীর্তনে মনোযোগ দিন।
+                </div>
+            </div>
+
+            <!-- ভিডিও প্লেয়ার -->
             <div class="mantra-card">
                 <div class="mantra-title">🎬 শ্রীহরি নামসংকীর্তন ও বৈষ্ণব কীর্তন ভিডিও</div>
                 <div class="video-container">
@@ -478,48 +458,35 @@
                 📍 গুগল ম্যাপে মন্দিরের অবস্থান দেখুন (Google Maps)
             </a>
 
+            <div class="mantra-card">
+                <div class="mantra-title">🙏 বৈষ্ণবীয় ব্রত সমর্পণ ও পারণ মন্ত্র</div>
+                <div class="mantra-box">
+                    <strong>ব্রত সমর্পণ মন্ত্র:</strong><br>
+                    <em>“অজ্ঞানতিমিরাদ্ধস্য ব্রতেনেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥”</em>
+                </div>
+                <div class="mantra-box" style="margin-top:6px;">
+                    <strong>পারণকালে উচ্চারণীয় মন্ত্র:</strong><br>
+                    <em>“তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥”</em>
+                </div>
+            </div>
+
             <button class="btn-main share-btn">📱 বৈষ্ণব ভক্তদের মাঝে অ্যাপটি শেয়ার করুন</button>
         </div>
 
-        <!-- ট্যাব ২: পঞ্জিকা (১২ মাসের ফুল পঞ্জিকা সিলেক্টর) -->
+        <!-- ট্যাব ২: পঞ্জিকা সেকশন (একেবারে নিচে অপশনাল বা আলাদা ট্যাব হিসেবে সংরক্ষিত) -->
         <div id="tab-panjika" class="tab-content">
             <div class="calc-toggle">
                 <button class="calc-btn active">সূর্য সিদ্ধান্ত গণনা</button>
                 <button class="calc-btn">দৃক সিদ্ধান্ত গণনা</button>
             </div>
 
-            <div style="margin-bottom:10px;">
-                <label style="font-weight:bold; color:var(--text-gold); font-size:0.85rem; display:block; margin-bottom:4px; text-align:center;">🗓️ পঞ্জিকার মাস নির্বাচন করুন:</label>
-                <select id="monthSelect" class="month-select" onchange="renderMonthCalendar()">
-                    <option value="srabon">শ্রাবণ (শ্রীধর/পুরুষোত্তম) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="bhadra">ভাদ্র (শ্রীহৃষীকেশ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="ashwin">আশ্বিন (শ্রীপদ্মনাভ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="kartik" selected>কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="agrahayan">অগ্রহায়ণ (শ্রীকেশৱ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="poush">পৌষ (শ্রীনারায়ণ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="magh">মাঘ (শ্রীমাধৱ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="falgun">ফাল্গুন (শ্রীগোবিন্দ) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="choitra">চৈত্র (শ্রীবিষ্ণু) মাস — ১৪৩৩ বঙ্গাব্দ</option>
-                    <option value="boishakh">বৈশাখ (শ্রীমধুসূদন) মাস — ১৪৩৪ বঙ্গাব্দ</option>
-                    <option value="joishtha">জ্যৈষ্ঠ (শ্রীত্রিবিক্রম) মাস — ১৪৩৪ বঙ্গাব্দ</option>
-                    <option value="ashar">আষাঢ় (শ্রীবামন) মাস — ১৪৩৪ বঙ্গাব্দ</option>
-                </select>
-            </div>
-
             <div style="background:var(--bg-secondary); padding:8px 12px; border-radius:8px; border:1px solid var(--accent-gold); margin-bottom:10px; text-align:center;">
-                <strong id="selectedMonthTitle" style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</strong>
+                <strong style="color:var(--text-gold); font-size:0.9rem;">কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ</strong>
             </div>
 
-            <div class="calendar-grid" id="panjikaGrid">
-                <!-- ডাইনামিকালি মাসে অনুযায়ী দিনগুলো যুক্ত হবে -->
-            </div>
-
-            <div id="monthEventsContainer" class="mantra-card" style="background:#fffdf5; color:#333;">
-                <div class="mantra-title" id="eventTitle">শ্রীশ্রী একাদশী ও বিশেষ পারণ নির্ঘণ্ট</div>
-                <div id="eventDetails" style="font-size:0.85rem; line-height:1.6;">
-                    • ৪ কার্তিক (২২ অক্টোবর ২০২৬, বৃহস্পতিবার): শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত।<br>
-                    • ১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার): শ্রীশ্রী রমা একাদশী ব্রত।
-                </div>
+            <div class="calendar-grid">
+                <div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>
+                <div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">19 Oct</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">20 Oct</span></div><div class="cal-date-cell"><strong>৩</strong><span class="eng-sub">21 Oct</span></div>
             </div>
         </div>
 
@@ -527,56 +494,27 @@
 
     <!-- নিচের নেভবার -->
     <div class="nav-bar">
-        <button class="nav-item active" onclick="switchTab('home', event)">
+        <button class="nav-item active" onclick="switchTab('home')">
             <div>🏠</div>এক নজরে
         </button>
-        <button class="nav-item" onclick="switchTab('panjika', event)">
+        <button class="nav-item" onclick="switchTab('panjika')">
             <div>📅</div>পঞ্জিকা
         </button>
     </div>
 
     <script>
-        function switchTab(tabName, event) {
+        function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             
             if(tabName === 'home') {
                 document.getElementById('tab-home').classList.add('active');
+                event.currentTarget.classList.add('active');
             } else if(tabName === 'panjika') {
                 document.getElementById('tab-panjika').classList.add('active');
-                renderMonthCalendar();
+                event.currentTarget.classList.add('active');
             }
-            event.currentTarget.classList.add('active');
-            window.scrollTo(0, 0);
         }
-
-        // ১২ মাসের ক্যালেন্ডার রেন্ডার ফাংশন
-        function renderMonthCalendar() {
-            const m = document.getElementById('monthSelect').value;
-            const grid = document.getElementById('panjikaGrid');
-            const title = document.getElementById('selectedMonthTitle');
-            const eventDetails = document.getElementById('eventDetails');
-
-            let daysHtml = '<div class="cal-day-head">রবি</div><div class="cal-day-head">সোম</div><div class="cal-day-head">মঙ্গল</div><div class="cal-day-head">বুধ</div><div class="cal-day-head">বৃহঃ</div><div class="cal-day-head">শুক্র</div><div class="cal-day-head">শনি</div>';
-
-            if(m === 'kartik') {
-                title.innerText = "কার্তিক (শ্রীদামোদর) মাস — ১৪৩৩ বঙ্গাব্দ";
-                eventDetails.innerHTML = "• ৪ কার্তিক (২২ অক্টোবর ২০২৬, বৃহস্পতিবার): শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত।<br>• ১৮ কার্তিক (০৫ নভেম্বর ২০২৬, বৃহস্পতিবার): শ্রীশ্রী রমা একাদশী ব্রত।";
-                daysHtml += `<div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">19 Oct</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">20 Oct</span></div><div class="cal-date-cell"><strong>৩</strong><span class="eng-sub">21 Oct</span></div><div class="cal-date-cell special-ekadashi"><strong>৪</strong><span class="eng-sub">22 Oct</span></div><div class="cal-date-cell"><strong>৫</strong><span class="eng-sub">23 Oct</span></div><div class="cal-date-cell"><strong>৬</strong><span class="eng-sub">24 Oct</span></div><div class="cal-date-cell special-purnima"><strong>৭</strong><span class="eng-sub">25 Oct</span></div><div class="cal-date-cell"><strong>৮</strong><span class="eng-sub">26 Oct</span></div><div class="cal-date-cell"><strong>৯</strong><span class="eng-sub">27 Oct</span></div><div class="cal-date-cell"><strong>১০</strong><span class="eng-sub">28 Oct</span></div><div class="cal-date-cell"><strong>১১</strong><span class="eng-sub">29 Oct</span></div><div class="cal-date-cell special-ekadashi"><strong>১২</strong><span class="eng-sub">30 Oct</span></div><div class="cal-date-cell"><strong>১৩</strong><span class="eng-sub">31 Oct</span></div><div class="cal-date-cell"><strong>১৪</strong><span class="eng-sub">01 Nov</span></div><div class="cal-date-cell"><strong>১৫</strong><span class="eng-sub">02 Nov</span></div><div class="cal-date-cell"><strong>১৬</strong><span class="eng-sub">03 Nov</span></div><div class="cal-date-cell"><strong>১৭</strong><span class="eng-sub">04 Nov</span></div><div class="cal-date-cell special-ekadashi"><strong>১৮</strong><span class="eng-sub">05 Nov</span></div><div class="cal-date-cell"><strong>১৯</strong><span class="eng-sub">06 Nov</span></div><div class="cal-date-cell"><strong>২০</strong><span class="eng-sub">07 Nov</span></div><div class="cal-date-cell"><strong>২১</strong><span class="eng-sub">08 Nov</span></div><div class="cal-date-cell"><strong>২২</strong><span class="eng-sub">09 Nov</span></div><div class="cal-date-cell"><strong>২৩</strong><span class="eng-sub">10 Nov</span></div><div class="cal-date-cell"><strong>২৪</strong><span class="eng-sub">11 Nov</span></div><div class="cal-date-cell"><strong>২৫</strong><span class="eng-sub">12 Nov</span></div><div class="cal-date-cell"><strong>২৬</strong><span class="eng-sub">13 Nov</span></div><div class="cal-date-cell"><strong>২৭</strong><span class="eng-sub">14 Nov</span></div><div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Nov</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Nov</span></div><div class="cal-date-cell"><strong>৩০</strong><span class="eng-sub">17 Nov</span></div>`;
-            } else if(m === 'agrahayan') {
-                title.innerText = "অগ্রহায়ণ (শ্রীকেশৱ) মাস — ১৪৩৩ বঙ্গাব্দ";
-                eventDetails.innerHTML = "• ৩ অগ্রহায়ণ (২০ নভেম্বর ২০২৬, শুক্রবার): শ্রীশ্রী উথান একাদশী ব্রত।<br>• ১৭ অগ্রহায়ণ (০৪ ডিসেম্বর ২০২৬, শুক্রবার): শ্রীশ্রী উৎপল্লা একাদশী ব্রত।";
-                daysHtml += `<div class="cal-date-cell"></div><div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong><span class="eng-sub">18 Nov</span></div><div class="cal-date-cell"><strong>২</strong><span class="eng-sub">19 Nov</span></div><div class="cal-date-cell special-ekadashi"><strong>৩</strong><span class="eng-sub">20 Nov</span></div><div class="cal-date-cell"><strong>৪</strong><span class="eng-sub">21 Nov</span></div><div class="cal-date-cell"><strong>৫</strong><span class="eng-sub">22 Nov</span></div><div class="cal-date-cell"><strong>৬</strong><span class="eng-sub">23 Nov</span></div><div class="cal-date-cell special-purnima"><strong>৭</strong><span class="eng-sub">24 Nov</span></div><div class="cal-date-cell"><strong>৮</strong><span class="eng-sub">25 Nov</span></div><div class="cal-date-cell"><strong>৯</strong><span class="eng-sub">26 Nov</span></div><div class="cal-date-cell"><strong>১০</strong><span class="eng-sub">27 Nov</span></div><div class="cal-date-cell"><strong>১১</strong><span class="eng-sub">28 Nov</span></div><div class="cal-date-cell"><strong>১২</strong><span class="eng-sub">29 Nov</span></div><div class="cal-date-cell"><strong>১৩</strong><span class="eng-sub">30 Nov</span></div><div class="cal-date-cell"><strong>১৪</strong><span class="eng-sub">01 Dec</span></div><div class="cal-date-cell"><strong>১৫</strong><span class="eng-sub">02 Dec</span></div><div class="cal-date-cell"><strong>১৬</strong><span class="eng-sub">03 Dec</span></div><div class="cal-date-cell special-ekadashi"><strong>১৭</strong><span class="eng-sub">04 Dec</span></div><div class="cal-date-cell"><strong>১৮</strong><span class="eng-sub">05 Dec</span></div><div class="cal-date-cell"><strong>১৯</strong><span class="eng-sub">06 Dec</span></div><div class="cal-date-cell"><strong>২০</strong><span class="eng-sub">07 Dec</span></div><div class="cal-date-cell"><strong>২১</strong><span class="eng-sub">08 Dec</span></div><div class="cal-date-cell"><strong>২২</strong><span class="eng-sub">09 Dec</span></div><div class="cal-date-cell"><strong>২৩</strong><span class="eng-sub">10 Dec</span></div><div class="cal-date-cell"><strong>২৪</strong><span class="eng-sub">11 Dec</span></div><div class="cal-date-cell"><strong>২৫</strong><span class="eng-sub">12 Dec</span></div><div class="cal-date-cell"><strong>২৬</strong><span class="eng-sub">13 Dec</span></div><div class="cal-date-cell"><strong>২৭</strong><span class="eng-sub">14 Dec</span></div><div class="cal-date-cell"><strong>২৮</strong><span class="eng-sub">15 Dec</span></div><div class="cal-date-cell"><strong>২৯</strong><span class="eng-sub">16 Dec</span></div>`;
-            } else {
-                title.innerText = document.getElementById('monthSelect').options[document.getElementById('monthSelect').selectedIndex].text;
-                eventDetails.innerHTML = "এই মাসের একাদশী ও পারণ নির্ঘণ্ট দেখতে পঞ্জিকার ড্রপডাউন পরিবর্তন করুন।";
-                daysHtml += `<div class="cal-date-cell"></div><div class="cal-date-cell"><strong>১</strong></div><div class="cal-date-cell"><strong>২</strong></div><div class="cal-date-cell"><strong>৩</strong></div><div class="cal-date-cell"><strong>৪</strong></div><div class="cal-date-cell"><strong>৫</strong></div><div class="cal-date-cell"><strong>৬</strong></div><div class="cal-date-cell"><strong>৭</strong></div><div class="cal-date-cell"><strong>৮</strong></div><div class="cal-date-cell"><strong>৯</strong></div><div class="cal-date-cell"><strong>১০</strong></div><div class="cal-date-cell special-ekadashi"><strong>১১</strong></div><div class="cal-date-cell"><strong>১২</strong></div><div class="cal-date-cell"><strong>১৩</strong></div><div class="cal-date-cell"><strong>১৪</strong></div><div class="cal-date-cell special-purnima"><strong>১৫</strong></div><div class="cal-date-cell"><strong>১৬</strong></div><div class="cal-date-cell"><strong>১৭</strong></div><div class="cal-date-cell"><strong>১৮</strong></div><div class="cal-date-cell"><strong>১৯</strong></div><div class="cal-date-cell"><strong>২০</strong></div><div class="cal-date-cell"><strong>২১</strong></div><div class="cal-date-cell"><strong>২২</strong></div><div class="cal-date-cell"><strong>২৩</strong></div><div class="cal-date-cell"><strong>২৪</strong></div><div class="cal-date-cell special-ekadashi"><strong>২৫</strong></div><div class="cal-date-cell"><strong>২৬</strong></div><div class="cal-date-cell"><strong>২৭</strong></div><div class="cal-date-cell"><strong>২৮</strong></div><div class="cal-date-cell"><strong>২৯</strong></div><div class="cal-date-cell"><strong>৩০</strong></div>`;
-            }
-            grid.innerHTML = daysHtml;
-        }
-
-        // শুরুর সময় অটোমেটিক রেন্ডার
-        renderMonthCalendar();
     </script>
 </body>
 </html>
