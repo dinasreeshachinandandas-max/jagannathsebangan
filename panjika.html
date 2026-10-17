@@ -30,7 +30,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- ১. মন্দিরের মূল ওয়েবসাইটে যাওয়ার লিঙ্ক ব্যানার -->
+    <!-- ১. মন্দিরের অফিশিয়াল পোর্টাল লিংক -->
     <div class="bg-amber-950 text-amber-100 px-3 py-2 text-xs sm:text-sm text-center font-semibold flex justify-between items-center border-b border-amber-800">
         <div class="flex items-center space-x-2 mx-auto flex-wrap justify-center">
             <span>🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন অফিশিয়াল ওয়েবসাইটে যুক্ত হতে</span>
@@ -40,13 +40,13 @@
         </div>
     </div>
 
-    <!-- ২. ডিজিটাল টেমপ্লেট ও হেডার (অরিজিনাল লোগো সহ) -->
+    <!-- ২. লোগো ও ডিজিটাল ব্যানার -->
     <header class="app-gradient text-white p-4 text-center shadow-lg border-b-4 border-amber-400">
         <div class="max-w-3xl mx-auto space-y-2">
             
-            <!-- মন্দিরের অফিশিয়াল লোগো (1000071609.png) -->
+            <!-- মন্দিরের লোগো -->
             <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full bg-white p-1 shadow-2xl border-2 border-amber-300">
-                <img src="images/uploads/1000071609.png" onerror="this.src='1000071609.png'" alt="শ্রী শ্রী জগন্নাথ সেবাঙ্গন লোগো" class="w-full h-full object-contain rounded-full">
+                <img src="1000071609.png" onerror="this.onerror=null; this.src='images/uploads/1000071609.png';" alt="শ্রী শ্রী জগন্নাথ সেবাঙ্গন লোগো" class="w-full h-full object-contain rounded-full">
             </div>
             
             <span class="inline-block bg-amber-400 text-amber-950 text-xs sm:text-sm font-extrabold px-3 py-0.5 rounded-full shadow-sm">
@@ -68,13 +68,11 @@
         </div>
     </header>
 
-    <!-- ৩. মূল বডি (Bottom Tabs) -->
+    <!-- ৩. মূল অ্যাপ বডি (Bottom Tabs) -->
     <main class="max-w-3xl mx-auto w-full p-3 sm:p-5 flex-1">
 
-        <!-- TAB 1: এক নজরে (দৈনিক অটোমেটিক আপডেটেড তিথি ও নক্ষত্র) -->
+        <!-- TAB 1: এক নজরে (আজকের তিথি ও অটো আপডেট) -->
         <section id="view-home" class="view-panel active space-y-4">
-            
-            <!-- স্থান ও তারিখ কার্ড -->
             <div class="app-gradient text-white rounded-3xl p-5 shadow-xl relative overflow-hidden border border-amber-400">
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 backdrop-blur-md">
@@ -88,24 +86,23 @@
 
                 <div class="flex justify-between items-end">
                     <div>
-                        <div class="text-6xl font-black tracking-tight text-white mb-1" id="live-date-num">২৯</div>
-                        <div class="text-xl font-bold text-amber-200" id="live-month-bangla">আশ্বিন ১৪৩৩</div>
-                        <div class="text-xs text-amber-100" id="live-date-eng">১৭ অক্টোবর ২০২৬, শনিবার</div>
+                        <div class="text-6xl font-black tracking-tight text-white mb-1">২৯</div>
+                        <div class="text-xl font-bold text-amber-200">আশ্বিন ১৪৩৩</div>
+                        <div class="text-xs text-amber-100">১৭ অক্টোবর ২০২৬, শনিবার</div>
                     </div>
                     <div class="text-right space-y-1 text-xs sm:text-sm font-medium bg-black/30 p-3 rounded-2xl border border-white/10">
-                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span id="sunrise-val" class="font-bold">০৫:৩৭ AM</span></div>
-                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span id="sunset-val" class="font-bold">১৭:০৬ PM</span></div>
+                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span>০৫:৩৭ AM</span></div>
+                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span>১৭:০৬ PM</span></div>
                     </div>
                 </div>
 
-                <div class="mt-4 pt-3 border-t border-white/20 text-center text-sm font-bold text-amber-200" id="live-special-event">
-                    ✨ শ্রীশ্রী দুর্গা ষষ্ঠী পূজা ও অধিবাস
+                <div class="mt-4 pt-3 border-t border-white/20 text-center text-sm font-bold text-amber-200">
+                    ✨ শ্রীশ্রী শারদীয়া দুর্গা ষষ্ঠী পূজা ও অধিবাস
                 </div>
             </div>
 
-            <!-- দৈনিক স্বয়ংক্রিয় তিথি ও নক্ষত্র কার্ড -->
             <div class="bg-white rounded-3xl p-5 border border-amber-200 card-shadow flex items-center space-x-4">
-                <div class="w-24 h-24 rounded-full border-4 border-rose-700 flex items-center justify-center text-rose-800 font-extrabold text-center p-2 text-xs bg-rose-50 shadow-inner" id="live-tithi-badge">
+                <div class="w-24 h-24 rounded-full border-4 border-rose-700 flex items-center justify-center text-rose-800 font-extrabold text-center p-2 text-xs bg-rose-50 shadow-inner">
                     শুক্ল সপ্তমী
                 </div>
                 <div class="flex-1 text-xs sm:text-sm text-gray-700 space-y-1">
@@ -116,21 +113,7 @@
                 </div>
             </div>
 
-            <!-- আন্তর্জাতিক সময় সমন্বয় -->
-            <div class="bg-amber-100/90 border border-amber-300 p-3.5 rounded-2xl shadow-sm space-y-1.5">
-                <div class="flex justify-between items-center">
-                    <span class="font-bold text-amber-950 text-xs sm:text-sm">🌍 আন্তর্জাতিক স্থানীয় সময় সমন্বয়:</span>
-                    <select id="countryTimeSelector" onchange="updateTimeZone()" class="bg-white border border-amber-400 rounded-lg text-xs font-bold px-2 py-1 text-amber-950">
-                        <option value="0">বাংলাদেশ (BST)</option>
-                        <option value="-0.5">ভারত / বৃন্দাবন (IST) [-30m]</option>
-                        <option value="-5">যুক্তরাজ্য / লন্ডন (GMT) [-5h]</option>
-                        <option value="-10">যুক্তরাষ্ট্র / নিউইয়র্ক (EST) [-10h]</option>
-                        <option value="3">জাপান (JST) [+3h]</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- পারমার্থিক পাঠশালা ইউটিউব কার্ড -->
+            <!-- পারমার্থিক পাঠশালা চ্যানেল -->
             <div class="bg-gradient-to-r from-red-700 to-red-900 text-white p-4 rounded-3xl shadow-lg border border-red-500 flex flex-col sm:flex-row justify-between items-center gap-3">
                 <div class="flex items-center gap-3">
                     <div class="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center text-2xl shadow">
@@ -145,41 +128,25 @@
                     চ্যানেল সাবস্ক্রাইব করুন ➔
                 </a>
             </div>
-
-            <!-- মেটেরিয়াল কুইক বাটন -->
-            <div class="grid grid-cols-3 gap-3 text-center">
-                <button onclick="switchTab('view-calendar')" class="bg-white p-4 rounded-2xl border border-amber-200 card-shadow hover:bg-rose-50 transition">
-                    <div class="w-12 h-12 mx-auto bg-rose-700 text-white rounded-full flex items-center justify-center text-xl mb-2"><i class="fa-solid fa-calendar-days"></i></div>
-                    <span class="text-xs font-bold text-amber-950">ক্যালেন্ডার</span>
-                </button>
-                <button onclick="switchTab('view-home')" class="bg-white p-4 rounded-2xl border border-amber-200 card-shadow hover:bg-rose-50 transition">
-                    <div class="w-12 h-12 mx-auto bg-amber-600 text-white rounded-full flex items-center justify-center text-xl mb-2"><i class="fa-solid fa-calendar-check"></i></div>
-                    <span class="text-xs font-bold text-amber-950">আজকের তিথি</span>
-                </button>
-                <button onclick="switchTab('view-bibidh')" class="bg-white p-4 rounded-2xl border border-amber-200 card-shadow hover:bg-rose-50 transition">
-                    <div class="w-12 h-12 mx-auto bg-purple-800 text-white rounded-full flex items-center justify-center text-xl mb-2"><i class="fa-solid fa-om"></i></div>
-                    <span class="text-xs font-bold text-amber-950">বিবিধ ও ব্রত</span>
-                </button>
-            </div>
         </section>
 
-        <!-- TAB 2: সম্পূর্ণ বাংলা ও ইংরেজি মাসের পঞ্জিকা -->
+        <!-- TAB 2: ধারাবাহিক ১২ মাসের বাংলা ও ইংরেজি ক্যালেন্ডার -->
         <section id="view-calendar" class="view-panel space-y-4">
             <div class="bg-white p-3 rounded-2xl border border-amber-300 card-shadow flex justify-between items-center">
                 <span class="font-bold text-amber-950 text-sm">মাস নির্বাচন করুন:</span>
                 <select id="monthSelector" onchange="renderPanjikaTable()" class="bg-amber-50 border border-amber-400 rounded-xl px-3 py-1.5 font-bold text-amber-950 text-sm focus:outline-none">
-                    <option value="0">বৈশাখ (শ্রী মধুসূদন)</option>
-                    <option value="1">জ্যৈষ্ঠ (শ্রী ত্রিবিক্রম)</option>
-                    <option value="2">আষাঢ় (শ্রী বামন)</option>
-                    <option value="3">শ্রাবণ (শ্রী শ্রীধর)</option>
-                    <option value="4">ভাদ্র (শ্রী হৃষীকেশ)</option>
-                    <option value="5" selected>আশ্বিন (শ্রী পদ্মনাভ)</option>
-                    <option value="6">কার্তিক (শ্রী দামোদর)</option>
-                    <option value="7">অগ্রহায়ণ (শ্রী কেশব)</option>
-                    <option value="8">পৌষ (শ্রী নারায়ণ)</option>
-                    <option value="9">মাঘ (শ্রী মাধব)</option>
-                    <option value="10">ফাল্গুন (শ্রী গোবিন্দ)</option>
-                    <option value="11">চৈত্র (শ্রী বিষ্ণু)</option>
+                    <option value="0">বৈশাখ (শ্রী মধুসূদন) - এপ্রি/মে</option>
+                    <option value="1">জ্যৈষ্ঠ (শ্রী ত্রিবিক্রম) - মে/জুন</option>
+                    <option value="2">আষাঢ় (শ্রী বামন) - জুন/জুলাই</option>
+                    <option value="3">শ্রাবণ (শ্রী শ্রীধর) - জুলাই/আগস্ট</option>
+                    <option value="4">ভাদ্র (শ্রী হৃষীকেশ) - আগস্ট/সেপ্টেম্বর</option>
+                    <option value="5" selected>আশ্বিন (শ্রী পদ্মনাভ) - সেপ্টেম্বর/অক্টোবর</option>
+                    <option value="6">কার্তিক (শ্রী দামোদর) - অক্টোবর/নভেম্বর</option>
+                    <option value="7">অগ্রহায়ণ (শ্রী কেশব) - নভেম্বর/ডিসেম্বর</option>
+                    <option value="8">পৌষ (শ্রী নারায়ণ) - ডিসেম্বর/জানুয়ারী</option>
+                    <option value="9">মাঘ (শ্রী মাধব) - জানুয়ারী/ফেব্রুয়ারী</option>
+                    <option value="10">ফাল্গুন (শ্রী গোবিন্দ) - ফেব্রুয়ারী/মার্চ</option>
+                    <option value="11">চৈত্র (শ্রী বিষ্ণু) - মার্চ/এপ্রিল</option>
                 </select>
             </div>
 
@@ -195,93 +162,57 @@
                         </tr>
                     </thead>
                     <tbody id="panjika-table-body">
-                        <!-- Dynamic JavaScript Rows -->
+                        <!-- Dynamic Rows -->
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- TAB 3: মাঙ্গলিক অনুষ্ঠান ও সমর্পণ/পারণ মন্ত্র -->
+        <!-- TAB 3: মাঙ্গলিক অনুষ্ঠান, গ্রহণ বিধি ও মন্ত্র -->
         <section id="view-bibidh" class="view-panel space-y-6">
             
-            <!-- মাসভিত্তিক মাঙ্গলিক কাজ ও সূতক কাল -->
+            <!-- নির্বাচিত মাসের মাঙ্গলিক কাজ ও শুভ লগ্ন -->
             <div class="bg-white p-5 rounded-3xl border border-amber-300 card-shadow space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-rose-700 pb-2">
-                    <i class="fa-solid fa-kaaba text-rose-700"></i> মাসভিত্তিক শুভকর্ম ও মাঙ্গলিক সময়সূচী
+                    <i class="fa-solid fa-kaaba text-rose-700"></i> নির্বাচিত মাসের মাঙ্গলিক দিনসূচী ও শুভ লগ্ন
                 </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-                    <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200 font-bold">
-                        <p class="text-rose-800">💍 শুভ বিবাহ:</p>
-                        <p class="text-gray-700 font-semibold" id="m-bibaha">০৭,১৯,২৩,২৪,২৮ আশ্বিন</p>
-                    </div>
-                    <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 font-bold">
-                        <p class="text-amber-900">👶 অন্নপ্রাশন:</p>
-                        <p class="text-gray-700 font-semibold" id="m-annaprashan">০৫,১৫,১৯,২৭ বৈশাখ</p>
-                    </div>
-                    <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200 font-bold">
-                        <p class="text-blue-800">🤰 সাধভক্ষণ & পঞ্চামৃত:</p>
-                        <p class="text-gray-700 font-semibold" id="m-sadh">০৬,০৯,১০,১৫,১৭ বৈশাখ</p>
-                    </div>
-                    <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 font-bold">
-                        <p class="text-purple-800">🏡 গৃহারম্ভ & গৃহপ্রবেশ:</p>
-                        <p class="text-gray-700 font-semibold" id="m-griha">পঞ্জিকা অনুযায়ী প্রশস্ত দিন</p>
-                    </div>
-                    <div class="bg-green-50 p-3 rounded-2xl border border-green-200 font-bold">
-                        <p class="text-green-800">🛕 দেব প্রতিষ্ঠা & দেবগৃহ:</p>
-                        <p class="text-gray-700 font-semibold" id="m-dev">শুভ শুভক্ষণ ও পুণ্যাহ</p>
-                    </div>
-                    <div class="bg-red-50 p-3 rounded-2xl border border-red-200 font-bold">
-                        <p class="text-red-800">🌒 গ্রহণ ও সূতক কাল:</p>
-                        <p class="text-gray-700 font-semibold" id="m-grahan">সূতক কাল প্রারম্ভ থেকে সমাপ্তি</p>
-                    </div>
+                <div id="dynamic-shubh-karma" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <!-- Dynamic Month Wise Details -->
                 </div>
             </div>
 
-            <!-- অরিজিনাল ব্রত সমর্পণ ও পারণ মন্ত্র (ছবি থেকে উদ্ধারকৃত) -->
+            <!-- গ্রহণ ও সূতক কাল বিস্তারিত -->
+            <div class="bg-amber-50 p-5 rounded-3xl border border-amber-300 card-shadow space-y-3">
+                <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-amber-700 pb-2">
+                    <i class="fa-solid fa-cloud-moon text-rose-700"></i> চন্দ্র ও সূর্য গ্রহণ এবং সূতক কাল বিধি
+                </h3>
+                <div class="text-xs text-gray-800 space-y-2 leading-relaxed">
+                    <p class="font-bold text-rose-800">১. সূতক কাল প্রারম্ভ ও সমাপ্তি:</p>
+                    <p>সূর্যগ্রহণে স্পৰ্শের ১২ ঘণ্টা পূর্বে এবং চন্দ্রগ্রহণে ৯ ঘণ্টা পূর্বে সূতক কাল শুরু হয়। সূতক কাল থেকে গ্রহণ সমাপ্তি (মোক্ষ) পর্যন্ত মূর্তিস্পর্শ ও আহার নিষিদ্ধ।</p>
+                    <p class="font-bold text-rose-800">২. গ্রহণে করণীয় (শ্রীহরিভক্তিবিলাস শাস্ত্র প্রমাণ):</p>
+                    <p class="italic bg-white p-2.5 rounded-xl border border-amber-200">
+                        "গ্রহণকালে জপো হোমঃ পূজনং তর্পণং তথা। সর্বমেব মহৎ পুণ্যং স্নানং চ মোক্ষসময়ে॥"
+                    </p>
+                    <p>গ্রহণকালে হরিনাম সংকীর্তন, শ্রীমদ্ভাগবত পাঠ ও হরে কৃষ্ণ মহামন্ত্র জপ করা সর্বোত্তম। খাদ্যে তুলসীপত্র দেওয়া আবশ্যক।</p>
+                </div>
+            </div>
+
+            <!-- ব্রত মন্ত্র -->
             <div class="bg-amber-100/80 border-2 border-amber-300 rounded-3xl p-5 shadow-sm space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2">
                     <i class="fa-solid fa-scroll text-amber-900"></i> ব্রত সমর্পণ ও পারণ মন্ত্র
                 </h3>
-                
-                <!-- ব্রত সমর্পণ মন্ত্র -->
                 <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
                     <p class="font-bold text-rose-800">📜 ব্রত সমর্পণ মন্ত্র:</p>
-                    <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200 leading-relaxed">
-                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব।<br>
-                        প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥"
+                    <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥"
                     </p>
                 </div>
-
-                <!-- পারণ মন্ত্র -->
                 <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
-                    <p class="font-bold text-rose-800">📜 পারণ মন্ত্র (ব্রত শেষে খাবার গ্রহণের সময়):</p>
-                    <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200 leading-relaxed">
-                        "তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া।<br>
-                        ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥"
+                    <p class="font-bold text-rose-800">📜 পারণ মন্ত্র:</p>
+                    <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        "তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥"
                     </p>
-                </div>
-            </div>
-
-            <!-- পারমার্থিক পাঠশালা ও ফেসবুক চ্যানেল সেকশন -->
-            <div class="bg-white p-5 rounded-3xl border border-amber-300 card-shadow space-y-4">
-                <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-rose-700 pb-2">
-                    <i class="fa-brands fa-youtube text-red-600 text-xl"></i> পারমার্থিক পাঠশালা ও মিডিয়া হাব
-                </h3>
-                <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                    <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="bg-red-50 hover:bg-red-100 p-3.5 rounded-2xl border border-red-200 flex items-center gap-3 transition">
-                        <i class="fa-brands fa-youtube text-3xl text-red-600"></i>
-                        <div>
-                            <p class="font-extrabold text-amber-950">ইউটিউব চ্যানেল</p>
-                            <p class="text-gray-600">পারমার্থিক পাঠশালা</p>
-                        </div>
-                    </a>
-                    <a href="https://www.facebook.com/share/19z8Uqfrjr/" target="_blank" class="bg-blue-50 hover:bg-blue-100 p-3.5 rounded-2xl border border-blue-200 flex items-center gap-3 transition">
-                        <i class="fa-brands fa-facebook text-3xl text-blue-600"></i>
-                        <div>
-                            <p class="font-extrabold text-amber-950">অফিশিয়াল ফেসবুক পেজ</p>
-                            <p class="text-gray-600">শ্রী শ্রী জগন্নাথ সেবাঙ্গন</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </section>
@@ -289,7 +220,7 @@
         <!-- TAB 4: সেটিংস -->
         <section id="view-settings" class="view-panel space-y-5">
             <h2 class="text-lg font-extrabold text-amber-950 border-b-2 border-rose-700 pb-2">
-                ⚙️ সেটিংস ও গণনা পদ্ধতি
+                ⚙️ সেটিংস ও রূপান্তর
             </h2>
             <div class="bg-white p-4 rounded-2xl border border-amber-200 card-shadow space-y-2">
                 <label class="font-bold text-amber-950 text-sm block">পঞ্জিকা পদ্ধতি নির্বাচন করুন:</label>
@@ -324,21 +255,18 @@
         </div>
     </nav>
 
-    <!-- পঞ্জিকার সকল মাসের ডাটাবেজ -->
+    <!-- ১২ মাসের পূর্ণাঙ্গ ডাটাবেজ -->
     <script>
         const panjikaData = [
             // ০. বৈশাখ
             [
                 { b: "০১ বৈশাখ", e: "১৫ এপ্রিল-২০২৬", w: "বুধবার", v: "শুভ নববর্ষ প্রারম্ভ", p: "-" },
-                { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "কেশীঘাট মুরারী মোহন কুঞ্জের শুভাদয়ী মহন্ত ১০০৮ মুরারী দাস বাবাজী মহারাজের ৪র্থ তিরোভাব মহোৎসব", p: "-" },
+                { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "কেশীঘাট মুরারী মোহন কুঞ্জের শুভাদয়ী মহন্ত ১০০৮ মুরারী দাস বাবাজী মহারাজের ৪থ তিরোভাব মহোৎসব", p: "-" },
                 { b: "০৩ বৈশাখ", e: "১৭ এপ্রিল-২০২৬", w: "শুক্রবার", v: "শ্রীল গদাধর পণ্ডিত গোস্বামী জিউর আবির্ভাব তিথি", p: "-" },
                 { b: "০৬ বৈশাখ", e: "২০ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা, শ্রী পরশুরাম জয়ন্তী", p: "-" },
                 { b: "১১ বৈশাখ", e: "২৫ এপ্রিল-২০২৬", w: "শনিবার", v: "শ্রী সীতা নবমী, শ্রীমতী জাহ্নবমাতা গোস্বামিনীজিউর আবির্ভাব তিথি", p: "-" },
                 { b: "১৩ বৈশাখ", e: "২৭ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী মোহিনী একাদশী ব্রত", p: "প্রাত: ০৫/৩৯/৪০ গতে ০৯/৫৫/৩৪ মধ্যে" },
                 { b: "১৬ বৈশাখ", e: "৩০ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", p: "প্রাত: ০৫/৩৭/৩৭ গতে ০৯/৫৪/৩৫ মধ্যে" },
-                { b: "১৭ বৈশাখ", e: "০১ মে-২০২৬", w: "শুক্রবার", v: "শ্রীকৃষ্ণের ফুলদোল", p: "-" },
-                { b: "২৩ বৈশাখ", e: "০৭ মে-২০২৬", w: "বৃহস্পতিবার", v: "৪১১ তম শ্রীশ্রী চৈতন্যচরিতামৃত জয়ন্তী", p: "-" },
-                { b: "২৮ বৈশাখ", e: "১২ মে-২০২৬", w: "মঙ্গলবার", v: "শ্রীল শ্রী শ্রীবাস পণ্ডিত গোস্বামী জিউর আবির্ভাব তিথি", p: "-" },
                 { b: "২৯ বৈশাখ", e: "১৩ মে-২০২৬", w: "বুধবার", v: "শ্রী অপরা একাদশী ব্রত", p: "প্রাত: ০৫/২৯/৪৫ গতে ০৯/৫৩/০২ মধ্যে" }
             ],
             // ১. জ্যৈষ্ঠ
@@ -350,87 +278,77 @@
             [
                 { b: "০১ আষাঢ়", e: "২৪ জুন-২০২৬", w: "বুধবার", v: "শ্রী গঙ্গা দশহরা, শ্রীমতী গঙ্গামাতা গোস্বামিনীজির আবির্ভাব তিথি", p: "-" },
                 { b: "১০ আষাঢ়", e: "২৫ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নির্জলা একাদশী ব্রত", p: "প্রাত: ০৫/২৪/৫৪ গতে ০৯/৫৩/৫২ মধ্যে" },
-                { b: "১২ আষাঢ়", e: "২৭ জুন-২০২৬", w: "শনিবার", v: "শ্রী শ্রীল রঘুনাথ দাস গোস্বামীপাদের দণ্ড মহোৎসব, পানিহাটি", p: "-" },
-                { b: "১৪ আষাঢ়", e: "২৯ জুন-২০২৬", w: "সোমবার", v: "শ্রীশ্রী জগন্নাথদেবের স্নানযাত্রা (প্রাত: ০৭:০০ মিনিটে)", p: "-" },
+                { b: "১৪ আষাঢ়", e: "২৯ জুন-২০২৬", w: "সোমবার", v: "শ্রীশ্রী জগন্নাথদেবের স্নানযাত্রা", p: "-" },
                 { b: "২৬ আষাঢ়", e: "১১ জুলাই-২০২৬", w: "শনিবার", v: "শ্রীযোগিনী একাদশী ব্রত", p: "প্রাত: ০৫/৩১/১৪ গতে ০৯/৫৭/৫৪ মধ্যে" },
-                { b: "৩০ আষাঢ়", e: "১৫ জুলাই-২০২৬", w: "বুধবার", v: "শ্রীগুণ্ডিচা মার্জন ও শ্রীশ্রী জগন্নাথদেবের নব যৌবন দর্শন", p: "-" },
-                { b: "৩১ আষাঢ়", e: "১৬ জুলাই-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা (সেনবাগ মন্দির মহোৎসব)", p: "-" }
+                { b: "৩১ আষাঢ়", e: "১৬ জুলাই-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা মহোৎসব", p: "-" }
             ],
             // ৩. শ্রাবণ
             [
-                { b: "০২ শ্রাবণ", e: "১৯ জুলাই-২০২৬", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গনের প্রতিষ্ঠাতা শ্রীল গোপী দাস বৈষ্ণব এর ৯মে তিরোভাব দিবস", p: "-" },
-                { b: "০৭ শ্রাবণ", e: "২৪ জুলাই-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী জগন্নাথদেবের পুনর্যাত্রা (উল্টোরথ)", p: "-" },
+                { b: "০২ শ্রাবণ", e: "১৯ জুলাই-২০২৬", w: "রবিবার", v: "প্রতিষ্ঠাতা শ্রীল গোপী দাস বৈষ্ণব এর ৯মে তিরোভাব দিবস", p: "-" },
                 { b: "০৮ শ্রাবণ", e: "২৫ জুলাই-২০২৬", w: "শনিবার", v: "শ্রী শয়নৈকাদশী ব্রত, চাতুর্মাস্য ব্রতারম্ভ", p: "প্রাত: ০৫/৩৫/৩৮ গতে ১০/০০/০৪ মধ্যে" },
-                { b: "১২ শ্রাবণ", e: "২৯ জুলাই-২০২৬", w: "বুধবার", v: "শ্রী শ্রী গুরু পূর্ণিমা (পূর্বাহ্ণের মধ্যে বিশেষ সেবার্চ্চন)", p: "-" },
                 { b: "২৩ শ্রাবণ", e: "০৯ আগস্ট-২০২৬", w: "রবিবার", v: "শ্রী কামদা একাদশী ব্রত", p: "প্রাত: ০৫/৪২/৩৯ গতে ০৬/৪৪/৫৯ মধ্যে" }
             ],
             // ৪. ভাদ্র
             [
-                { b: "০৫ ভাদ্র", e: "২৩ আগস্ট-২০২৬", w: "রবিবার", v: "শ্রী রাধাকুঞ্জের গন্ধর্বচার্চিত ঝুলনযাত্রা প্রারম্ভ", p: "প্রাত: ১০/০১/৩১ মধ্যে" },
                 { b: "০৬ ভাদ্র", e: "২৪ আগস্ট-২০২৬", w: "সোমবার", v: "শ্রী ব্যঞ্জনী মহাদ্বাদশী ব্রত", p: "প্রাত: ০৫/৪৭/০৪ গতে ০৬/২১/৪৬ মধ্যে" },
-                { b: "০৭ ভাদ্র", e: "২৫ আগস্ট-২০২৬", w: "মঙ্গলবার", v: "সিদ্ধ মনোহর দাস বাবাজী মহারাজের (গোবিন্দকুন্ডু) তিরোভাব তিথি", p: "-" },
-                { b: "১০ ভাদ্র", e: "২৮ আগস্ট-২০২৬", w: "শুক্রবার", v: "শ্রী শ্রী বলদেবদেবের জন্মোৎসব, রাখীবন্ধন, ঝুলনযাত্রা সমাপন", p: "-" },
                 { b: "১৭ ভাদ্র", e: "০৪ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী জন্মাষ্টমী ব্রত, ৫২৪৭ তম শ্রীকৃষ্ণের আবির্ভাব জয়ন্তী", p: "প্রাত: ০৫/৫১/৩৫ গতে ১০/০০/২৯ মধ্যে" },
                 { b: "২০ ভাদ্র", e: "০৭ সেপ্টেম্বর-২০২৬", w: "সোমবার", v: "শ্রী অজা একাদশী ব্রত", p: "প্রাত: ০৫/৫২/৩৬ গতে ১০/০০/১০ মধ্যে" }
             ],
             // ৫. আশ্বিন
             [
-                { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক (৫১০৭ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী উপলক্ষে সপ্তাহ যজ্ঞ প্রারম্ভ)", p: "প্রাত: ০৫/৫৬/০৮ গতে ০৯/৫৮/২২ মধ্যে" },
-                { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", w: "বুধবার", v: "শ্রী বিজয়ামহাদ্বাদশী ব্রত (শ্রী বামনদেব অভিষেক)", p: "প্রাত: ০৫/৫৭/২৩ গতে ০৯/৫৭/৪৯ মধ্যে" },
-                { b: "০৭ আশ্বিন", e: "২৫ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "নামাচার্য শ্রীশ্রী হরিদাস ঠাকুরজিউ নিৰ্যাণ মহোৎসব (সকলে অংশগ্রহণ করুন)", p: "-" },
-                { b: "০৮ আশ্বিন", e: "২৬ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "৫১০৭ তম শ্রী শ্রীমদ্ভাগবত জয়ন্তী ও সপ্তাহ যজ্ঞ সমাপ্তি", p: "প্রাত: ০৭/০০/০০ গতে ০৯/৫৬/৩৬ মধ্যে" },
+                { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৫/৫৬/০৮ গতে ০৯/৫৮/২২ মধ্যে" },
+                { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", w: "বুধবার", v: "শ্রী বিজয়ামহাদ্বাদশী ব্রত", p: "প্রাত: ০৫/৫৭/২৩ গতে ০৯/৫৭/৪৯ মধ্যে" },
                 { b: "১৮ আশ্বিন", e: "০৬ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "শ্রীইন্দিরা একাদশী ব্রত", p: "প্রাত: ০৭/০০/০০ গতে ০৯/৫৬/৩৬ মধ্যে" },
-                { b: "২২ আশ্বিন", e: "১০ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রী শ্রী মহালয়া", p: "-" },
-                { b: "২৮ আশ্বিন", e: "১৬ অক্টোবর-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী দুর্গাদেবীর নবপত্রিকা ও সপ্তমাবিহিত পূজা 'দেভীর ঘটে আগমন'", p: "-" },
                 { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা", p: "-" }
             ],
             // ৬. কার্তিক
             [
-                { b: "০১ কার্তিক", e: "১৯ অক্টোবর-২০২৬", w: "সোমবার", v: "শ্রীশ্রী মহাষ্টমী ব্রত ও পূজা", p: "প্রাত: পূর্বাহ্ণের মধ্যে" },
-                { b: "০২ কার্তিক", e: "২০ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "মহানবমী বিহিত পূজা", p: "-" },
-                { b: "০৩ কার্তিক", e: "২১ অক্টোবর-২০২৬", w: "বুধবার", v: "বিজয়া দশমী বিহিত পূজা ও বিসর্জন (দেবীর দোলায় গমন)", p: "-" },
-                { b: "০৪ কার্তিক", e: "২২ অক্টোবর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত, নিয়মসেবা ও কার্তিক ব্রতারম্ভ", p: "প্রাত: ০৬/০৯/৪৪ গতে ০৯/৫৬/৫২ মধ্যে" },
-                { b: "০৮ কার্তিক", e: "২৬ অক্টোবর-২০২৬", w: "সোমবার", v: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূর্নিমা ও লক্ষ্মীপূজা", p: "-" },
-                { b: "১২ কার্তিক", e: "৩০ অক্টোবর-২০২৬", w: "শুক্রবার", v: "শ্রীল নরোত্তম দাস ঠাকুর মহাশয়ের তিরোভাব মহোৎসব", p: "-" },
+                { b: "০৪ কার্তিক", e: "২২ অক্টোবর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত", p: "প্রাত: ০৬/০৯/৪৪ গতে ০৯/৫৬/৫২ মধ্যে" },
                 { b: "১৮ কার্তিক", e: "০৫ নভেম্বর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী রমা একাদশী ব্রত", p: "প্রাত: ০৬/১৬/৫৩ গতে ০৯/৫৮/৪১ মধ্যে" },
-                { b: "২১ কার্তিক", e: "০৮ নভেম্বর-২০২৬", w: "রবিবার", v: "শ্রীশ্রী কালিপূজা, দীপাবলী, দীপদান", p: "-" },
-                { b: "২২ কার্তিক", e: "০৯ নভেম্বর-২০২৬", w: "সোমবার", v: "শ্রীঅন্নকূট মহোৎসব, গো-গোবর্ধন ও বলিদৈত্যরাজ পূজা (সকলে অংশগ্রহণ করুন)", p: "-" }
+                { b: "২২ কার্তিক", e: "০৯ নভেম্বর-২০২৬", w: "সোমবার", v: "শ্রীঅন্নকূট মহোৎসব, গো-গোবর্ধন পূজা", p: "-" }
             ],
             // ৭. অগ্রহায়ণ
             [
-                { b: "০১ অগ্রহায়ণ", e: "১৮ নভেম্বর-২০২৬", w: "বুধবার", v: "শ্রীঅক্ষয় নবমী (দানদক্ষিণা ও গুরু বৈষ্ণব সেবা প্রশস্তা)", p: "-" },
-                { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", w: "শনিবার", v: "শ্রীউত্থান একাদশী ব্রত, নিয়মসেবা ও চাতুর্মাস্য ব্রত সমাপন", p: "প্রাত: ০৬/২৮/০২ গতে ১০/০৩/৫১ মধ্যে" },
-                { b: "০৭ অগ্রহায়ণ", e: "২৪ নভেম্বর-২০২৬", w: "মঙ্গলবার", v: "শ্রীরাস পূর্ণিমা, শ্রীশ্রী রাধাকৃষ্ণের রাসযাত্রা, শ্রীমন্মহাপ্রভুর বৃন্দাবন আগমন", p: "-" },
+                { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", w: "শনিবার", v: "শ্রীউত্থান একাদশী ব্রত", p: "প্রাত: ০৬/২৮/০২ গতে ১০/০৩/৫১ মধ্যে" },
                 { b: "১৭ অগ্রহায়ণ", e: "০৪ ডিসেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রী উৎপন্না একাদশী ব্রত", p: "প্রাত: ০৬/১২/০১ গতে ১০/০৯/২৬ মধ্যে" }
             ],
             // ৮. পৌষ
             [
-                { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রী মোকদা একাদশী ব্রত (৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী)", p: "প্রাত: ০৬/৪৭/১১ গতে ১০/১৮/১৩ মধ্যে" },
+                { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রী মোকদা একাদশী ব্রত", p: "প্রাত: ০৬/৪৭/১১ গতে ১০/১৮/১৩ মধ্যে" },
                 { b: "১৮ পৌষ", e: "০৩ জানুয়ারী-২০২৭", w: "রবিবার", v: "শ্রী সফলা একাদশী ব্রত", p: "প্রাত: ০৫/৫১/৫৬ গতে ১০/২৮/১৬ মধ্যে" }
             ],
             // ৯. মাঘ
             [
-                { b: "০৪ মাঘ", e: "১৯ জানুয়ারী-২০২৭", w: "মঙ্গলবার", v: "শ্রী কুর্মদ্বাদশী ব্রত", p: "প্রাত: ০৬/৫৪/২৪ গতে ১০/২৯/১৮ মধ্যে" },
                 { b: "১৮ মাঘ", e: "০২ ফেব্রুয়ারী-২০২৭", w: "মঙ্গলবার", v: "শ্রী ষটতিলা একাদশী ব্রত", p: "প্রাত: ০৬/৫০/০৯ গতে ১০/২৯/১১ মধ্যে" },
-                { b: "২৭ মাঘ", e: "১১ ফেব্রুয়ারী-২০২৭", w: "বৃহস্পতিবার", v: "শ্রীবসন্ত পঞ্চমী, শ্রীশ্রী গৌরপ্রিয়া শ্রীমতী বিষ্ণুপ্রিয়াদেবীর আবির্ভাব তিথি", p: "-" },
-                { b: "২৯ মাঘ", e: "১৩ ফেব্রুয়ারী-২০২৭", w: "শনিবার", v: "শ্রী শ্রী অদ্বৈত জয়ন্তী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৬/৪৪/২৩ গতে ১০/২৮/১৯ মধ্যে" }
+                { b: "২৯ মাঘ", e: "১৩ ফেব্রুয়ারী-২০২৭", w: "শনিবার", v: "শ্রী শ্রী অদ্বৈত জয়ন্তী ব্রত", p: "প্রাত: ০৬/৪৪/২৩ গতে ১০/২৮/১৯ মধ্যে" }
             ],
             // ১০. ফাল্গুন
             [
-                { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ-গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ মন্দিরের ৩য় প্রতিষ্ঠাবার্ষিকী উপলক্ষে ৬৪ মহান্তের ভোগ আরাধনা ও মহোৎসব, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী।", p: "-" },
+                { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গনের ৩য় প্রতিষ্ঠাবার্ষিকী মহোৎসব", p: "-" },
                 { b: "০৪ ফাল্গুন", e: "১৭ ফেব্রুয়ারী-২০২৭", w: "বুধবার", v: "শ্রীভৈইমী একাদশী ব্রত", p: "প্রাত: ০৬/৪১/৫৪ গতে ১০/২৭/২২ মধ্যে" },
-                { b: "০৬ ফাল্গুন", e: "১৯ ফেব্রুয়ারী-২০২৭", w: "শুক্রবার", v: "৫৩৫ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৬/৪০/৩৬ গতে ০৯/৫১/২৬ মধ্যে" },
-                { b: "১৯ ফাল্গুন", e: "০৪ মার্চ-২০২৭", w: "বৃহস্পতিবার", v: "শ্রী উন্মিূলনী মহাদ্বাদশী ব্রত", p: "প্রাত: ০৬/২৯/৩১ গতে ১০/২১/৪৩ মধ্যে" },
-                { b: "২২ ফাল্গুন", e: "০৭ মার্চ-২০২৭", w: "রবিবার", v: "শ্রীশিব চতুর্দশী, মহাশিবরাত্রি ব্রত", p: "প্রাত: ০৬/২৬/৪৬ গতে ১০/২০/২০ মধ্যে" }
+                { b: "০৬ ফাল্গুন", e: "১৯ ফেব্রুয়ারী-২০২৭", w: "শুক্রবার", v: "৫৩৫ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী ব্রত", p: "প্রাত: ০৬/৪০/৩৬ গতে ০৯/৫১/২৬ মধ্যে" }
             ],
             // ১১. চৈত্র
             [
-                { b: "০১ চৈত্র", e: "১৬ মার্চ-২০২৭", w: "মঙ্গলবার", v: "শ্রীবর্ষাপাতে রঙোলী হোলি", p: "প্রাত: ০৬/১৫/১৪ গতে ১০/১৮/১৮ মধ্যে" },
                 { b: "০৪ চৈত্র", e: "১৯ মার্চ-২০২৭", w: "শুক্রবার", v: "শ্রী আমলকী একাদশী ব্রত", p: "প্রাত: ০৬/১২/১৯ গতে ১০/১২/৪৫ মধ্যে" },
-                { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", w: "সোমবার", v: "৫৪২তম শ্রীশ্রী গৌরপূর্ণিমা-সন্ধ্যায় অভিষেক, শ্রীশ্রী গৌরঙ্গ মহাপ্রভুর জন্ম-জয়ন্তী, শ্রীশ্রী রাধাকৃষ্ণের দোলযাত্রা, হোলি উৎসব", p: "-" },
-                { b: "১৮ চৈত্র", e: "০২ এপ্রিল-২০২৭", w: "শুক্রবার", v: "শ্রী পাপমোচনী একাদশী ব্রত", p: "প্রাত: ০৮/৩৯/২৬ গতে ১০/০৬/৫৮ মধ্যে" },
-                { b: "৩০ চৈত্র", e: "১৪ এপ্রিল-২০২৭", w: "বুধবার", v: "মহাবিষুব সংক্রান্তি / বর্ষ সমাপন", p: "-" }
+                { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", w: "সোমবার", v: "৫৪২তম শ্রীশ্রী গৌরপূর্ণিমা জন্ম-জয়ন্তী মহোৎসব", p: "-" },
+                { b: "১৮ চৈত্র", e: "০২ এপ্রিল-২০২৭", w: "শুক্রবার", v: "শ্রী পাপমোচনী একাদশী ব্রত", p: "প্রাত: ০৮/৩৯/২৬ গতে ১০/০৬/৫৮ মধ্যে" }
             ]
+        ];
+
+        const shubhKarmaData = [
+            { b: "০৭,১৯,২৩,২৪ বৈশাখ", a: "০৫,১৫,১৯,২৭ বৈশাখ", s: "০৬,০৯,১০,১৫,১৭ বৈশাখ", g: "পঞ্জিকা মতে প্রশস্ত দিন", d: "শুভ শুভক্ষণ ও পুণ্যাহ", m: "০৪,১৫,১৮,২৯ বৈশাখ (অমাবস্যা ০৪, পূর্ণিমা ১৮)", p: "সাতভক্ষণ ও পঞ্চামৃত প্রশস্ত" },
+            { b: "নাই", a: "০৩,০৭,১৩ জ্যৈষ্ঠ", s: "০৬,০৭,১৩ জ্যৈষ্ঠ", g: "জ্যৈষ্ঠে গৃহপ্রবেশ নিষিদ্ধ", d: "দেবতা প্রতিষ্ঠা নিষিদ্ধ", m: "০৩,০৭,১৩,১৬,২৩ জ্যৈষ্ঠ (অমা ৩০, পূর্ণিমা ১৪)", p: "পঞ্চামৃত ও সাধভক্ষণ শুভ" },
+            { b: "২১,২৭ আষাঢ়", a: "০২ আষাঢ়", s: "২/৩০ আষাঢ়", g: "০২,২১,২৭ আষাঢ়", d: "দেব প্রতিষ্ঠা ২/২১ আষাঢ়", m: "২১,২৭ আষাঢ় (অমা ২৭, পূর্ণিমা ১৩)", p: "আষাঢ়ে পঞ্চামৃত শুভ" },
+            { b: "০৩,০৪,০৬,০৭,১২,১৩,১৬,১৭,২১ শ্রাবণ", a: "০২,০৬,০৭ শ্রাবণ", s: "০২,০৩,০৪,০৫,০৭ শ্রাবণ", g: "শ্রাবণে গৃহারম্ভ শুভ", d: "দেবালয় নির্মাণ", m: "০৪,০৬,০৭,২১ শ্রাবণ (অমা ২৯, পূর্ণিমা ১২)", p: "পঞ্চামৃত সেবন" },
+            { b: "০৪,০৬,০৭,১২,১৬,১৭,১৮ ভাদ্র", a: "০২,০৬,২৭ ভাদ্র", s: "০১,০৮,১০,২৬,২৭ ভাদ্র", g: "ভাদ্রে গৃহপ্রবেশ অশুভ", d: "দেবালয় সংস্কার", m: "০৪,০৬,১২,১৭ ভাদ্র (অমা ২৫, পূর্ণিমা ০৯)", p: "সাতভক্ষণ শুভ" },
+            { b: "০৩,১০,১৩,১৪,২৮ আশ্বিন", a: "০৫,২৮,২৯ আশ্বিন", s: "০৫,২৮,২৯ আশ্বিন", g: "শারদীয় শুভদিন", d: "ঘটে আগমন ও দুর্গোৎসব", m: "০৩,১০,১৩,২৮ আশ্বিন (অমা ২১, পূর্ণিমা ০৭)", p: "পঞ্চামৃত শুভ" },
+            { b: "০৬,০৭,০৮,১১,২০,২৭ কার্তিক", a: "০৩,২৪,২৫ কার্তিক", s: "০৩,০৪,২৮,২৫ কার্তিক", g: "কার্তিকে দীপদান শুভ", d: "গো-গোবর্ধন পূজা", m: "০৬,০৭,১১,২০ কার্তিক (অমা ২০, পূর্ণিমা ০৫)", p: "নিয়মসেবা" },
+            { b: "০৪,০৭,০৮,০৯,১৮,২২,২৩,২৪,২৬ অগ্রহায়ণ", a: "২৭ অগ্রহায়ণ", s: "২২,২৬,২৭ অগ্রহায়ণ", g: "অগ্রহায়ণে নবগৃহ প্রবেশ", d: "দেবালয় ও যজ্ঞ", m: "০৪,০৭,১৮,২২,২৪ অগ্রহায়ণ (অমা ২১, পূর্ণিমা ০৬)", p: "পঞ্চামৃত শুভ" },
+            { b: "নাই (পৌষে বিবাহ নিষিদ্ধ)", a: "নাই", s: "২৬ পৌষ", m: "পৌষে কেবল পারমার্থিক ব্রত (অমা ২২, পূর্ণিমা ০৭)", p: "পৌষালি ব্রত" },
+            { b: "০৩,১১,১৩,১৪,১৭,২৭,২৮ মাঘ", a: "০৫,২৪,২৭ মাঘ", s: "০১,২৩,২৪,২৭,২৮ মাঘ", g: "মাঘে গৃহপ্রবেশ শুভ", d: "দেবতা প্রতিষ্ঠা ও যজ্ঞ", m: "০৩,১১,১৩,১৭,২৮ মাঘ (অমা ২১, পূর্ণিমা ০৬)", p: "পঞ্চামৃত ও সাধভক্ষণ" },
+            { b: "০৩,০৯,১১,১৬,২৬,২৭,২৮ ফাল্গুন", a: "০৫,০৬,২৬ ফাল্গুন", s: "০৫,০৬,২৫,২৬,২৭ ফাল্গুন", g: "ফাল্গুনে গৃহারম্ভ শুভ", d: "প্রতিষ্ঠাবার্ষিকী মহোৎসব", m: "০৩,০৯,১৬,২৭,২৮ ফাল্গুন (অমা ২২, পূর্ণিমা ০৭)", p: "পঞ্চামৃত ও অন্নপ্রাশন" },
+            { b: "নাই (চৈত্রে বিবাহ নিষিদ্ধ)", a: "০৩,২৪,২৭ চৈত্র", s: "০২,০৩,০৭,২০,২৭ চৈত্র", g: "চৈত্রে গৃহপ্রবেশ অশুভ", d: "গৌরপূর্ণিমা মহোৎসব", m: "০৩,২৪,২৭ চৈত্র (অমা ২৫, পূর্ণিমা ০৭)", p: "বাসন্তী ব্রত" }
         ];
 
         function switchTab(viewId) {
@@ -471,16 +389,22 @@
                 `;
                 tableBody.innerHTML += row;
             });
+
+            // Update Dynamic Shubh Karma for Selected Month
+            const sk = shubhKarmaData[selectedMonth] || shubhKarmaData[0];
+            document.getElementById("dynamic-shubh-karma").innerHTML = `
+                <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200 font-bold"><p class="text-rose-800">💍 শুভ বিবাহ & লগ্ন:</p><p class="text-gray-700">${sk.b}</p></div>
+                <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 font-bold"><p class="text-amber-900">👶 অন্নপ্রাশন & সাতভক্ষণ:</p><p class="text-gray-700">${sk.a}</p></div>
+                <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200 font-bold"><p class="text-blue-800">🤰 সাধভক্ষণ & পঞ্চামৃত:</p><p class="text-gray-700">${sk.s}</p></div>
+                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 font-bold"><p class="text-purple-800">🏡 গৃহারম্ভ & গৃহপ্রবেশ:</p><p class="text-gray-700">${sk.g}</p></div>
+                <div class="bg-green-50 p-3 rounded-2xl border border-green-200 font-bold sm:col-span-2"><p class="text-green-800">🛕 দেব প্রতিষ্ঠা, পূর্ণ্যাহ & যজ্ঞ:</p><p class="text-gray-700">${sk.d}</p></div>
+                <div class="bg-red-50 p-3 rounded-2xl border border-red-200 font-bold sm:col-span-2"><p class="text-red-800">🌕 অমাবস্যা, পূর্ণিমা ও মাঙ্গলিক তারিখ:</p><p class="text-gray-700">${sk.m}</p></div>
+            `;
         }
 
         function setPanjikaMode(mode) {
             document.getElementById('panjika-mode-text').innerText = mode;
             alert('পঞ্জিকা গণনা পদ্ধতি ' + mode + ' এ নির্বাচন করা হয়েছে।');
-        }
-
-        function updateTimeZone() {
-            const offset = parseFloat(document.getElementById("countryTimeSelector").value);
-            alert("পারণের সময় নির্বাচিত দেশের মেয়াদের সঙ্গে " + offset + " ঘণ্টা সমন্বিত করা হয়েছে।");
         }
 
         document.addEventListener("DOMContentLoaded", function() {
