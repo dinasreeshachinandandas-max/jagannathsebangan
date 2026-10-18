@@ -5,9 +5,9 @@
   "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
   "orientation": "any",
   "scope": "/",
-  "short_name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
+  "short_name": "জগন্নাথ পঞ্জিকা",
   "start_url": "/",
   "theme_color": "#ffffff",
-  "id": "panjika",
+  "id": "/panjika",
   "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন অফিশিয়াল বৈষ্ণবীয় পঞ্জিকা"
 }
