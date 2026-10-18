@@ -631,9 +631,9 @@
                     </tr>
                 `;
                 tableBody.innerHTML += row;
+                
             });
-        }
-
+            }
         function showDateDetails(mIdx, dIdx) {
             const data = panjikaData[mIdx].rows[dIdx];
             document.getElementById("modal-date-title").innerText = `📅 ${data.b} (${data.e})`;
