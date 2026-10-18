@@ -332,11 +332,56 @@
 
     <script>
         function loadLiveDateInfo() {
-            const now = new Date();
-            document.getElementById("live-eng-date").innerText = now.getDate() + ' ' + now.toLocaleString('bn-BD', { month: 'long' }) + ' ' + now.getFullYear();
-            document.getElementById("live-day-name").innerText = now.toLocaleString('bn-BD', { weekday: 'long' });
-            updateRashiPrediction();
-        }
+    const now = new Date();
+    
+    // ১. ইংরেজি তারিখ ও বার আপডেট
+    const engDateElem = document.getElementById("live-eng-date");
+    const dayNameElem = document.getElementById("live-day-name");
+    if (engDateElem) engDateElem.innerText = now.getDate() + ' ' + now.toLocaleString('bn-BD', { month: 'long' }) + ' ' + now.getFullYear();
+    if (dayNameElem) dayNameElem.innerText = now.toLocaleString('bn-BD', { weekday: 'long' });
+
+    // ২. ডিভাইস তারিখ অনুযায়ী অটোমেটিক তিথি, নক্ষত্র ও ব্রত-উৎসব নির্বাচন
+    const dateKey = now.toISOString().split('T')[0]; // YYYY-MM-DD
+    let todayTithi = "শুক্ল পক্ষ";
+    let todayTithiFull = "আজকের নির্ধারিত বৈষ্ণবীয় তিথি";
+    let todayNakshatra = "নক্ষত্র: অনুরাধা (অহোরাত্র)";
+    let todayEvent = "✨ শ্রী শ্রী জগন্নাথ সেবাঙ্গন নিত্য সেবা ও ব্রতোৎসব";
+
+    if (dateKey === "2026-10-17") {
+        todayTithi = "অষ্টমী তিথি";
+        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহাঅষ্টমী";
+        todayNakshatra = "নক্ষত্র: পূর্বাষাঢ়া";
+        todayEvent = "✨ শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা";
+    } else if (dateKey === "2026-10-18") {
+        todayTithi = "নবমী তিথি";
+        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহানবমী";
+        todayNakshatra = "নক্ষত্র: উত্ত রাজনৈতিক/উত্তরাষাঢ়া";
+        todayEvent = "✨ শ্রীশ্রী শারদীয়া মহানবমী বিহিত পূজা প্রশস্তা";
+    } else if (dateKey === "2026-10-19") {
+        todayTithi = "দশমী তিথি";
+        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: বিজয়া দশমী";
+        todayNakshatra = "নক্ষত্র: শ্রবণা";
+        todayEvent = "✨ শ্রীশ্রী বিজয়া দশমী ও দুর্গাদেবী বিসর্জন";
+    } else if (dateKey === "2026-10-22") {
+        todayTithi = "একাদশী তিথি";
+        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: পাশাঙ্কুশা একাদশী";
+        todayNakshatra = "নক্ষত্র: উত্তরাষাঢ়া";
+        todayEvent = "✨ শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত ও কার্তিক ব্রতারম্ভ";
+    }
+
+    // স্ক্রিনে তথ্য স্বয়ংক্রিয়ভাবে প্রদান
+    const tithiNameElem = document.getElementById("live-tithi-box");
+    const eventTitleElem = document.getElementById("live-event-title");
+    const tithiDescElem = document.getElementById("live-tithi-desc");
+    const nakshatraDescElem = document.getElementById("live-nakshatra-desc");
+
+    if (tithiNameElem) tithiNameElem.innerText = todayTithi;
+    if (eventTitleElem) eventTitleElem.innerText = todayEvent;
+    if (tithiDescElem) tithiDescElem.innerText = todayTithiFull;
+    if (nakshatraDescElem) nakshatraDescElem.innerText = todayNakshatra;
+
+    updateRashiPrediction();
+}
 
         const panjikaData = [
             // ০. বৈশাখ
