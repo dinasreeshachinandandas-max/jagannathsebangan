@@ -1,16 +1,13 @@
 {
-  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
-  "short_name": "জগন্নাথ পঞ্জিকা",
-  "description": "আন্তর্জাতিক শ্রী শ্রী রাধা মুরারী মোহন সেবা সংঘ কর্তৃক প্রচারিত ব্রতোৎসব-নির্ণয়-পঞ্জিকা",
-  "start_url": "/panjika.html",
+  "background_color": "#ffffff",
+  "dir": "ltr",
   "display": "standalone",
-  "background_color": "#fdf8f2",
-  "theme_color": "#8b0000",
-  "icons": [
-    {
-      "src": "/temple-logo.jpg",
-      "sizes": "192x192 512x512",
-      "type": "image/jpeg"
-    }
-  ]
+  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "panjika",
+  "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন অফিশিয়াল বৈষ্ণবীয় পঞ্জিকা"
 }
