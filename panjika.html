@@ -214,6 +214,51 @@
                     </tbody>
                 </table>
             </div>
+            function renderFullMonthDays(mIdx) {
+    const monthDaysList = [31, 31, 32, 32, 31, 30, 30, 29, 30, 30, 30, 30]; // বৈশাখ-চৈত্র
+    const startDates = [
+        new Date(2026, 3, 15), // বৈশাখ ১
+        new Date(2026, 4, 16),
+        new Date(2026, 5, 16),
+        new Date(2026, 6, 18),
+        new Date(2026, 7, 19),
+        new Date(2026, 8, 19), // আশ্বিন ১
+        new Date(2026, 9, 19),
+        new Date(2026, 10, 18),
+        new Date(2026, 11, 17),
+        new Date(2027, 0, 16),
+        new Date(2027, 1, 15),
+        new Date(2027, 2, 17)
+    ];
+
+    const daysBn = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+    const monthsBn = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
+    const numsBn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯','১০','১১','১২','১৩','১৪','১৫','১৬','১৭','১৮','১৯','২০','২১','২২','২৩','২৪','২৫','২৬','২৭','২৮','২৯','৩০','৩১','৩২'];
+
+    const totalDays = monthDaysList[mIdx] || 30;
+    let currDate = new Date(startDates[mIdx] || startDates[5]);
+
+    const tbody = document.getElementById("full-month-days-body");
+    const countTag = document.getElementById("month-days-count-tag");
+    if (!tbody) return;
+
+    if (countTag) countTag.innerText = `মোট ${numsBn[totalDays]} দিন`;
+    tbody.innerHTML = "";
+
+    for (let d = 1; d <= totalDays; d++) {
+        const dayName = daysBn[currDate.getDay()];
+        const engStr = `${numsBn[currDate.getDate()]} ${monthsBn[currDate.getMonth()]} ${currDate.getFullYear()}`;
+
+        tbody.innerHTML += `
+            <tr class="text-center border-b border-amber-200 hover:bg-amber-50">
+                <td class="p-2 font-bold text-rose-900">${numsBn[d]} তারিখ</td>
+                <td class="p-2">${engStr}</td>
+                <td class="p-2 font-medium">${dayName}</td>
+            </tr>
+        `;
+        currDate.setDate(currDate.getDate() + 1);
+    }
+}
         </section>
 
         <!-- TAB 3: বিবিধ ও মাঙ্গলিক সূচী -->
