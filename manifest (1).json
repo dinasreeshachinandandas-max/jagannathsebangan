@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "জগন্নাথ পঞ্জিকা",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "/"
+}
