@@ -30,7 +30,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- ১. টপ বার: ওয়েবসাইট লিঙ্ক ও দ্রুত যোগাযোগ -->
+    <!-- ১. টপ বার: ওয়েবসাইট লিঙ্ক ও ভাষা নির্বাচন -->
     <div class="bg-amber-950 text-amber-100 px-3 py-2 text-xs sm:text-sm flex justify-between items-center border-b border-amber-800">
         <div class="flex items-center space-x-2 mx-auto sm:mx-0">
             <span>🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন</span>
@@ -39,7 +39,11 @@
             </a>
         </div>
         <div class="hidden sm:flex items-center gap-2">
-            <span class="text-xs text-amber-200">নোয়াখালী, বাংলাদেশ[span_4](start_span)[span_4](end_span)</span>
+            <select id="languageSelector" onchange="changeLanguage(this.value)" class="bg-amber-900 text-amber-100 text-xs px-2 py-1 rounded border border-amber-700 focus:outline-none">
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="en">English</option>
+                <option value="hi">हिन्दी (Hindi)</option>
+            </select>
         </div>
     </div>
 
@@ -48,7 +52,7 @@
         <div class="max-w-3xl mx-auto space-y-2">
             
             <!-- সুন্দর বৈষ্ণবীয় লোগো -->
-            <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full bg-amber-50 p-1.5 shadow-2xl border-4 border-amber-300 flex items-center justify-center">
+            <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full bg-amber-50 p-1.5 shadow-2xl border-4 border-amber-300 flex items-center justify-center relative group">
                 <svg viewBox="0 0 200 200" class="w-full h-full">
                     <circle cx="100" cy="100" r="95" fill="#fdf8f2" stroke="#a71d2a" stroke-width="4"/>
                     <circle cx="100" cy="100" r="88" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4,3"/>
@@ -89,7 +93,7 @@
                 <div class="flex justify-between items-center mb-4">
                     <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 backdrop-blur-md">
                         <i class="fa-solid fa-earth-americas text-amber-300"></i>
-                        <span>সেনবাগ, নোয়াখালী (বাংলাদেশ)[span_5](start_span)[span_5](end_span)</span>
+                        <span>সেনবাগ, নোয়াখালী (বাংলাদেশ)[span_0](start_span)[span_0](end_span)</span>
                     </div>
                     <div class="text-xs text-amber-200 font-semibold bg-black/25 px-2.5 py-1 rounded-lg">
                         <span>দৃকসিদ্ধান্ত</span>
@@ -100,11 +104,11 @@
                     <div>
                         <div class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-1" id="live-eng-date">অপেক্ষা করুন...</div>
                         <div class="text-lg font-bold text-amber-200" id="live-day-name">আজকের বার</div>
-                        <div class="text-xs text-amber-100 mt-1">১৪৩৩ বঙ্গাব্দের বৈষ্ণবীয় পঞ্জিকা অনুযায়ী আপডেট</div>
+                        <div class="text-xs text-amber-100 mt-1">স্বয়ংক্রিয় দৈনিক পঞ্জিকা ও তিথি সংকেত</div>
                     </div>
                     <div class="text-right space-y-1 text-xs sm:text-sm font-medium bg-black/30 p-3 rounded-2xl border border-white/10">
-                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span>০৫:৩৭ AM</span>[span_6](start_span)[span_6](end_span)</div>
-                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span>১৭:০৬ PM</span>[span_7](start_span)[span_7](end_span)</div>
+                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span>০৫:৩৭ AM</span>[span_1](start_span)[span_1](end_span)</div>
+                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span>১৭:০৬ PM</span>[span_2](start_span)[span_2](end_span)</div>
                     </div>
                 </div>
 
@@ -120,7 +124,7 @@
                 </div>
                 <div class="flex-1 text-xs sm:text-sm text-gray-700 space-y-1">
                     <p class="font-bold text-amber-950 text-base">আজকের অটোমেটিক তিথি ও নক্ষত্র</p>
-                    <p id="live-tithi-desc">১৪৩৩ বঙ্গাব্দের পঞ্জিকা অনুযায়ী আজকের নির্ধারিত শুভ তিথি প্রযোজ্য।</p>
+                    <p id="live-tithi-desc">পঞ্জিকা অনুযায়ী আজকের নির্ধারিত শুভ তিথি প্রযোজ্য।</p>
                     <p id="live-nakshatra-desc" class="text-rose-700 font-bold">হরিনাম সংকীর্তন ও সাধুসঙ্গে সময় অতিবাহিত করুন।</p>
                 </div>
             </div>
@@ -174,7 +178,7 @@
                     <option value="0">বৈশাখ (শ্রী মধুসূদন)</option>
                     <option value="1">জ্যৈষ্ঠ (শ্রী ত্রিবিক্রম)</option>
                     <option value="2">আষাঢ় (শ্রী বামন)</option>
-                    <option value="3">শ্রাবণ (শ্রী শ্রীধর/পুরুষোত্তম)</option>
+                    <option value="3">শ্রাবণ (শ্রী শ্রীধর)</option>
                     <option value="4">ভাদ্র (শ্রী হৃষীকেশ)</option>
                     <option value="5" selected>আশ্বিন (শ্রী পদ্মনাভ)</option>
                     <option value="6">কার্তিক (শ্রী দামোদর)</option>
@@ -186,10 +190,6 @@
                 </select>
             </div>
 
-            <div class="bg-amber-100/80 p-2.5 rounded-2xl border border-amber-300 text-xs text-amber-950 font-bold flex justify-between items-center flex-wrap gap-1" id="month-vivah-info">
-                <span>💍 বিবাহ লগ্ন: ক্যালেন্ডার অনুযায়ী প্রদর্শিত</span>
-            </div>
-
             <p class="text-xs text-amber-800 font-semibold px-1">💡 যেকোনো তারিখের ওপর ক্লিক করলে ওই দিনের তিথি, নক্ষত্র ও ব্রত-উৎসবের সম্পূর্ণ বিবরণ দেখতে পাবেন:</p>
 
             <div class="bg-white rounded-3xl p-4 border border-amber-200 card-shadow overflow-x-auto">
@@ -199,7 +199,8 @@
                             <th class="p-2.5 border border-amber-300">বঙ্গাব্দ</th>
                             <th class="p-2.5 border border-amber-300">খ্রীষ্টাব্দ</th>
                             <th class="p-2.5 border border-amber-300">বার</th>
-                            <th class="p-2.5 border border-amber-300">ব্রত, উৎসব ও মহোৎসব</th>
+                            <th class="p-2.5 border border-amber-300">ব্রত, উৎসব ও তিথি</th>
+                            <th class="p-2.5 border border-amber-300">পারণ সময়</th>
                         </tr>
                     </thead>
                     <tbody id="panjika-table-body">
@@ -231,14 +232,14 @@
 
             <div class="bg-white p-5 rounded-3xl border border-amber-300 card-shadow space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-rose-700 pb-2">
-                    <i class="fa-solid fa-kaaba text-rose-700"></i> মাসভিত্তিক শুভ কাজ ও মাঙ্গলিক লগ্নসূচী
+                    <i class="fa-solid fa-kaaba text-rose-700"></i> মাসভিত্তিক শুভ কাজ ও লগ্নসূচী
                 </h3>
                 <div id="dynamic-shubh-karma" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <!-- Dynamic Month Wise Details -->
                 </div>
             </div>
 
-            <!-- ব্রত মন্ত্র সেকশন -->
+            <!-- ব্রত মন্ত্র -->
             <div class="bg-amber-100/80 border-2 border-amber-300 rounded-3xl p-5 shadow-sm space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2">
                     <i class="fa-solid fa-scroll text-amber-900"></i> ব্রত সমর্পণ ও পারণ মন্ত্র
@@ -246,7 +247,13 @@
                 <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
                     <p class="font-bold text-rose-800">📜 ব্রত সমর্পণ মন্ত্র:</p>
                     <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
-                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব (প্রদীয়তাম্)॥"
+                        "অজ্ঞানতিমিবান্ধস্য ব্রতেনানেন কেশব। প্রসীদ সুমুখো নাথ জ্ঞানদৃষ্টি প্রদোভব॥"
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-amber-200 text-xs sm:text-sm space-y-1">
+                    <p class="font-bold text-rose-800">📜 পারণ মন্ত্র:</p>
+                    <p class="italic font-bold text-amber-950 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                        "তব প্রসাদস্বীকারাৎ কৃতং যৎ পারণং ময়া। ব্রতেনানেন সন্তুষ্টঃ স্বস্তি ভক্তিং প্রযচ্ছ মে॥"
                     </p>
                 </div>
             </div>
@@ -258,8 +265,9 @@
                 ⚙️ সেটিংস ও অন্যান্য
             </h2>
             <div class="bg-white p-4 rounded-2xl border border-amber-200 card-shadow space-y-3">
+                <label class="font-bold text-amber-950 text-sm block">পঞ্জিকা সংস্করণ:</label>
                 <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs font-semibold text-amber-900">
-                    শ্রী শ্রী জগন্নাথ সেবাঙ্গন ১৪৩৩ বঙ্গাব্দ অফিশিয়াল পঞ্জিকা সংস্করণ v4.0
+                    শ্রী শ্রী জগন্নাথ সেবাঙ্গন সর্বাধুনিক অটো-আপডেটেড বৈষ্ণবীয় পঞ্জিকা v3.5
                 </div>
             </div>
         </section>
@@ -304,174 +312,81 @@
         </div>
     </nav>
 
-    <!-- জাভাস্ক্রিপ্ট ইঞ্জিন -->
+    <!-- জাভাস্ক্রিপ্ট অটো-আপডেট ও ক্যালেন্ডার লজিক -->
     <script>
         function loadLiveDateInfo() {
             const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById("live-eng-date").innerText = now.getDate() + ' ' + now.toLocaleString('bn-BD', { month: 'long' }) + ' ' + now.getFullYear();
             document.getElementById("live-day-name").innerText = now.toLocaleString('bn-BD', { weekday: 'long' });
+            
             updateRashiPrediction();
         }
 
-        // ছবি থেকে নেওয়া ১০০% হুবহু ১২ মাসের ক্যালেণ্ডার ডেটা
         const panjikaData = [
-            // ০. বৈশাখ (শ্রী মধুসূদন)[span_8](start_span)[span_8](end_span)
-            {
-                vivah: "০৭/১৯/২৩/২৪", panchambrit: "০১/১০/১৭",
-                rows: [
-                    { b: "০১ বৈশাখ", e: "১৫ এপ্রিল-২০২৬", w: "বুধবার", v: "শুভ নববর্ষ প্রারম্ভ", tithi: "প্রতিপদ", nakshatra: "অশ্বিনী" },
-                    { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "বৃন্দাবনস্থিত কেশীঘাটে মুরারী মোহন কুঞ্জের মহোৎসব", tithi: "দ্বীতিয়া", nakshatra: "দ্বিজা" },
-                    { b: "০৩ বৈশাখ", e: "১৭ এপ্রিল-২০২৬", w: "শুক্রবার", v: "শ্রীল গদাধর পণ্ডিত গোস্বামীর আবির্ভাব", tithi: "তृतीয়া", nakshatra: "কৃত্তিকা" },
-                    { b: "০৬ বৈশাখ", e: "২০ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী অক্ষয় তৃতীয়া ও চন্দনযাত্রা", tithi: "ষষ্ঠী", nakshatra: "রোহিণী" },
-                    { b: "১১ বৈশাখ", e: "২৫ এপ্রিল-২০২৬", w: "শনিবার", v: "শ্রী সীতা নবমী", tithi: "নবমী", nakshatra: "পুষ্যা" },
-                    { b: "১৩ বৈশাখ", e: "২৭ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী মোহিনী একাদশী ব্রত", tithi: "একাদশী", nakshatra: "উত্তরাষাঢ়া" },
-                    { b: "১৬ বৈশাখ", e: "৩০ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নৃসিংহ চতুর্দশী ব্রত", tithi: "চতুর্দশী", nakshatra: "স্বাতী" },
-                    { b: "১৭ বৈশাখ", e: "০১ মে-২০২৬", w: "শুক্রবার", v: "শ্রীকৃষ্ণের ফুলদোল", tithi: "পূর্ণিমা", nakshatra: "বিশাখা" },
-                    { b: "২৩ বৈশাখ", e: "০৭ মে-২০২৬", w: "বৃহস্পতিবার", v: "৪১১ তম শ্রীশ্রী বলদেব আবির্ভাব মহোৎসব", tithi: "সপ্তমী", nakshatra: "শ্রবণা" },
-                    { b: "২৮ বৈশাখ", e: "১২ মে-২০২৬", w: "মঙ্গলবার", v: "শ্রীল শ্রীনিবাস আচার্য্য আবির্ভাব", tithi: "দ্বাদশী", nakshatra: "রেবতী" },
-                    { b: "২৯ বৈশাখ", e: "১৩ মে-২০২৬", w: "বুধবার", v: "শ্রী অপরা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "অশ্বিনী" }
-                ]
-            },
-            // ১. জ্যৈষ্ঠ (শ্রী ত্রিবিক্রম)[span_9](start_span)[span_9](end_span)
-            {
-                vivah: "নাই", panchambrit: "০৩/০৭/১৩/১৪/২৩",
-                rows: [
-                    { b: "১২ জ্যৈষ্ঠ", e: "২৭ মে-২০২৬", w: "বুধবার", v: "শ্রী পদ্মিনী একাদশী ব্রত", tithi: "একাদশী", nakshatra: "চিত্রা" },
-                    { b: "২৭ জ্যৈষ্ঠ", e: "১১ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী কমলা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "বিশাখা" }
-                ]
-            },
-            // ২. আষাঢ় (শ্রী বামন)[span_10](start_span)[span_10](end_span)
-            {
-                vivah: "২১/২৭", panchambrit: "০২/০৬/১৭/১৮",
-                rows: [
-                    { b: "০৯ আষাঢ়", e: "২৪ জুন-২০২৬", w: "বুধবার", v: "শ্রীল গদাধর পণ্ডিত তিরোভাব", tithi: "নবমী", nakshatra: "হস্তা" },
-                    { b: "১০ আষাঢ়", e: "২৫ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নির্জলা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "স্বাতী" },
-                    { b: "১২ আষাঢ়", e: "২৭ জুন-২০২৬", w: "শনিবার", v: "শ্রীল সনাতন গোস্বামী তিরোভাব", tithi: "ত্রয়োদশী", nakshatra: "অনুরাধা" },
-                    { b: "১৪ আষাঢ়", e: "২৯ জুন-২০২৬", w: "সোমবার", v: "শ্রীশ্রী জগন্নাথদেবের স্নানযাত্রা", tithi: "পূর্ণিমা", nakshatra: "পূর্বাষাঢ়া" },
-                    { b: "২৬ আষাঢ়", e: "১১ জুলাই-২০২৬", w: "শনিবার", v: "শ্রীযোগিনী একাদশী ব্রত", tithi: "একাদশী", nakshatra: "রোহিণী" },
-                    { b: "৩০ আষাঢ়", e: "১৫ জুলাই-২০২৬", w: "বুধবার", v: "গুন্ডিচা মন্দির মার্জন", tithi: "অমাবস্যা", nakshatra: "পুনর্বসু" },
-                    { b: "৩১ আষাঢ়", e: "১৬ জুলাই-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা", tithi: "দ্বিতীয়া", nakshatra: "পুষ্যা" }
-                ]
-            },
-            // ৩. শ্রাবণ (শ্রী শ্রীধর/পুরুষোত্তম)[span_11](start_span)[span_11](end_span)
-            {
-                vivah: "০৩/০৪/০৬/০৭/১২/১৩/১৮", panchambrit: "নাই",
-                rows: [
-                    { b: "০২ শ্রাবণ", e: "১৯ জুলাই-২০২৬", w: "রবিবার", v: "হেরা পঞ্চমী", tithi: "পঞ্চমী", nakshatra: "মঘা" },
-                    { b: "০৭ শ্রাবণ", e: "২৪ জুলাই-২০২৬", w: "শুক্রবার", v: "পুনর্যাত্রা (উল্টো রথ)", tithi: "দশমী", nakshatra: "বিশাখা" },
-                    { b: "০৮ শ্রাবণ", e: "২৫ জুলাই-২০২৬", w: "শনিবার", v: "শ্রী শয়নৈকাদশী ব্রত", tithi: "একাদশী", nakshatra: "অনুরাধা" },
-                    { b: "১২ শ্রাবণ", e: "২৯ জুলাই-২০২৬", w: "বুধবার", v: "শ্রী গুরু পূর্ণিমা", tithi: "পূর্ণিমা", nakshatra: "শ্রবণা" },
-                    { b: "২৩ শ্রাবণ", e: "০৯ আগস্ট-২০২৬", w: "রবিবার", v: "শ্রী কামদা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "মৃগশিরা" }
-                ]
-            },
-            // ৪. ভাদ্র (শ্রী হৃষীকেশ)[span_12](start_span)[span_12](end_span)
-            {
-                vivah: "০৪/০৬/০৭/১২/১৬/১৮", panchambrit: "১০/১৭",
-                rows: [
-                    { b: "০৫ ভাদ্র", e: "২৩ আগস্ট-২০২৬", w: "রবিবার", v: "শ্রীঝুলন যাত্রা প্রারম্ভ", tithi: "দশমী", nakshatra: "মূল" },
-                    { b: "০৬ ভাদ্র", e: "২৪ আগস্ট-২০২৬", w: "সোমবার", v: "শ্রী পবিত্রারোপণ একাদশী", tithi: "একাদশী", nakshatra: "পূর্বাষাঢ়া" },
-                    { b: "০৭ ভাদ্র", e: "২৫ আগস্ট-২০২৬", w: "মঙ্গলবার", v: "শ্রীল রূপ গোস্বামী তিরোভাব", tithi: "দ্বাদশী", nakshatra: "উত্তরাষাঢ়া" },
-                    { b: "১০ ভাদ্র", e: "২৮ আগস্ট-২০২৬", w: "শুক্রবার", v: "শ্রীঝুলন যাত্রা সমাপন", tithi: "পূর্ণিমা", nakshatra: "শতভিষা" },
-                    { b: "১৭ ভাদ্র", e: "০৪ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী জন্মাষ্টমী ব্রত", tithi: "অষ্টমী", nakshatra: "রোহিণী" },
-                    { b: "২০ ভাদ্র", e: "০৭ সেপ্টেম্বর-২০২৬", w: "সোমবার", v: "শ্রী অজা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "পুনর্বসু" },
-                    { b: "২১ ভাদ্র", e: "০৮ সেপ্টেম্বর-২০২৬", w: "মঙ্গলবার", v: "শ্রীল প্রভুপাদ আবির্ভাব", tithi: "দ্বাদশী", nakshatra: "পুষ্যা" },
-                    { b: "৩১ ভাদ্র", e: "১৮ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রীল সীতানাথ আবির্ভাব", tithi: "সপ্তমী", nakshatra: "অনুরাধা" }
-                ]
-            },
-            // ৫. আশ্বিন (শ্রী পদ্মনাভ)[span_13](start_span)[span_13](end_span)
-            {
-                vivah: "০৩/১০/১৩/১৪/২৮", panchambrit: "২৯",
-                rows: [
-                    { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত", tithi: "অষ্টমী", nakshatra: "অনুরাধা" },
-                    { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", w: "বুধবার", v: "শ্রী বামন দ্বাদশী", tithi: "দ্বাদশী", nakshatra: "শ্রবণা" },
-                    { b: "০৭ আশ্বিন", e: "২৫ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রী আনন্ত চতুর্দশী", tithi: "চতুর্দশী", nakshatra: "পূর্বভাদ্রপদ" },
-                    { b: "০৮ আশ্বিন", e: "২৬ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী বিশ্বরূপ মহোৎসব", tithi: "পূর্ণিমা", nakshatra: "উত্তরভাদ্রপদ" },
-                    { b: "১৮ আশ্বিন", e: "০৬ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "শ্রী ইন্দিরা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "মঘা" },
-                    { b: "২২ আশ্বিন", e: "১০ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীল সচ্চিদানন্দ ভক্তিবিনোদ ঠাকুর আবির্ভাব", tithi: "অমাবস্যা", nakshatra: "হস্তা" },
-                    { b: "২৮ আশ্বিন", e: "১৬ অক্টোবর-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী শারদীয়া দুর্গাপূজা ষষ্ঠী", tithi: "ষষ্ঠী", nakshatra: "মূল" },
-                    { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী মহাঅষ্টমী পূজা", tithi: "অষ্টমী", nakshatra: "পূর্বাষাঢ়া" },
-                    { b: "৩০ আশ্বিন", e: "১৮ অক্টোবর-২০২৬", w: "রবিবার", v: "শ্রীশ্রী মহানবমী পূজা", tithi: "নবমী", nakshatra: "উত্তরাষাঢ়া" }
-                ]
-            },
-            // ৬. কার্তিক (শ্রী দামোদর)[span_14](start_span)[span_14](end_span)
-            {
-                vivah: "০৬/০৭/০৮/১১/২০/২১", panchambrit: "২৫",
-                rows: [
-                    { b: "০১ কার্তিক", e: "১৯ অক্টোবর-২০২৬", w: "সোমবার", v: "শ্রীশ্রী বিজয়া দশমী", tithi: "দশমী", nakshatra: "শ্রবণা" },
-                    { b: "০২ কার্তিক", e: "২০ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "শ্রীল রঘুনাথদাস গোস্বামী তিরোভাব", tithi: "একাদশী", nakshatra: "ধনিষ্ঠা" },
-                    { b: "০৩ কার্তিক", e: "২১ অক্টোবর-২০২৬", w: "বুধবার", v: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা", tithi: "দ্বাদশী", nakshatra: "শতভিষা" },
-                    { b: "০৪ কার্তিক", e: "২২ অক্টোবর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী পাশাঙ্কুশা একাদশী", tithi: "একাদশী", nakshatra: "উত্তরাষাঢ়া" },
-                    { b: "০৮ কার্তিক", e: "২৬ অক্টোবর-২০২৬", w: "সোমবার", v: "কার্তিক ব্রতারম্ভ (উজ্জ্বল)", tithi: "পূর্ণিমা", nakshatra: "অশ্বিনী" },
-                    { b: "১২ কার্তিক", e: "৩০ অক্টোবর-২০২৬", w: "শুক্রবার", v: "শ্রীল নরোত্তম দাস ঠাকুর তিরোভাব", tithi: "পঞ্চমী", nakshatra: "আর্দ্রা" },
-                    { b: "১৪ কার্তিক", e: "০১ নভেম্বর-২০২৬", w: "রবিবার", v: "শ্রীশ্রী রাধাকুণ্ড প্রকট", tithi: "সপ্তমী", nakshatra: "পুষ্যা" },
-                    { b: "১৮ কার্তিক", e: "০৫ নভেম্বর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী রমা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "উত্তরাফাল্গুনী" },
-                    { b: "২১ কার্তিক", e: "০৮ নভেম্বর-২০২৬", w: "রবিবার", v: "শ্রীশ্রী দীপাবলী ও শ্যামাপূজা", tithi: "চতুর্দশী", nakshatra: "স্বাতী" },
-                    { b: "২২ কার্তিক", e: "০৯ নভেম্বর-২০২৬", w: "সোমবার", v: "শ্রী অন্নকূট ও গোবর্ধন পূজা", tithi: "প্রতিপদ", nakshatra: "অনিল" },
-                    { b: "২৪ কার্তিক", e: "১১ নভেম্বর-২০২৬", w: "বুধবার", v: "শ্রীল ভক্তিসিদ্ধান্ত সরস্বতী তিরোভাব", tithi: "তृतीয়া", nakshatra: "অনুরাধা" },
-                    { b: "২৬ কার্তিক", e: "১৩ নভেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রীল গোপালভট্ট গোস্বামী আবির্ভাব", tithi: "পঞ্চমী", nakshatra: "মূল" },
-                    { b: "৩০ কার্তিক", e: "১৭ নভেম্বর-২০২৬", w: "মঙ্গলবার", v: "শ্রী কাংসবধ মহোৎসব", tithi: "নবমী", nakshatra: "শতভিষা" }
-                ]
-            },
-            // ৭. অগ্রহায়ণ (শ্রী কেশব)[span_15](start_span)[span_15](end_span)
-            {
-                vivah: "০৪/০৭/০৮/১১/২০/২১", panchambrit: "২৪",
-                rows: [
-                    { b: "০১ অগ্রহায়ণ", e: "১৮ নভেম্বর-২০২৬", w: "বুধবার", v: "শ্রীশ্রী রাসযাত্রা", tithi: "দশমী", nakshatra: "পূর্বভাদ্রপদ" },
-                    { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", w: "শনিবার", v: "শ্রী উত্থান একাদশী ব্রত", tithi: "একাদশী", nakshatra: "রেবতী" },
-                    { b: "০৭ অগ্রহায়ণ", e: "২৪ নভেম্বর-২০২৬", w: "মঙ্গলবার", v: "শ্রীল ভূগর্ভ গোস্বামী তিরোভাব", tithi: "চতুর্দশী", nakshatra: "ভরণী" },
-                    { b: "১৭ অগ্রহায়ণ", e: "০৪ ডিসেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রী উৎপন্না একাদশী ব্রত", tithi: "একাদশী", nakshatra: "চিত্রা" },
-                    { b: "২৫ অগ্রহায়ণ", e: "১২ ডিসেম্বর-২০২৬", w: "শনিবার", v: "শ্রীল রঘুনাথ ভট্ট গোস্বামী আবির্ভাব", tithi: "তृतीয়া", nakshatra: "উত্তরাষাঢ়া" },
-                    { b: "২৬ অগ্রহায়ণ", e: "১৩ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রীল কবিদাস গোস্বামী তিরোভাব", tithi: "চতুর্থী", nakshatra: "শ্রবণা" },
-                    { b: "২৭ অগ্রহায়ণ", e: "১৪ ডিসেম্বর-২০২৬", w: "সোমবার", v: "শ্রী গীতা জয়ন্তী মহোৎসব", tithi: "পঞ্চমী", nakshatra: "ধনিষ্ঠা" }
-                ]
-            },
-            // ৮. পৌষ (শ্রী নারায়ণ)[span_16](start_span)[span_16](end_span)
-            {
-                vivah: "নাই", panchambrit: "বিশেষ ব্রত",
-                rows: [
-                    { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রী মোকদা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "ভরণী" },
-                    { b: "১২ পৌষ", e: "২৮ ডিসেম্বর-২০২৬", w: "সোমবার", v: "শ্রীল জীব গোস্বামী তিরোভাব", tithi: "১৯ শে পৌষ", nakshatra: "মঘা" },
-                    { b: "১৮ পৌষ", e: "০৩ জানুয়ারী-২০২৭", w: "রবিবার", v: "শ্রী সফলা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "বিশাখা" }
-                ]
-            },
-            // ৯. মাঘ (শ্রী মাধব)[span_17](start_span)[span_17](end_span)
-            {
-                vivah: "০৩/১১/১৩/১৭", panchambrit: "২৭",
-                rows: [
-                    { b: "০৪ মাঘ", e: "১৮ জানুয়ারী-২০২৭", w: "সোমবার", v: "শ্রী পুত্রদা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "রোহিণী" },
-                    { b: "১৪ মাঘ", e: "২৮ জানুয়ারী-২০২৭", w: "বৃহস্পতিবার", v: "শ্রীশ্রী বসন্ত পঞ্চমী", tithi: "পঞ্চমী", nakshatra: "উত্তরাফাল্গুনী" },
-                    { b: "২১ মাঘ", e: "০৪ ফেব্রুয়ারী-২০২৭", w: "বৃহস্পতিবার", v: "শ্রী ষটতিলা একাদশী ব্রত", tithi: "একাদশী", nakshatra: "পূর্বাষাঢ়া" },
-                    { b: "২৭ মাঘ", e: "১০ ফেব্রুয়ারী-২০২৭", w: "বুধবার", v: "শ্রী শ্রী অদ্বৈত প্রকাটি", tithi: "সপ্তমী", nakshatra: "রোহিণী" },
-                    { b: "২৯ মাঘ", e: "১২ ফেব্রুয়ারী-২০২৭", w: "শুক্রবার", v: "শ্রীল ভক্তিসিদ্ধান্ত সরস্বতী প্রকাটি", tithi: "নবমী", nakshatra: "আর্দ্রা" }
-                ]
-            },
-            // ১০. ফাল্গুন (শ্রী গোবিন্দ)[span_18](start_span)[span_18](end_span)
-            {
-                vivah: "০৩/০৯/১১/১৬", panchambrit: "২৬",
-                rows: [
-                    { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "প্রতিষ্ঠাবার্ষিকী মহোৎসব", tithi: "অষ্টমী", nakshatra: "মৃগশিরা" },
-                    { b: "০৪ ফাল্গুন", e: "১৭ ফেব্রুয়ারী-২০২৭", w: "বুধবার", v: "শ্রী ভৈমী একাদশী ব্রত", tithi: "একাদশী", nakshatra: "পুনর্বসু" },
-                    { b: "০৬ ফাল্গুন", e: "১৯ ফেব্রুয়ারী-২০২৭", w: "শুক্রবার", v: "শ্রীশ্রী নিত্যানন্দ জয়ন্তী", tithi: "ত্রয়োদশী", nakshatra: "পুষ্যা" },
-                    { b: "০৭ ফাল্গুন", e: "২০ ফেব্রুয়ারী-২০২৭", w: "শনিবার", v: "শ্রীল নরহরি সরকার তিরোভাব", tithi: "চতুর্দশী", nakshatra: "আশ্লেষা" },
-                    { b: "১৬ ফাল্গুন", e: "০১ মার্চ-২০২৭", w: "সোমবার", v: "শ্রী শ্রী শ্রীল প্রভুপাদ তিরোভাব", tithi: "সপ্তমী", nakshatra: "অনুরাধা" },
-                    { b: "১৯ ফাল্গুন", e: "০৪ মার্চ-২০২৭", w: "বৃহস্পতিবার", v: "শ্রী বিজয়ৈকাদশী ব্রত", tithi: "একাদশী", nakshatra: "উত্তরাষাঢ়া" },
-                    { b: "২২ ফাল্গুন", e: "০৭ মার্চ-২০২৭", w: "রবিবার", v: "শ্রীল পুরুষোত্তম ঠাকুর তিরোভাব", tithi: "চতুর্দশী", nakshatra: "শতভিষা" }
-                ]
-            },
-            // ১১. চৈত্র (শ্রী বিষ্ণু)[span_19](start_span)[span_19](end_span)
-            {
-                vivah: "নাই", panchambrit: "২০",
-                rows: [
-                    { b: "০১ চৈত্র", e: "১৬ মার্চ-২০২৭", w: "মঙ্গলবার", v: "শ্রী আমলকী একাদশী ব্রত", tithi: "একাদশী", nakshatra: "পুনর্বসু" },
-                    { b: "০৪ চৈত্র", e: "১৯ মার্চ-২০২৭", w: "শুক্রবার", v: "শ্রীল মাধবেন্দ্র পুরী তিরোভাব", tithi: "চতুর্দশী", nakshatra: "পুষ্যা" },
-                    { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", w: "সোমবার", v: "শ্রীশ্রী গৌরপূর্ণিমা জয়ন্তী", tithi: "পূর্ণিমা", nakshatra: "উত্তরাফাল্গুনী" },
-                    { b: "১২ চৈত্র", e: "২৭ মার্চ-২০২৭", w: "শনিবার", v: "শ্রীল জগন্নাথ দাস বাবাজী তিরোভাব", tithi: "পঞ্চমী", nakshatra: "বিশাখা" },
-                    { b: "১৮ চৈত্র", e: "০২ এপ্রিল-২০২৭", w: "শুক্রবার", v: "শ্রী পাপমোচনী একাদশী", tithi: "একাদশী", nakshatra: "শ্রবণা" },
-                    { b: "২০ চৈত্র", e: "০৪ এপ্রিল-২০২৭", w: "রবিবার", v: "শ্রীশ্রী রাম নবমী ব্রত", tithi: "নবমী", nakshatra: "পুনর্বসু" },
-                    { b: "২৬ চৈত্র", e: "১০ এপ্রিল-২০২৭", w: "শনিবার", v: "শ্রীল বংশীবদন ঠাকুর আবির্ভাব", tithi: "চতুর্দশী", nakshatra: "পূর্বাফাল্গুনী" },
-                    { b: "৩০ চৈত্র", e: "১৪ এপ্রিল-২০২৭", w: "বুধবার", v: "শ্রীল রঘুনাথ দাস গোস্বামী তিরোভাব", tithi: "অমাবস্যা", nakshatra: "রেবতী" }
-                ]
-            }
+            // বৈশাখ
+            [
+                { b: "০১ বৈশাখ", e: "১৫ এপ্রিল-২০২৬", w: "বুধবার", v: "শুভ নববর্ষ প্রারম্ভ", p: "-", tithi: "প্রতিপদ", nakshatra: "অশ্বিনী" },
+                { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "কেশীঘাট মুরারী মোহন কুঞ্জের মহোৎসব", p: "-", tithi: "দ্বীতিয়া", nakshatra: "দ্বিজা" },
+                { b: "০৬ বৈশাখ", e: "২০ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা", p: "-", tithi: "তৃতীয়া", nakshatra: "রোহিণী" },
+                { b: "১৩ বৈশাখ", e: "২৭ এপ্রিল-২০২৬", w: "সোমবার", v: "শ্রী মোহিনী একাদশী ব্রত", p: "প্রাত: ০৫/৩৯ গতে ০৯/৫৫ মধ্যে", tithi: "একাদশী", nakshatra: "উত্তরাষাঢ়া" },
+                { b: "১৬ বৈশাখ", e: "৩০ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নৃসিংহ চতুর্দশী ব্রত", p: "প্রাত: ০৫/৩৭ গতে ০৯/৫৪ মধ্যে", tithi: "চতুর্দশী", nakshatra: "স্বাতী" }
+            ],
+            // জ্যৈষ্ঠ
+            [
+                { b: "১২ জ্যৈষ্ঠ", e: "২৭ মে-২০২৬", w: "বুধবার", v: "শ্রী পদ্মিনী একাদশী ব্রত", p: "প্রাত: ০৫/২৪ গতে ০৯/৩৯ মধ্যে", tithi: "একাদশী", nakshatra: "চিত্রা" },
+                { b: "২৭ জ্যৈষ্ঠ", e: "১১ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী কমলা একাদশী ব্রত", p: "প্রাত: ০৫/২৩ গতে ০৯/৫১ মধ্যে", tithi: "একাদশী", nakshatra: "বিশাখা" }
+            ],
+            // আষাঢ়
+            [
+                { b: "১০ আষাঢ়", e: "২৫ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নির্জলা একাদশী ব্রত", p: "প্রাত: ০৫/২৪ গতে ০৯/৫৩ মধ্যে", tithi: "একাদশী", nakshatra: "স্বাতী" },
+                { b: "১৪ আষাঢ়", e: "২৯ জুন-২০২৬", w: "সোমবার", v: "শ্রীশ্রী জগন্নাথদেবের স্নানযাত্রা", p: "-", tithi: "পূর্ণিমা", nakshatra: "পূর্বাষাঢ়া" },
+                { b: "৩১ আষাঢ়", e: "১৬ জুলাই-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা মহোৎসব", p: "-", tithi: "দ্বিতীয়া", nakshatra: "পুষ্যা" }
+            ],
+            // শ্রাবণ
+            [
+                { b: "০২ শ্রাবণ", e: "১৯ জুলাই-২০২৬", w: "রবিবার", v: "প্রতিষ্ঠাতা শ্রীল গোপী দাস বৈষ্ণব তিরোভাব দিবস", p: "-", tithi: "পঞ্চমী", nakshatra: "মঘা" },
+                { b: "০৮ শ্রাবণ", e: "২৫ জুলাই-২০২৬", w: "শনিবার", v: "শ্রী শয়নৈকাদশী ব্রত, চাতুর্মাস্য ব্রতারম্ভ", p: "প্রাত: ০৫/৩৫ গতে ১০/০০ মধ্যে", tithi: "একাদশী", nakshatra: "অনুরাধা" }
+            ],
+            // ভাদ্র
+            [
+                { b: "১৭ ভাদ্র", e: "০৪ সেপ্টেম্বর-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী জন্মাষ্টমী ব্রত, ৫২৪৭ তম শ্রীকৃষ্ণের আবির্ভাব জয়ন্তী", p: "প্রাত: ০৫/৫১ গতে ১০/০০ মধ্যে", tithi: "অষ্টমী", nakshatra: "রোহিণী" },
+                { b: "২০ ভাদ্র", e: "০৭ সেপ্টেম্বর-২০২৬", w: "সোমবার", v: "শ্রী অজা একাদশী ব্রত", p: "প্রাত: ০৫/৫২ গতে ১০/০০ মধ্যে", tithi: "একাদশী", nakshatra: "পুনর্বসু" }
+            ],
+            // আশ্বিন
+            [
+                { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৫/৫৬ গতে ০৯/৫৮ মধ্যে", tithi: "অষ্টমী", nakshatra: "অনুরাধা" },
+                { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", w: "বুধবার", v: "শ্রী বিজয়ামহাদ্বাদশী ব্রত", p: "প্রাত: ০৫/৫৭ গতে ০৯/৫৭ মধ্যে", tithi: "দ্বাদশী", nakshatra: "শ্রবণা" },
+                { b: "১৮ আশ্বিন", e: "০৬ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "শ্রীইন্দিরা একাদশী ব্রত", p: "প্রাত: ০৭/০০ গতে ০৯/৫৬ মধ্যে", tithi: "একাদশী", nakshatra: "মঘা" },
+                { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", w: "শনিবার", v: "শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা", p: "-", tithi: "অষ্টমী", nakshatra: "পূর্বাষাঢ়া" }
+            ],
+            // কার্তিক
+            [
+                { b: "০৪ কার্তিক", e: "২২ অক্টোবর-২০২৬", w: "বৃহস্পতিবার", v: "শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত", p: "প্রাত: ০৬/০৯ গতে ০৯/৫৬ মধ্যে", tithi: "একাদশী", nakshatra: "উত্তরাষাঢ়া" },
+                { b: "২২ কার্তিক", e: "০৯ নভেম্বর-২০২৬", w: "সোমবার", v: "শ্রীঅন্নকূট মহোৎসব ও গোবর্ধন পূজা", p: "-", tithi: "প্রতিপদ", nakshatra: "অনিল" }
+            ],
+            // অগ্রহায়ণ
+            [
+                { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", w: "শনিবার", v: "শ্রীউত্থান একাদশী ব্রত", p: "প্রাত: ০৬/২৮ গতে ১০/০৩ মধ্যে", tithi: "একাদশী", nakshatra: "রেবতী" }
+            ],
+            // পৌষ
+            [
+                { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রী মোকদা একাদশী ব্রত", p: "প্রাত: ০৬/৪৭ গতে ১০/১৮ মধ্যে", tithi: "একাদশী", nakshatra: "ভরণী" }
+            ],
+            // মাঘ
+            [
+                { b: "১৮ মাঘ", e: "০২ ফেব্রুয়ারী-২০২৭", w: "মঙ্গলবার", v: "শ্রী ষটতিলা একাদশী ব্রত", p: "প্রাত: ০৬/৫০ গতে ১০/২৯ মধ্যে", tithi: "একাদশী", nakshatra: "উত্তরাফাল্গুনী" },
+                { b: "২৯ মাঘ", e: "১৩ ফেব্রুয়ারী-২০২৭", w: "শনিবার", v: "শ্রী শ্রী অদ্বৈত জয়ন্তী ব্রত", p: "প্রাত: ০৬/৪৪ গতে ১০/২৮ মধ্যে", tithi: "সপ্তমী", nakshatra: "রোহিণী" }
+            ],
+            // ফাল্গুন
+            [
+                { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গনের ৩য় প্রতিষ্ঠাবার্ষিকী", p: "-", tithi: "অষ্টমী", nakshatra: "মৃগশিরা" },
+                { b: "০৬ ফাল্গুন", e: "১৯ ফেব্রুয়ারী-২০২৭", w: "শুক্রবার", v: "৫৩৫ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী ব্রত", p: "প্রাত: ০৬/৪০ গতে ০৯/৫১ মধ্যে", tithi: "ত্রয়োদশী", nakshatra: "পুনর্বসু" }
+            ],
+            // চৈত্র
+            [
+                { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", w: "সোমবার", v: "৫৪২তম শ্রীশ্রী গৌরপূর্ণিমা জন্ম-জয়ন্তী মহোৎসব", p: "-", tithi: "পূর্ণিমা", nakshatra: "উত্তরাফাল্গুনী" }
+            ]
         ];
 
         const shubhKarmaData = [
@@ -512,22 +427,19 @@
         function renderPanjikaTable() {
             const selectedMonth = document.getElementById("monthSelector").value;
             const tableBody = document.getElementById("panjika-table-body");
-            const vivahBox = document.getElementById("month-vivah-info");
             if (!tableBody) return;
             tableBody.innerHTML = "";
 
-            const monthData = panjikaData[selectedMonth] || panjikaData[5];
-            
-            vivahBox.innerHTML = `<span>💍 <strong>বিবাহ লগ্ন:</strong> ${monthData.vivah}</span> | <span>🍼 <strong>পঞ্চামৃত:</strong> ${monthData.panchambrit}</span>`;
-
-            monthData.rows.forEach((item, index) => {
-                const isHighlight = item.v.includes('একাদশী') || item.v.includes('ব্রত') || item.v.includes('জয়ন্তী') || item.v.includes('পূজা');
+            const monthData = panjikaData[selectedMonth] || panjikaData[0];
+            monthData.forEach((item, index) => {
+                const isHighlight = item.v.includes('একাদশী') || item.v.includes('ব্রত') || item.v.includes('মহোৎসব');
                 const row = `
                     <tr onclick="showDateDetails(${selectedMonth}, ${index})" class="border-b border-amber-200 cursor-pointer ${isHighlight ? 'bg-amber-100 font-bold' : 'hover:bg-amber-50'} transition">
                         <td class="p-2.5 border border-amber-300 font-bold text-amber-900">${item.b}</td>
                         <td class="p-2.5 border border-amber-300">${item.e}</td>
                         <td class="p-2.5 border border-amber-300">${item.w}</td>
                         <td class="p-2.5 border border-amber-300">${item.v}</td>
+                        <td class="p-2.5 border border-amber-300 text-green-800 font-bold">${item.p}</td>
                     </tr>
                 `;
                 tableBody.innerHTML += row;
@@ -535,14 +447,15 @@
         }
 
         function showDateDetails(mIdx, dIdx) {
-            const data = panjikaData[mIdx].rows[dIdx];
+            const data = panjikaData[mIdx][dIdx];
             document.getElementById("modal-date-title").innerText = `📅 ${data.b} (${data.e})`;
             
             document.getElementById("modal-date-content").innerHTML = `
                 <p><strong>বার:</strong> ${data.w}</p>
-                <p><strong>তিথি সংকেত:</strong> ${data.tithi || 'নির্দিষ্ট তিথি প্রযোজ্য'}</p>
+                <p><strong>তিথি:</strong> ${data.tithi || 'নির্দিষ্ট তিথি প্রযোজ্য'}</p>
                 <p><strong>নক্ষত্র:</strong> ${data.nakshatra || 'নির্দিষ্ট নক্ষত্র প্রযোজ্য'}</p>
                 <p class="text-rose-800 font-bold"><strong>ব্রত ও উৎসব:</strong> ${data.v}</p>
+                <p class="text-green-800 font-bold"><strong>পারণ সময়:</strong> ${data.p}</p>
                 <p class="text-amber-900 bg-amber-50 p-2 rounded-xl border border-amber-200 mt-2">
                     💡 শ্রী শ্রী জগন্নাথ সেবাঙ্গন নোয়াখালী কেন্দ্র অনুযায়ী স্থানীয় সময়ের ভিত্তিতে ব্রত সিদ্ধান্ত গৃহীত।
                 </p>
