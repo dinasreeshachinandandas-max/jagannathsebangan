@@ -180,30 +180,64 @@
         </section>
 
         <!-- TAB 2: মাস ভিত্তিক ক্যালেন্ডার -->
-        <section id="view-calendar" class="view-panel space-y-4">
+        <section id="view-calendar" class="view-panel space-y-5">
+            <!-- ইংরেজি মাসের ড্রপডাউন সিলেক্টর -->
             <div class="bg-white p-4 rounded-3xl border border-amber-300 card-shadow flex justify-between items-center flex-wrap gap-3">
-                <span class="font-bold text-amber-950 text-sm sm:text-base">মাস ভিত্তিক পঞ্জিকা নির্বাচন:</span>
-                <select id="monthSelector" onchange="renderPanjikaTable()" class="bg-amber-50 border border-amber-400 rounded-2xl px-4 py-2 font-bold text-amber-950 text-xs sm:text-sm focus:outline-none shadow-sm">
-                    <option value="0">বৈশাখ (শ্রী মধুসূদন)</option>
-                    <option value="1">জ্যৈষ্ঠ (শ্রী ত্রিবিক্রম)</option>
-                    <option value="2">আষাঢ় (শ্রী বামন)</option>
-                    <option value="3">শ্রাবণ (শ্রী শ্রীধর)</option>
-                    <option value="4">ভাদ্র (শ্রী হৃষীকেশ)</option>
-                    <option value="5" selected>আশ্বিন (শ্রী পদ্মনাভ)</option>
-                    <option value="6">কার্তিক (শ্রী দামোদর)</option>
-                    <option value="7">অগ্রহায়ণ (শ্রী কেশব)</option>
-                    <option value="8">পৌষ (শ্রী নারায়ণ)</option>
-                    <option value="9">মাঘ (শ্রী মাধব)</option>
-                    <option value="10">ফাল্গুন (শ্রী গোবিন্দ)</option>
-                    <option value="11">চৈত্র (শ্রী বিষ্ণু)</option>
+                <span class="font-bold text-amber-950 text-sm sm:text-base">ইংরেজি মাস ভিত্তিক ক্যালেন্ডার:</span>
+                <select id="engMonthSelector" onchange="renderEngGridCalendar(); syncPanjikaMonth();" class="bg-amber-50 border border-amber-400 rounded-2xl px-4 py-2 font-bold text-amber-950 text-xs sm:text-sm focus:outline-none shadow-sm">
+                    <option value="0">জানুয়ারি (January)</option>
+                    <option value="1">ফেব্রুয়ারি (February)</option>
+                    <option value="2">মার্চ (March)</option>
+                    <option value="3">এপ্রিল (April)</option>
+                    <option value="4">মে (May)</option>
+                    <option value="5">জুন (June)</option>
+                    <option value="6">জুলাই (July)</option>
+                    <option value="7">আগস্ট (August)</option>
+                    <option value="8">সেপ্টেম্বর (September)</option>
+                    <option value="9" selected>অক্টোবর (October)</option>
+                    <option value="10">নভেম্বর (November)</option>
+                    <option value="11">ডিসেম্বর (December)</option>
                 </select>
+            </div>
+
+            <!-- ১. নতুন ইংরেজি ক্যালেন্ডার টেবিল (বড় ইংরেজি তারিখ ও নিচে ছোট বাংলা তারিখ সহ) -->
+            <div class="bg-white p-4 sm:p-5 rounded-3xl border-2 border-amber-400 card-shadow space-y-3">
+                <div class="flex justify-between items-center border-b-2 border-rose-800 pb-2 flex-wrap gap-2">
+                    <h3 class="text-sm sm:text-base font-extrabold text-amber-950 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-rose-800"></i> ইংরেজি ও বাংলা মাসের অটোমেটিক ক্যালেন্ডার
+                    </h3>
+                    <span class="text-xs font-bold bg-amber-100 text-amber-950 px-3 py-1 rounded-full border border-amber-300" id="eng-calendar-badge">
+                        অক্টোবর ২০২৬ (আশ্বিন-কার্তিক ১৪ ৩৩)
+                    </span>
+                </div>
+
+                <p class="text-xs text-gray-600">আজকের তারিখটি গাঢ় লাল ও সোনালী রঙে অটোমেটিক হাইলাইট করা রয়েছে।</p>
+
+                <!-- ৭ দিনের হেডার এবং ৭ কলামের গ্রিড ক্যালেন্ডার -->
+                <div class="grid grid-cols-7 gap-1 text-center font-bold text-xs bg-rose-900 text-white py-2 rounded-xl">
+                    <div>রবি</div>
+                    <div>সোম</div>
+                    <div>মঙ্গল</div>
+                    <div>বুধ</div>
+                    <div>বৃহঃ</div>
+                    <div>শুক্র</div>
+                    <div>শনি</div>
+                </div>
+
+                <div class="grid grid-cols-7 gap-1 text-center text-xs" id="eng-monthly-grid">
+                    <!-- Dynamic Calendar Cells -->
+                </div>
             </div>
 
             <div class="bg-amber-100/90 p-3 rounded-2xl border border-amber-300 text-xs text-amber-950 font-bold flex justify-between items-center flex-wrap gap-2 shadow-sm" id="month-vivah-info">
                 <span>💍 বিবাহ লগ্ন: ক্যালেন্ডার অনুযায়ী প্রদর্শিত</span>
             </div>
 
+            <!-- ২. মূল বৈষ্ণবীয় ব্রতোৎসব ও পার্বণ টেবিল (হুবহু অপরিবর্তিত) -->
             <div class="bg-white rounded-3xl p-4 border border-amber-200 card-shadow overflow-x-auto">
+                <h3 class="text-xs sm:text-sm font-extrabold text-amber-950 mb-3 flex items-center gap-1.5 border-b pb-2 border-amber-200">
+                    <i class="fa-solid fa-kaaba text-rose-800"></i> বিশেষ ব্রতোৎসব, পূজা পার্বণ ও পারণের সময়সূচী (১৪৩৩ বঙ্গাব্দ)
+                </h3>
                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                     <thead>
                         <tr class="bg-amber-950 text-amber-100">
@@ -336,6 +370,9 @@
     </nav>
 
     <script>
+        const numsBn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯','১০','১১','১২','১৩','১৪','১৫','১৬','১৭','১৮','১৯','২০','২১','২২','২৩','২৪','২৫','২৬','২৭','২৮','২৯','৩০','৩১','৩২'];
+        const engMonthsNameBn = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
+
         function changeSiddhanta() {
             const val = document.getElementById("siddhantaSelector").value;
             const badge = document.getElementById("siddhanta-badge-text");
@@ -359,7 +396,7 @@
             // ২. ডিভাইস তারিখ অনুযায়ী অটোমেটিক তিথি, নক্ষত্র ও ব্রত-উৎসব নির্বাচন
             const dateKey = now.toISOString().split('T')[0]; // YYYY-MM-DD
             let todayTithi = "শুক্ল পক্ষ";
-            let todayTithiFull = "আজকের নির্ধারিত বৈষ্ণবীয় তিথি";
+            let todayTithiFull = "আজকের স্বয়ংক্রিয় বৈষ্ণবীয় তিথি";
             let todayNakshatra = "নক্ষত্র: অনুরাধা (অহোরাত্র)";
             let todayEvent = "✨ শ্রী শ্রী জগন্নাথ সেবাঙ্গন নিত্য সেবা ও ব্রতোৎসব";
 
@@ -419,7 +456,7 @@
             },
             // ১. জ্যৈষ্ঠ
             {
-                vivah: "নাই", panchambrit: "০৬/০৭/০৯/১৩/১৬", satbhokhon: "০৬/০৭/১৩", annaprashan: "০৩/০۶/১৩",
+                vivah: "নাই", panchambrit: "০৬/০৭/০৯/১৩/১৬", satbhokhon: "০৬/০৭/১৩", annaprashan: "০৩/০৬/১৩",
                 griharambha: "০৫/১০", grihapravesh: "১২", devpratistha: "১৫", yagna: "১৮", amavasya: "২৬", purnima: "১১", eclipse: "সূর্যগ্রহণ (সূতক কাল প্রারম্ভ: ১২ ঘণ্টা পূর্বে)",
                 rows: [
                     { b: "১২ জ্যৈষ্ঠ", e: "২৭ মে-২০২৬", w: "বুধবার", v: "শ্রী পদ্মিনী একাদশী ব্রত", p: "প্রাত: ০৫/২৪/৩৬ গতে ০৯/০৯/৫৮ মধ্যে" },
@@ -541,7 +578,7 @@
             },
             // ১০. ফাল্গুন
             {
-                vivah: "০৩/০৯/১১/১৬/২৮/২৯", panchambrit: "০৫/০৬/২৬", satbhokhon: "০৫/০۶/২৫/২৬/২৯", annaprashan: "০৫/০৬/২৫/২৬",
+                vivah: "০৩/০৯/১১/১৬/২৮/২৯", panchambrit: "০৫/০৬/২৬", satbhokhon: "০৫/০৬/২৫/২৬/২৯", annaprashan: "০৫/০৬/২৫/২৬",
                 griharambha: "০২", grihapravesh: "০৭", devpratistha: "১২", yagna: "১৮", amavasya: "১৭", purnima: "২০", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গন মন্দিরের ৩য় প্রতিষ্ঠাবার্ষিকী মহোৎসব", p: "-" },
@@ -590,8 +627,87 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function renderPanjikaTable() {
-            const selectedMonth = document.getElementById("monthSelector").value;
+        // বাংলা তারিখ বের করার জন্য ম্যাপিং ফাংশন (মন্দিরের পঞ্জিকা ছবি অনুযায়ী)
+        function getBanglaDateForEng(engYear, engMonth, engDay) {
+            const dateObj = new Date(engYear, engMonth, engDay);
+            const timeVal = dateObj.getTime();
+
+            // ১৪৩৩ বঙ্গাব্দের হিসাব (২০২৬ এপ্রিল থেকে ২০২৭ এপ্রিল)
+            const refDate = new Date(2026, 3, 15); // বৈশাখ ১ = ১৫ এপ্রিল ২০২৬
+            const diffDays = Math.floor((timeVal - refDate.getTime()) / (1000 * 60 * 60 * 24));
+
+            if (diffDays >= 0 && diffDays < 365) {
+                const monthLengths = [31, 31, 32, 32, 31, 30, 30, 30, 30, 30, 30, 30]; // বৈশাখ-চৈত্র
+                const bMonthNames = ["বৈশাখ", "জ্যৈষ্ঠ", "আষাঢ়", "শ্রাবণ", "ভাদ্র", "আশ্বিন", "কার্তিক", "অগ্রহায়ণ", "পৌষ", "মাঘ", "ফাল্গুন", "চৈত্র"];
+                
+                let dayAcc = diffDays;
+                for (let i = 0; i < 12; i++) {
+                    if (dayAcc < monthLengths[i]) {
+                        return `${numsBn[dayAcc + 1]} ${bMonthNames[i]}`;
+                    }
+                    dayAcc -= monthLengths[i];
+                }
+            }
+            return "";
+        }
+
+        // ১. নতুন ইংরেজি ক্যালেন্ডার রেন্ডার করার ফাংশন (গুগল অটোমেটিক সিস্টেম সাপোর্ট)
+        function renderEngGridCalendar() {
+            const engMonthIdx = parseInt(document.getElementById("engMonthSelector").value);
+            const gridContainer = document.getElementById("eng-monthly-grid");
+            const badge = document.getElementById("eng-calendar-badge");
+            if (!gridContainer) return;
+            gridContainer.innerHTML = "";
+
+            const targetYear = (engMonthIdx >= 0 && engMonthIdx <= 3) ? 2027 : 2026; // পঞ্জিকার খ্রীষ্টাব্দ ২০২৬-২০২৭
+            const firstDate = new Date(targetYear, engMonthIdx, 1);
+            const lastDate = new Date(targetYear, engMonthIdx + 1, 0);
+            const totalDaysInMonth = lastDate.getDate();
+            const firstDayOfWeek = firstDate.getDay(); // ০ = রবি, ৬ = শনি
+
+            const today = new Date(); // আজকের বাস্তব লাইভ ডিভাইস ডেট
+
+            if (badge) {
+                const bStart = getBanglaDateForEng(targetYear, engMonthIdx, 1);
+                const bEnd = getBanglaDateForEng(targetYear, engMonthIdx, totalDaysInMonth);
+                badge.innerText = `${engMonthsNameBn[engMonthIdx]} ${targetYear} (${bStart} - ${bEnd})`;
+            }
+
+            // ফাঁকা ফিলার বক্স (বার সামঞ্জস্য করার জন্য)
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                gridContainer.innerHTML += `<div class="p-2 bg-amber-50/20 rounded-lg"></div>`;
+            }
+
+            // ১ থেকে ২৮/৩০/৩১ দিনের গ্রিড বক্স
+            for (let d = 1; d <= totalDaysInMonth; d++) {
+                const currDate = new Date(targetYear, engMonthIdx, d);
+                const isToday = (currDate.getDate() === today.getDate() && currDate.getMonth() === today.getMonth() && currDate.getFullYear() === today.getFullYear());
+
+                const bDateStr = getBanglaDateForEng(targetYear, engMonthIdx, d);
+
+                const cellBg = isToday ? 'bg-rose-800 text-white font-black shadow-xl border-2 border-amber-400 scale-105' : 'bg-amber-50/90 text-amber-950 border border-amber-200 hover:bg-amber-100';
+
+                gridContainer.innerHTML += `
+                    <div class="p-2 rounded-xl flex flex-col justify-center items-center ${cellBg} transition">
+                        <span class="text-sm font-extrabold leading-tight">${numsBn[d]}</span>
+                        <span class="text-[10px] opacity-90 mt-0.5 border-t border-current/20 pt-0.5 font-bold">${bDateStr}</span>
+                    </div>
+                `;
+            }
+        }
+
+        // ইংরেজি মাসের সাথে পঞ্জিকার মূল ব্রতোৎসব টেবিল সমন্বয় করা
+        function syncPanjikaMonth() {
+            const engMonthIdx = parseInt(document.getElementById("engMonthSelector").value);
+            // ইংরেজি মাসকে বাংলা পঞ্জিকার নিকটতম মাসের সাথে লিঙ্ক করা
+            const engToBanglaMap = [8, 9, 10, 0, 0, 1, 2, 3, 4, 5, 6, 7]; 
+            const bMonthIdx = engToBanglaMap[engMonthIdx] || 0;
+            renderPanjikaTable(bMonthIdx);
+        }
+
+        // ২. মূল পঞ্জিকা ব্রতোৎসব টেবিল রেন্ডার করা (হুবহু অপরিবর্তিত)
+        function renderPanjikaTable(selectedMonthOverride) {
+            const selectedMonth = (selectedMonthOverride !== undefined) ? selectedMonthOverride : 5;
             const tableBody = document.getElementById("panjika-table-body");
             const vivahBox = document.getElementById("month-vivah-info");
             if (!tableBody) return;
@@ -599,7 +715,9 @@
 
             const monthData = panjikaData[selectedMonth] || panjikaData[5];
             
-            vivahBox.innerHTML = `<span>💍 <strong>বিবাহ লগ্ন:</strong> ${monthData.vivah}</span> | <span>🍼 <strong>পঞ্চামৃত:</strong> ${monthData.panchambrit}</span> | <span>🤱 <strong>সাধভক্ষণ:</strong> ${monthData.satbhokhon}</span> | <span>👶 <strong>অন্নপ্রাশন:</strong> ${monthData.annaprashan}</span>`;
+            if (vivahBox) {
+                vivahBox.innerHTML = `<span>💍 <strong>বিবাহ লগ্ন:</strong> ${monthData.vivah}</span> | <span>🍼 <strong>পঞ্চামৃত:</strong> ${monthData.panchambrit}</span> | <span>🤱 <strong>সাধভক্ষণ:</strong> ${monthData.satbhokhon}</span> | <span>👶 <strong>অন্নপ্রাশন:</strong> ${monthData.annaprashan}</span>`;
+            }
 
             monthData.rows.forEach((item, index) => {
                 const isHighlight = item.v.includes('একাদশী') || item.v.includes('ব্রত') || item.v.includes('জয়ন্তী') || item.v.includes('পূজা') || item.v.includes('মহোৎসব');
@@ -625,7 +743,7 @@
                 <p class="text-rose-800 font-bold"><strong>ব্রত, উৎসব ও বিবরণ:</strong> ${data.v}</p>
                 <p class="text-green-800 font-bold"><strong>পারণের সময় (তৎপরদিন):</strong> ${data.p}</p>
                 <p class="text-amber-900 bg-amber-50 p-2.5 rounded-xl border border-amber-200 mt-2">
-                    🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন (সেনবাগ, নোয়াখালী) কেন্দ্রিক স্থানীয় সময় অনুযায়ী পারণ সময়সূচী নির্ণীত।
+                    🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন (সেনবাগ, নোয়াখালী) কেন্দ্রিক স্থানীয় সময় অনুযায়ী তথ্য ও পারণ সময়সূচী নির্ণীত।
                 </p>
             `;
             document.getElementById("dateDetailModal").classList.remove("hidden");
@@ -676,7 +794,8 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             loadLiveDateInfo();
-            renderPanjikaTable();
+            renderEngGridCalendar();
+            syncPanjikaMonth();
             renderShubhKarma();
         });
     </script>
