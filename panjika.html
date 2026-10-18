@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <!-- ২. ডিজিটাল বৈষ্ণবীয় লোগো (বাঁশি, ময়ূরপুচ্ছ ও তিলক সজ্জিত) এবং ব্যানার -->
+    <!-- ২. ডিজিটাল বৈষ্ণবীয় লোগো এবং ব্যানার -->
     <header class="app-gradient text-white p-5 text-center shadow-2xl border-b-4 border-amber-400 relative overflow-hidden">
         <div class="max-w-3xl mx-auto space-y-3">
             
@@ -92,13 +92,18 @@
         <!-- TAB 1: এক নজরে -->
         <section id="view-home" class="view-panel active space-y-4">
             <div class="app-gradient text-white rounded-3xl p-5 shadow-xl relative overflow-hidden border border-amber-400">
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex justify-between items-center mb-4 flex-wrap gap-2">
                     <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 backdrop-blur-md">
                         <i class="fa-solid fa-location-dot text-amber-300"></i>
                         <span>সেনবাগ, নোয়াখালী (বাংলাদেশ)</span>
                     </div>
-                    <div class="text-xs text-amber-200 font-semibold bg-black/30 px-3 py-1 rounded-lg border border-amber-400/30">
-                        <span>দৃকসিদ্ধান্ত গণনা</span>
+                    <!-- সিদ্ধান্ত সিলেকশন অপশন -->
+                    <div class="flex items-center gap-1 bg-black/40 px-3 py-1 rounded-xl border border-amber-400/40 text-xs">
+                        <span class="text-amber-200 font-bold">সিদ্ধান্ত:</span>
+                        <select id="siddhantaSelector" onchange="changeSiddhanta()" class="bg-amber-950 text-amber-100 font-bold rounded px-2 py-0.5 outline-none border border-amber-500 text-xs">
+                            <option value="drick">দৃকসিদ্ধান্ত</option>
+                            <option value="surya">সূর্যসিদ্ধান্ত</option>
+                        </select>
                     </div>
                 </div>
 
@@ -106,11 +111,11 @@
                     <div>
                         <div class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-1" id="live-eng-date">অপেক্ষা করুন...</div>
                         <div class="text-lg font-bold text-amber-200" id="live-day-name">আজকের বার</div>
-                        <div class="text-xs text-amber-100 mt-1">অটোমেটিক লাইভ আপডেট সিস্টেম সক্রিয়</div>
+                        <div class="text-xs text-amber-100 mt-1" id="siddhanta-badge-text">অটোমেটিক লাইভ আপডেট সিস্টেম (দৃকসিদ্ধান্ত) সক্রিয়</div>
                     </div>
                     <div class="text-right space-y-1 text-xs sm:text-sm font-medium bg-black/40 p-3 rounded-2xl border border-white/10">
-                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span>০৫:৩৭ AM</span></div>
-                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span>১৭:০৬ PM</span></div>
+                        <div><i class="fa-solid fa-sun text-amber-300"></i> সূর্যোদয়: <span id="live-sunrise">০৫:৩৭ AM</span></div>
+                        <div><i class="fa-solid fa-moon text-amber-200"></i> সূর্যাস্ত: <span id="live-sunset">১৭:০৬ PM</span></div>
                     </div>
                 </div>
 
@@ -122,12 +127,12 @@
             <!-- অটোমেটিক তিথি বক্স -->
             <div class="bg-white rounded-3xl p-5 border border-amber-300 card-shadow space-y-3">
                 <div class="flex items-center space-x-4">
-                    <div class="w-20 h-20 rounded-full border-4 border-rose-700 flex items-center justify-center text-rose-800 font-black text-center p-2 text-xs bg-rose-50 shadow-inner">
+                    <div class="w-20 h-20 rounded-full border-4 border-rose-700 flex items-center justify-center text-rose-800 font-black text-center p-2 text-xs bg-rose-50 shadow-inner" id="live-tithi-box">
                         আজকের তিথি
                     </div>
                     <div class="flex-1 text-xs sm:text-sm text-gray-700 space-y-1">
-                        <p class="font-bold text-amber-950 text-base">দৈনিক স্বয়ংক্রিয় তিথি ও নক্ষত্র</p>
-                        <p class="text-gray-600">১৪৩৩ বঙ্গাব্দের পঞ্জিকা অনুযায়ী লাইভ আপডেট প্রযোজ্য।</p>
+                        <p class="font-bold text-amber-950 text-base" id="live-tithi-desc">দৈনিক স্বয়ংক্রিয় তিথি ও নক্ষত্র</p>
+                        <p class="text-gray-600" id="live-nakshatra-desc">নক্ষত্র: গণনাধীন</p>
                         <p class="text-rose-700 font-bold">হরিনাম সংকীর্তন ও সাধুসঙ্গ করুন।</p>
                     </div>
                 </div>
@@ -214,51 +219,6 @@
                     </tbody>
                 </table>
             </div>
-            function renderFullMonthDays(mIdx) {
-    const monthDaysList = [31, 31, 32, 32, 31, 30, 30, 29, 30, 30, 30, 30]; // বৈশাখ-চৈত্র
-    const startDates = [
-        new Date(2026, 3, 15), // বৈশাখ ১
-        new Date(2026, 4, 16),
-        new Date(2026, 5, 16),
-        new Date(2026, 6, 18),
-        new Date(2026, 7, 19),
-        new Date(2026, 8, 19), // আশ্বিন ১
-        new Date(2026, 9, 19),
-        new Date(2026, 10, 18),
-        new Date(2026, 11, 17),
-        new Date(2027, 0, 16),
-        new Date(2027, 1, 15),
-        new Date(2027, 2, 17)
-    ];
-
-    const daysBn = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
-    const monthsBn = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
-    const numsBn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯','১০','১১','১২','১৩','১৪','১৫','১৬','১৭','১৮','১৯','২০','২১','২২','২৩','২৪','২৫','২৬','২৭','২৮','২৯','৩০','৩১','৩২'];
-
-    const totalDays = monthDaysList[mIdx] || 30;
-    let currDate = new Date(startDates[mIdx] || startDates[5]);
-
-    const tbody = document.getElementById("full-month-days-body");
-    const countTag = document.getElementById("month-days-count-tag");
-    if (!tbody) return;
-
-    if (countTag) countTag.innerText = `মোট ${numsBn[totalDays]} দিন`;
-    tbody.innerHTML = "";
-
-    for (let d = 1; d <= totalDays; d++) {
-        const dayName = daysBn[currDate.getDay()];
-        const engStr = `${numsBn[currDate.getDate()]} ${monthsBn[currDate.getMonth()]} ${currDate.getFullYear()}`;
-
-        tbody.innerHTML += `
-            <tr class="text-center border-b border-amber-200 hover:bg-amber-50">
-                <td class="p-2 font-bold text-rose-900">${numsBn[d]} তারিখ</td>
-                <td class="p-2">${engStr}</td>
-                <td class="p-2 font-medium">${dayName}</td>
-            </tr>
-        `;
-        currDate.setDate(currDate.getDate() + 1);
-    }
-}
         </section>
 
         <!-- TAB 3: বিবিধ ও মাঙ্গলিক সূচী -->
@@ -283,7 +243,7 @@
 
             <div class="bg-white p-5 rounded-3xl border border-amber-300 card-shadow space-y-4">
                 <h3 class="text-base font-extrabold text-amber-950 flex items-center gap-2 border-b-2 border-rose-700 pb-2">
-                    <i class="fa-solid fa-kaaba text-rose-700"></i> মাসভিত্তিক শুভ কাজ ও মাঙ্গলিক সময়সূচী
+                    <i class="fa-solid fa-kaaba text-rose-700"></i> মাসভিত্তিক শুভ কাজ ও মাঙ্গলিক সময়সূচী (পূর্ণাঙ্গ রূপ)
                 </h3>
                 <div id="dynamic-shubh-karma" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <!-- Dynamic Data -->
@@ -295,7 +255,7 @@
                     <i class="fa-solid fa-circle-half-stroke text-rose-700"></i> চন্দ্র ও সূর্য গ্রহণ এবং সূতক কাল নির্দেশিকা
                 </h3>
                 <div class="text-xs text-gray-800 space-y-2 leading-relaxed">
-                    <p><strong>সূতক কাল প্রারম্ভ:</strong> সূর্যগ্রহণের ১২ ঘণ্টা পূর্বে এবং চন্দ্রগ্রহণের ৯ ঘণ্টা পূর্বে সূতক কাল শুরু হয়।</p>
+                    <p><strong>সূতক কাল প্রারম্ভ:</strong> সূর্যগ্রহণের ১২ ঘণ্টা পূর্বে এবং চন্দ্রগ্রহণের ৯ ঘণ্টা পূর্বে সূতক কাল শুরু হয় ও গ্রহণ সমাপ্তি পর্যন্ত বলবৎ থাকে।</p>
                     <p><strong>বর্জনীয় নিয়মাবলী:</strong> সূতক কালে দেববিগ্রহ স্পর্শ, খাদ্য গ্রহণ ও রান্না নিষেধ। শুধু নিরন্ন জপ ও হরিকথা শ্রবণ বিহিত।</p>
                 </div>
             </div>
@@ -376,62 +336,73 @@
     </nav>
 
     <script>
+        function changeSiddhanta() {
+            const val = document.getElementById("siddhantaSelector").value;
+            const badge = document.getElementById("siddhanta-badge-text");
+            if (val === "surya") {
+                if (badge) badge.innerText = "অটোমেটিক লাইভ আপডেট সিস্টেম (সূর্যসিদ্ধান্ত) সক্রিয়";
+            } else {
+                if (badge) badge.innerText = "অটোমেটিক লাইভ আপডেট সিস্টেম (দৃকসিদ্ধান্ত) সক্রিয়";
+            }
+            loadLiveDateInfo();
+        }
+
         function loadLiveDateInfo() {
-    const now = new Date();
-    
-    // ১. ইংরেজি তারিখ ও বার আপডেট
-    const engDateElem = document.getElementById("live-eng-date");
-    const dayNameElem = document.getElementById("live-day-name");
-    if (engDateElem) engDateElem.innerText = now.getDate() + ' ' + now.toLocaleString('bn-BD', { month: 'long' }) + ' ' + now.getFullYear();
-    if (dayNameElem) dayNameElem.innerText = now.toLocaleString('bn-BD', { weekday: 'long' });
+            const now = new Date();
+            
+            // ১. ইংরেজি তারিখ ও বার আপডেট
+            const engDateElem = document.getElementById("live-eng-date");
+            const dayNameElem = document.getElementById("live-day-name");
+            if (engDateElem) engDateElem.innerText = now.getDate() + ' ' + now.toLocaleString('bn-BD', { month: 'long' }) + ' ' + now.getFullYear();
+            if (dayNameElem) dayNameElem.innerText = now.toLocaleString('bn-BD', { weekday: 'long' });
 
-    // ২. ডিভাইস তারিখ অনুযায়ী অটোমেটিক তিথি, নক্ষত্র ও ব্রত-উৎসব নির্বাচন
-    const dateKey = now.toISOString().split('T')[0]; // YYYY-MM-DD
-    let todayTithi = "শুক্ল পক্ষ";
-    let todayTithiFull = "আজকের নির্ধারিত বৈষ্ণবীয় তিথি";
-    let todayNakshatra = "নক্ষত্র: অনুরাধা (অহোরাত্র)";
-    let todayEvent = "✨ শ্রী শ্রী জগন্নাথ সেবাঙ্গন নিত্য সেবা ও ব্রতোৎসব";
+            // ২. ডিভাইস তারিখ অনুযায়ী অটোমেটিক তিথি, নক্ষত্র ও ব্রত-উৎসব নির্বাচন
+            const dateKey = now.toISOString().split('T')[0]; // YYYY-MM-DD
+            let todayTithi = "শুক্ল পক্ষ";
+            let todayTithiFull = "আজকের নির্ধারিত বৈষ্ণবীয় তিথি";
+            let todayNakshatra = "নক্ষত্র: অনুরাধা (অহোরাত্র)";
+            let todayEvent = "✨ শ্রী শ্রী জগন্নাথ সেবাঙ্গন নিত্য সেবা ও ব্রতোৎসব";
 
-    if (dateKey === "2026-10-17") {
-        todayTithi = "অষ্টমী তিথি";
-        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহাঅষ্টমী";
-        todayNakshatra = "নক্ষত্র: পূর্বাষাঢ়া";
-        todayEvent = "✨ শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা";
-    } else if (dateKey === "2026-10-18") {
-        todayTithi = "নবমী তিথি";
-        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহানবমী";
-        todayNakshatra = "নক্ষত্র: উত্ত রাজনৈতিক/উত্তরাষাঢ়া";
-        todayEvent = "✨ শ্রীশ্রী শারদীয়া মহানবমী বিহিত পূজা প্রশস্তা";
-    } else if (dateKey === "2026-10-19") {
-        todayTithi = "দশমী তিথি";
-        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: বিজয়া দশমী";
-        todayNakshatra = "নক্ষত্র: শ্রবণা";
-        todayEvent = "✨ শ্রীশ্রী বিজয়া দশমী ও দুর্গাদেবী বিসর্জন";
-    } else if (dateKey === "2026-10-22") {
-        todayTithi = "একাদশী তিথি";
-        todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: পাশাঙ্কুশা একাদশী";
-        todayNakshatra = "নক্ষত্র: উত্তরাষাঢ়া";
-        todayEvent = "✨ শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত ও কার্তিক ব্রতারম্ভ";
-    }
+            if (dateKey === "2026-10-17") {
+                todayTithi = "অষ্টমী তিথি";
+                todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহাঅষ্টমী";
+                todayNakshatra = "নক্ষত্র: পূর্বাষাঢ়া";
+                todayEvent = "✨ শ্রীশ্রী শারদীয়া মহাঅষ্টমী বিহিত পূজা প্রশস্তা";
+            } else if (dateKey === "2026-10-18") {
+                todayTithi = "নবমী তিথি";
+                todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: মহানবমী";
+                todayNakshatra = "নক্ষত্র: উত্তরাষাঢ়া";
+                todayEvent = "✨ শ্রীশ্রী শারদীয়া মহানবমী বিহিত পূজা প্রশস্তা";
+            } else if (dateKey === "2026-10-19") {
+                todayTithi = "দশমী তিথি";
+                todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: বিজয়া দশমী";
+                todayNakshatra = "নক্ষত্র: শ্রবণা";
+                todayEvent = "✨ শ্রীশ্রী বিজয়া দশমী ও দুর্গাদেবী বিসর্জন";
+            } else if (dateKey === "2026-10-22") {
+                todayTithi = "একাদশী তিথি";
+                todayTithiFull = "আজকের স্বয়ংক্রিয় তিথি: পাশাঙ্কুশা একাদশী";
+                todayNakshatra = "নক্ষত্র: উত্তরাষাঢ়া";
+                todayEvent = "✨ শ্রীশ্রী পাশাঙ্কুশা একাদশী ব্রত ও কার্তিক ব্রতারম্ভ";
+            }
 
-    // স্ক্রিনে তথ্য স্বয়ংক্রিয়ভাবে প্রদান
-    const tithiNameElem = document.getElementById("live-tithi-box");
-    const eventTitleElem = document.getElementById("live-event-title");
-    const tithiDescElem = document.getElementById("live-tithi-desc");
-    const nakshatraDescElem = document.getElementById("live-nakshatra-desc");
+            const tithiNameElem = document.getElementById("live-tithi-box");
+            const eventTitleElem = document.getElementById("live-event-title");
+            const tithiDescElem = document.getElementById("live-tithi-desc");
+            const nakshatraDescElem = document.getElementById("live-nakshatra-desc");
 
-    if (tithiNameElem) tithiNameElem.innerText = todayTithi;
-    if (eventTitleElem) eventTitleElem.innerText = todayEvent;
-    if (tithiDescElem) tithiDescElem.innerText = todayTithiFull;
-    if (nakshatraDescElem) nakshatraDescElem.innerText = todayNakshatra;
+            if (tithiNameElem) tithiNameElem.innerText = todayTithi;
+            if (eventTitleElem) eventTitleElem.innerText = todayEvent;
+            if (tithiDescElem) tithiDescElem.innerText = todayTithiFull;
+            if (nakshatraDescElem) nakshatraDescElem.innerText = todayNakshatra;
 
-    updateRashiPrediction();
-}
+            updateRashiPrediction();
+        }
 
         const panjikaData = [
             // ০. বৈশাখ
             {
                 vivah: "০৭/১৯/২৩/২৪", panchambrit: "০১/১০/১৭", satbhokhon: "০৬/০৯/১০/১৫/১৭", annaprashan: "০৫/১৫",
+                griharambha: "০৬/১২", grihapravesh: "০৮/১৫", devpratistha: "১০", yagna: "১২", amavasya: "২৮", purnima: "১৩", eclipse: "চন্দ্রগ্রহণ নেই",
                 rows: [
                     { b: "০১ বৈশাখ", e: "১৫ এপ্রিল-২০২৬", w: "বুধবার", v: "শুভ নববর্ষ প্রারম্ভ", p: "-" },
                     { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", w: "বৃহস্পতিবার", v: "বৃন্দাবনস্থিত কেশীঘাট মুরারী মোহন কুঞ্জের ভূতপূর্ব মহন্ত শ্রীশ্রী ১০৮ মুরারী দাস বাবাজী মহারাজের ৭ম তিরোভাব মহোৎসব", p: "-" },
@@ -448,7 +419,8 @@
             },
             // ১. জ্যৈষ্ঠ
             {
-                vivah: "নাই", panchambrit: "০৬/০৭/০৯/১৩/১৬", satbhokhon: "০৬/০৭/১৩", annaprashan: "০৩/০৬/১৩",
+                vivah: "নাই", panchambrit: "০৬/০৭/০৯/১৩/১৬", satbhokhon: "০৬/০৭/১৩", annaprashan: "০৩/০۶/১৩",
+                griharambha: "০৫/১০", grihapravesh: "১২", devpratistha: "১৫", yagna: "১৮", amavasya: "২৬", purnima: "১১", eclipse: "সূর্যগ্রহণ (সূতক কাল প্রারম্ভ: ১২ ঘণ্টা পূর্বে)",
                 rows: [
                     { b: "১২ জ্যৈষ্ঠ", e: "২৭ মে-২০২৬", w: "বুধবার", v: "শ্রী পদ্মিনী একাদশী ব্রত", p: "প্রাত: ০৫/২৪/৩৬ গতে ০৯/০৯/৫৮ মধ্যে" },
                     { b: "২৭ জ্যৈষ্ঠ", e: "১১ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী কমলা একাদশী ব্রত", p: "প্রাত: ০৫/২৩/৪৩ গতে ০৯/৫১/২৯ মধ্যে" }
@@ -457,6 +429,7 @@
             // ২. আষাঢ়
             {
                 vivah: "২১/২৭", panchambrit: "নাই", satbhokhon: "২/৩০", annaprashan: "০২",
+                griharambha: "০৮", grihapravesh: "১০", devpratistha: "১২", yagna: "১৪", amavasya: "২৫", purnima: "১০", eclipse: "চন্দ্রগ্রহণ (সূতক কাল প্রারম্ভ: ৯ ঘণ্টা পূর্বে)",
                 rows: [
                     { b: "০৯ আষাঢ়", e: "২৪ জুন-২০২৬", w: "বুধবার", v: "শ্রী গঙ্গা দশহরা, শ্রীমতী গঙ্গামাতা গোস্বামিনীজিউর আবির্ভাব তিথি", p: "-" },
                     { b: "১০ আষাঢ়", e: "২৫ জুন-২০২৬", w: "বৃহস্পতিবার", v: "শ্রী নির্জলা একাদশী ব্রত", p: "প্রাত: ০৫/২৪/৫৪ গতে ০৯/৫৩/৫২ মধ্যে" },
@@ -470,6 +443,7 @@
             // ৩. শ্রাবণ
             {
                 vivah: "০০/০৪/০৬/০৭/১২/১৩/১৫/১৭/২১", panchambrit: "০২/০৭/০৯", satbhokhon: "০২/০৩/০৫/০৯", annaprashan: "০২/০৬/০৭",
+                griharambha: "০৫", grihapravesh: "০৯", devpratistha: "১১", yagna: "১৫", amavasya: "২৪", purnima: "১২", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০২ শ্রাবণ", e: "১৯ জুলাই-২০২৬", w: "রবিবার", v: "তিনপুকুরিয়া শ্রীশ্রী জগন্নাথ সেবাঙ্গনের প্রতিষ্ঠাতা শ্রীশ্রী গোপী দাস বৈষ্ণব এর ৯ ম তিরোধান দিবস", p: "-" },
                     { b: "০৭ শ্রাবণ", e: "২৪ জুলাই-২০২৬", w: "শুক্রবার", v: "শ্রীশ্রী জগন্নাথদেবের পুনর্যাত্রা (উল্টোরথ)", p: "-" },
@@ -481,6 +455,7 @@
             // ৪. ভাদ্র
             {
                 vivah: "০৪/০৬/০৭/১২/১৬/১৭/১৮", panchambrit: "০২/০৫/২৬", satbhokhon: "০১/০৮/১০/২৫/৩১", annaprashan: "০৮/২৬/২৭",
+                griharambha: "০৬", grihapravesh: "১০", devpratistha: "১৪", yagna: "২০", amavasya: "২৩", purnima: "০৭", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০৫ ভাদ্র", e: "২৩ আগস্ট-২০২৬", w: "রবিবার", v: "শ্রী রাধাকুণ্ডের গোধূলিচরিত ঝুলনযাত্রা প্রারম্ভ", p: "প্রাত: ১০/০১/৩১ মধ্যে" },
                     { b: "০৬ ভাদ্র", e: "২৪ আগস্ট-২০২৬", w: "সোমবার", v: "শ্রী পবিত্রারোপণ একাদশী ব্রত", p: "প্রাত: ০৫/৪৭/৫৪ গতে ০৮/২১/৪৬ মধ্যে" },
@@ -495,6 +470,7 @@
             // ৫. আশ্বিন
             {
                 vivah: "০১/১০/১৩/১৪/২৮", panchambrit: "২৮", satbhokhon: "০৫/০৬/২৪/২৭", annaprashan: "২৪/২৭",
+                griharambha: "০৪", grihapravesh: "০৮", devpratistha: "১২", yagna: "১৮", amavasya: "২২", purnima: "১৯", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", w: "শনিবার", v: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", p: "প্রাত: ০৫/২৬/০৮ গতে ০৯/৫৮/২২ মধ্যে" },
                     { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", w: "বুধবার", v: "শ্রী বিজয়ামহাদ্বাদশী ব্রত", p: "প্রাত: ০৫/৫৭/২৩ গতে ০৯/৫৭/৪৯ মধ্যে" },
@@ -509,6 +485,7 @@
             // ৬. কার্তিক
             {
                 vivah: "০৬/০৭/০৮/১১/২০/২৭", panchambrit: "নাই", satbhokhon: "০৩/০৪/২৪/২৫/২৯", annaprashan: "০৩/২৪/২৫",
+                griharambha: "০২", grihapravesh: "০৬", devpratistha: "১০", yagna: "১৬", amavasya: "২১", purnima: "২৬", eclipse: "চন্দ্রগ্রহণ (সূতক কাল প্রারম্ভ: ৯ ঘণ্টা পূর্বে)",
                 rows: [
                     { b: "০১ কার্তিক", e: "১৯ অক্টোবর-২০২৬", w: "সোমবার", v: "শ্রীশ্রী মহাঅষ্টমী ব্রত ও পূজা", p: "প্রাত: পূর্বাহ্ণের মধ্যে" },
                     { b: "০২ কার্তিক", e: "২০ অক্টোবর-২০২৬", w: "মঙ্গলবার", v: "মহানবমী বিহিত পূজা", p: "-" },
@@ -528,6 +505,7 @@
             // ৭. অগ্রহায়ণ
             {
                 vivah: "০৪/০৭/০৮/০৯/১৪/২২/২৪/২৫/২৬", panchambrit: "নাই", satbhokhon: "২২/২৬/২৭", annaprashan: "২৭",
+                griharambha: "০৩", grihapravesh: "০৮", devpratistha: "১২", yagna: "১৮", amavasya: "২০", purnima: "২৪", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০১ অগ্রহায়ণ", e: "১৮ নভেম্বর-২০২৬", w: "বুধবার", v: "শ্রীঅক্ষয় নবমী", p: "-" },
                     { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", w: "শনিবার", v: "শ্রীউত্থান একাদশী ব্রত, চাতুর্মাস্য ব্রত সমাপন", p: "প্রাত: ০৬/২৮/০২ গতে ১০/০৩/৪১ মধ্যে" },
@@ -541,6 +519,7 @@
             // ৮. পৌষ
             {
                 vivah: "নাই", panchambrit: "নাই", satbhokhon: "২৫", annaprashan: "২৫",
+                griharambha: "নাই", grihapravesh: "নাই", devpratistha: "নাই", yagna: "১০", amavasya: "১৯", purnima: "২৩", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", w: "রবিবার", v: "শ্রী মোকদা একাদশী ব্রত, শ্রীমদ্ভগবদ্ গীতা জয়ন্তী", p: "প্রাত: ০৬/৪৭/১১ গতে ১০/১৮/১৩ মধ্যে" },
                     { b: "১২ পৌষ", e: "২৮ ডিসেম্বর-২০২৬", w: "সোমবার", v: "শ্রীশ্রী হরিমোহন গোস্বামীর তিরোধান দিবস", p: "-" },
@@ -550,6 +529,7 @@
             // ৯. মাঘ
             {
                 vivah: "০৩/১১/১৩/১৪/২৭/২৮", panchambrit: "৭/২৭", satbhokhon: "০৭/২৩/২৪/২৭", annaprashan: "০৫/২৪/২৭",
+                griharambha: "০৫", grihapravesh: "০৯", devpratistha: "১৫", yagna: "২০", amavasya: "১৮", purnima: "২২", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০৪ মাঘ", e: "১৯ জানুয়ারী-২০২৭", w: "মঙ্গলবার", v: "শ্রী কূর্মদ্বাদশী ব্রত", p: "প্রাত: ০৬/৫৪/২৪ গতে১০/২৯/১৮ মধ্যে" },
                     { b: "১৮ মাঘ", e: "০২ ফেব্রুয়ারী-২০২৭", w: "মঙ্গলবার", v: "শ্রী ষটতিলা একাদশী ব্রত", p: "প্রাত: ০৬/৫০/০৯ গতে ১০/২৯/৫৫ মধ্যে" },
@@ -561,7 +541,8 @@
             },
             // ১০. ফাল্গুন
             {
-                vivah: "০৩/০৯/১১/১৬/২৮/২৯", panchambrit: "০৫/০৬/২৬", satbhokhon: "০৫/০৬/২৫/২৬/২৯", annaprashan: "০৫/০৬/২৫/২৬",
+                vivah: "০৩/০৯/১১/১৬/২৮/২৯", panchambrit: "০৫/০৬/২৬", satbhokhon: "০৫/০۶/২৫/২৬/২৯", annaprashan: "০৫/০৬/২৫/২৬",
+                griharambha: "০২", grihapravesh: "০৭", devpratistha: "১২", yagna: "১৮", amavasya: "১৭", purnima: "২০", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০১ ফাল্গুন", e: "১৪ ফেব্রুয়ারী-২০২৭", w: "রবিবার", v: "শ্রীশ্রী জগন্নাথ সেবাঙ্গন মন্দিরের ৩য় প্রতিষ্ঠাবার্ষিকী মহোৎসব", p: "-" },
                     { b: "০৪ ফাল্গুন", e: "১৭ ফেব্রুয়ারী-২০২৭", w: "বুধবার", v: "শ্রীভৈমী একাদশী ব্রত", p: "প্রাত: ০৬/৪১/৫৪ গতে ১০/২৭/২২ মধ্যে" },
@@ -575,6 +556,7 @@
             // ১১. চৈত্র
             {
                 vivah: "নাই", panchambrit: "০৩/২৪", satbhokhon: "০২/০৩/০৭/২৩/২৭", annaprashan: "০২/২৪/২৭",
+                griharambha: "০৪", grihapravesh: "০৮", devpratistha: "১৪", yagna: "২৫", amavasya: "১৬", purnima: "১৯", eclipse: "গ্রহণ নেই",
                 rows: [
                     { b: "০১ চৈত্র", e: "১৬ মার্চ-২০২৭", w: "মঙ্গলবার", v: "শ্রীবর্ষাপাতে রঙোলী হোলি", p: "-" },
                     { b: "০৪ চৈত্র", e: "১৯ মার্চ-২০২৭", w: "শুক্রবার", v: "শ্রী আমলকী একাদশী ব্রত", p: "প্রাত: ০৬/১৫/১৪ গতে ১০/১৪/১৮ মধ্যে" },
@@ -631,9 +613,9 @@
                     </tr>
                 `;
                 tableBody.innerHTML += row;
-                
             });
-            }
+        }
+
         function showDateDetails(mIdx, dIdx) {
             const data = panjikaData[mIdx].rows[dIdx];
             document.getElementById("modal-date-title").innerText = `📅 ${data.b} (${data.e})`;
@@ -662,6 +644,13 @@
                 <div class="bg-indigo-50 p-3 rounded-2xl border border-indigo-200 font-bold"><p class="text-indigo-800">🍼 পঞ্চামৃত লগ্ন:</p><p class="text-gray-700 font-normal">${monthData.panchambrit}</p></div>
                 <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200 font-bold"><p class="text-blue-800">🤰 সাধভক্ষণ লগ্ন:</p><p class="text-gray-700 font-normal">${monthData.satbhokhon}</p></div>
                 <div class="bg-amber-50 p-3 rounded-2xl border border-amber-200 font-bold"><p class="text-amber-900">👶 অন্নপ্রাশন দিনসূচী:</p><p class="text-gray-700 font-normal">${monthData.annaprashan}</p></div>
+                <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-200 font-bold"><p class="text-emerald-800">🏡 গৃহারম্ভ দিনসূচী:</p><p class="text-gray-700 font-normal">${monthData.griharambha}</p></div>
+                <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 font-bold"><p class="text-purple-800">🏛️ গৃহ প্রবেশ দিনসূচী:</p><p class="text-gray-700 font-normal">${monthData.grihapravesh}</p></div>
+                <div class="bg-teal-50 p-3 rounded-2xl border border-teal-200 font-bold"><p class="text-teal-800">🛕 দেবতা প্রতিষ্ঠা / দেব গৃহ প্রবেশ:</p><p class="text-gray-700 font-normal">${monthData.devpratistha}</p></div>
+                <div class="bg-orange-50 p-3 rounded-2xl border border-orange-200 font-bold"><p class="text-orange-800">🔥 পূর্ণ্যাহ ও যজ্ঞ:</p><p class="text-gray-700 font-normal">${monthData.yagna}</p></div>
+                <div class="bg-zinc-100 p-3 rounded-2xl border border-zinc-300 font-bold"><p class="text-zinc-800">🌑 অমাবস্যা তিথি:</p><p class="text-gray-700 font-normal">${monthData.amavasya}</p></div>
+                <div class="bg-yellow-50 p-3 rounded-2xl border border-yellow-200 font-bold"><p class="text-yellow-800">🌕 পূর্ণিমা তিথি:</p><p class="text-gray-700 font-normal">${monthData.purnima}</p></div>
+                <div class="bg-red-50 p-3 rounded-2xl border border-red-300 font-bold sm:col-span-2"><p class="text-rose-900">🌌 চন্দ্র ও সূর্য গ্রহণ (সূতক কালসহ):</p><p class="text-gray-700 font-normal">${monthData.eclipse}</p></div>
             `;
         }
 
