@@ -1007,12 +1007,27 @@
             element.classList.add('active');
         }
 
-        function updateCalculation() {
-            var val = document.getElementById('calc-method').value;
-            document.getElementById('current-method-text').innerText = val + " (সক্রিয়)";
-            alert("পঞ্জিকার গণনা পদ্ধতি সফলভাবে '" + val + "' হিসেবে সেট করা হয়েছে।");
-        }
-    </script>
+    function updateCalculation() {
+        var val = document.getElementById('calc-method').value;
+        document.getElementById('current-method-text').innerText = val;
+        alert("পঞ্জিকার গণনা পদ্ধতি সফলভাবে '" + val + "' এ পরিবর্তন করা হয়েছে।");
+    }
+
+    // রাত ১২টায় স্বয়ংক্রিয়ভাবে পেজ রিফ্রেশ করার ফাংশন
+    function scheduleMidnightRefresh() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(24, 0, 0, 0); // পরবর্তী রাত ১২:০০
+
+        const timeUntilMidnight = midnight.getTime() - now.getTime();
+
+        setTimeout(() => {
+            location.reload(); // রাত ১২টা বাজার সাথে সাথে পেজ রিফ্রেশ হবে
+        }, timeUntilMidnight);
+    }
+
+    scheduleMidnightRefresh();
+</script>
 
 </body>
 </html>
