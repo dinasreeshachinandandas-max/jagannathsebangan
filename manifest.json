@@ -6,9 +6,9 @@
   "orientation": "any",
   "scope": "/",
   "short_name": "Panjika",
-  "start_url": "/panjika.html",
+  "start_url": "/",
   "theme_color": "#800020",
-  "id": "/panjika/",
+  "id": "/",
   "description": "আন্তর্জাতিক বৈষ্ণবীয় পঞ্জিকা ও সময়সূচী",
   "icons": [
     {
