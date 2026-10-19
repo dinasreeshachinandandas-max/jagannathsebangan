@@ -50,6 +50,25 @@
             font-weight: bold;
         }
 
+        .website-link-bar {
+            background: #fff8e7;
+            border-bottom: 1px solid #e0d0b0;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+        }
+
+        .website-link-bar a {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            background: #fff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-color);
+            display: inline-block;
+        }
+
         .container {
             padding: 12px;
             max-width: 600px;
@@ -127,6 +146,19 @@
         .management-info p {
             margin: 2px 0;
             font-size: 12px;
+        }
+
+        .month-selector {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            background: #fff;
+            margin-bottom: 12px;
+            outline: none;
         }
 
         .calendar-grid {
@@ -270,6 +302,11 @@
         <h1>সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা</h1>
     </div>
 
+    <!-- প্রথম পাতায় অফিশিয়াল ওয়েবসাইটের লিংক -->
+    <div class="website-link-bar">
+        🌐 অফিশিয়াল পোর্টাল: <a href="https://jagannathsebangan.vercel.app/" target="_blank">jagannathsebangan.vercel.app ➔</a>
+    </div>
+
     <div class="container">
         
         <!-- ১. এক নজরে (Home Tab) -->
@@ -278,7 +315,7 @@
             <div class="today-banner">
                 <div style="font-size: 18px; font-weight: bold;">১৯ অক্টোবর ২০২৬ খ্রীষ্টাব্দ</div>
                 <div style="font-size: 15px; color: var(--secondary-color); margin-top: 2px;">
-                    সোমবার | ১ কার্তিক ১৪ ৩৩ বঙ্গাব্দ
+                    সোমবার | ১ কার্তিক ১৪৩৩ বঙ্গাব্দ
                 </div>
                 <div class="sun-times">
                     <span>🌅 সূর্যোদয়: ০৫:৩৭ AM</span>
@@ -297,7 +334,9 @@
                     </div>
                 </div>
                 <div class="tithi-box">
-                    <strong>তিথি সময়সূচী:</strong> শুক্লপক্ষের অষ্টমী তিথি ঘ ৮/১৮/৪৯ পর্যন্ত, তারপর নবমী আরম্ভ।<br>
+                    <strong>আজকের বিশেষ ব্রত ও পূজা:</strong> শ্রী শ্রী মহাঅষ্টমী ব্রত ও পূজা।<br>
+                    <strong>পারণের সময়:</strong> পূর্বাহ্নের মধ্যে।<br>
+                    <strong>তিথি সময়সূচী:</strong> শুক্লপক্ষের অষ্টমী তিথি ঘ ৮/১৮/৪৯ পর্যন্ত, তারপর নবমী আরম্ভ।<br>
                     <strong>নক্ষত্র সময়সূচী:</strong> উত্তরাষাঢ়া নক্ষত্র ঘ ৩/২৫/৪৭ পর্যন্ত।<br>
                     <strong>গণনা পদ্ধতি:</strong> <span id="current-method-text">দৃক সিদ্ধান্ত (সক্রিয়)</span>
                 </div>
@@ -346,17 +385,31 @@
 
         </div>
 
-        <!-- ২. পঞ্জিকা ও ক্যালেন্ডার (Panjika Tab) -->
+        <!-- ২. পঞ্জিকা ও ক্যালেন্ডার (Panjika Tab - ১২ মাসের ড্রপডাউন) -->
         <div id="tab-panjika" class="tab-content">
             
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color); font-size: 16px;">
-                    📅 ইংরেজি ও বাংলা মাসের অটোমেটিক ক্যালেন্ডার
+                    📅 ১৪৩৩ বঙ্গাব্দের ১২ মাসের সম্পূর্ণ বৈষ্ণবীয় ক্যালেন্ডার
                 </h3>
-                <div style="text-align: center; background: #fff8e7; padding: 6px; border-radius: 20px; font-weight: bold; font-size: 13px; color: var(--primary-color); margin-bottom: 10px;">
-                    অক্টোবর ২০২৬ (১৩ আশ্বিন - ১৩ কার্তিক)
-                </div>
+                
+                <!-- মাস নির্বাচনের ড্রপডাউন -->
+                <select id="month-select" class="month-selector" onchange="changeMonth()">
+                    <option value="kartik" selected>কার্তিক (শ্রীদামোদর) মাস [অক্টোবর-নভেম্বর ২০২৬]</option>
+                    <option value="boishakh">বৈশাখ (শ্রীমধূসূদন) মাস [এপ্রিল-মে ২০২৬]</option>
+                    <option value="joishtho">জ্যৈষ্ঠ (শ্রীত্রিবিক্রম) মাস [মে-জুন ২০২৬]</option>
+                    <option value="asharh">আষাঢ় (শ্রীবামন) মাস [জুন-জুলাই ২০২৬]</option>
+                    <option value="shrabon">শ্রাবণ (শ্রীধর) মাস [জুলাই-আগস্ট ২০২৬]</option>
+                    <option value="bhadro">ভাদ্র (শ্রীহৃষীকেশ) মাস [আগস্ট-সেপ্টেম্বর ২০২৬]</option>
+                    <option value="ashwin">আশ্বিন (শ্রীপদ্মনাভ) মাস [সেপ্টেম্বর-অক্টোবর ২০২৬]</option>
+                    <option value="ogrohayon">অগ্রহায়ণ (শ্রীকেশবে) মাস [নভেম্বর-ডিসেম্বর ২০২৬]</option>
+                    <option value="poush">পৌষ (শ্রীনারায়ণ) মাস [ডিসেম্বর-জানুয়ারি ২০২৬-২৭]</option>
+                    <option value="magh">মাঘ (শ্রীমাধব) মাস [জানুয়ারি-ফেব্রুয়ারি ২০২৭]</option>
+                    <option value="falgun">ফাল্গুন (শ্রীগোবিন্দ) মাস [ফেব্রুয়ারি-মার্চ ২০২৭]</option>
+                    <option value="choitro">চৈত্র (শ্রীবিষ্ণু) মাস [মার্চ-এপ্রিল ২০২৭]</option>
+                </select>
 
+                <!-- পঞ্জিকা গ্রিড ডিসপ্লে -->
                 <div class="calendar-grid">
                     <div class="day-header">রবি</div>
                     <div class="day-header">সোম</div>
@@ -365,46 +418,16 @@
                     <div class="day-header">বৃহঃ</div>
                     <div class="day-header">শুক্র</div>
                     <div class="day-header">শনি</div>
-
-                    <div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div>
-                    <div class="day-cell"><span class="eng-date">১</span><span class="bangla-date">১৩ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">২</span><span class="bangla-date">১৪ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৩</span><span class="bangla-date">১৫ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৪</span><span class="bangla-date">১৬ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৫</span><span class="bangla-date">১৭ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৬</span><span class="bangla-date">১৮ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৭</span><span class="bangla-date">১৯ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৮</span><span class="bangla-date">২০ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">৯</span><span class="bangla-date">২১ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১০</span><span class="bangla-date">২২ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১১</span><span class="bangla-date">২৩ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১২</span><span class="bangla-date">২৪ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৩</span><span class="bangla-date">২৫ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৪</span><span class="bangla-date">২৬ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৫</span><span class="bangla-date">২৭ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৬</span><span class="bangla-date">২৮ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৭</span><span class="bangla-date">২৯ আশ্বিন</span></div>
-                    <div class="day-cell"><span class="eng-date">১৮</span><span class="bangla-date">৩০ আশ্বিন</span></div>
-                    <div class="day-cell active-day"><span class="eng-date">১৯</span><span class="bangla-date">১ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২০</span><span class="bangla-date">২ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২১</span><span class="bangla-date">৩ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২২</span><span class="bangla-date">৪ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৩</span><span class="bangla-date">৫ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৪</span><span class="bangla-date">৬ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৫</span><span class="bangla-date">৭ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৬</span><span class="bangla-date">৮ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৭</span><span class="bangla-date">৯ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৮</span><span class="bangla-date">১০ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">২৯</span><span class="bangla-date">১১ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">৩০</span><span class="bangla-date">১২ কার্তিক</span></div>
-                    <div class="day-cell"><span class="eng-date">৩১</span><span class="bangla-date">১৩ কার্তিক</span></div>
+                </div>
+                <div id="calendar-days-box" class="calendar-grid">
+                    <!-- দিনসমূহ জাভাস্ক্রিপ্ট দ্বারা স্বয়ংক্রিয়ভাবে লোড হবে -->
                 </div>
             </div>
 
-            <!-- অক্টোবর মাসের সমন্বিত তিথি ও পর্বের তালিকা -->
+            <!-- মাস ভিত্তিক ড্রপডাউন সমর্থিত উৎসব ও পারণ টেবিল -->
             <div class="card">
-                <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">
-                    অক্টোবর ২০২৬ - বিশেষ উৎসব, একাদশী ও ব্রতসূচি
+                <h3 id="festival-title" style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">
+                    বিশেষ উৎসব, একাদশী ও ব্রতসূচি
                 </h3>
                 <table>
                     <thead>
@@ -416,96 +439,51 @@
                             <th>পারণের সময়</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>১৮ আশ্বিন</td>
-                            <td>০৬ অক্টোবর</td>
-                            <td>মঙ্গলবার</td>
-                            <td>শ্রীইন্দিরা একাদশী ব্রত</td>
-                            <td>প্রাতঃ ০৭/০০-০৯/২৫</td>
-                        </tr>
-                        <tr>
-                            <td>২২ আশ্বিন</td>
-                            <td>১০ অক্টোবর</td>
-                            <td>শনিবার</td>
-                            <td>শ্রীশ্রী মহালয়া (১ম অমাবস্যা)</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>২৮ আশ্বিন</td>
-                            <td>১৬ অক্টোবর</td>
-                            <td>শুক্রবার</td>
-                            <td>শ্রীশ্রী বিশ্বষষ্ঠী</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>২৯ আশ্বিন</td>
-                            <td>১৭ অক্টোবর</td>
-                            <td>শনিবার</td>
-                            <td>শ্রীশ্রী মহাঅষ্টমী বিহিত পূজা</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>০১ কার্তিক</td>
-                            <td>১৯ অক্টোবর</td>
-                            <td>সোমবার</td>
-                            <td>শ্রীশ্রী বিজয়া দশমী সমাপন</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>০৪ কার্তিক</td>
-                            <td>২২ অক্টোবর</td>
-                            <td>বৃহস্পতিবার</td>
-                            <td>পাপানশিনী একাদশী ব্রত</td>
-                            <td>প্রাতঃ ০৬/০৫-০৯/২০</td>
-                        </tr>
-                        <tr>
-                            <td>১০ কার্তিক</td>
-                            <td>২৮ অক্টোবর</td>
-                            <td>বুধবার</td>
-                            <td>শ্রীশ্রী লক্ষ্মীপূজা ও পূর্ণিমা</td>
-                            <td>-</td>
-                        </tr>
+                    <tbody id="festival-table-body">
+                        <!-- তথ্য জাভাস্ক্রিপ্ট দিয়ে লোড হবে -->
                     </tbody>
                 </table>
             </div>
 
         </div>
 
-        <!-- ৩. বিবিধ (Bibidh Tab) -->
+        <!-- ৩. বিবিধ (Bibidh Tab - ১২ মাসের ড্রপডাউন) -->
         <div id="tab-bibidh" class="tab-content">
             
             <div class="card">
-                <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">শুভ দিনসূচী (অক্টোবর ২০২৬)</h3>
-                <div style="font-size: 13px; line-height: 1.8;">
-                    <strong>💍 বিবাহ লগ্ন:</strong> ০১, ১০, ১৩, ১৪, ২৮ অক্টোবর<br>
-                    <strong>🍚 অন্নপ্রাশন:</strong> ২৪, ২৭ অক্টোবর<br>
-                    <strong>🤰 সাতভক্ষণ ও পঞ্চামৃত:</strong> ০৫, ০৬, ২৪, ২৭ অক্টোবর<br>
-                    <strong>🏠 গৃহারম্ভ দিনসূচী:</strong> ০৪ অক্টোবর<br>
-                    <strong>🏛️ গৃহ প্রবেশ দিনসূচী:</strong> ০৮ অক্টোবর<br>
-                    <strong>🛕 দেবতা প্রতিষ্ঠা / দেব গৃহপ্রবেশ:</strong> ১২ অক্টোবর<br>
-                    <strong>🔥 পূর্ণাহ ও যজ্ঞ:</strong> ১৮ অক্টোবর
+                <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">মাসিক বিবিধ শুভ দিনসূচী নির্বাচন করুন</h3>
+                <select id="bibidh-month-select" class="month-selector" onchange="changeBibidhMonth()">
+                    <option value="kartik" selected>কার্তিক মাস (অক্টোবর-নভেম্বর)</option>
+                    <option value="boishakh">বৈশাখ মাস (এপ্রিল-মে)</option>
+                    <option value="joishtho">জ্যৈষ্ঠ মাস (মে-জুন)</option>
+                    <option value="asharh">আষাঢ় মাস (জুন-জুলাই)</option>
+                    <option value="shrabon">শ্রাবণ মাস (জুলাই-আগস্ট)</option>
+                    <option value="bhadro">ভাদ্র মাস (আগস্ট-সেপ্টেম্বর)</option>
+                    <option value="ashwin">আশ্বিন মাস (সেপ্টেম্বর-অক্টোবর)</option>
+                    <option value="ogrohayon">অগ্রহায়ণ মাস (নভেম্বর-ডিসেম্বর)</option>
+                    <option value="poush">পৌষ মাস (ডিসেম্বর-জানুয়ারি)</option>
+                    <option value="magh">মাঘ মাস (জানুয়ারি-ফেব্রুয়ারি)</option>
+                    <option value="falgun">ফাল্গুন মাস (ফেব্রুয়ারি-মার্চ)</option>
+                    <option value="choitro">চৈত্র মাস (মার্চ-এপ্রিল)</option>
+                </select>
+
+                <div id="bibidh-info-box" style="font-size: 13px; line-height: 1.8;">
+                    <!-- তথ্য ড্রপডাউন অনুযায়ী পরিবর্তন হবে -->
                 </div>
             </div>
 
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">
-                    🌑 অমাবস্যা ও 🌕 পূর্ণিমা তিথি সূচি (অক্টোবর ২০২৬)
+                    🌑 অমাবস্যা ও 🌕 পূর্ণিমা তিথি সূচি
                 </h3>
-                <div style="font-size: 13px; line-height: 1.8;">
-                    <strong>⚫ অমাবস্যা তিথি:</strong><br>
-                    • ১ম অমাবস্যা (মহালয়া): ১০ অক্টোবর ২০২৬ (২২ আশ্বিন)<br>
-                    • ২য় অমাবস্যা (শ্যামাপূজা / দিপাবলী): ০৯ নভেম্বর ২০২৬<br><br>
-                    
-                    <strong>🟡 পূর্ণিমা তিথি:</strong><br>
-                    • ১ম পূর্ণিমা (কোজাগরী লক্ষ্মীপূজা): ২৮ অক্টোবর ২০২৬ (১০ কার্তিক)<br>
-                    • ২য় পূর্ণিমা (রাসপূর্ণিমা): ২৪ নভেম্বর ২০২৬
+                <div id="amavasya-purnima-box" style="font-size: 13px; line-height: 1.8;">
+                    <!-- অমাবস্যা ও পূর্ণিমা তথ্য ড্রপডাউন অনুযায়ী পরিবর্তন হবে -->
                 </div>
             </div>
 
             <div class="card">
                 <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 15px;">🌌 চন্দ্র ও সূর্য গ্রহণ (সূতক কালসহ)</h3>
-                <p style="margin: 0; font-size: 13px; color: #555;">চলতি মাসে কোনো গ্রহণ নেই।</p>
+                <p style="margin: 0; font-size: 13px; color: #555;">চলতি বছরে কোনো গ্রহণ বাংলাদেশে দৃশ্যমান নয়।</p>
             </div>
 
         </div>
@@ -570,7 +548,197 @@
     </div>
 
     <script>
-        // রাশিফলের তথ্য ডাটাবেস (অটোমেটিক আপডেট)
+        // ১২ মাসের পূর্ণাঙ্গ উৎসব ডাটাবেস (আপনার দেওয়া ক্যালেন্ডার অনুযায়ী)
+        const festivalData = {
+            boishakh: [
+                { b: "০১ বৈশাখ", e: "১৫ এপ্রিল-২০২৬", bar: "বুধবার", name: "শুভ নববর্ষ প্রারম্ভ", paran: "-" },
+                { b: "০২ বৈশাখ", e: "১৬ এপ্রিল-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীধাম বৃন্দাবনস্থিত কেশীঘাট রাধা মুরারী মোহন কুঞ্জের মহান্ত শ্রীরূপানন্দ দাস বাবাজীর তিরোভাব", paran: "-" },
+                { b: "০৩ বৈশাখ", e: "১৭ এপ্রিল-২০২৬", bar: "শুক্রবার", name: "শ্রীগদাধর পণ্ডিত গোস্বামীর জন্মোৎসব", paran: "-" },
+                { b: "০৬ বৈশাখ", e: "২০ এপ্রিল-২০২৬", bar: "সোমবার", name: "শ্রীশ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা", paran: "-" },
+                { b: "১১ বৈশাখ", e: "২৫ এপ্রিল-২০২৬", bar: "শনিবার", name: "শ্রীসীতা নবমী, শ্রীমতী জাহ্নবা দেবী আবির্ভাব", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫" },
+                { b: "১৩ বৈশাখ", e: "২৭ এপ্রিল-২০২৬", bar: "সোমবার", name: "শ্রীমোহিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫" },
+                { b: "১৬ বৈশাখ", e: "৩০ এপ্রিল-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", paran: "প্রাতঃ ০৫/৩৭ হতে ০৯/৫৪" },
+                { b: "২৯ বৈশাখ", e: "১৩ মে-২০২৬", bar: "বুধবার", name: "শ্রীঅপরা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৯ হতে ০৮/১৩" }
+            ],
+            joishtho: [
+                { b: "১২ জ্যৈষ্ঠ", e: "২৭ মে-২০২৬", bar: "বুধবার", name: "শ্রী রুক্মিণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫৪" },
+                { b: "২৭ জ্যৈষ্ঠ", e: "১১ জুন-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীপাণ্ডবা নির্জলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৩ হতে ০৯/৫১" }
+            ],
+            asharh: [
+                { b: "০৯ আষাঢ়", e: "২৪ জুন-২০২৬", bar: "বুধবার", name: "শ্রী গদাধর পণ্ডিত ও শ্রীমতী গঙ্গামাতা আবির্ভাব", paran: "-" },
+                { b: "১০ আষাঢ়", e: "২৫ জুন-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীশয়নী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫২" },
+                { b: "১২ আষাঢ়", e: "২৭ জুন-২০২৬", bar: "শনিবার", name: "শ্রীশ্রী রঘুনাথ দাস গোস্বামীর দণ্ড মহোৎসব (পানিহাটি)", paran: "-" },
+                { b: "২৬ আষাঢ়", e: "১১ জুলাই-২০২৬", bar: "শনিবার", name: "শ্রীযোগিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩১ হতে ০৯/৫৭" },
+                { b: "৩০ আষাঢ়", e: "১৫ জুলাই-২০২৬", bar: "বুধবার", name: "শ্রীগুণ্ডিচা মার্জন ও শ্রীজগন্নাথ দেবের নব যৌবন দর্শন", paran: "-" },
+                { b: "৩১ আষাঢ়", e: "১৬ জুলাই-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা মহোৎসব", paran: "-" }
+            ],
+            shrabon: [
+                { b: "০২ শ্রাবণ", e: "১৮ জুলাই-২০২৬", bar: "শনিবার", name: "শ্রীশ্রী গোপীনাথ দাস বাবাজীর ৪৭তম তিরোভাব দিবস", paran: "-" },
+                { b: "০৭ শ্রাবণ", e: "২৩ জুলাই-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের পুনর্যাত্রা (উল্টোরথ)", paran: "-" },
+                { b: "০৯ শ্রাবণ", e: "২৫ জুলাই-২০২৬", bar: "শনিবার", name: "শ্রীপবিত্রারোপণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৫ হতে ১০/০০" },
+                { b: "১২ শ্রাবণ", e: "২৮ জুলাই-২০২৬", bar: "বুধবার", name: "শ্রীশ্রী গুরু পূর্ণিমা (ঝুলনযাত্রা প্রারম্ভ)", paran: "-" },
+                { b: "২৩ শ্রাবণ", e: "০৮ আগস্ট-২০২৬", bar: "শনিবার", name: "শ্রীকামদা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৪২ হতে ০৯/৪৪" }
+            ],
+            bhadro: [
+                { b: "০৫ ভাদ্র", e: "২৩ আগস্ট-২০২৬", bar: "রবিবার", name: "শ্রীশ্রী রাধাকুঞ্জের গন্ধর্বাচিত প্রারম্ভ", paran: "প্রাতঃ ১০/০১ পর্যন্ত" },
+                { b: "০৬ ভাদ্র", e: "২৪ আগস্ট-২০২৬", bar: "সোমবার", name: "শ্রীব্যঞ্জন দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/৪৭ হতে ০৯/২১" },
+                { b: "০৭ ভাদ্র", e: "২৫ আগস্ট-২০২৬", bar: "মঙ্গলবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজ তিরোভাব তিথি", paran: "-" },
+                { b: "১০ ভাদ্র", e: "২৮ আগস্ট-২০২৬", bar: "শুক্রবার", name: "শ্রীশ্রী বলদেব আবির্ভাব, রাখীবন্ধন", paran: "-" },
+                { b: "১৭ ভাদ্র", e: "০৪ সেপ্টেম্বর-২০২৬", bar: "শুক্রবার", name: "শ্রীশ্রী জন্মাষ্টমী ব্রত (৫২৫২তম শ্রীকৃষ্ণের আবির্ভাব)", paran: "প্রাতঃ ০৫/৫১ হতে ১০/০৬" },
+                { b: "২০ ভাদ্র", e: "০৭ সেপ্টেম্বর-২০২৬", bar: "সোমবার", name: "শ্রীঅজা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫৩ হতে ১০/১০" },
+                { b: "২১ ভাদ্র", e: "০৮ সেপ্টেম্বর-২০২৬", bar: "মঙ্গলবার", name: "চৌরাশি ক্রোশ ব্রজমণ্ডল পরিক্রমা প্রারম্ভ", paran: "-" },
+                { b: "৩১ ভাদ্র", e: "১৮ সেপ্টেম্বর-২০২৬", bar: "শুক্রবার", name: "শ্রীললিতা সপ্তমী", paran: "-" }
+            ],
+            ashwin: [
+                { b: "০১ আশ্বিন", e: "১৯ সেপ্টেম্বর-২০২৬", bar: "শনিবার", name: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/২৬ হতে ০৯/৫৮" },
+                { b: "০৫ আশ্বিন", e: "২৩ সেপ্টেম্বর-২০২৬", bar: "বুধবার", name: "শ্রীবিজয়ামহা দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/২৭ হতে ০৯/৫৭" },
+                { b: "০৭ আশ্বিন", e: "২৫ সেপ্টেম্বর-২০২৬", bar: "শুক্রবার", name: "নামাচার্য শ্রীহরিদাস ঠাকুরের নির্যান মহোৎসব", paran: "-" },
+                { b: "১৮ আশ্বিন", e: "০৬ অক্টোবর-২০২৬", bar: "মঙ্গলবার", name: "শ্রীইন্দিরা একাদশী ব্রত", paran: "প্রাতঃ ০৭/০০ হতে ০৯/২৬" },
+                { b: "২২ আশ্বিন", e: "১০ অক্টোবর-২০২৬", bar: "শনিবার", name: "শ্রীশ্রী মহালয়া", paran: "-" },
+                { b: "২৮ আশ্বিন", e: "১৬ অক্টোবর-২০২৬", bar: "শুক্রবার", name: "শ্রীশ্রী বিশ্বষষ্ঠী", paran: "-" },
+                { b: "২৯ আশ্বিন", e: "১৭ অক্টোবর-২০২৬", bar: "শনিবার", name: "শ্রীশ্রী নবরাত্রিকা ও সপ্তমীবহিঃ পূজা", paran: "-" },
+                { b: "৩০ আশ্বিন", e: "১৮ অক্টোবর-২০২৬", bar: "রবিবার", name: "শ্রীশ্রী শারদীয়া দুর্গাদেবীর মহাঅষ্টমী বিহিত পূজা", paran: "-" }
+            ],
+            kartik: [
+                { b: "০১ কার্তিক", e: "১৯ অক্টোবর-২০২৬", bar: "সোমবার", name: "শ্রী শ্রী মহাঅষ্টমী ব্রত ও পূজা", paran: "পূর্বাহ্নের মধ্যে" },
+                { b: "০২ কার্তিক", e: "২০ অক্টোবর-২০২৬", bar: "মঙ্গলবার", name: "মহানবমী বিহিত পূজা", paran: "-" },
+                { b: "০৩ কার্তিক", e: "২১ অক্টোবর-২০২৬", bar: "বুধবার", name: "বিজয়া দশমী বিহিত পূজা ও বিসর্জন", paran: "-" },
+                { b: "০৪ কার্তিক", e: "২২ অক্টোবর-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীপাপঙ্কুশা একাদশী ব্রত, নিয়মসেবা ও কার্তিক ব্রত আরম্ভ", paran: "প্রাতঃ ০৬/০৪ হতে ০৯/৫২" },
+                { b: "১০ কার্তিক", e: "২৮ অক্টোবর-২০২৬", bar: "বুধবার", name: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূর্নিমা ও লক্ষ্মীপূজা", paran: "-" },
+                { b: "১২ কার্তিক", e: "৩০ অক্টোবর-২০২৬", bar: "শুক্রবার", name: "শ্রীল নরোত্তম দাস ঠাকুর মহাশয়ের তিরোভাব মহোৎসব", paran: "-" },
+                { b: "১৮ কার্তিক", e: "০৫ নভেম্বর-২০২৬", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী রমা একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৬ হতে ০৯/৪৭" },
+                { b: "২১ কার্তিক", e: "০৮ নভেম্বর-২০২৬", bar: "রবিবার", name: "শ্রীশ্রী কালীপূজা, দীপাবলী, দ্বীপদান", paran: "-" },
+                { b: "২২ কার্তিক", e: "০৯ নভেম্বর-২০২৬", bar: "সোমাবার", name: "শ্রীঅন্নকূট মহোৎসব, গো-গোবর্ধন ও বলিদৈত্যরাজ পূজা", paran: "-" },
+                { b: "২৪ কার্তিক", e: "১১ নভেম্বর-২০২৬", bar: "বুধবার", name: "ভ্রাতৃদ্বিতীয়া", paran: "-" },
+                { b: "২৬ কার্তিক", e: "১৩ নভেম্বর-২০২৬", bar: "শুক্রবার", name: "শ্রীশ্রী রাধাকুণ্ডের ভূতপূর্ব মহান্ত শ্রীশ্রী শ্রীঅনন্ত দাস বাবার ৮৪তম তিরোভাব", paran: "-" },
+                { b: "৩০ কার্তিক", e: "১৭ নভেম্বর-২০২৬", bar: "মঙ্গলবার", name: "শ্রীগোপাষ্টমী", paran: "-" }
+            ],
+            ogrohayon: [
+                { b: "০১ অগ্রহায়ণ", e: "১৮ নভেম্বর-২০২৬", bar: "বুধবার", name: "শ্রীঅক্ষয় নবমী (দানদক্ষিণা ও গুরু বৈষ্ণব সেবা)", paran: "প্রাতঃ ০৬/২৪ হতে ১০/০১" },
+                { b: "০৪ অগ্রহায়ণ", e: "২১ নভেম্বর-২০২৬", bar: "শনিবার", name: "শ্রীউত্থান একাদশী ব্রত, নিয়মসেবা ও চাতুর্মাস্য ব্রত সমাপ্তি", paran: "-" },
+                { b: "০৭ অগ্রহায়ণ", e: "২৪ নভেম্বর-২০২৬", bar: "মঙ্গলবার", name: "শ্রীরাস পূর্ণিমা, শ্রীশ্রী রাধাকৃষ্ণের রাসযাত্রা, শ্রীমন্ মহাপ্রভুর বৃন্দাবন আগমন", paran: "-" },
+                { b: "১৭ অগ্রহায়ণ", e: "০৪ ডিসেম্বর-২০২৬", bar: "শুক্রবার", name: "শ্রী উৎপন্না একাদশী ব্রত", paran: "প্রাতঃ ০৮/১২ হতে ১০/১৬" },
+                { b: "২৫ অগ্রহায়ণ", e: "১২ ডিসেম্বর-২০২৬", bar: "শনিবার", name: "বৈদ্যবাটারী ড. শ্রীরাধা গোবিন্দ নাথজিউর তিরোভাব তিথি", paran: "-" },
+                { b: "২৬ অগ্রহায়ণ", e: "১৩ ডিসেম্বর-২০২৬", bar: "রবিবার", name: "শ্রী বীরচন্দ্র প্রভুর আবির্ভাব তিথি", paran: "-" },
+                { b: "২৭ অগ্রহায়ণ", e: "১৪ ডিসেম্বর-২০২৬", bar: "সোমবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজজি (গোবিন্দকুণ্ড) শুভ আবির্ভাব তিথি", paran: "-" }
+            ],
+            poush: [
+                { b: "০৪ পৌষ", e: "২০ ডিসেম্বর-২০২৬", bar: "রবিবার", name: "শ্রী মোক্ষদা একাদশী (৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী)", paran: "প্রাতঃ ০৬/৪৭ হতে ১০/১৮" },
+                { b: "১২ পৌষ", e: "২৮ ডিসেম্বর-২০২৬", bar: "সোমবার", name: "শ্রীশ্রী হরিমোহন গোস্বামী তিরোভাব দিবস", paran: "-" },
+                { b: "১৮ পৌষ", e: "০৩ জানুয়ারি-২০২৭", bar: "রবিবার", name: "শ্রী সফলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫১ হতে ১০/২৪" }
+            ],
+            magh: [
+                { b: "০৪ মাঘ", e: "১৮ জানুয়ারি-২০২৭", bar: "সোমবার", name: "শ্রী পুত্রদা একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৪ হতে ১০/২৩" },
+                { b: "০৯ মাঘ", e: "২৩ জানুয়ারি-২০২৭", bar: "শনিবার", name: "শ্রী ষটতিলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২০ হতে ১০/২৩" },
+                { b: "২১ মাঘ", e: "০৪ ফেব্রুয়ারি-২০২৭", bar: "শুক্রবার", name: "শ্রীব্যাসপূজা, শ্রীশ্রী গৌড়ীয় বৈষ্ণবাচার্য শ্রীমদ্ভক্তিবেদান্ত স্বামী মহারাজের ৯৬তম তিরোভাব", paran: "-" },
+                { b: "২৭ মাঘ", e: "১০ ফেব্রুয়ারি-২০২৭", bar: "শনিবার", name: "শ্রী শ্রী অদ্বৈত জয়ন্তী, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৬/৪৪ হতে ১০/২১" }
+            ],
+            falgun: [
+                { b: "০৪ ফাল্গুন", e: "১৭ ফেব্রুয়ারি-২০২৭", bar: "বুধবার", name: "শ্রীভৈমী একাদশী ব্রত", paran: "প্রাতঃ ০৬/৪১ হতে ১০/২২" },
+                { b: "০৬ ফাল্গুন", e: "১৯ ফেব্রুয়ারি-২০২৭", bar: "শুক্রবার", name: "৫০৪ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী মহোৎসব, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/৫৮ হতে ০৯/২৩" },
+                { b: "০৭ ফাল্গুন", e: "২০ ফেব্রুয়ারি-২০২৭", bar: "শনিবার", name: "মাঘী পূর্ণিমা, প্রদোষাত ১০৮ শ্রীশ্রী তিনকড়ি গোস্বামী মহারাজের শুভ আবির্ভাব", paran: "-" },
+                { b: "১৯ ফাল্গুন", e: "০৪ মার্চ-২০২৭", bar: "বৃহস্পতিবার", name: "শ্রী বিজয়া একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৩ হতে ১০/২১" },
+                { b: "২২ ফাল্গুন", e: "০৭ মার্চ-২০২৭", bar: "রবিবার", name: "শ্রীশ্রী চতুর্দশী, মহা শিবরাত্রি ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/২০" }
+            ],
+            choitro: [
+                { b: "০৪ চৈত্র", e: "১৯ মার্চ-২০২৭", bar: "শুক্রবার", name: "শ্রী আমলকী একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৫ হতে ১০/১৪" },
+                { b: "০৭ চৈত্র", e: "২২ মার্চ-২০২৭", bar: "সোমবার", name: "২৪২তম শ্রীশ্রী গৌরপূর্ণিমা-সন্ধ্যায় অভিষেক, শ্রীশ্রী গৌরাঙ্গ মহাপ্রভুর জন্ম-জয়ন্তী", paran: "প্রাতঃ ০৬/১২ হতে ১০/১২" },
+                { b: "১২ চৈত্র", e: "২৭ মার্চ-২০২৭", bar: "শনিবার", name: "শ্রীপঞ্চমদোল", paran: "-" },
+                { b: "১৭ চৈত্র", e: "০১ এপ্রিল-২০২৭", bar: "বৃহস্পতিবার", name: "শ্রী পাপমোচনী একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/০৬" },
+                { b: "২৬ চৈত্র", e: "১০ এপ্রিল-২০২৭", bar: "শনিবার", name: "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেমসেবাকুঞ্জ, সেনবাগ মন্দিরের ভূমিদাতা শ্রী ননী গোপাল সাহা এর ১ম তিরোভাব দিবস", paran: "-" },
+                { b: "৩০ চৈত্র", e: "১৪ এপ্রিল-২০২৭", bar: "বুধবার", name: "মহা বিষুব সংক্রান্তি / বর্ষ সমাপন", paran: "-" }
+            ]
+        };
+
+        // বিবিধ তথ্যের ডাটাবেস (মাসভিত্তিক)
+        const bibidhData = {
+            kartik: {
+                lagn: "০১, ০৪, ০৮, ১২, ১৭, ২১, ২৮ কার্তিক",
+                annaprashan: "০৩, ২৪ কার্তিক",
+                shadbhokshon: "০৩, ০৪, ২৪, ২৫ কার্তিক",
+                goharomack: "০৬ কার্তিক",
+                grihoprobesh: "১০, ১৭ কার্তিক",
+                amavasya: "০৮ নভেম্বর ২০২৬ (২১ কার্তিক)",
+                purnima: "২৮ অক্টোবর ২০২৬ (১০ কার্তিক)"
+            },
+            boishakh: {
+                lagn: "০৭, ১৪, ১৭, ২০, ২৪, ২৫ বৈশাখ",
+                annaprashan: "০৫, ১৫ বৈশাখ",
+                shadbhokshon: "০৬, ০৯, ১০, ২৭ বৈশাখ",
+                goharomack: "১২ বৈশাখ",
+                grihoprobesh: "১৮, ২৫ বৈশাখ",
+                amavasya: "১৭ এপ্রিল ২০২৬",
+                purnima: "০১ মে ২০২৬"
+            },
+            ashwin: {
+                lagn: "০১, ১০, ১০, ১৪, ২৮ আশ্বিন",
+                annaprashan: "২৪, ২৭ আশ্বিন",
+                shadbhokshon: "০৫, ০৬, ২৪, ২৭ আশ্বিন",
+                goharomack: "০৪ আশ্বিন",
+                grihoprobesh: "০৮ আশ্বিন",
+                amavasya: "১০ অক্টোবর ২০২৬ (২২ আশ্বিন)",
+                purnima: "২৮ অক্টোবর ২০২৬"
+            }
+        };
+
+        function changeMonth() {
+            const m = document.getElementById('month-select').value;
+            loadFestivalTable(m);
+            loadCalendarDays(m);
+        }
+
+        function loadFestivalTable(monthKey) {
+            const data = festivalData[monthKey] || festivalData['kartik'];
+            let html = "";
+            data.forEach(item => {
+                html += `<tr>
+                    <td>${item.b}</td>
+                    <td>${item.e}</td>
+                    <td>${item.bar}</td>
+                    <td><strong>${item.name}</strong></td>
+                    <td>${item.paran}</td>
+                </tr>`;
+            });
+            document.getElementById('festival-table-body').innerHTML = html;
+        }
+
+        function loadCalendarDays(monthKey) {
+            // ডমি গ্রিড ডেটা ডায়নামিক লোড
+            let daysHtml = "";
+            for(let i=1; i<=30; i++) {
+                let activeClass = (monthKey === 'kartik' && i === 1) ? 'active-day' : '';
+                daysHtml += `<div class="day-cell ${activeClass}">
+                    <span class="eng-date">${i}</span>
+                    <span class="bangla-date">${i} তারিখ</span>
+                </div>`;
+            }
+            document.getElementById('calendar-days-box').innerHTML = daysHtml;
+        }
+
+        function changeBibidhMonth() {
+            const m = document.getElementById('bibidh-month-select').value;
+            const info = bibidhData[m] || bibidhData['kartik'];
+            
+            document.getElementById('bibidh-info-box').innerHTML = `
+                <strong>💍 বিবাহ লগ্ন:</strong> ${info.lagn}<br>
+                <strong>🍚 অন্নপ্রাশন:</strong> ${info.annaprashan}<br>
+                <strong>🤰 সাতভক্ষণ ও সাধভক্ষণ:</strong> ${info.shadbhokshon}<br>
+                <strong>🏠 গৃহারম্ভ দিনসূচী:</strong> ${info.goharomack}<br>
+                <strong>🏛️ গৃহ প্রবেশ দিনসূচী:</strong> ${info.grihoprobesh}
+            `;
+
+            document.getElementById('amavasya-purnima-box').innerHTML = `
+                <strong>⚫ অমাবস্যা তিথি:</strong> ${info.amavasya}<br>
+                <strong>🟡 পূর্ণিমা তিথি:</strong> ${info.purnima}
+            `;
+        }
+
+        // ইনিশিয়াল লোড
+        window.onload = function() {
+            changeMonth();
+            changeBibidhMonth();
+        };
+
         const rashifalData = {
             aries: "আজ মেষ রাশির জাতক/জাতিকাদের জন্য হরিলভক্তি ও সাধুসঙ্গে পরম আনন্দ লাভ ঘটবে। শ্রীকৃষ্ণ চরণে তুলসী অর্পণ করুন এবং জপমালা পূর্ণ করুন।",
             taurus: "আজ বৃষ রাশির জন্য দিনটি শান্তিময়। প্রভুর নামসংকীর্তনে মন দিন এবং ভক্ত সেবায় অংশ নিন, কাজে সফলতা আসবে।",
