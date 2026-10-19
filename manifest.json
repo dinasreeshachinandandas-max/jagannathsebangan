@@ -1,25 +1,25 @@
 {
-    "background_color": "#ffffff",
-    "dir": "ltr",
-    "display": "standalone",
-    "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন পঞ্জিকা",
-    "orientation": "any",
-    "scope": "/",
-    "short_name": "জগন্নাথ পঞ্জিকা",
-    "start_url": "/panjika.html",
-    "theme_color": "#ffffff",
-    "id": "/panjika",
-    "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন অফিসিয়াল বৈষ্ণবীয় পঞ্জিকা",
-    "icons": [
-        {
-            "src": "/icon-192.jpg",
-            "sizes": "192x192",
-            "type": "image/jpeg"
-        },
-        {
-            "src": "/icon-512.jpg",
-            "sizes": "512x512",
-            "type": "image/jpeg"
-        }
-    ]
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "শ্রী শ্রী জগন্নাথ সেবাসঙ্গ পঞ্জিকা",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "জগন্নাথ পঞ্জিকা",
+  "start_url": "/panjika.html",
+  "theme_color": "#ffffff",
+  "id": "/panjika",
+  "description": "শ্রী শ্রী জগন্নাথ সেবাসঙ্গ অফিশিয়াল বৈষ্ণবীয় পঞ্জিকা",
+  "icons": [
+    {
+      "src": "/icon-192.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
