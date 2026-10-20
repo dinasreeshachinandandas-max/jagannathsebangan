@@ -314,9 +314,9 @@
         <div id="tab-home" class="tab-content active">
             
             <div class="today-banner">
-                <div style="font-size: 18px; font-weight: bold;">১৯ অক্টোবর ২০২৬ খ্রীষ্টাব্দ</div>
-                <div style="font-size: 15px; color: var(--secondary-color); margin-top: 2px;">
-                    সোমবার | ১ কার্তিক ১৪৩৩ বঙ্গাব্দ
+                <div id="dynamic-eng-date" style="font-size: 18px; font-weight: bold;">২০ অক্টোবর ২০২৬ খ্রীষ্টাব্দ</div>
+                <div id="dynamic-bangla-date" style="font-size: 15px; color: var(--secondary-color); margin-top: 2px;">
+                    মঙ্গলবার | ২ কার্তিক ১৪৩৩ বঙ্গাব্দ
                 </div>
                 <div class="sun-times">
                     <span id="sun-rise">🌅 সূর্যোদয়: ০৫:৩৭ AM</span>
@@ -327,7 +327,7 @@
             <div class="card">
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <div style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-weight: bold; font-size: 13px;">
-                        অষ্টমী
+                        নবমী
                     </div>
                     <div>
                         <h3 style="margin: 0; color: var(--primary-color); font-size: 16px;">আজকের স্বয়ংক্রিয় তিথি</h3>
@@ -335,10 +335,10 @@
                     </div>
                 </div>
                 <div class="tithi-box">
-                    <strong>আজকের বিশেষ ব্রত ও পূজা:</strong> শ্রী শ্রী মহাঅষ্টমী ব্রত ও পূজা।<br>
-                    <strong>পারণের সময়:</strong> পূর্বাহ্নের মধ্যে।<br>
-                    <strong>তিথি সময়সূচী:</strong> শুক্লপক্ষের অষ্টমী তিথি ঘ ৮/১৮/৪৯ পর্যন্ত, তারপর নবমী আরম্ভ।<br>
-                    <strong>নক্ষত্র সময়সূচী:</strong> উত্তরাষাঢ়া নক্ষত্র ঘ ৩/২৫/৪৭ পর্যন্ত।<br>
+                    <strong>আজকের বিশেষ ব্রত ও পূজা:</strong> মহানবমী বিহিত পূজা।<br>
+                    <strong>পারণের সময়:</strong> প্রাতঃকালীন নিয়মানুযায়ী।<br>
+                    <strong>তিথি সময়সূচী:</strong> শুক্লপক্ষের নবমী তিথি।<br>
+                    <strong>নক্ষত্র সময়সূচী:</strong> উত্তরাষাঢ়া নক্ষত্র।<br>
                     <strong>গণনা পদ্ধতি:</strong> <span id="current-method-text">দৃক সিদ্ধান্ত (সক্রিয়)</span>
                 </div>
             </div>
@@ -902,10 +902,57 @@
             }
         };
 
+        // রিয়েল-টাইম অটোমেটিক তারিখ আপডেট ফাংশন
+        function loadRealtimeToday() {
+            const today = new Date();
+            const dayNum = today.getDate(); // যেমন: 20
+            const monthNum = today.getMonth() + 1; // যেমন: 10 (অক্টোবর)
+            const yearNum = today.getFullYear(); // যেমন: 2026
+
+            // বাংলা সংখ্যা কনভার্টার
+            const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            function toBanglaNum(num) {
+                return num.toString().split('').map(d => bnDigits[d] || d).join('');
+            }
+
+            // ইংরেজি মাসের নাম বাংলা রূপ
+            const monthsBn = {
+                1: "জানুয়ারি", 2: "ফেব্রুয়ারি", 3: "মার্চ", 4: "এপ্রিল", 5: "মে", 6: "জুন",
+                7: "জুলাই", 8: "আগস্ট", 9: "সেপ্টেম্বর", 10: "অক্টোবর", 11: "নভেম্বর", 12: "ডিসেম্বর"
+            };
+
+            // বার নির্ধারণ
+            const daysOfWeek = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+            const currentDayName = daysOfWeek[today.getDay()];
+
+            // বাংলা তারিখ ম্যাপ থেকে আজকের বাংলা তারিখ বের করা
+            let currentBanglaDateStr = "২ কার্তিক"; // ডিফল্ট ফলব্যাক
+            if (banglaDateMap[monthNum] && banglaDateMap[monthNum].days[dayNum]) {
+                currentBanglaDateStr = banglaDateMap[monthNum].days[dayNum];
+            }
+
+            // হেডার ব্যানার আপডেট করা
+            const engDateFormatted = `${toBanglaNum(dayNum)} ${monthsBn[monthNum]} ${toBanglaNum(yearNum)} খ্রীষ্টাব্দ`;
+            const banglaDateFormatted = `${currentDayName} | ${currentBanglaDateStr} ১৪৩৩ বঙ্গাব্দ`;
+
+            document.getElementById('dynamic-eng-date').innerText = engDateFormatted;
+            document.getElementById('dynamic-bangla-date').innerText = banglaDateFormatted;
+
+            // পঞ্জিকা ট্যাবের ড্রপডাউন ও ক্যালেন্ডার অটো সিলেক্ট করা
+            const monthSelect = document.getElementById('eng-month-select');
+            if(monthSelect) {
+                monthSelect.value = monthNum;
+            }
+            loadFestivalTable(monthNum);
+            loadCalendarDays(monthNum, dayNum);
+        }
+
         function changeEngMonth() {
             const m = document.getElementById('eng-month-select').value;
+            const today = new Date();
+            const activeDay = (parseInt(m) === (today.getMonth() + 1)) ? today.getDate() : 0;
             loadFestivalTable(m);
-            loadCalendarDays(m);
+            loadCalendarDays(m, activeDay);
         }
 
         function loadFestivalTable(mKey) {
@@ -923,7 +970,7 @@
             document.getElementById('festival-table-body').innerHTML = html;
         }
 
-        function loadCalendarDays(mKey) {
+        function loadCalendarDays(mKey, activeDateNum) {
             let daysHtml = "";
             const mData = banglaDateMap[mKey] || banglaDateMap["10"];
             const daysInMonth = Object.keys(mData.days).length;
@@ -934,7 +981,7 @@
             }
 
             for(let i = 1; i <= daysInMonth; i++) {
-                let activeClass = (mKey === "10" && i === 19) ? 'active-day' : '';
+                let activeClass = (i === activeDateNum) ? 'active-day' : '';
                 let banglaTxt = mData.days[i];
                 daysHtml += `<div class="day-cell ${activeClass}">
                     <span class="eng-date">${i}</span>
@@ -969,8 +1016,9 @@
         }
 
         window.onload = function() {
-            changeEngMonth();
+            loadRealtimeToday();
             changeBibidhEngMonth();
+            scheduleMidnightRefresh();
         };
 
         const rashifalData = {
@@ -1008,27 +1056,25 @@
             element.classList.add('active');
         }
 
-    function updateCalculation() {
-        var val = document.getElementById('calc-method').value;
-        document.getElementById('current-method-text').innerText = val;
-        alert("পঞ্জিকার গণনা পদ্ধতি সফলভাবে '" + val + "' এ পরিবর্তন করা হয়েছে।");
-    }
+        function updateCalculation() {
+            var val = document.getElementById('calc-method').value;
+            document.getElementById('current-method-text').innerText = val;
+            alert("পঞ্জিকার গণনা পদ্ধতি সফলভাবে '" + val + "' এ পরিবর্তন করা হয়েছে।");
+        }
 
-    // রাত ১২টায় স্বয়ংক্রিয়ভাবে পেজ রিফ্রেশ করার ফাংশন
-    function scheduleMidnightRefresh() {
-        const now = new Date();
-        const midnight = new Date();
-        midnight.setHours(24, 0, 0, 0); // পরবর্তী রাত ১২:০০
+        // রাত ১২টায় স্বয়ংক্রিয়ভাবে পেজ রিফ্রেশ করার ফাংশন
+        function scheduleMidnightRefresh() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0); // পরবর্তী রাত ১২:০০
 
-        const timeUntilMidnight = midnight.getTime() - now.getTime();
+            const timeUntilMidnight = midnight.getTime() - now.getTime();
 
-        setTimeout(() => {
-            location.reload(); // রাত ১২টা বাজার সাথে সাথে পেজ রিফ্রেশ হবে
-        }, timeUntilMidnight);
-    }
-
-    scheduleMidnightRefresh();
-</script>
+            setTimeout(() => {
+                location.reload(); // রাত ১২টা বাজার সাথে সাথে পেজ রিফ্রেশ হবে
+            }, timeUntilMidnight);
+        }
+    </script>
 
 </body>
 </html>
