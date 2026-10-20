@@ -44,10 +44,10 @@
     </a>
   </div>
 
-  <!-- পঞ্জিকা অ্যাপে যাওয়ার বাটন -->
+  <!-- পঞ্জিকা ও অটোমেটিক আপডেট ক্যালেন্ডারে যাওয়ার বাটন -->
   <div style="text-align: center; margin: 10px 0;">
-    <a href="panjika.html" style="background-color: #8b2500; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
-        🌸 সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা অ্যাপ খুলুন
+    <a href="#google-calendar-section" style="background-color: #8b2500; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
+        🌸 সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা ও লাইভ সিডিউল ক্যালেন্ডার দেখুন
     </a>
   </div>
 
@@ -84,6 +84,7 @@
           <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
               <a href="#committee" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">👥 পরিচালনা পর্ষদ</a>
               <a href="#booking-section" class="bg-rose-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-800 transition">📅 অনুষ্ঠান বুকিং ও সিডিউল</a>
+              <a href="#google-calendar-section" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🗓️ অটোমেটিক আপডেট ক্যালেন্ডার</a>
               <a href="#patrons-advisors" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌟 পৃষ্ঠপোষক ও উপদেষ্টা মন্ডলী</a>
               <a href="#registration" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📜 ট্রাস্ট রেজিস্ট্রেশন</a>
               <a href="#international-funding" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🌍 আন্তর্জাতিক অনুদান ও FD-7</a>
@@ -168,7 +169,7 @@
 
     <div class="mt-6 text-center border-t border-amber-200 pt-4">
       <p class="text-xs sm:text-sm text-amber-900 font-bold">
-        🙏 "সকল जीवों কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
+        🙏 "সকল জীবের কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
       </p>
     </div>
   </div>
@@ -231,24 +232,51 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 📅 অনুষ্ঠান বুকিং, সিডিউল চেকার এবং আবেদন ফরম (একনজরে ট্রেনের টিকিট কাটার মতো) -->
+  <!-- 📅 অটোমেটিক আপডেট গুগল ক্যালেন্ডার সেকশন (Google Calendar Live Widget) -->
+  <!-- ========================================================================= -->
+  <section id="google-calendar-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+      <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border-2 border-amber-400 text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-3 border-b-2 border-amber-200 pb-3">
+              🗓️ অটোমেটিক আপডেট সিডিউল গুগল ক্যালেন্ডার (Live Google Calendar)
+          </h2>
+          <p class="text-gray-700 mb-6 text-sm sm:text-base max-w-2xl mx-auto">
+              নিচের গুগল ক্যালেন্ডারটি সরাসরি রিয়েল-টাইমে আপডেট হয়। আপনার কাঙ্ক্ষিত তারিখটি খালি আছে কিনা ট্রেনের টিকিটের মতো সহজেই দেখে নিয়ে সরাসরি নিচের ফর্মে বুকিং আবেদন করতে পারবেন:
+          </p>
+
+          <div class="w-full h-[500px] rounded-2xl overflow-hidden border-2 border-amber-300 shadow-inner mb-4">
+              <iframe 
+                  src="https://calendar.google.com/calendar/embed?src=en.bd%23holiday%40group.v.calendar.google.com&ctz=Asia%2FDhaka" 
+                  style="border: 0" 
+                  width="100%" 
+                  height="100%" 
+                  frameborder="0" 
+                  scrolling="no">
+              </iframe>
+          </div>
+          <p class="text-xs text-amber-900 italic font-semibold">
+              * লাল/লাল চিহ্নিত তারিখগুলো বুকড (Booked) এবং অন্যান্য তারিখগুলো খালি আছে।
+          </p>
+      </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 📅 অনুষ্ঠান বুকিং আবেদন ফরম (Event Booking Application Form) -->
   <!-- ========================================================================= -->
   <section id="booking-section" class="py-12 px-4 sm:px-6 max-w-4xl mx-auto w-full scroll-mt-20">
       <div style="background-color: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid #d4a373;">
           
           <h2 style="text-align: center; color: #8b4513; margin-bottom: 5px; font-size: 26px; font-weight: bold;">
-              🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - অনুষ্ঠান বুকিং পোর্টাল
+              🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন - অনুষ্ঠান বুকিং আবেদন ফরম
           </h2>
           <p style="text-align: center; color: #555555; margin-bottom: 25px; font-size: 14px;">
-              নিচের সিডিউল চার্ট থেকে খালি তারিখ দেখে আপনার কাঙ্ক্ষিত অনুষ্ঠানের জন্য অনলাইনে আবেদন করুন।
+              উপরের ক্যালেন্ডার থেকে খালি তারিখ দেখে আপনার অনুষ্ঠান, প্রসাদ বা সেবা আয়োজনের জন্য অনলাইনে আবেদন করুন।
           </p>
 
-          <!-- ১. সিডিউল ও খালি তারিখ তালিকা (Schedule Table) -->
+          <!-- ১. সিডিউল ও খালি তারিখ দ্রুত তালিকা -->
           <div style="margin-bottom: 30px; background: #fffaf0; padding: 20px; border-radius: 12px; border: 1px solid #f0d0a0;">
               <h3 style="color: #8b4513; font-size: 18px; margin-bottom: 10px; border-bottom: 2px solid #e8cc9b; padding-bottom: 8px;">
-                  📅 বর্তমান সিডিউল ও খালি তারিখ স্ট্যাটাস (Live Availability)
+                  📋 বর্তমান সিডিউল ও খালি তারিখ সংক্ষেপ (Live Availability Summary)
               </h3>
-              <p style="font-size: 13px; color: #666; margin-bottom: 15px;">যে তারিখগুলোতে স্ট্যাটাস "🟢 খালি আছে" দেখাচ্ছে, শুধুমাত্র সেই তারিখগুলোর জন্য আবেদন করতে পারবেন:</p>
               
               <div style="overflow-x: auto;">
                   <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: center; background: #fff;">
@@ -284,13 +312,13 @@
               </div>
           </div>
 
-          <!-- ২. অনুষ্ঠান বুকিং আবেদন ফরম (Event Booking Application Form) -->
+          <!-- ২. অনুষ্ঠান বুকিং মূল আবেদন ফরম -->
           <div style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #d4a373;">
               <h3 style="color: #8b4513; margin-top: 0; text-align: center; font-size: 20px; font-weight: bold;">
-                  📝 অনুষ্ঠান বুকিং আবেদন ফরম
+                  📝 অনুষ্ঠান বুকিং ফরম
               </h3>
               <p style="text-align: center; color: #666; font-size: 13px; margin-bottom: 20px;">
-                  আপনার অনুষ্ঠান, প্রসাদ বা সেবা আয়োজনের জন্য নিচের ফরমটি পূরণ করুন। সাবমিট করার সাথে সাথে মন্দির কর্তৃপক্ষের WhatsApp, Telegram এবং Google Sheets-এ তথ্য চলে যাবে।
+                  আপনার আবেদন পত্রটি সাবমিট করার সাথে সাথে স্বয়ংক্রিয়ভাবে মন্দির কর্তৃপক্ষের WhatsApp, Telegram ও Google Sheets-এ সংরক্ষিত হয়ে যাবে।
               </p>
               
               <form id="eventBookingForm" onsubmit="submitEventBooking(event)">
@@ -326,7 +354,7 @@
                   </div>
 
                   <div style="margin-bottom: 15px;">
-                      <label style="font-size: 13px; font-weight: bold; display: block; margin-bottom: 5px;">অনুষ্ঠানের তারিখ (সিডিউল চেক করে দিন) *</label>
+                      <label style="font-size: 13px; font-weight: bold; display: block; margin-bottom: 5px;">অনুষ্ঠানের তারিখ (ক্যালেন্ডার চেক করে দিন) *</label>
                       <input type="date" id="b_date" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
                   </div>
 
@@ -358,7 +386,7 @@
       </div>
   </section>
 
-  <!-- বুকিং ফর্ম সাবমিশন ও হোয়াটসঅ্যাপ/টেলিগ্রাম/গুগল শিট হ্যান্ডলার স্ক্রিপ্ট -->
+  <!-- বুকিং ফর্ম সাবমিশন স্ক্রিপ্ট -->
   <script>
     function submitEventBooking(event) {
       event.preventDefault();
@@ -673,7 +701,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 📞 যোগাযোগ ও সোশ্যাল কিউআর কোড হাব (QR Codes Hub) -->
+  <!-- 📞 যোগাযোগ ও সোশ্যাল কিউআর কোড হাব (QR Codes Hub With Visible Images) -->
   <!-- ========================================================================= -->
   <section id="contact-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
       <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">
@@ -693,40 +721,46 @@
               </p>
           </div>
 
-          <!-- QR Codes Grid -->
+          <!-- QR Codes Grid (With Rendered & Visible Canvas/Images) -->
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 my-6 p-6 bg-amber-50/70 rounded-2xl border border-amber-200">
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-website" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-website" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ওয়েবসাইট কিউআর</span>
                   <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-xs font-semibold hover:underline mt-1">ভিজিট করুন</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-map" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-map" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ম্যাপ লোকেশন কিউআর</span>
                   <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="text-emerald-700 text-xs font-semibold hover:underline mt-1">দিকনির্দেশনা</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-fb-page" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-fb-page" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ফেসবুক পেজ কিউআর</span>
                   <a href="https://www.facebook.com/share/19z8Uqfrjr/" target="_blank" class="text-blue-600 text-xs font-semibold hover:underline mt-1">পেইজ দেখুন</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-fb-profile" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-fb-profile" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ফেসবুক আইডি কিউআর</span>
                   <a href="https://www.facebook.com/share/1GiyxxLy8W/" target="_blank" class="text-blue-800 text-xs font-semibold hover:underline mt-1">আইডি দেখুন</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-blog" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-blog" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ব্লগ কিউআর কোড</span>
                   <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-xs font-semibold hover:underline mt-1">ব্লগ ভিজিট</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">
-                  <div id="qrcode-form" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-form" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">ডোনেশন ফর্ম কিউআর</span>
                   <a href="https://form.jotform.com/262480864636062" target="_blank" class="text-rose-700 text-xs font-semibold hover:underline mt-1">ফর্ম ওপেন</a>
               </div>
+
               <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center col-span-2 sm:col-span-1">
-                  <div id="qrcode-doc" class="mb-2 flex justify-center"></div>
+                  <div id="qrcode-doc" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>
                   <span class="text-xs font-bold text-amber-950">গঠনতন্ত্র কিউআর</span>
                   <a href="https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk" target="_blank" class="text-amber-800 text-xs font-semibold hover:underline mt-1">সংবিধান দেখুন</a>
               </div>
@@ -751,31 +785,31 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- QR Code Rendering Script -->
+  <!-- Dynamic QR Code Script Generator -->
   <script>
       function renderQRCode(elementId, text, cellSize) {
           try {
               var container = document.getElementById(elementId);
               if (!container) return;
-              var qr = qrcode(0, 'L');
+              var qr = qrcode(0, 'M');
               qr.addData(text);
               qr.make();
-              container.innerHTML = qr.createSvgTag({cellSize: cellSize || 3, margin: 2});
+              container.innerHTML = qr.createSvgTag({cellSize: cellSize || 4, margin: 2});
           } catch (e) {
               console.log('QR Code rendering error for ' + elementId + ':', e);
           }
       }
 
-      window.onload = function() {
-          renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com', 3);
-          renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali', 3);
-          renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/', 3);
-          renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/', 3);
-          renderQRCode('qrcode-blog', 'https://jagannathsebangan.blogspot.com', 3);
-          renderQRCode('qrcode-form', 'https://form.jotform.com/262480864636062', 3);
-          renderQRCode('qrcode-doc', 'https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk', 3);
-      };
+      window.addEventListener('load', function() {
+          renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com', 4);
+          renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali', 4);
+          renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/', 4);
+          renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/', 4);
+          renderQRCode('qrcode-blog', 'https://jagannathsebangan.blogspot.com', 4);
+          renderQRCode('qrcode-form', 'https://form.jotform.com/262480864636062', 4);
+          renderQRCode('qrcode-doc', 'https://docs.google.com/document/d/18C2rIzzWp3O_TT-h965It1ccmXVRbFZsyeq3zrQhn88/edit?usp=drivesdk', 4);
+      });
   </script>
 
 </body>
-</html>
+</html>উ
