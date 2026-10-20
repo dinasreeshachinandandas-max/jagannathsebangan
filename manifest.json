@@ -4,9 +4,9 @@
   "display": "standalone",
   "name": "সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা",
   "orientation": "any",
-  "scope": "/",
+  "scope": "/panjika.html",
   "short_name": "Panjika",
-  "start_url": "/",
+  "start_url": "/panjika.html",
   "theme_color": "#ffffff",
   "description": "আন্তর্জাতিক বৈষ্ণবীয় পঞ্জিকা ও সময়সূচী",
   "icons": [
