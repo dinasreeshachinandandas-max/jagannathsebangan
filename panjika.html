@@ -64,6 +64,55 @@
             font-weight: bold;
         }
 
+        /* প্রিন্টেড পঞ্জিকা থেকে যুক্ত করা বিশেষ ব্যানার সেকশন */
+        .printed-header-banner {
+            background: #fff3d1;
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 10px 8px;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(128,0,32,0.08);
+        }
+
+        body.dark-theme .printed-header-banner {
+            background: #252015;
+            border-color: #444;
+        }
+
+        .printed-header-banner .line1 {
+            color: #800020;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        body.dark-theme .printed-header-banner .line1 {
+            color: var(--secondary-color);
+        }
+
+        .printed-header-banner .line2 {
+            color: #004d40;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        body.dark-theme .printed-header-banner .line2 {
+            color: #80cbc4;
+        }
+
+        .printed-header-banner .line3 {
+            color: #424242;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        body.dark-theme .printed-header-banner .line3 {
+            color: #ccc;
+        }
+
         .header {
             background: linear-gradient(135deg, #800020, #4a0013);
             color: white;
@@ -412,7 +461,20 @@
         </div>
     </div>
 
-    <!-- হেডার -->
+    <!-- প্রিন্টেড পঞ্জিকা থেকে সংযোজিত আন্তর্জাতিক ৩ লাইনের পরিচিতি ব্যানার -->
+    <div class="printed-header-banner">
+        <div class="line1" id="banner-line1">
+            আন্তর্জাতিক শ্রীশ্রী রাধা মুরারীমোহন সেবা সংঘ, বাংলাদেশ কর্তৃক প্রচারিত
+        </div>
+        <div class="line2" id="banner-line2">
+            শ্রীশ্রী রাধাকুন্ডস্থিত শ্রীশ্রী মাধ্ব-গৌড়েশ্বর-বৈষ্ণব-সম্মিলনী হইতে প্রকাশিত শ্রীশ্রী ব্রজমণ্ডলস্থ-সর্ব্ববৈষ্ণবজনানুমোদিত শ্রীপাদ রঘুনাথদাস গোস্বামী গদ্দীর ব্রতোৎসব-নির্ণয়-পঞ্জিকা বাংলাদেশ সময় অনুযায়ী
+        </div>
+        <div class="line3" id="banner-line3">
+            বঙ্গাব্দ-১৪৩৩, শ্রীকৃষ্ণাদ্ধ-৫২৫২, শ্রী গৌরাব্দ-৫৪১-৫৪২, খ্রীষ্টাব্দ-২০২৬-২০২৭, শকাব্দ-১৯৪৮-১৯৪৯, সংবৎ-২০৮৩-২০৮৪
+        </div>
+    </div>
+
+    <!-- মূল হেডার -->
     <div class="header">
         <img src="logo.png" alt="লোগো" class="header-logo" onerror="this.src='https://via.placeholder.com/45'">
         <h1 id="app-title">সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা</h1>
@@ -433,7 +495,7 @@
                 <div class="gaurabda-tag" id="lbl-gaurabda">৫৪০ গৌরাব্দ | দামোদর মাস</div>
                 <div id="dynamic-eng-date" style="font-size: 18px; font-weight: bold;">২০ অক্টোবর ২০২৬ খ্রীষ্টাব্দ</div>
                 <div id="dynamic-bangla-date" style="font-size: 15px; color: var(--secondary-color); margin-top: 2px;">
-                    মঙ্গলবার | ২ কার্তিক ১৪ ৩৩ বঙ্গাব্দ
+                    মঙ্গলবার | ২ কার্তিক ১৪৩৩ বঙ্গাব্দ
                 </div>
                 <div class="sun-times">
                     <span id="sun-rise">🌅 সূর্যোদয়: ০৫:৩৭ AM</span>
@@ -1035,6 +1097,9 @@
 
         const translations = {
             bn: {
+                line1: "আন্তর্জাতিক শ্রীশ্রী রাধা মুরারীমোহন সেবা সংঘ, বাংলাদেশ কর্তৃক প্রচারিত",
+                line2: "শ্রীশ্রী রাধাকুন্ডস্থিত শ্রীশ্রী মাধ্ব-গৌড়েশ্বর-বৈষ্ণব-সম্মিলনী হইতে প্রকাশিত শ্রীশ্রী ব্রজমণ্ডলস্থ-সর্ব্ববৈষ্ণবজনানুমোদিত শ্রীপাদ রঘুনাথদাস গোস্বামী গদ্দীর ব্রতোৎসব-নির্ণয়-পঞ্জিকা বাংলাদেশ সময় অনুযায়ী",
+                line3: "বঙ্গাব্দ-১৪৩৩, শ্রীকৃষ্ণাদ্ধ-৫২৫২, শ্রী গৌরাব্দ-৫৪১-৫৪২, খ্রীষ্টাব্দ-২০২৬-২০২৭, শকাব্দ-১৯৪৮-১৯৪৯, সংবৎ-২০৮৩-২০৮৪",
                 appTitle: "সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা",
                 offSite: "অফিশিয়াল ওয়েবসাইট:",
                 gaurabda: "৫৪০ গৌরাব্দ | দামোদর মাস",
@@ -1047,6 +1112,9 @@
                 navSettings: "সেটিংস"
             },
             en: {
+                line1: "Promoted by International Sri Sri Radha Murarimohan Seva Sangha, Bangladesh",
+                line2: "Published from Sri Sri Radhakunda Sri Sri Madhva-Gaureshwara-Vaishnava-Sammilani, approved by all Vaishnavas of Vrajamandala, Panjika of Sripada Raghunathadasa Goswami Gaddi according to Bangladesh time",
+                line3: "Bangabda-1433, Srikrishnabda-5252, Sri Gaurabda-541-542, AD-2026-2027, Shakabda-1948-1949, Samvat-2083-2084",
                 appTitle: "Modern Vaishnava Calendar",
                 offSite: "Official Website:",
                 gaurabda: "540 Gaurabda | Damodara Masa",
@@ -1059,6 +1127,9 @@
                 navSettings: "Settings"
             },
             hi: {
+                line1: "अंतर्राष्ट्रीय श्री श्री राधा मुरारीमोहन सेवा संघ, बांग्लादेश द्वारा प्रचारित",
+                line2: "श्री श्री राधाकुंड स्थित श्री श्री मध्व-गौडेश्वर-वैष्णव-सम्मिलनी से प्रकाशित, व्रजमंडल के समस्त वैष्णवों द्वारा अनुमोदित श्रीपाद रघुनाथदास गोस्वामी गद्दी का पंचांग बांग्लादेश समयानुसार",
+                line3: "बंगाब्द-१४३३, श्रीकृष्णब्द-५२५२, श्री गौराब्द-५४१-५४२, ईस्वी-२०२६-२०२७, शक संवत-१९४८-१९४९, विक्रम संवत-२०८३-२०८४",
                 appTitle: "सर्वश्रेष्ठ वैष्णव पंचांग",
                 offSite: "आधिकारिक वेबसाइट:",
                 gaurabda: "५४० गौराब्द | दामोदर मास",
@@ -1077,6 +1148,9 @@
             document.getElementById('btn-' + lang).classList.add('active');
 
             const t = translations[lang] || translations.bn;
+            document.getElementById('banner-line1').innerText = t.line1;
+            document.getElementById('banner-line2').innerText = t.line2;
+            document.getElementById('banner-line3').innerText = t.line3;
             document.getElementById('app-title').innerText = t.appTitle;
             document.getElementById('lbl-off-site').innerText = t.offSite;
             document.getElementById('lbl-gaurabda').innerText = t.gaurabda;
