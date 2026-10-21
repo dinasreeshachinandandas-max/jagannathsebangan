@@ -12,32 +12,32 @@
  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>  
  <style>  
  body {  
- font-family: 'Hind Siliguri', 'Inter', sans-serif;  
- background-color: #fdfbf7;  
- color: #2d2d2d;  
+   font-family: 'Hind Siliguri', 'Inter', sans-serif;  
+   background-color: #fdfbf7;  
+   color: #2d2d2d;  
  }  
  .hero-pattern {  
- background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fdfbf7 0.75px);  
- background-size: 30px 30px;  
- background-position: 0 0, 15px 15px;  
+   background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fdfbf7 0.75px);  
+   background-size: 30px 30px;  
+   background-position: 0 0, 15px 15px;  
  }  
  </style>  
 </head>  
 <body class="min-h-screen flex flex-col">  
   
   <!-- মহোৎসব ও সেবা বুকিং লিংক বাটন -->
-  <div style="text-align: center; margin: 15px 0 5px 0;">
-    <a href="#booking-section" style="background-color: #8b4513; color: #ffffff; padding: 10px 22px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 25px; border: 2px solid #d4a373; box-shadow: 0 3px 6px rgba(0,0,0,0.2); display: inline-block;">
+  <div class="text-center my-3">
+    <a href="#booking-section" class="bg-amber-900 text-white px-6 py-2.5 rounded-full font-bold text-sm sm:text-base border-2 border-amber-400 shadow-md inline-block hover:bg-amber-950 transition">
       📅 মহোৎসব ও অনুষ্ঠান বুকিং করুন
     </a>
   </div>
 
   <!-- লাইভ সিডিউল গুগল ক্যালেন্ডার ও বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা বাটন -->
-  <div style="text-align: center; margin: 5px 0 15px 0;">
-    <a href="#google-calendar-section" style="background-color: #8b2500; color: #ffffff; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; border: 2px solid #e8cc9b; box-shadow: 0 3px 6px rgba(0,0,0,0.15); margin-right: 8px;">
+  <div class="text-center mb-4 flex flex-wrap justify-center gap-2 px-2">
+    <a href="#google-calendar-section" class="bg-rose-900 text-white px-5 py-2 rounded-full font-bold text-xs sm:text-sm border-2 border-amber-300 shadow-sm inline-block hover:bg-rose-950 transition">
         🌸 লাইভ সিডিউল ও খালি তারিখ ক্যালেন্ডার দেখুন
     </a>
-    <a href="https://jagannathsebangan.blogspot.com" target="_blank" style="background-color: #0d6efd; color: #ffffff; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; border: 2px solid #b6d4fe; box-shadow: 0 3px 6px rgba(0,0,0,0.15);">
+    <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-xs sm:text-sm border-2 border-blue-300 shadow-sm inline-block hover:bg-blue-700 transition">
         📖 আমাদের বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা দেখুন
     </a>
   </div>
@@ -49,7 +49,7 @@
  <div id="google_translate_element" class="mt-2 sm:mt-0 text-xs sm:text-sm"></div>  
  </header>  
   
- <section class="hero-pattern bg-gradient-to-b from-amber-100/80 via-amber-50 to-white py-14 sm:py-20 px-4 sm:px-6 text-center border-b border-amber-200">  
+ <section class="hero-pattern bg-gradient-to-b from-amber-100/80 via-amber-50 to-white py-12 sm:py-16 px-4 sm:px-6 text-center border-b border-amber-200">  
  <div class="max-w-5xl mx-auto">  
  <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 rounded-full bg-amber-900 text-amber-100 flex items-center justify-center text-4xl sm:text-5xl shadow-xl border-4 border-amber-300">  
  🛕  
@@ -73,14 +73,15 @@
  </div>  
    
  <!-- Quick Navigation Hub Links -->  
- <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">  
+ <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">  
  <a href="#guru-tribute" class="bg-rose-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-900 transition">🙏 পরম আরাধ্য গুরুদেব</a>
  <a href="#founder-tribute" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🚩 প্রতিষ্ঠাতা সেবায়েত</a>
  <a href="#land-donors" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📜 ভূমি দাতাবৃন্দ</a>
- <a href="#google-calendar-section" class="bg-rose-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-800 transition">🗓️ লাইভ ক্যালেন্ডার</a>
- <a href="#booking-section" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📝 বুকিং আবেদন ফর্ম</a>
+ <a href="#future-roadmap" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🚩 ভবিষ্যৎ ও চলমান সেবা প্রকল্প</a>
  <a href="#bhagavat-items" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📖 ভাগবত পারায়ণ উপকরণ</a>
- <a href="#committee" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">👥 পরিচালনা পর্ষদ</a>  
+ <a href="#road-direction" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">📍 পথ পরিচিতি</a>
+ <a href="#spiritual-qa" class="bg-emerald-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-emerald-900 transition">💬 পারমার্থিক জিজ্ঞাসা</a>
+ <a href="#principal-profile" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">🙏 ব্যবস্থাপনা ও অধ্যক্ষ</a>
  <a href="#donation-section" class="bg-rose-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-800 transition">🙏 ডোনেশন ও MFS</a>  
  </div>  
  </div>  
@@ -89,28 +90,28 @@
   <!-- ========================================================================= -->
   <!-- 🌸 পরম আরাধ্য শ্রী গুরুদেব স্মৃতিতর্পণ ও শ্রদ্ধাঞ্জলি -->
   <!-- ========================================================================= -->
-  <section id="guru-tribute" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+  <section id="guru-tribute" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
     <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-2 border-amber-400 rounded-3xl p-6 sm:p-10 shadow-xl text-center">
       <span class="bg-amber-800 text-amber-50 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">
         🙏 পরমারাধ্য শ্রী গুরুদেব স্মৃতি আলেখ্য ও শ্রদ্ধাঞ্জলি 🙏
       </span>
       
-      <div class="my-6 max-w-md mx-auto overflow-hidden rounded-2xl border-4 border-amber-300 shadow-2xl">
-        <img src="images/uploads/IMG-20261021-WA0001.jpg" alt="শ্রী গুরুদেব ১০৮ শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ" class="w-full h-auto object-cover">
+      <div class="my-6 max-w-md mx-auto overflow-hidden rounded-2xl border-4 border-amber-300 shadow-2xl bg-white p-2">
+        <img src="images/uploads/IMG-20261021-WA0001.jpg" onerror="this.src='https://via.placeholder.com/500x600?text=Gurudev+Murari+Das+Babaji'" alt="শ্রী গুরুদেব ১০৮ শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ" class="w-full h-auto rounded-xl object-cover">
       </div>
 
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-950 mb-3 leading-snug">
+      <h2 class="text-xl sm:text-3xl font-extrabold text-amber-950 mb-3 leading-snug">
         অনন্ত শ্রী বিভূষিত আন্তর্জাতিক পরিব্রাজক বৈষ্ণব চক্রবর্তী আচার্য কুম্ভমেলার মহা মণ্ডলেশ্বর সাক্ষাত রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রভুর কৃপা মূর্তি
       </h2>
-      <h3 class="text-xl sm:text-2xl font-black text-rose-800 my-2">
-        ভক্ত-বৈষ্ণব সেবার আদর্শ স্থাপক অষ্টোতরশত শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ[span_4](start_span)[span_4](end_span)
+      <h3 class="text-lg sm:text-2xl font-black text-rose-800 my-2">
+        ভক্ত-বৈষ্ণব সেবার আদর্শ স্থাপক অষ্টোতরশত শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ
       </h3>
       <p class="text-xs sm:text-sm text-amber-900 font-bold mb-4">
-        (বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের ভূতপূর্ব মহান্ত)[span_5](start_span)[span_5](end_span)
+        (বৃন্দাবনস্থিত কেশীঘাট শ্রী শ্রী রাধা মুরারী মোহন কুঞ্জের ভূতপূর্ব মহান্ত)
       </p>
 
-      <div class="bg-white/90 p-6 rounded-2xl border border-amber-300 shadow-sm text-gray-800 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto italic">
-        "আমাদের পরম আরাধ্য গুরুদেবের প্রতি সশস্ত্র প্রণাম। ওঁর অলৌকিক লীলা ও কৃপায় আমরা ধন্য। ওঁর প্রদর্শিত পথে চলে আমরা যেন জীবনের পরম লক্ষ্য অর্জন করতে পারি। জয় গুরু দেব।[span_6](start_span)"[span_6](end_span)
+      <div class="bg-white/90 p-5 rounded-2xl border border-amber-300 shadow-sm text-gray-800 text-xs sm:text-base leading-relaxed max-w-3xl mx-auto italic">
+        "আমাদের পরম আরাধ্য গুরুদেবের প্রতি সশস্ত্র প্রণাম। ওঁর অলৌকিক লীলা ও কৃপায় আমরা ধন্য। ওঁর প্রদর্শিত পথে চলে আমরা যেন জীবনের পরম লক্ষ্য অর্জন করতে পারি। জয় গুরু দেব।"
       </div>
     </div>
   </section>
@@ -124,23 +125,23 @@
         🚩 প্রতিষ্ঠাতা ও সেবায়েত স্মৃতিতর্পণ 🚩
       </span>
       
-      <div class="my-4 max-w-sm mx-auto overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
-        <img src="images/uploads/IMG-20261021-WA0002.jpg" alt="নিত্যধামগতস্য গোপী কৃষ্ণ দাস (গোপী দাস বৈষ্ণব)" class="w-full h-auto object-cover">
+      <div class="my-4 max-w-sm mx-auto overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md bg-amber-50 p-2">
+        <img src="images/uploads/IMG-20261021-WA0002.jpg" onerror="this.src='https://via.placeholder.com/400x500?text=Gopi+Krishna+Das'" alt="নিত্যধামগতস্য গোপী কৃষ্ণ দাস (গোপী দাস বৈষ্ণব)" class="w-full h-auto rounded-xl object-cover">
       </div>
 
       <h3 class="text-xl sm:text-2xl font-bold text-amber-950 mb-1">
-        শ্রদ্ধাস্পদ নিত্যধামগত শ্রী যুক্ত গোপী কৃষ্ণ দাস (গোপী দাস বৈষ্ণব)[span_7](start_span)[span_7](end_span)
+        শ্রদ্ধাস্পদ নিত্যধামগত শ্রী যুক্ত গোপী কৃষ্ণ দাস (গোপী দাস বৈষ্ণব)
       </h3>
       <p class="text-xs sm:text-sm text-amber-800 font-bold mb-3">
-        প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমান প্রতীক, প্রাচীন মহাত্মা।[span_8](start_span)[span_8](end_span)
+        প্রতিষ্ঠাতা ও সেবায়েত, আজন্ম ভক্তি ও সদাচার সাধনার মূর্তিমান প্রতীক, প্রাচীন মহাত্মা।
       </p>
 
       <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 max-w-2xl mx-auto text-xs sm:text-sm text-amber-900 font-semibold mb-4">
-        <strong>তিরোধান তিথি ও সময়:</strong> ১৩ আষাঢ় ১৪২৪ বঙ্গাব্দ | ২৮ শে জুন ২০১৭ খ্রীষ্টাব্দ, রোজ বুধবার। রাত্রি: ০৮ টা ৩৫ ঘটিকায় (শুক্লপক্ষ, পঞ্চমী তিথি)।[span_9](start_span)[span_9](end_span)
+        <strong>তিরোধান তিথি ও সময়:</strong> ১৩ আষাঢ় ১৪২৪ বঙ্গাব্দ | ২৮ শে জুন ২০১৭ খ্রীষ্টাব্দ, রোজ বুধবার। রাত্রি: ০৮ টা ৩৫ ঘটিকায় (শুক্লপক্ষ, পঞ্চমী তিথি)।
       </div>
 
       <p class="text-xs sm:text-sm italic text-gray-700">
-        "ওঁ অজ্ঞানতিমিবান্ধস্য জ্ঞানাঞ্জনশলাকয়া।[span_10](start_span)"[span_10](end_span)
+        "ওঁ অজ্ঞানতিমিবান্ধস্য জ্ঞানাঞ্জনশলাকয়া।"
       </p>
     </div>
   </section>
@@ -154,129 +155,139 @@
         📜 মন্দিরের ভূমি দাতাদের নাম ও গভীর কৃতজ্ঞতা প্রকাশ
       </h2>
       <p class="text-center text-sm text-gray-700 mb-8 max-w-2xl mx-auto">
-        যাঁদের মহতী বদান্যতায় ও ভূমিদানে শ্রী শ্রী জগন্নাথ সেবাঙ্গনের বর্তমান স্থায়ী তীর্থপীঠ ও সেবাকুঞ্জ প্রতিষ্ঠিত হয়েছে, তাঁদের প্রতি অশেষ বিনম্র শ্রদ্ধা ও প্রনাম:
+        যাঁদের মহতী বদান্যতায় ও ভূমিদানে শ্রী শ্রী জগন্নাথ সেবাঙ্গনের বর্তমান স্থায়ী তীর্থপীঠ ও সেবাকুঞ্জ প্রতিষ্ঠিত হয়েছে, তাঁদের প্রতি অশেষ বিনম্র শ্রদ্ধা ও প্রণাম:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Donor 1 -->
-        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs">
-          <span class="text-xs bg-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full">নিত্যধামগতস্য ভূমিদাতা</span>
-          <h3 class="text-lg font-bold text-amber-950 mt-2">নিত্যধামগতস্য শ্রীযুক্ত ননী গোপাল সাহা[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span)</h3>
+        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs flex flex-col justify-center items-center">
+          <span class="text-xs bg-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full mb-2">নিত্যধামগতস্য ভূমিদাতা</span>
+          <h3 class="text-lg font-bold text-amber-950">নিত্যধামগতস্য শ্রীযুক্ত ননী গোপাল সাহা[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)</h3>
         </div>
 
         <!-- Donor 2 with Photo Banner -->
         <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs">
           <span class="text-xs bg-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full">নিত্যধামগতস্য ভূমিদাতা</span>
-          <h3 class="text-lg font-bold text-amber-950 mt-2 mb-3">নিত্যধামগতস্য শ্রীযুক্ত বাবু অনিল চন্দ্র সাহা[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)</h3>
-          <div class="max-w-xs mx-auto rounded-xl overflow-hidden border border-amber-300 shadow">
-            <img src="images/uploads/1000073385.jpg" alt="শ্রীযুক্ত বাবু অনিল চন্দ্র সাহা শ্রদ্ধাঞ্জলি" class="w-full h-auto">[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)
+          <h3 class="text-lg font-bold text-amber-950 mt-2 mb-3">নিত্যধামগতস্য শ্রীযুক্ত বাবু অনিল চন্দ্র সাহা[span_2](start_span)[span_2](end_span)[span_3](start_span)[span_3](end_span)</h3>
+          <div class="max-w-xs mx-auto rounded-xl overflow-hidden border border-amber-300 shadow bg-white p-1">
+            <img src="images/uploads/1000073385.jpg" onerror="this.src='images/uploads/1000073386.jpg'" alt="শ্রীযুক্ত বাবু অনিল চন্দ্র সাহা শ্রদ্ধাঞ্জলি" class="w-full h-auto rounded-lg">[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span)
           </div>
         </div>
 
         <!-- Donor 3 -->
-        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs">
-          <span class="text-xs bg-emerald-100 text-emerald-900 font-bold px-3 py-1 rounded-full">সম্মানিত ভূমিদাতা</span>
-          <h3 class="text-lg font-bold text-amber-950 mt-2">শ্রীযুক্ত বাবু পরিমল চন্দ্র সাহা</h3>
+        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs flex flex-col justify-center items-center">
+          <span class="text-xs bg-emerald-100 text-emerald-900 font-bold px-3 py-1 rounded-full mb-2">সম্মানিত ভূমিদাতা</span>
+          <h3 class="text-lg font-bold text-amber-950">শ্রীযুক্ত বাবু পরিমল চন্দ্র সাহা</h3>
         </div>
 
         <!-- Donor 4 -->
-        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs">
-          <span class="text-xs bg-emerald-100 text-emerald-900 font-bold px-3 py-1 rounded-full">সম্মানিত ভূমিদাতা</span>
-          <h3 class="text-lg font-bold text-amber-950 mt-2">শ্রীযুক্ত বাবু জয়দেব চন্দ্র সাহা</h3>
+        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-300 text-center shadow-xs flex flex-col justify-center items-center">
+          <span class="text-xs bg-emerald-100 text-emerald-900 font-bold px-3 py-1 rounded-full mb-2">সম্মানিত ভূমিদাতা</span>
+          <h3 class="text-lg font-bold text-amber-950">শ্রীযুক্ত বাবু জয়দেব চন্দ্র সাহা</h3>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 🚩 ভবিষ্যৎ কর্মপন্থা ও সেবা প্রকল্প -->
+  <!-- 🚩 ভবিষ্যৎ ও চলমান সেবা প্রকল্প -->
   <!-- ========================================================================= -->
-  <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-2 border-amber-300 rounded-2xl p-6 sm:p-8 shadow-xl my-8 max-w-5xl mx-auto">
-    <div class="text-center mb-6">
-      <span class="inline-block bg-amber-800 text-amber-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm mb-2">
-        🚩 ভবিষ্যৎ কর্মপন্থা ও সেবা প্রকল্প 🚩
-      </span>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-amber-900 tracking-wide">
-        শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
-      </h3>
-      <p class="text-xs sm:text-sm text-amber-800 mt-1 font-medium">
-        উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ
+  <section id="future-roadmap" class="py-6 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+    <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-2 border-amber-300 rounded-2xl p-6 sm:p-8 shadow-xl">
+      <div class="text-center mb-6">
+        <span class="inline-block bg-amber-800 text-amber-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm mb-2">
+          🚩 ভবিষ্যৎ ও চলমান সেবা প্রকল্প 🚩
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-amber-900 tracking-wide">
+          শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
+        </h3>
+        <p class="text-xs sm:text-sm text-amber-800 mt-1 font-medium">
+          উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ
+        </p>
+      </div>
+
+      <p class="text-gray-800 text-sm sm:text-base leading-relaxed mb-6 text-center italic bg-white/70 p-4 rounded-xl border border-amber-200 shadow-inner">
+        মানবসেবাই মাধবসেবা—এই বৈষ্ণবীয় আদর্শকে সামনে রেখে আমাদের সংঘের মাধ্যমে সমাজের কল্যাণে এবং দুস্থ মানুষের মুখে হাসি ফোটাতে নানামুখী চলমান ও দীর্ঘমেয়াদী সেবা প্রকল্প বাস্তবায়নের উদ্যোগ গ্রহণ করা হয়েছে।
       </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-800">
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">📖</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">ধর্মীয় ও বৈষ্ণবীয় শিক্ষা প্রদান</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">সনাতন ধর্মীয় মূল্যবোধ, গীতা পাঠ ও বৈষ্ণবীয় সদাচার শিক্ষা প্রদান করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">💼</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">কর্মসংস্থান ও আত্মকর্মসংস্থান প্রশিক্ষণ</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">বেকারদের জন্য বিভিন্ন কর্মমুখী প্রশিক্ষণের মাধ্যমে আত্মকর্মসংস্থানের সুযোগ তৈরি করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">🐄</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">গো-মাতা সেবা ও পালন</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">গো-মাতা সেবা এবং গো-পালনের মাধ্যমে বৈষ্ণবীয় সংস্কৃতির প্রসার ও পরিচর্যা করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">🪷</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">অহিংস নীতি ও আদর্শ</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">সর্বভূতে দয়া ও অহিংস নীতি জীবন ও সমাজে গ্রহণ ও বাস্তবায়ন করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">🏡</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">অনাথ ও বৃদ্ধাশ্রম</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">অনাথ আশ্রম ও বৃদ্ধাশ্রম নির্মাণ এবং এর সার্বিক কার্যক্রম বাস্তবায়ন করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">📚</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">শিক্ষা ও মেধাবৃত্তি</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">গরীব ও মেধাবী শিক্ষার্থীদের নিয়মিত বৃত্তি প্রদান এবং শিক্ষার প্রসার ঘটানো।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">🩺</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">চিকিৎসা সেবা</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">দরিদ্র ও অসহায় রোগীদের জন্য জরুরি চিকিৎসা সেবা ও ওষুধের ব্যবস্থা করা।</p>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
+          <span class="text-amber-700 text-xl">🍲</span>
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm sm:text-base">অন্নদান ও বস্ত্রদান</h4>
+            <p class="text-xs sm:text-sm text-gray-700 mt-0.5">দরিদ্র ও অসহায় মানুষদের মধ্যে নিয়মিত অন্নদান ও বস্ত্রদান সেবা প্রদান করা।</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center border-t border-amber-200 pt-4">
+        <p class="text-xs sm:text-sm text-amber-900 font-bold">
+          🙏 "সকল जीवों কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
+        </p>
+      </div>
     </div>
-
-    <p class="text-gray-800 text-sm sm:text-base leading-relaxed mb-6 text-center italic bg-white/70 p-4 rounded-xl border border-amber-200 shadow-inner">
-      মানবসেবাই মাধবসেবা—এই বৈষ্ণবীয় আদর্শকে সামনে রেখে আমাদের সংঘের মাধ্যমে সমাজের কল্যাণে এবং দুস্থ মানুষের মুখে হাসি ফোটাতে নানামুখী দীঘমেয়াদী প্রকল্প বাস্তবায়নের উদ্যোগ গ্রহণ করা হয়েছে।
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-800">
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">🐄</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">গো-মাতা সেবা ও পালন</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">গো-মাতা সেবা এবং গো-পালনের মাধ্যমে বৈষ্ণবীয় সংস্কৃতির প্রসার ও পরিচর্যা করা।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">🪷</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">অহিংস নীতি ও আদর্শ</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">সর্বভূতে দয়া ও অহিংস নীতি জীবন ও সমাজে গ্রহণ ও বাস্তবায়ন করা।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">🏡</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">অনাথ ও বৃদ্ধাশ্রম</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">অনাথ আশ্রম ও বৃদ্ধাশ্রম নির্মাণ এবং এর সার্বিক কার্যক্রম বাস্তবায়ন করা।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">📚</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">শিক্ষা ও মেধাবৃত্তি</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">গরীব ও মেধাবী শিক্ষার্থীদের নিয়মিত বৃত্তি প্রদান এবং শিক্ষার প্রসার ঘটানো।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">🩺</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">চিকিৎসা সেবা</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">দরিদ্র ও অসহায় রোগীদের জন্য জরুরি চিকিৎসা সেবা ও ওষুধের ব্যবস্থা করা।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3">
-        <span class="text-amber-700 text-lg font-bold">🍲</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">অন্নদান ও বস্ত্রদান</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">দরিদ্র ও অসহায় মানুষদের মধ্যে নিয়মিত অন্নদান ও বস্ত্রদান সেবা প্রদান করা।</p>
-        </div>
-      </div>
-
-      <div class="bg-white/90 p-4 rounded-xl border-l-4 border-amber-600 shadow-sm flex items-start space-x-3 md:col-span-2">
-        <span class="text-amber-700 text-lg font-bold">💼</span>
-        <div>
-          <h4 class="font-bold text-amber-900 text-sm sm:text-base">কর্মসংস্থান ও আত্মকর্মসংস্থান প্রশিক্ষণ</h4>
-          <p class="text-xs sm:text-sm text-gray-700 mt-0.5">বেকারদের জন্য বিভিন্ন কর্মমুখী প্রশিক্ষণের মাধ্যমে আত্মকর্মসংস্থানের সুযোগ তৈরি করা এবং প্রশিক্ষিত করে স্বাবলম্বী করা।</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-6 text-center border-t border-amber-200 pt-4">
-      <p class="text-xs sm:text-sm text-amber-900 font-bold">
-        🙏 "সকল জীবের কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
-      </p>
-    </div>
-  </div>
+  </section>
 
   <!-- ========================================================================= -->
   <!-- 📖 ভাগবত পারায়ণের প্রয়োজনীয় উপকরণ (৪০টি উপকরণের সম্পূর্ণ তালিকা) -->
   <!-- ========================================================================= -->
-  <section id="bhagavat-items" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+  <section id="bhagavat-items" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
     <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border-2 border-amber-400">
       <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-2 text-center border-b-2 border-amber-200 pb-3">
         📖 শ্রী শ্রীমদ্ভগবতগীতা বা ভাগবত পারায়ণের প্রয়োজনীয় উপকরণ
@@ -363,9 +374,101 @@
   </section>
 
   <!-- ========================================================================= -->
+  <!-- 📍 পথ পরিচিতি (Road Direction) -->
+  <!-- ========================================================================= -->
+  <section id="road-direction" class="py-8 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+    <div class="bg-amber-900 text-amber-50 p-6 sm:p-8 rounded-3xl shadow-xl border-2 border-amber-400">
+      <div class="text-center mb-4">
+        <span class="bg-amber-700 text-amber-100 text-xs font-bold px-4 py-1 rounded-full uppercase">
+          📍 লোকেশন ও গাইড
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-200 mt-2">
+          পথ পরিচিতি ও যাতায়াত নির্দেশিকা
+        </h2>
+      </div>
+
+      <div class="bg-amber-950/80 p-5 rounded-2xl border border-amber-700 leading-relaxed text-sm sm:text-base text-amber-100 font-medium">
+        <p class="mb-3">
+          🚗 <strong>সেনবাগ উপজেলা বাজার থেকে:</strong> মাত্র ২.৫ কিলোমিটার দক্ষিণে।
+        </p>
+        <p class="mb-3">
+          🛣️ <strong>সেনবাগ রাস্তার মাথা থেকে:</strong> ১.৫ কিলোমিটার উত্তরে ষ্টিল ব্রীজের পূর্ব পাশে সাহা বাড়ি সংলগ্ন।
+        </p>
+        <p class="text-amber-300 font-bold">
+          🛕 শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 💬 পারমার্থিক জিজ্ঞাসা ও হোয়াটসঅ্যাপ/ইউটিউব লিঙ্ক -->
+  <!-- ========================================================================= -->
+  <section id="spiritual-qa" class="py-8 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+    <div class="bg-emerald-950 text-white p-6 sm:p-10 rounded-3xl shadow-xl border-2 border-emerald-400 text-center">
+      <span class="bg-emerald-800 text-emerald-100 text-xs font-bold px-4 py-1.5 rounded-full uppercase mb-3 inline-block">
+        💬 সনাতনী ও বৈষ্ণবীয় পারমার্থিক পাঠশালা
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-200 mb-3">
+        আপনার যে কোনো সনাতনী ও বৈষ্ণবীয় জিজ্ঞাসায় সরাসরি যোগাযোগ করুন
+      </h2>
+      <p class="text-xs sm:text-sm text-emerald-100 mb-6 max-w-2xl mx-auto">
+        ধর্মীয় অনুভূতি, তিলক ধারণ, পূজা-পার্বণ বা বৈষ্ণবীয় পারমার্থিক তত্ত্বের যে কোনো জিজ্ঞাসায় আমাদের অফিশিয়াল হোয়াটসঅ্যাপ, পারমার্থিক পাঠশালা ইউটিউব চ্যানেল ও গ্রুপে যুক্ত থাকুন।
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://wa.me/8801711369035" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-emerald-300 flex items-center space-x-2 text-sm sm:text-base">
+          <span>📱 সরাসরি হোয়াটসঅ্যাপ মেসেজ (+8801711369035)</span>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-red-300 flex items-center space-x-2 text-sm sm:text-base">
+          <span>▶️ পারমার্থিক পাঠশালা ইউটিউব চ্যানেল</span>
+        </a>
+        <a href="https://chat.whatsapp.com" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-teal-300 flex items-center space-x-2 text-sm sm:text-base">
+          <span>👥 পারমার্থিক পাঠশালা হোয়াটসঅ্যাপ গ্রুপ</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 🙏 ব্যবস্থাপনা ও অধ্যক্ষ (ছবি ও বিস্তারিত কার্ড) -->
+  <!-- ========================================================================= -->
+  <section id="principal-profile" class="py-8 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+    <div class="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg text-center max-w-2xl mx-auto">
+      <span class="inline-block bg-amber-200 text-amber-900 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-3">
+        🙏 ব্যবস্থাপনায় & অধ্যক্ষ 🙏
+      </span>
+
+      <!-- Principal Image -->
+      <div class="my-4 max-w-xs mx-auto overflow-hidden rounded-2xl border-4 border-amber-300 shadow-xl bg-white p-1">
+        <img src="images/uploads/1000068111.jpg" onerror="this.src='https://via.placeholder.com/350x400?text=Sreebas+Das'" alt="দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস" class="w-full h-auto rounded-xl object-cover">
+      </div>
+
+      <h4 class="text-xs sm:text-sm font-bold text-amber-900 leading-relaxed mb-1">
+        মহান্ত শ্রী শ্রী ১০৮ মুরারী দাস বাবাজি মহারাজ্জীর শ্রীচরণাশ্রিত ও কৃপাধন্য
+      </h4>
+      <h3 class="text-xl sm:text-2xl font-black text-amber-950 my-2 bg-white/80 py-2 px-4 rounded-xl border border-amber-300 inline-block">
+        দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস
+      </h3>
+      <p class="text-xs sm:text-sm font-bold text-amber-800 mt-1">
+        অধ্যক্ষ, শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ
+      </p>
+      <p class="text-xs text-gray-700 mt-0.5">
+        উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।
+      </p>
+
+      <div class="mt-4 pt-3 border-t border-amber-200">
+        <p class="text-amber-900 text-sm sm:text-base font-bold">
+          মোবাইল ও হোয়াটসঅ্যাপ: <a href="https://wa.me/8801711369035" class="text-rose-800 underline font-extrabold">+8801711369035</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
   <!-- 📅 অটোমেটিক আপডেট গুগল ক্যালেন্ডার সেকশন -->
   <!-- ========================================================================= -->
-  <section id="google-calendar-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
+  <section id="google-calendar-section" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
       <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border-2 border-amber-400 text-center">
           <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-3 border-b-2 border-amber-200 pb-3">
               🗓️ অটোমেটিক আপডেট সিডিউল গুগল ক্যালেন্ডার (Live Schedule)
@@ -374,7 +477,7 @@
               নিচের গুগল ক্যালেন্ডারটি সরাসরি রিয়েল-টাইমে আপডেট হয়। আপনার কাঙ্ক্ষিত তারিখটি খালি আছে কিনা ট্রেনের টিকিটের মতো সহজেই দেখে নিয়ে সরাসরি নিচের ফর্মে বুকিং আবেদন করতে পারবেন:
           </p>
 
-          <div class="w-full h-[500px] rounded-2xl overflow-hidden border-2 border-amber-300 shadow-inner mb-4">
+          <div class="w-full h-[450px] rounded-2xl overflow-hidden border-2 border-amber-300 shadow-inner mb-4">
               <iframe 
                   src="https://calendar.google.com/calendar/embed?src=en.bd%23holiday%40group.v.calendar.google.com&ctz=Asia%2FDhaka" 
                   style="border: 0" 
@@ -390,7 +493,7 @@
   <!-- ========================================================================= -->
   <!-- 📝 অনুষ্ঠান বুকিং আবেদন ফর্ম -->
   <!-- ========================================================================= -->
-  <section id="booking-section" class="py-12 px-4 sm:px-6 max-w-4xl mx-auto w-full scroll-mt-20">
+  <section id="booking-section" class="py-10 px-4 sm:px-6 max-w-4xl mx-auto w-full scroll-mt-20">
       <div style="background-color: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 2px solid #d4a373;">
           
           <h2 style="text-align: center; color: #8b4513; margin-bottom: 5px; font-size: 26px; font-weight: bold;">
@@ -466,7 +569,7 @@
       </div>
   </section>
 
- <section id="committee" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
+ <section id="committee" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
  <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border-2 border-amber-400">  
  <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 text-center border-b-2 border-amber-200 pb-3">  
  মন্দিরের নব নির্বাচিত পরিচালনা পর্ষদ (Managing Committee)  
@@ -484,27 +587,9 @@
  </div>  
  </div>  
  </div>  
-
-      <!-- Din Sebak Card -->
-      <div class="bg-amber-50/85 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-lg my-8 text-center max-w-xl mx-auto">
-        <span class="inline-block bg-amber-200 text-amber-900 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-3">
-          🙏 দীন সেবক 🙏
-        </span>
-        <h4 class="text-sm sm:text-base font-bold text-amber-900 leading-relaxed mb-2">
-          মহান্ত ১০৮ শ্রী শ্রী মুরারী দাস বাবাজি মহারাজ্জীর শ্রীচরণাশ্রিত ও কৃপা ধন্য
-        </h4>
-        <h3 class="text-xl sm:text-2xl font-black text-amber-950 my-2 bg-amber-100/60 py-2 px-4 rounded-xl border border-amber-200 inline-block">
-          "দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস"
-        </h3>
-        <div class="mt-4 pt-3 border-t border-amber-200/60">
-          <p class="text-amber-900 text-sm sm:text-base font-bold">
-            মোবাইল ও হোয়াটসঅ্যাপ: <a href="tel:+8801711369035" class="text-amber-950 underline font-extrabold">+8801711369035</a>
-          </p>
-        </div>
-      </div>
  </section>  
 
-  <section id="donation-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
+  <section id="donation-section" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
  <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200 text-center">  
  <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-4 border-b-2 border-amber-200 pb-3">  
  অনলাইন ডোনেশন ফর্ম, বিকাশ/নগদ ও ব্যাংক অ্যাকাউন্ট বিবরণী  
@@ -533,7 +618,7 @@
  </div>  
  </section>  
   
- <section id="contact-section" class="py-12 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
+ <section id="contact-section" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">  
  <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-md border border-amber-200">  
  <h2 class="text-2xl sm:text-3xl font-bold text-amber-950 mb-6 border-b-2 border-amber-200 pb-3 text-center">  
  যোগাযোগের ঠিকানা, অফিশিয়াল পেজ ও কিউআর কোড হাব (Official Links & QR Hub)  
@@ -551,26 +636,31 @@
  </p>  
  </div>  
   
- <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 my-6 p-6 bg-amber-50/70 rounded-2xl border border-amber-200">  
- <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">  
- <div id="qrcode-website" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>  
+ <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 my-6 p-4 bg-amber-50/70 rounded-2xl border border-amber-200">  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
+ <div id="qrcode-website" class="mb-2 flex justify-center bg-white p-1 rounded border"></div>  
  <span class="text-xs font-bold text-amber-950">ওয়েবসাইট কিউআর</span>  
- <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-xs font-semibold hover:underline mt-1">ভিজিট করুন</a>  
+ <a href="https://jagannathsebangan.blogspot.com" target="_blank" class="text-blue-700 text-[11px] font-semibold hover:underline mt-1">ভিজিট করুন</a>  
  </div>  
- <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">  
- <div id="qrcode-map" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>  
- <span class="text-xs font-bold text-amber-950">ম্যাপ লোকেশন কিউআর</span>  
- <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="text-emerald-700 text-xs font-semibold hover:underline mt-1">দিকনির্দেশনা</a>  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
+ <div id="qrcode-map" class="mb-2 flex justify-center bg-white p-1 rounded border"></div>  
+ <span class="text-xs font-bold text-amber-950">ম্যাপ কিউআর</span>  
+ <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="text-emerald-700 text-[11px] font-semibold hover:underline mt-1">দিকনির্দেশনা</a>  
  </div>  
- <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">  
- <div id="qrcode-fb-page" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>  
- <span class="text-xs font-bold text-amber-950">ফেসবুক পেজ কিউআর</span>  
- <a href="https://www.facebook.com/share/19z8Uqfrjr/" target="_blank" class="text-blue-600 text-xs font-semibold hover:underline mt-1">পেইজ দেখুন</a>  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
+ <div id="qrcode-fb-page" class="mb-2 flex justify-center bg-white p-1 rounded border"></div>  
+ <span class="text-xs font-bold text-amber-950">ফেসবুক পেজ</span>  
+ <a href="https://www.facebook.com/share/19z8Uqfrjr/" target="_blank" class="text-blue-600 text-[11px] font-semibold hover:underline mt-1">পেইজ দেখুন</a>  
  </div>  
- <div class="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-amber-200 text-center">  
- <div id="qrcode-fb-profile" class="mb-2 flex justify-center bg-white p-2 rounded border"></div>  
- <span class="text-xs font-bold text-amber-950">ফেসবুক আইডি কিউআর</span>  
- <a href="https://www.facebook.com/share/1GiyxxLy8W/" target="_blank" class="text-blue-800 text-xs font-semibold hover:underline mt-1">আইডি দেখুন</a>  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
+ <div id="qrcode-fb-profile" class="mb-2 flex justify-center bg-white p-1 rounded border"></div>  
+ <span class="text-xs font-bold text-amber-950">ফেসবুক আইডি</span>  
+ <a href="https://www.facebook.com/share/1GiyxxLy8W/" target="_blank" class="text-blue-800 text-[11px] font-semibold hover:underline mt-1">আইডি দেখুন</a>  
+ </div>  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center col-span-2 sm:col-span-1">  
+ <div id="qrcode-whatsapp" class="mb-2 flex justify-center bg-white p-1 rounded border"></div>  
+ <span class="text-xs font-bold text-amber-950">হোয়াটসঅ্যাপ</span>  
+ <a href="https://wa.me/8801711369035" target="_blank" class="text-emerald-800 text-[11px] font-semibold hover:underline mt-1">মেসেজ দিন</a>  
  </div>  
  </div>  
  </div>  
@@ -621,7 +711,7 @@
  var qr = qrcode(0, 'M');  
  qr.addData(text);  
  qr.make();  
- container.innerHTML = qr.createSvgTag({cellSize: cellSize || 3, margin: 2});  
+ container.innerHTML = qr.createSvgTag({cellSize: cellSize || 3, margin: 1});  
  } catch (e) {}  
  }  
   
@@ -630,6 +720,7 @@
  renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali', 3);  
  renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/', 3);  
  renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/', 3);  
+ renderQRCode('qrcode-whatsapp', 'https://wa.me/8801711369035', 3);  
  });  
  </script>  
 
