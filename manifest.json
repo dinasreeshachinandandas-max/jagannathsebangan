@@ -1,14 +1,14 @@
 {
-  "background_color": "#ffffff",
+  "background_color": "#fdfbf7",
   "dir": "ltr",
   "display": "standalone",
-  "name": "সর্বাধুনিক বৈষ্ণবীয় পঞ্জিকা",
+  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন",
   "orientation": "any",
-  "scope": "/panjika.html",
-  "short_name": "Panjika",
-  "start_url": "/panjika.html",
-  "theme_color": "#ffffff",
-  "description": "আন্তর্জাতিক বৈষ্ণবীয় পঞ্জিকা ও সময়সূচী",
+  "scope": "/",
+  "short_name": "JagannathSebangan",
+  "start_url": "/index.html",
+  "theme_color": "#451a03",
+  "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ অফিশিয়াল অ্যাপ",
   "icons": [
     {
       "src": "icon-192.png",
