@@ -1,24 +1,13 @@
 {
-  "background_color": "#fdfbf7"
+  "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন",
+  "name": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন, সেনবাগ",
   "orientation": "any",
   "scope": "/",
   "short_name": "JagannathSebangan",
-  "start_url": "/index.html",
-  "theme_color": "#451a03",
-  "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ অফিশিয়াল অ্যাপ",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "/index.html",
+  "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।"
 }
