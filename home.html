@@ -443,7 +443,7 @@
 
       <div class="mt-6 text-center border-t border-amber-200 pt-4">
         <p class="text-xs sm:text-sm text-amber-900 font-bold">
-          🙏 "সকল जीवों কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
+          🙏 "সকল জীবের কল্যাণে ভক্তিমার্গের পথে এগিয়ে চলাই আমাদের ব্রত।" 🙏
         </p>
       </div>
     </div>
@@ -585,7 +585,7 @@
         <a href="https://wa.me/8801711369035" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-emerald-300 flex items-center space-x-2 text-sm sm:text-base">
           <span>📱 সরাসরি হোয়াটসঅ্যাপ মেসেজ (+8801711369035)</span>
         </a>
-        <a href="https://youtube.com" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-red-300 flex items-center space-x-2 text-sm sm:text-base">
+        <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-red-300 flex items-center space-x-2 text-sm sm:text-base">
           <span>▶️ পারমার্থিক পাঠশালা ইউটিউব চ্যানেল</span>
         </a>
         <a href="https://chat.whatsapp.com" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white font-bold px-6 py-3 rounded-2xl shadow-md border border-teal-300 flex items-center space-x-2 text-sm sm:text-base">
@@ -802,16 +802,21 @@
  </p>  
  </div>  
   
- <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 my-6 p-4 bg-amber-50/70 rounded-2xl border border-amber-200">  
+ <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 my-6 p-4 bg-amber-50/70 rounded-2xl border border-amber-200">  
  <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
  <div id="qrcode-website" class="mb-2 flex justify-center bg-white p-1 rounded border min-h-[100px] items-center"></div>  
- <span class="text-xs font-bold text-amber-950">ওয়েবসাইট কিউআর</span>  
- <a href="https://jagannathsebangan.vercel.app" target="_blank" class="text-blue-700 text-[11px] font-semibold hover:underline mt-1">ভিজিট করুন</a>  
+ <span class="text-xs font-bold text-amber-950">ব্লগ পেজ কিউআর</span>  
+ <a href="https://jagannathsebangan.vercel.app/panjika.html" target="_blank" class="text-blue-700 text-[11px] font-semibold hover:underline mt-1">ভিজিট করুন</a>  
  </div>  
  <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
  <div id="qrcode-map" class="mb-2 flex justify-center bg-white p-1 rounded border min-h-[100px] items-center"></div>  
  <span class="text-xs font-bold text-amber-950">ম্যাপ কিউআর</span>  
  <a href="https://maps.google.com/?q=Senbagh,+Noakhali" target="_blank" class="text-emerald-700 text-[11px] font-semibold hover:underline mt-1">দিকনির্দেশনা</a>  
+ </div>  
+ <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
+ <div id="qrcode-youtube" class="mb-2 flex justify-center bg-white p-1 rounded border min-h-[100px] items-center"></div>  
+ <span class="text-xs font-bold text-amber-950">ইউটিউব চ্যানেল</span>  
+ <a href="https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared" target="_blank" class="text-red-600 text-[11px] font-semibold hover:underline mt-1">চ্যানেল দেখুন</a>  
  </div>  
  <div class="flex flex-col items-center bg-white p-3 rounded-2xl shadow-sm border border-amber-200 text-center">  
  <div id="qrcode-fb-page" class="mb-2 flex justify-center bg-white p-1 rounded border min-h-[100px] items-center"></div>  
@@ -895,8 +900,9 @@
   
  window.addEventListener('DOMContentLoaded', function() {  
    setTimeout(function() {
-     renderQRCode('qrcode-website', 'https://jagannathsebangan.vercel.app');  
+     renderQRCode('qrcode-website', 'https://jagannathsebangan.vercel.app/panjika.html');  
      renderQRCode('qrcode-map', 'https://maps.google.com/?q=Senbagh,+Noakhali');  
+     renderQRCode('qrcode-youtube', 'https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared');
      renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/');  
      renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/');  
      renderQRCode('qrcode-whatsapp', 'https://wa.me/8801711369035');  
