@@ -1,18 +1,19 @@
 {
   "name": "বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা",
   "short_name": "Panjika",
-  "start_url": "/panjika.html?version=3",
+  "start_url": "/panjika.html?version=4",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#800020",
+  "id": "com.jagannathsebangan.panjika",
   "icons": [
     {
-      "src": "Icon-192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "Icon-512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
