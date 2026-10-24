@@ -9,13 +9,13 @@
   "description": "শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ, উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "mongolghot.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "mongolghot (1).png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
