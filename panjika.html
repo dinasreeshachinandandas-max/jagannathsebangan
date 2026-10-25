@@ -16,7 +16,6 @@
             --border-color: #f0e6d2;
         }
 
-        /* ডার্ক মোড থিম */
         body.dark-theme {
             --primary-color: #d4af37;
             --secondary-color: #f5d77f;
@@ -64,7 +63,6 @@
             font-weight: bold;
         }
 
-        /* প্রিন্টেড পঞ্জিকা থেকে যুক্ত করা বিশেষ ব্যানার সেকশন */
         .printed-header-banner {
             background: #fff3d1;
             border-bottom: 2px solid var(--secondary-color);
@@ -453,7 +451,7 @@
       📥 বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা অ্যাপ (APK) ডাউনলোড করুন
     </a>
   </div>
-    <!-- ইউটিলিটি বার (ভাষা ও ডার্ক মোড সুইচার) -->
+
     <div class="top-utility-bar">
         <div class="lang-switch">
             🌐 
@@ -466,7 +464,6 @@
         </div>
     </div>
 
-    <!-- প্রিন্টেড পঞ্জিকা থেকে সংযোজিত আন্তর্জাতিক ৩ লাইনের পরিচিতি ব্যানার -->
     <div class="printed-header-banner">
         <div class="line1" id="banner-line1">
             আন্তর্জাতিক শ্রীশ্রী রাধা মুরারীমোহন সেবা সংঘ, বাংলাদেশ কর্তৃক প্রচারিত
@@ -479,13 +476,11 @@
         </div>
     </div>
 
-    <!-- মূল হেডার -->
     <div class="header">
         <img src="logo.png" alt="লোগো" class="header-logo" onerror="this.src='https://via.placeholder.com/45'">
         <h1 id="app-title">বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা</h1>
     </div>
 
-    <!-- প্রথম পাতায় অফিশিয়াল ওয়েবসাইটের লিংক -->
     <div class="website-link-bar">
         🌐 <span id="lbl-off-site">অফিশিয়াল ওয়েবসাইট:</span> 
        <a href="https://jagannathsebangan.vercel.app" target="_blank">jagannathsebangan.vercel.app</a> 
@@ -493,7 +488,6 @@
 
     <div class="container">
         
-        <!-- ১. এক নজরে (Home Tab) -->
         <div id="tab-home" class="tab-content active">
             
             <div class="today-banner">
@@ -511,13 +505,13 @@
                 </div>
             </div>
 
-            <!-- লাইভ বৈষ্ণব পারণ কাউন্টডাউন ও ক্যালেন্ডার সিঙ্ক -->
+            <!-- পরবর্তী পালনীয় তিথি/পূজা/ব্রত স্বয়ংক্রিয় কাউন্টডাউন ও কার্ড -->
             <div class="card" style="text-align: center; background: #fff8e7; border-color: var(--secondary-color);">
-                <h4 style="margin: 0; color: var(--primary-color);" id="lbl-next-ekadashi">⏳ পরবর্তী একাদশী ব্রত ও পারণ সমাগত</h4>
+                <h4 style="margin: 0; color: var(--primary-color);" id="lbl-next-ekadashi">⏳ পরবর্তী পালনীয় তিথি, পূজা ও ব্রত সমাগত</h4>
                 <div id="ekadashi-countdown" style="font-size: 16px; font-weight: bold; margin: 6px 0; color: #800020;">
-                    শ্রীশ্রী রমা একাদশী: ১ নভেম্বর ২০২৬ (১৮ কার্তিক, বৃহস্পতিবার)
+                    লোড হচ্ছে...
                 </div>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=রমা+একাদশী+ব্রত&details=শ্রী+শ্রী+জগন্নাথ+সেবাঙ্গন+বৈষ্ণবীয়+পঞ্জিকা" target="_blank" class="btn-gcal">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=বৈষ্ণবীয়+ব্রত+ও+উৎসব&details=শ্রী+শ্রী+জগন্নাথ+সেবাঙ্গন+বৈষ্ণবীয়+পঞ্জিকা" target="_blank" class="btn-gcal">
                     📅 Google Calendar-এ যুক্ত করুন
                 </a>
             </div>
@@ -525,7 +519,7 @@
             <div class="card">
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <div style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-weight: bold; font-size: 13px;" id="tithi-badge">
-                        নবমী
+                        তিথি
                     </div>
                     <div>
                         <h3 style="margin: 0; color: var(--primary-color); font-size: 16px;" id="lbl-auto-tithi">আজকের স্বয়ংক্রিয় তিথি</h3>
@@ -533,15 +527,14 @@
                     </div>
                 </div>
                 <div class="tithi-box">
-                    <strong>আজকের বিশেষ ব্রত ও পূজা:</strong> <span id="today-vrat">স্বয়ংক্রিয় তথ্য লোড হচ্ছে...</span><br>
-                    <strong>পারণের সময়:</strong> <span id="today-paran">স্বয়ংক্রিয় তথ্য লোড হচ্ছে...</span><br>
+                    <strong>আজকের বিশেষ ব্রত ও পূজা:</strong> <span id="today-vrat">লোড হচ্ছে...</span><br>
+                    <strong>পারণের সময়:</strong> <span id="today-paran">লোড হচ্ছে...</span><br>
                     <strong>তিথি সময়সূচী:</strong> <span id="today-tithi">দ্বাদশী তিথি অহোরাত্র ব্যাপিনী</span><br>
                     <strong>নক্ষত্র সময়সূচী:</strong> <span id="today-nakshatra">শতভিষা নক্ষত্র অপরাহ্ন পর্যন্ত</span><br>
                     <strong>গণনা পদ্ধতি:</strong> <span id="current-method-text">দৃক সিদ্ধান্ত (সক্রিয়)</span>
                 </div>   
             </div>
 
-            <!-- স্বয়ংক্রিয় বৈষ্ণবীয় রাশিফল -->
             <div class="card">
                 <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 15px;" id="lbl-rashi-heading">⭐ অটোমেটিক দৈনিক বৈষ্ণবীয় রাশিফল</h3>
                 <select id="rashi-select" onchange="updateRashifal()" style="width: 100%; margin-bottom: 8px;">
@@ -563,14 +556,12 @@
                 </div>
             </div>
 
-            <!-- পারমার্থিক পাঠশালা ইউটিউব -->
             <div class="card" style="text-align: center;">
                 <h3 style="margin: 0; color: var(--primary-color); font-size: 16px;">পারমার্থিক পাঠশালা</h3>
                 <p style="margin: 4px 0 10px 0; font-size: 12px; color: var(--sub-text);">শ্রী শ্রী জগন্নাথ সেবাঙ্গন অফিসিয়াল পাঠ-কীর্তন</p>
                 <a href="https://youtube.com" target="_blank" class="btn-yt">ইউটিউব চ্যানেল ভিজিট করুন ➔</a>
             </div>
 
-            <!-- ব্যবস্থাপনা ও পরিচিতি কার্ড -->
             <div class="card management-card">
                 <img src="profile.png" alt="দীনশ্রী শচীনন্দন দাসানুদাস শ্রীবাস" class="profile-img" onerror="this.src='https://via.placeholder.com/85'">
                 <div class="management-info">
@@ -584,7 +575,6 @@
 
         </div>
 
-        <!-- ২. পঞ্জিকা ও ক্যালেন্ডার (১২ মাসের ড্রপডাউন) -->
         <div id="tab-panjika" class="tab-content">
             
             <div class="card">
@@ -592,7 +582,6 @@
                     📅 আন্তর্জাতিক ইংরেজি মাসের বৈষ্ণবীয় পঞ্জিকা (২০২৬-২০২৭)
                 </h3>
                 
-                <!-- ১২টি ইংরেজি মাস ড্রপডাউন -->
                 <select id="eng-month-select" class="month-selector" onchange="changeEngMonth()">
                     <option value="10" selected>October (অক্টোবর ২০২৬ - আশ্বিন/কার্তিক)</option>
                     <option value="11">November (নভেম্বর ২০২৬ - কার্তিক/অগ্রহায়ণ)</option>
@@ -617,12 +606,9 @@
                     <div class="day-header">শুক্র</div>
                     <div class="day-header">শনি</div>
                 </div>
-                <div id="calendar-days-box" class="calendar-grid">
-                    <!-- পঞ্জিকার বাংলা ও ইংরেজি তারিখের সমন্বিত গ্রিড -->
-                </div>
+                <div id="calendar-days-box" class="calendar-grid"></div>
             </div>
 
-            <!-- মাস ভিত্তিক পার্বণ ও পারণ টেবিল -->
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">
                     বিশেষ উৎসব, একাদশী, পূজা-পার্বণ ও পারণ সূচি
@@ -637,15 +623,12 @@
                             <th>পারণের সময়</th>
                         </tr>
                     </thead>
-                    <tbody id="festival-table-body">
-                        <!-- তথ্য স্বয়ংক্রিয়ভাবে লোড হবে -->
-                    </tbody>
+                    <tbody id="festival-table-body"></tbody>
                 </table>
             </div>
 
         </div>
 
-        <!-- ৩. বিবিধ (Bibidh Tab) -->
         <div id="tab-bibidh" class="tab-content">
             
             <div class="card">
@@ -665,18 +648,14 @@
                     <option value="9">September (সেপ্টেম্বর)</option>
                 </select>
 
-                <div id="bibidh-info-box" style="font-size: 13px; line-height: 1.8;">
-                    <!-- বিবিধ শুভ কাজ লোড হবে -->
-                </div>
+                <div id="bibidh-info-box" style="font-size: 13px; line-height: 1.8;"></div>
             </div>
 
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">
                     🌑 অমাবস্যা ও 🌕 পূর্ণিমা তিথি সূচি
                 </h3>
-                <div id="amavasya-purnima-box" style="font-size: 13px; line-height: 1.8;">
-                    <!-- অমাবস্যা ও পূর্ণিমা লোড হবে -->
-                </div>
+                <div id="amavasya-purnima-box" style="font-size: 13px; line-height: 1.8;"></div>
             </div>
 
             <div class="card">
@@ -686,7 +665,6 @@
 
         </div>
 
-        <!-- ৪. সেটিংস (Settings Tab) -->
         <div id="tab-settings" class="tab-content">
             
             <div class="card">
@@ -722,7 +700,7 @@
 
                 <div class="setting-row">
                     <div>
-                        <strong>একাদশী অ্যালার্ট নোটিফিকেশন</strong>
+                        <strong>একাদশী ও ব্রত অ্যালার্ট নোটিফিকেশন</strong>
                     </div>
                     <input type="checkbox" checked style="transform: scale(1.2);">
                 </div>
@@ -732,7 +710,6 @@
 
     </div>
 
-    <!-- বটম নেভিগেশন বার -->
     <div class="bottom-nav">
         <div class="nav-item active" onclick="switchTab('home', this)">
             <div style="font-size: 18px;">🏠</div>
@@ -753,7 +730,6 @@
     </div>
 
     <script>
-        // ১২ মাসের বাংলা পঞ্জিকা ডাটা ম্যাপ
         const banglaDateMap = {
             "10": {
                 offset: 4,
@@ -891,102 +867,102 @@
 
         const engFestivalData = {
             "10": [
-                { e: "০৬ অক্টোবর", b: "১৮ আশ্বিন", bar: "মঙ্গলবার", name: "শ্রীইন্দিরা একাদশী ব্রত", paran: "প্রাতঃ ০৭/০০ হতে ০৯/২৬" },
-                { e: "১০ অক্টোবর", b: "২২ আশ্বিন", bar: "শনিবার", name: "শ্রীশ্রী মহালয়া (১ম অমাবস্যা)", paran: "-" },
-                { e: "১৬ অক্টোবর", b: "২৮ আশ্বিন", bar: "শুক্রবার", name: "শ্রীশ্রী বিশ্বষষ্ঠী", paran: "-" },
-                { e: "১৭ অক্টোবর", b: "২৯ আশ্বিন", bar: "শনিবার", name: "শ্রীশ্রী মহাঅষ্টমী বিহিত পূজা", paran: "-" },
-                { e: "১৯ অক্টোবর", b: "০১ কার্তিক", bar: "সোমবার", name: "শ্রী শ্রী মহাঅষ্টমী ব্রত ও পূজা", paran: "পূর্বাহ্নের মধ্যে" },
-                { e: "২০ অক্টোবর", b: "০২ কার্তিক", bar: "মঙ্গলবার", name: "মহানবমী বিহিত পূজা", paran: "-" },
-                { e: "২১ অক্টোবর", b: "০৩ কার্তিক", bar: "বুধবার", name: "বিজয়া দশমী বিহিত পূজা ও বিসর্জন", paran: "-" },
-                { e: "২২ অক্টোবর", b: "০৪ কার্তিক", bar: "বৃহস্পতিবার", name: "পাপানশিনী / পাপঙ্কুশা একাদশী ব্রত, নিয়মসেবা ও কার্তিক ব্রত আরম্ভ", paran: "প্রাতঃ ০৬/০৪ হতে ০৯/৫২" },
-                { e: "২৫ অক্টোবর", b: "০৭ কার্তিক", bar: "রবিবার", name: "সাধারণ সাধারণ তিথি ও বিশেষ পূজা", paran: "প্রাতঃ ০৬/০৫ হতে ০৯/৫০" },
-                { e: "২৮ অক্টোবর", b: "১০ কার্তিক", bar: "বুধবার", name: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা ও পূর্ণিমা", paran: "-" },
-                { e: "৩০ অক্টোবর", b: "১২ কার্তিক", bar: "শুক্রবার", name: "শ্রীল নরোত্তম দাস ঠাকুর মহাশয়ের তিরোভাব মহোৎসব", paran: "-" }
+                { e: "০৬ অক্টোবর", b: "১৮ আশ্বিন", bar: "মঙ্গলবার", name: "শ্রীইন্দিরা একাদশী ব্রত", paran: "প্রাতঃ ০৭/০০ হতে ০৯/২৬", dayNum: 6 },
+                { e: "১০ অক্টোবর", b: "২২ আশ্বিন", bar: "শনিবার", name: "শ্রীশ্রী মহালয়া (১ম অমাবস্যা)", paran: "-", dayNum: 10 },
+                { e: "১৬ অক্টোবর", b: "২৮ আশ্বিন", bar: "শুক্রবার", name: "শ্রীশ্রী বিশ্বষষ্ঠী", paran: "-", dayNum: 16 },
+                { e: "১৭ অক্টোবর", b: "২৯ আশ্বিন", bar: "শনিবার", name: "শ্রীশ্রী মহাঅষ্টমী বিহিত পূজা", paran: "-", dayNum: 17 },
+                { e: "১৯ অক্টোবর", b: "০১ কার্তিক", bar: "সোমবার", name: "শ্রী শ্রী মহাঅষ্টমী ব্রত ও পূজা", paran: "পূর্বাহ্নের মধ্যে", dayNum: 19 },
+                { e: "২০ অক্টোবর", b: "০২ কার্তিক", bar: "মঙ্গলবার", name: "মহানবমী বিহিত পূজা", paran: "-", dayNum: 20 },
+                { e: "২১ অক্টোবর", b: "০৩ কার্তিক", bar: "বুধবার", name: "বিজয়া দশমী বিহিত পূজা ও বিসর্জন", paran: "-", dayNum: 21 },
+                { e: "২২ অক্টোবর", b: "০৪ কার্তিক", bar: "বৃহস্পতিবার", name: "পাপানশিনী / পাপঙ্কুশা একাদশী ব্রত, নিয়মসেবা ও কার্তিক ব্রত আরম্ভ", paran: "প্রাতঃ ০৬/০৪ হতে ০৯/৫২", dayNum: 22 },
+                { e: "২৫ অক্টোবর", b: "০৭ কার্তিক", bar: "রবিবার", name: "বিশেষ তিথি ও নিত্যসেবা", paran: "প্রাতঃ ০৬/০৫ হতে ০৯/৫০", dayNum: 25 },
+                { e: "২৮ অক্টোবর", b: "১০ কার্তিক", bar: "বুধবার", name: "শ্রীশ্রী কোজাগরী লক্ষ্মীপূজা ও পূর্ণিমা", paran: "-", dayNum: 28 },
+                { e: "৩০ অক্টোবর", b: "১২ কার্তিক", bar: "শুক্রবার", name: "শ্রীল নরোত্তম দাস ঠাকুর মহাশয়ের তিরোভাব মহোৎসব", paran: "-", dayNum: 30 }
             ],
             "11": [
-                { e: "০৫ নভেম্বর", b: "১৮ কার্তিক", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী রমা একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৬ হতে ০৯/৪৭" },
-                { e: "০৮ নভেম্বর", b: "২১ কার্তিক", bar: "রবিবার", name: "শ্রীশ্রী কালীপূজা, দীপাবলী, দ্বীপদান", paran: "-" },
-                { e: "০৯ নভেম্বর", b: "২২ কার্তিক", bar: "সোমবার", name: "শ্রীঅন্নকূট মহোৎসব, গো-গোবর্ধন ও বলিদৈত্যরাজ পূজা", paran: "-" },
-                { e: "১১ নভেম্বর", b: "২৪ কার্তিক", bar: "বুধবার", name: "ভ্রাতৃদ্বিতীয়া", paran: "-" },
-                { e: "১৩ নভেম্বর", b: "২৬ কার্তিক", bar: "শুক্রবার", name: "শ্রীশ্রী অনন্ত দাস বাবার ৮৪তম তিরোভাব", paran: "-" },
-                { e: "১৭ নভেম্বর", b: "৩০ কার্তিক", bar: "মঙ্গলবার", name: "শ্রীগোপাষ্টমী", paran: "-" },
-                { e: "১৮ নভেম্বর", b: "০১ অগ্রহায়ণ", bar: "বুধবার", name: "শ্রীঅক্ষয় নবমী", paran: "প্রাতঃ ০৬/২৪ হতে ১০/০১" },
-                { e: "২১ নভেম্বর", b: "০৪ অগ্রহায়ণ", bar: "শনিবার", name: "শ্রীউত্থান একাদশী ব্রত, নিয়মসেবা ও চাতুর্মাস্য ব্রত সমাপ্তি", paran: "-" },
-                { e: "২৪ নভেম্বর", b: "০৭ অগ্রহায়ণ", bar: "মঙ্গলবার", name: "শ্রীরাস পূর্ণিমা, শ্রীশ্রী রাধাকৃষ্ণের রাসযাত্রা", paran: "-" }
+                { e: "০৫ নভেম্বর", b: "১৮ কার্তিক", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী রমা একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৬ হতে ০৯/৪৭", dayNum: 5 },
+                { e: "০৮ নভেম্বর", b: "২১ কার্তিক", bar: "রবিবার", name: "শ্রীশ্রী কালীপূজা, দীপাবলী, দ্বীপদান", paran: "-", dayNum: 8 },
+                { e: "০৯ নভেম্বর", b: "২২ কার্তিক", bar: "সোমবার", name: "শ্রীঅন্নকূট মহোৎসব, গো-গোবর্ধন ও বলিদৈত্যরাজ পূজা", paran: "-", dayNum: 9 },
+                { e: "১১ নভেম্বর", b: "২৪ কার্তিক", bar: "বুধবার", name: "ভ্রাতৃদ্বিতীয়া", paran: "-", dayNum: 11 },
+                { e: "১৩ নভেম্বর", b: "২৬ কার্তিক", bar: "শুক্রবার", name: "শ্রীশ্রী অনন্ত দাস বাবার ৮৪তম তিরোভাব", paran: "-", dayNum: 13 },
+                { e: "১৭ নভেম্বর", b: "৩০ কার্তিক", bar: "মঙ্গলবার", name: "শ্রীগোপাষ্টমী", paran: "-", dayNum: 17 },
+                { e: "১৮ নভেম্বর", b: "০১ অগ্রহায়ণ", bar: "বুধবার", name: "শ্রীঅক্ষয় নবমী", paran: "প্রাতঃ ০৬/২৪ হতে ১০/০১", dayNum: 18 },
+                { e: "২১ নভেম্বর", b: "০৪ অগ্রহায়ণ", bar: "শনিবার", name: "শ্রীউত্থান একাদশী ব্রত, নিয়মসেবা ও চাতুর্মাস্য ব্রত সমাপ্তি", paran: "-", dayNum: 21 },
+                { e: "২৪ নভেম্বর", b: "০৭ অগ্রহায়ণ", bar: "মঙ্গলবার", name: "শ্রীরাস পূর্ণিমা, শ্রীশ্রী রাধাকৃষ্ণের রাসযাত্রা", paran: "-", dayNum: 24 }
             ],
             "12": [
-                { e: "০৪ ডিসেম্বর", b: "১৭ অগ্রহায়ণ", bar: "শুক্রবার", name: "শ্রী উৎপন্না একাদশী ব্রত", paran: "প্রাতঃ ০৮/১২ হতে ১০/১৬" },
-                { e: "১২ ডিসেম্বর", b: "২৫ অগ্রহায়ণ", bar: "শনিবার", name: "শ্রীরাধা গোবিন্দ নাথজিউর তিরোভাব তিথি", paran: "-" },
-                { e: "১৩ ডিসেম্বর", b: "২৬ অগ্রহায়ণ", bar: "রবিবার", name: "শ্রী বীরচন্দ্র প্রভুর আবির্ভাব তিথি", paran: "-" },
-                { e: "১৪ ডিসেম্বর", b: "২৭ অগ্রহায়ণ", bar: "সোমবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজজি শুভ আবির্ভাব তিথি", paran: "-" },
-                { e: "২০ ডিসেম্বর", b: "০৪ পৌষ", bar: "রবিবার", name: "শ্রী মোক্ষদা একাদশী (৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী)", paran: "প্রাতঃ ০৬/৪৭ হতে ১০/১৮" },
-                { e: "২৮ ডিসেম্বর", b: "১২ পৌষ", bar: "সোমবার", name: "শ্রীশ্রী হরিমোহন গোস্বামী তিরোভাব দিবস", paran: "-" }
+                { e: "০৪ ডিসেম্বর", b: "১৭ অগ্রহায়ণ", bar: "শুক্রবার", name: "শ্রী উৎপন্না একাদশী ব্রত", paran: "প্রাতঃ ০৮/১২ হতে ১০/১৬", dayNum: 4 },
+                { e: "১২ ডিসেম্বর", b: "২৫ অগ্রহায়ণ", bar: "শনিবার", name: "শ্রীরাধা গোবিন্দ নাথজিউর তিরোভাব তিথি", paran: "-", dayNum: 12 },
+                { e: "১৩ ডিসেম্বর", b: "২৬ অগ্রহায়ণ", bar: "রবিবার", name: "শ্রী বীরচন্দ্র প্রভুর আবির্ভাব তিথি", paran: "-", dayNum: 13 },
+                { e: "১৪ ডিসেম্বর", b: "২৭ অগ্রহায়ণ", bar: "সোমবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজজি শুভ আবির্ভাব তিথি", paran: "-", dayNum: 14 },
+                { e: "২০ ডিসেম্বর", b: "০৪ পৌষ", bar: "রবিবার", name: "শ্রী মোক্ষদা একাদশী (৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী)", paran: "প্রাতঃ ০৬/৪৭ হতে ১০/১৮", dayNum: 20 },
+                { e: "২৮ ডিসেম্বর", b: "১২ পৌষ", bar: "সোমবার", name: "শ্রীশ্রী হরিমোহন গোস্বামী তিরোভাব দিবস", paran: "-", dayNum: 28 }
             ],
             "1": [
-                { e: "০৩ জানুয়ারি", b: "১৮ পৌষ", bar: "রবিবার", name: "শ্রী সফলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫১ হতে ১০/২৪" },
-                { e: "১৮ জানুয়ারি", b: "০৪ মাঘ", bar: "সোমবার", name: "শ্রী পুত্রদা একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৪ হতে ১০/২৩" },
-                { e: "২৩ জানুয়ারি", b: "০৯ মাঘ", bar: "শনিবার", name: "শ্রী ষটতিলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২০ হতে ১০/২৩" }
+                { e: "০৩ জানুয়ারি", b: "১৮ পৌষ", bar: "রবিবার", name: "শ্রী সফলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫১ হতে ১০/২৪", dayNum: 3 },
+                { e: "১৮ জানুয়ারি", b: "০৪ মাঘ", bar: "সোমবার", name: "শ্রী পুত্রদা একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৪ হতে ১০/২৩", dayNum: 18 },
+                { e: "২৩ জানুয়ারি", b: "০৯ মাঘ", bar: "শনিবার", name: "শ্রী ষটতিলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২০ হতে ১০/২৩", dayNum: 23 }
             ],
             "2": [
-                { e: "০৪ ফেব্রুয়ারি", b: "২১ মাঘ", bar: "শুক্রবার", name: "শ্রীব্যাসপূজা, শ্রীমদ্ভক্তিবেদান্ত স্বামী মহারাজের ৯৬তম তিরোভাব", paran: "-" },
-                { e: "১০ ফেব্রুয়ারি", b: "২৭ মাঘ", bar: "শনিবার", name: "শ্রী শ্রী অদ্বৈত জয়ন্তী, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৬/৪৪ হতে ১০/২১" },
-                { e: "১৭ ফেব্রুয়ারি", b: "০৪ ফাল্গুন", bar: "বুধবার", name: "শ্রীভৈমী একাদশী ব্রত", paran: "প্রাতঃ ০৬/৪১ হতে ১০/২২" },
-                { e: "১৯ ফেব্রুয়ারি", b: "০৬ ফাল্গুন", bar: "শুক্রবার", name: "৫০৪ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী মহোৎসব, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/৫৮ হতে ০৯/২৩" },
-                { e: "২০ ফেব্রুয়ারি", b: "০৭ ফাল্গুন", bar: "শনিবার", name: "মাঘী পূর্ণিমা, প্রদোষাত ১০৮ শ্রীশ্রী তিনকড়ি গোস্বামী মহারাজের শুভ আবির্ভাব", paran: "-" }
+                { e: "০৪ ফেব্রুয়ারি", b: "২১ মাঘ", bar: "শুক্রবার", name: "শ্রীব্যাসপূজা, শ্রীমদ্ভক্তিবেদান্ত স্বামী মহারাজের ৯৬তম তিরোভাব", paran: "-", dayNum: 4 },
+                { e: "১০ ফেব্রুয়ারি", b: "২৭ মাঘ", bar: "শনিবার", name: "শ্রী শ্রী অদ্বৈত জয়ন্তী, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৬/৪৪ হতে ১০/২১", dayNum: 10 },
+                { e: "১৭ ফেব্রুয়ারি", b: "০৪ ফাল্গুন", bar: "বুধবার", name: "শ্রীভৈমী একাদশী ব্রত", paran: "প্রাতঃ ০৬/৪১ হতে ১০/২২", dayNum: 17 },
+                { e: "১৯ ফেব্রুয়ারি", b: "০৬ ফাল্গুন", bar: "শুক্রবার", name: "৫০৪ তম শ্রীশ্রী নিত্যানন্দ জয়ন্তী মহোৎসব, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/৫৮ হতে ০৯/২৩", dayNum: 19 },
+                { e: "২০ ফেব্রুয়ারি", b: "০৭ ফাল্গুন", bar: "শনিবার", name: "মাঘী পূর্ণিমা, প্রদোষাত ১০৮ শ্রীশ্রী তিনকড়ি গোস্বামী মহারাজের শুভ আবির্ভাব", paran: "-", dayNum: 20 }
             ],
             "3": [
-                { e: "০৪ মার্চ", b: "১৯ ফাল্গুন", bar: "বৃহস্পতিবার", name: "শ্রী বিজয়া একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৩ হতে ১০/২১" },
-                { e: "০৭ মার্চ", b: "২২ ফাল্গুন", bar: "রবিবার", name: "শ্রীশ্রী চতুর্দশী, মহা শিবরাত্রি ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/২০" },
-                { e: "১৯ মার্চ", b: "০৪ চৈত্র", bar: "শুক্রবার", name: "শ্রী আমলকী একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৫ হতে ১০/১৪" },
-                { e: "২২ মার্চ", b: "০৭ চৈত্র", bar: "সোমবার", name: "২৪২তম শ্রীশ্রী গৌরপূর্ণিমা-সন্ধ্যায় অভিষেক, শ্রীশ্রী গৌরাঙ্গ মহাপ্রভুর জন্ম-জয়ন্তী", paran: "প্রাতঃ ০৬/১২ হতে ১০/১২" },
-                { e: "২৭ মার্চ", b: "১২ চৈত্র", bar: "শনিবার", name: "শ্রীপঞ্চমদোল", paran: "-" }
+                { e: "০৪ মার্চ", b: "১৯ ফাল্গুন", bar: "বৃহস্পতিবার", name: "শ্রী বিজয়া একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৩ হতে ১০/২১", dayNum: 4 },
+                { e: "০৭ মার্চ", b: "২২ ফাল্গুন", bar: "রবিবার", name: "শ্রীশ্রী চতুর্দশী, মহা শিবরাত্রি ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/২০", dayNum: 7 },
+                { e: "১৯ মার্চ", b: "০৪ চৈত্র", bar: "শুক্রবার", name: "শ্রী আমলকী একাদশী ব্রত", paran: "প্রাতঃ ০৬/১৫ হতে ১০/১৪", dayNum: 19 },
+                { e: "২২ মার্চ", b: "০৭ চৈত্র", bar: "সোমবার", name: "২৪২তম শ্রীশ্রী গৌরপূর্ণিমা-সন্ধ্যায় অভিষেক, শ্রীশ্রী গৌরাঙ্গ মহাপ্রভুর জন্ম-জয়ন্তী", paran: "প্রাতঃ ০৬/১২ হতে ১০/১২", dayNum: 22 },
+                { e: "২৭ মার্চ", b: "১২ চৈত্র", bar: "শনিবার", name: "শ্রীপঞ্চমদোল", paran: "-", dayNum: 27 }
             ],
             "4": [
-                { e: "০১ এপ্রিল", b: "১৭ চৈত্র", bar: "বৃহস্পতিবার", name: "শ্রী পাপমোচনী একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/০৬" },
-                { e: "১০ এপ্রিল", b: "২৬ চৈত্র", bar: "শনিবার", name: "শ্রী ননী গোপাল সাহা এর ১ম তিরোভাব দিবস", paran: "-" },
-                { e: "১৪ এপ্রিল", b: "৩০ চৈত্র", bar: "বুধবার", name: "মহা বিষুব সংক্রান্তি / বর্ষ সমাপন", paran: "-" },
-                { e: "১৫ এপ্রিল", b: "০১ বৈশাখ", bar: "বুধবার", name: "শুভ নববর্ষ প্রারম্ভ", paran: "-" },
-                { e: "১৬ এপ্রিল", b: "০২ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রীরূপানন্দ দাস বাবাজীর তিরোভাব", paran: "-" },
-                { e: "১৭ এপ্রিল", b: "০৩ বৈশাখ", bar: "শুক্রবার", name: "শ্রীগদাধর পণ্ডিত গোস্বামীর জন্মোৎসব", paran: "-" },
-                { e: "২০ এপ্রিল", b: "০৬ বৈশাখ", bar: "সোমবার", name: "শ্রীশ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা", paran: "-" },
-                { e: "২৫ এপ্রিল", b: "১১ বৈশাখ", bar: "শনিবার", name: "শ্রীসীতা নবমী, শ্রীমতী জাহ্নবা দেবী আবির্ভাব", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫" },
-                { e: "২৭ এপ্রিল", b: "১৩ বৈশাখ", bar: "সোমবার", name: "শ্রীমোহিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫" },
-                { e: "৩০ এপ্রিল", b: "১৬ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", paran: "প্রাতঃ ০৫/৩৭ হতে ০৯/৫৪" }
+                { e: "০১ এপ্রিল", b: "১৭ চৈত্র", bar: "বৃহস্পতিবার", name: "শ্রী পাপমোচনী একাদশী ব্রত", paran: "প্রাতঃ ০৬/২৬ হতে ১০/০৬", dayNum: 1 },
+                { e: "১০ এপ্রিল", b: "২৬ চৈত্র", bar: "শনিবার", name: "শ্রী ননী গোপাল সাহা এর ১ম তিরোভাব দিবস", paran: "-", dayNum: 10 },
+                { e: "১৪ এপ্রিল", b: "৩০ চৈত্র", bar: "বুধবার", name: "মহা বিষুব সংক্রান্তি / বর্ষ সমাপন", paran: "-", dayNum: 14 },
+                { e: "১৫ এপ্রিল", b: "০১ বৈশাখ", bar: "বুধবার", name: "শুভ নববর্ষ প্রারম্ভ", paran: "-", dayNum: 15 },
+                { e: "১৬ এপ্রিল", b: "০২ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রীরূপানন্দ দাস বাবাজীর তিরোভাব", paran: "-", dayNum: 16 },
+                { e: "১৭ এপ্রিল", b: "০৩ বৈশাখ", bar: "শুক্রবার", name: "শ্রীগদাধর পণ্ডিত গোস্বামীর জন্মোৎসব", paran: "-", dayNum: 17 },
+                { e: "২০ এপ্রিল", b: "০৬ বৈশাখ", bar: "সোমবার", name: "শ্রীশ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা", paran: "-", dayNum: 20 },
+                { e: "২৫ এপ্রিল", b: "১১ বৈশাখ", bar: "শনিবার", name: "শ্রীসীতা নবমী, শ্রীমতী জাহ্নবা দেবী আবির্ভাব", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫", dayNum: 25 },
+                { e: "২৭ এপ্রিল", b: "১৩ বৈশাখ", bar: "সোমবার", name: "শ্রীমোহিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫", dayNum: 27 },
+                { e: "৩০ এপ্রিল", b: "১৬ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", paran: "প্রাতঃ ০৫/৩৭ হতে ০৯/৫৪", dayNum: 30 }
             ],
             "5": [
-                { e: "১৩ মে", b: "২৯ বৈশাখ", bar: "বুধবার", name: "শ্রীঅপরা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৯ হতে ০৮/১৩" },
-                { e: "২৭ মে", b: "১২ জ্যৈষ্ঠ", bar: "বুধবার", name: "শ্রী রুক্মিণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫৪" }
+                { e: "১৩ মে", b: "২৯ বৈশাখ", bar: "বুধবার", name: "শ্রীঅপরা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৯ হতে ০৮/১৩", dayNum: 13 },
+                { e: "২৭ মে", b: "১২ জ্যৈষ্ঠ", bar: "বুধবার", name: "শ্রী রুক্মিণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫৪", dayNum: 27 }
             ],
             "6": [
-                { e: "১১ জুন", b: "২৭ জ্যৈষ্ঠ", bar: "বৃহস্পতিবার", name: "শ্রীপাণ্ডবা নির্জলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৩ হতে ০৯/৫১" },
-                { e: "২৪ জুন", b: "০৯ আষাঢ়", bar: "বুধবার", name: "শ্রী গদাধর পণ্ডিত ও শ্রীমতী গঙ্গামাতা আবির্ভাব", paran: "-" },
-                { e: "২৫ জুন", b: "১০ আষাঢ়", bar: "বৃহস্পতিবার", name: "শ্রীশয়নী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫২" },
-                { e: "২৭ জুন", b: "১২ আষাঢ়", bar: "শনিবার", name: "শ্রীশ্রী রঘুনাথ দাস গোস্বামীর দণ্ড মহোৎসব (পানিহাটি)", paran: "-" }
+                { e: "১১ জুন", b: "২৭ জ্যৈষ্ঠ", bar: "বৃহস্পতিবার", name: "শ্রীপাণ্ডবা নির্জলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৩ হতে ০৯/৫১", dayNum: 11 },
+                { e: "২৪ জুন", b: "০৯ আষাঢ়", bar: "বুধবার", name: "শ্রী গদাধর পণ্ডিত ও শ্রীমতী গঙ্গামাতা আবির্ভাব", paran: "-", dayNum: 24 },
+                { e: "২৫ জুন", b: "১০ আষাঢ়", bar: "বৃহস্পতিবার", name: "শ্রীশয়নী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫২", dayNum: 25 },
+                { e: "২৭ জুন", b: "১২ আষাঢ়", bar: "শনিবার", name: "শ্রীশ্রী রঘুনাথ দাস গোস্বামীর দণ্ড মহোৎসব (পানিহাটি)", paran: "-", dayNum: 27 }
             ],
             "7": [
-                { e: "১১ জুলাই", b: "২৬ আষাঢ়", bar: "শনিবার", name: "শ্রীযোগিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩১ হতে ০৯/৫৭" },
-                { e: "১৫ জুলাই", b: "৩০ আষাঢ়", bar: "বুধবার", name: "শ্রীগুণ্ডিচা মার্জন ও শ্রীজগন্নাথ দেবের নব যৌবন দর্শন", paran: "-" },
-                { e: "১৬ জুলাই", b: "৩১ আষাঢ়", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা মহোৎসব", paran: "-" },
-                { e: "১৮ জুলাই", b: "০২ শ্রাবণ", bar: "শনিবার", name: "শ্রীশ্রী গোপীনাথ দাস বাবাজীর ৪৭তম তিরোভাব দিবস", paran: "-" },
-                { e: "২৩ জুলাই", b: "০৭ শ্রাবণ", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের পুনর্যাত্রা (উল্টোরথ)", paran: "-" },
-                { e: "২৫ জুলাই", b: "০৯ শ্রাবণ", bar: "শনিবার", name: "শ্রীপবিত্রারোপণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৫ হতে ১০/০০" },
-                { e: "২৮ জুলাই", b: "১২ শ্রাবণ", bar: "বুধবার", name: "শ্রীশ্রী গুরু পূর্ণিমা (ঝুলনযাত্রা প্রারম্ভ)", paran: "-" }
+                { e: "১১ জুলাই", b: "২৬ আষাঢ়", bar: "শনিবার", name: "শ্রীযোগিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩১ হতে ০৯/৫৭", dayNum: 11 },
+                { e: "১৫ জুলাই", b: "৩০ আষাঢ়", bar: "বুধবার", name: "শ্রীগুণ্ডিচা মার্জন ও শ্রীজগন্নাথ দেবের নব যৌবন দর্শন", paran: "-", dayNum: 15 },
+                { e: "১৬ জুলাই", b: "৩১ আষাঢ়", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের রথযাত্রা মহোৎসব", paran: "-", dayNum: 16 },
+                { e: "১৮ জুলাই", b: "০২ শ্রাবণ", bar: "শনিবার", name: "শ্রীশ্রী গোপীনাথ দাস বাবাজীর ৪৭তম তিরোভাব দিবস", paran: "-", dayNum: 18 },
+                { e: "২৩ জুলাই", b: "০৭ শ্রাবণ", bar: "বৃহস্পতিবার", name: "শ্রীশ্রী জগন্নাথদেবের পুনর্যাত্রা (উল্টোরথ)", paran: "-", dayNum: 23 },
+                { e: "২৫ জুলাই", b: "০৯ শ্রাবণ", bar: "শনিবার", name: "শ্রীপবিত্রারোপণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৫ হতে ১০/০০", dayNum: 25 },
+                { e: "২৮ জুলাই", b: "১২ শ্রাবণ", bar: "বুধবার", name: "শ্রীশ্রী গুরু পূর্ণিমা (ঝুলনযাত্রা প্রারম্ভ)", paran: "-", dayNum: 28 }
             ],
             "8": [
-                { e: "০৮ আগস্ট", b: "২৩ শ্রাবণ", bar: "শনিবার", name: "শ্রীকামদা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৪২ হতে ০৯/৪৪" },
-                { e: "২৩ আগস্ট", b: "০৫ ভাদ্র", bar: "রবিবার", name: "শ্রীশ্রী রাধাকুঞ্জের গন্ধর্বাচিত প্রারম্ভ", paran: "প্রাতঃ ১০/০১ পর্যন্ত" },
-                { e: "২৪ আগস্ট", b: "০৬ ভাদ্র", bar: "সোমবার", name: "শ্রীব্যঞ্জন দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/৪৭ হতে ০৯/২১" },
-                { e: "২৫ আগস্ট", b: "০৭ ভাদ্র", bar: "মঙ্গলবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজ তিরোভাব তিথি", paran: "-" },
-                { e: "২৮ আগস্ট", b: "১০ ভাদ্র", bar: "শুক্রবার", name: "শ্রীশ্রী বলদেব আবির্ভাব, রাখীবন্ধন", paran: "-" }
+                { e: "০৮ আগস্ট", b: "২৩ শ্রাবণ", bar: "শনিবার", name: "শ্রীকামদা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৪২ হতে ০৯/৪৪", dayNum: 8 },
+                { e: "২৩ আগস্ট", b: "০৫ ভাদ্র", bar: "রবিবার", name: "শ্রীশ্রী রাধাকুঞ্জের গন্ধর্বাচিত প্রারম্ভ", paran: "প্রাতঃ ১০/০১ পর্যন্ত", dayNum: 23 },
+                { e: "২৪ আগস্ট", b: "০৬ ভাদ্র", bar: "সোমবার", name: "শ্রীব্যঞ্জন দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/৪৭ হতে ০৯/২১", dayNum: 24 },
+                { e: "২৫ আগস্ট", b: "০৭ ভাদ্র", bar: "মঙ্গলবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজ তিরোভাব তিথি", paran: "-", dayNum: 25 },
+                { e: "২৮ আগস্ট", b: "১০ ভাদ্র", bar: "শুক্রবার", name: "শ্রীশ্রী বলদেব আবির্ভাব, রাখীবন্ধন", paran: "-", dayNum: 28 }
             ],
             "9": [
-                { e: "০৪ সেপ্টেম্বর", b: "১৭ ভাদ্র", bar: "শুক্রবার", name: "শ্রীশ্রী জন্মাষ্টমী ব্রত (৫২৫২তম শ্রীকৃষ্ণের আবির্ভাব)", paran: "প্রাতঃ ০৫/৫১ হতে ১০/০৬" },
-                { e: "০৭ সেপ্টেম্বর", b: "২০ ভাদ্র", bar: "সোমবার", name: "শ্রীঅজা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫৩ হতে ১০/১০" },
-                { e: "০৮ সেপ্টেম্বর", b: "২১ ভাদ্র", bar: "মঙ্গলবার", name: "চৌরাশি ক্রোশ ব্রজমণ্ডল পরিক্রমা প্রারম্ভ", paran: "-" },
-                { e: "১৮ সেপ্টেম্বর", b: "৩১ ভাদ্র", bar: "শুক্রবার", name: "শ্রীললিতা সপ্তমী", paran: "-" },
-                { e: "১৯ সেপ্টেম্বর", b: "০১ আশ্বিন", bar: "শনিবার", name: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/২৬ হতে ০৯/৫৮" },
-                { e: "২৩ সেপ্টেম্বর", b: "০৫ আশ্বিন", bar: "বুধবার", name: "শ্রীবিজয়ামহা দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/২৭ হতে ০৯/৫৭" },
-                { e: "২৫ সেপ্টেম্বর", b: "০৭ আশ্বিন", bar: "শুক্রবার", name: "নামাচার্য শ্রীহরিদাস ঠাকুরের নির্যান মহোৎসব", paran: "-" }
+                { e: "০৪ সেপ্টেম্বর", b: "১৭ ভাদ্র", bar: "শুক্রবার", name: "শ্রীশ্রী জন্মাষ্টমী ব্রত (৫২৫২তম শ্রীকৃষ্ণের আবির্ভাব)", paran: "প্রাতঃ ০৫/৫১ হতে ১০/০৬", dayNum: 4 },
+                { e: "০৭ সেপ্টেম্বর", b: "২০ ভাদ্র", bar: "সোমবার", name: "শ্রীঅজা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৫৩ হতে ১০/১০", dayNum: 7 },
+                { e: "০৮ সেপ্টেম্বর", b: "২১ ভাদ্র", bar: "মঙ্গলবার", name: "চৌরাশি ক্রোশ ব্রজমণ্ডল পরিক্রমা প্রারম্ভ", paran: "-", dayNum: 8 },
+                { e: "১৮ সেপ্টেম্বর", b: "৩১ ভাদ্র", bar: "শুক্রবার", name: "শ্রীললিতা সপ্তমী", paran: "-", dayNum: 18 },
+                { e: "১৯ সেপ্টেম্বর", b: "০১ আশ্বিন", bar: "শনিবার", name: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/২৬ হতে ০৯/৫৮", dayNum: 19 },
+                { e: "২৩ সেপ্টেম্বর", b: "০৫ আশ্বিন", bar: "বুধবার", name: "শ্রীবিজয়ামহা দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/২৭ হতে ০৯/৫৭", dayNum: 23 },
+                { e: "২৫ সেপ্টেম্বর", b: "০৭ আশ্বিন", bar: "শুক্রবার", name: "নামাচার্য শ্রীহরিদাস ঠাকুরের নির্যান মহোৎসব", paran: "-", dayNum: 25 }
             ]
         };
 
@@ -1110,63 +1086,18 @@
                 offSite: "অফিশিয়াল ওয়েবসাইট:",
                 gaurabda: "৫৪০ গৌরাব্দ | দামোদর মাস",
                 autoTithi: "আজকের স্বয়ংক্রিয় তিথি",
-                nextEkadashi: "⏳ পরবর্তী একাদশী ব্রত ও পারণ সমাগত",
+                nextEkadashi: "⏳ পরবর্তী পালনীয় তিথি, পূজা ও ব্রত সমাগত",
                 rashiHeading: "⭐ অটোমেটিক দৈনিক বৈষ্ণবীয় রাশিফল",
                 navHome: "এক নজরে",
                 navPanjika: "পঞ্জিকা",
                 navBibidh: "বিবিধ",
                 navSettings: "সেটিংস"
-            },
-            en: {
-                line1: "Promoted by International Sri Sri Radha Murarimohan Seva Sangha, Bangladesh",
-                line2: "Published from Sri Sri Radhakunda Sri Sri Madhva-Gaureshwara-Vaishnava-Sammilani, approved by all Vaishnavas of Vrajamandala, Panjika of Sripada Raghunathadasa Goswami Gaddi according to Bangladesh time",
-                line3: "Bangabda-1433, Srikrishnabda-5252, Sri Gaurabda-541-542, AD-2026-2027, Shakabda-1948-1949, Samvat-2083-2084",
-                appTitle: "Modern Vaishnava Calendar",
-                offSite: "Official Website:",
-                gaurabda: "540 Gaurabda | Damodara Masa",
-                autoTithi: "Today's Live Tithi",
-                nextEkadashi: "⏳ Upcoming Ekadashi & Parana",
-                rashiHeading: "⭐ Daily Vaishnava Horoscope",
-                navHome: "Home",
-                navPanjika: "Calendar",
-                navBibidh: "Misc",
-                navSettings: "Settings"
-            },
-            hi: {
-                line1: "अंतर्राष्ट्रीय श्री श्री राधा मुरारीमोहन सेवा संघ, बांग्लादेश द्वारा प्रचारित",
-                line2: "श्री श्री राधाकुंड स्थित श्री श्री मध्व-गौडेश्वर-वैष्णव-सम्मिलनी से प्रकाशित, व्रजमंडल के समस्त वैष्णवों द्वारा अनुमोदित श्रीपाद रघुनाथदास गोस्वामी गद्दी का पंचांग बांग्लादेश समयानुसार",
-                line3: "बंगाब्द-१४३३, श्रीकृष्णब्द-५२५२, श्री गौराब्द-५४१-५४२, ईस्वी-२०२६-२०२७, शक संवत-१९४८-१९४९, विक्रम संवत-२०८३-२०८४",
-                appTitle: "सर्वश्रेष्ठ वैष्णव पंचांग",
-                offSite: "आधिकारिक वेबसाइट:",
-                gaurabda: "५४० गौराब्द | दामोदर मास",
-                autoTithi: "आज की स्वचालित तिथि",
-                nextEkadashi: "⏳ आगामी एकादशी व्रत और पारण",
-                rashiHeading: "⭐ दैनिक वैष्णव राशिफल",
-                navHome: "मुख्य",
-                navPanjika: "पंचांग",
-                navBibidh: "विविध",
-                navSettings: "सेटिंग्स"
             }
         };
 
         function setLanguage(lang) {
             document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
-
-            const t = translations[lang] || translations.bn;
-            document.getElementById('banner-line1').innerText = t.line1;
-            document.getElementById('banner-line2').innerText = t.line2;
-            document.getElementById('banner-line3').innerText = t.line3;
-            document.getElementById('app-title').innerText = t.appTitle;
-            document.getElementById('lbl-off-site').innerText = t.offSite;
-            document.getElementById('lbl-gaurabda').innerText = t.gaurabda;
-            document.getElementById('lbl-auto-tithi').innerText = t.autoTithi;
-            document.getElementById('lbl-next-ekadashi').innerText = t.nextEkadashi;
-            document.getElementById('lbl-rashi-heading').innerText = t.rashiHeading;
-            document.getElementById('nav-home').innerText = t.navHome;
-            document.getElementById('nav-panjika').innerText = t.navPanjika;
-            document.getElementById('nav-bibidh').innerText = t.navBibidh;
-            document.getElementById('nav-settings').innerText = t.navSettings;
         }
 
         function toggleDarkMode() {
@@ -1203,19 +1134,42 @@
             document.getElementById('dynamic-eng-date').innerText = engDateFormatted;
             document.getElementById('dynamic-bangla-date').innerText = banglaDateFormatted;
 
-            // স্বয়ংক্রিয় আজকের তিথি ও ব্রত আপডেট করার লজিক
+            // আজকের তিথি ও ব্রত স্বয়ংক্রিয় সেট করা
             const monthFestivals = engFestivalData[monthNum] || [];
-            let todayFormattedStr = `${toBanglaNum(dayNum)} ${monthsBn[monthNum]}`;
-            let matchedFestival = monthFestivals.find(f => f.e.includes(toBanglaNum(dayNum)) || f.e.includes(dayNum.toString()));
+            let matchedFestival = monthFestivals.find(f => f.dayNum === dayNum);
 
             if (matchedFestival) {
                 document.getElementById('today-vrat').innerText = matchedFestival.name;
                 document.getElementById('today-paran').innerText = matchedFestival.paran;
-                document.getElementById('tithi-badge').innerText = matchedFestival.bar;
             } else {
                 document.getElementById('today-vrat').innerText = "সাধারণ তিথি ও নিত্যসেবা";
                 document.getElementById('today-paran').innerText = "-";
-                document.getElementById('tithi-badge').innerText = currentDayName.slice(0, 3);
+            }
+            document.getElementById('tithi-badge').innerText = currentDayName.slice(0, 3);
+
+            // পরবর্তী আসন্ন পালনীয় তিথি/পূজা/ব্রত স্বয়ংক্রিয়ভাবে খুঁজে বের করার লজিক
+            let nextFestivalFound = null;
+            let checkMonth = monthNum;
+            let checkDay = dayNum + 1;
+
+            while (!nextFestivalFound && checkMonth <= 12) {
+                let mList = engFestivalData[checkMonth] || [];
+                let found = mList.find(f => checkMonth > monthNum || f.dayNum >= checkDay);
+                if (found) {
+                    nextFestivalFound = found;
+                } else {
+                    checkMonth++;
+                    checkDay = 1;
+                }
+            }
+
+            if (nextFestivalFound) {
+                document.getElementById('ekadashi-countdown').innerHTML = `
+                    ${nextFestivalFound.name}: ${nextFestivalFound.e} ২০২৬ (${nextFestivalFound.b}, ${nextFestivalFound.bar})<br>
+                    <small>পারণ/সময়: ${nextFestivalFound.paran}</small>
+                `;
+            } else {
+                document.getElementById('ekadashi-countdown').innerText = "কোনো আসন্ন ব্রত বা উৎসবের তালিকা পাওয়া যায়নি।";
             }
 
             const monthSelect = document.getElementById('eng-month-select');
@@ -1282,15 +1236,14 @@
             `;
 
             document.getElementById('amavasya-purnima-box').innerHTML = `
-                <strong>⚫ অমাবস্যা তিথি:</strong> ${info.amavasya}<br>
-                <strong>🟡 পূর্ণিমা তিথি:</strong> ${info.purnima}
+                **⚫ অমাবস্যা তিথি:** ${info.amavasya}<br>
+                **🟡 পূর্ণিমা তিথি:** ${info.purnima}
             `;
         }
 
         function updateTimezone() {
             var selectedTz = document.getElementById('timezone-select').value;
             document.getElementById('timezone-text').innerText = "টাইমজোন: " + selectedTz + " (অটোমেটিক হিসাব সক্রিয়)";
-            alert("স্থান / টাইমজোন সফলভাবে '" + selectedTz + "' এ পরিবর্তন করা হয়েছে। স্থানীয় সূর্যোদয় ও পারণ সময় স্বয়ংক্রিয়ভাবে আপডেট হয়ে যাবে।");
         }
 
         const rashifalData = {
@@ -1331,32 +1284,18 @@
         function updateCalculation() {
             var val = document.getElementById('calc-method').value;
             document.getElementById('current-method-text').innerText = val;
-            alert("পঞ্জিকার গণনা পদ্ধতি সফলভাবে '" + val + "' এ পরিবর্তন করা হয়েছে।");
-        }
-
-        function scheduleMidnightRefresh() {
-            const now = new Date();
-            const midnight = new Date();
-            midnight.setHours(24, 0, 0, 0);
-
-            const timeUntilMidnight = midnight.getTime() - now.getTime();
-
-            setTimeout(() => {
-                location.reload();
-            }, timeUntilMidnight);
         }
 
         window.onload = function() {
             loadRealtimeToday();
             changeBibidhEngMonth();
-            scheduleMidnightRefresh();
         };
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Panjika Service Worker Registered! Scope:', reg.scope))
-                    .catch(err => console.error('Service Worker Registration Failed:', err));
+                    .then(reg => console.log('Service Worker Registered!'))
+                    .catch(err => console.log('SW failed'));
             });
         }
     </script>
