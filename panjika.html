@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা - Global Vaishnava Calendar</title>
-    <link rel="manifest" href="/manifest-panjika.json">
+    <link rel="manifest" href="manifest-panjika.json">
     <style>
         :root {
             --primary-color: #800020;
@@ -32,7 +32,7 @@
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            padding-bottom: 75px;
+            padding-bottom: 85px;
             transition: background 0.3s, color 0.3s;
         }
 
@@ -442,6 +442,41 @@
             margin-top: 8px;
             font-weight: bold;
         }
+
+        /* নতুন আধুনিক সংযোজন স্টাইল: সার্চ, শেয়ার ও প্রিন্ট বাটন */
+        .search-container {
+            margin-bottom: 12px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 2px solid var(--secondary-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .btn-action {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+        .btn-share { background-color: #25d366; }
+        .btn-print { background-color: #007bff; }
     </style>
 </head>
 <body>
@@ -490,6 +525,11 @@
         
         <div id="tab-home" class="tab-content active">
             
+            <!-- স্মার্ট সার্চ বার সংযোজন -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="🔍 যেকোনো ব্রত, একাদশী বা উৎসব সার্চ করুন..." onkeyup="searchPanjika()">
+            </div>
+
             <div class="today-banner">
                 <div class="gaurabda-tag" id="lbl-gaurabda">৫৪০ গৌরাব্দ | দামোদর মাস</div>
                 <div id="dynamic-eng-date" style="font-size: 18px; font-weight: bold;">২০ অক্টোবর ২০২৬ খ্রীষ্টাব্দ</div>
@@ -502,6 +542,14 @@
                 </div>
                 <div class="tithi-progress-container" title="তিথি স্থায়িত্বকাল">
                     <div class="tithi-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- সোশ্যাল শেয়ার ও প্রিন্ট বাটন সংযোজন -->
+            <div class="card" style="padding: 10px;">
+                <div class="action-buttons">
+                    <button class="btn-action btn-share" onclick="shareOnWhatsApp()">📤 হোয়াটসঅ্যাপে শেয়ার</button>
+                    <button class="btn-action btn-print" onclick="window.print()">🖨️ প্রিন্ট / PDF</button>
                 </div>
             </div>
 
@@ -723,7 +771,7 @@
             <div style="font-size: 18px;">🏠</div>
             <span id="nav-home">এক নজরে</span>
         </div>
-        <div class="nav-item" onclick="switchTab('panjika', this)"
+        <div class="nav-item" onclick="switchTab('panjika', this)">
             <div style="font-size: 18px;">📅</div>
             <span id="nav-panjika">পঞ্জিকা</span>
         </div>
@@ -935,14 +983,14 @@
                 { e: "২০ এপ্রিল", b: "০৬ বৈশাখ", bar: "সোমবার", name: "শ্রীশ্রী অক্ষয় তৃতীয়া, শ্রী চন্দন যাত্রা", paran: "-", dayNum: 20 },
                 { e: "২৫ এপ্রিল", b: "১১ বৈশাখ", bar: "শনিবার", name: "শ্রীসীতা নবমী, শ্রীমতী জাহ্নবা দেবী আবির্ভাব", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫", dayNum: 25 },
                 { e: "২৭ এপ্রিল", b: "১৩ বৈশাখ", bar: "সোমবার", name: "শ্রীমোহিনী একাদশী ব্রত", paran: "প্রাতঃ ০৫/৩৯ হতে ০৯/৫৫", dayNum: 27 },
-                { e: "৩০ এপ্রিল", b: "১৬ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", paran: "প্রাতঃ ০৫/৩৭ হতে ০৯/৫৪", dayNum: 30 }
+                { e: "৩০ এপ্রিল", b: "১৬ বৈশাখ", bar: "বৃহস্পতিবার", name: "শ্রী নৃসিংহ চতুর্দশী ব্রত (সন্ধ্যায় অভিষেক)", paran: "প্রাতঃ ০-৫/৩৭ হতে ০৯/৫৪", dayNum: 30 }
             ],
             "5": [
                 { e: "১৩ মে", b: "২৯ বৈশাখ", bar: "বুধবার", name: "শ্রীঅপরা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৯ হতে ০৮/১৩", dayNum: 13 },
                 { e: "২৭ মে", b: "১২ জ্যৈষ্ঠ", bar: "বুধবার", name: "শ্রী রুক্মিণী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫৪", dayNum: 27 }
             ],
             "6": [
-                { e: "১১ জুন", b: "২৭ জ্যৈষ্ঠ", bar: "বৃহস্পতিবার", name: "শ্রীপাণ্ডবা নির্জলা একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৩ হতে ০৯/৫১", dayNum: 11 },
+                { e: "১১ জুন", b: "২৭ জ্যৈষ্ঠ", bar: "বৃহস্পতিবার", name: "শ্রীপাণ্ডবা নির্জলা একাদশী ব্রত", paran: "প্রাতঃ ০-৫/২৩ হতে ০৯/৫১", dayNum: 11 },
                 { e: "২৪ জুন", b: "০৯ আষাঢ়", bar: "বুধবার", name: "শ্রী গদাধর পণ্ডিত ও শ্রীমতী গঙ্গামাতা আবির্ভাব", paran: "-", dayNum: 24 },
                 { e: "২৫ জুন", b: "১০ আষাঢ়", bar: "বৃহস্পতিবার", name: "শ্রীশয়নী একাদশী ব্রত", paran: "প্রাতঃ ০৫/২৪ হতে ০৯/৫২", dayNum: 25 },
                 { e: "২৭ জুন", b: "১২ আষাঢ়", bar: "শনিবার", name: "শ্রীশ্রী রঘুনাথ দাস গোস্বামীর দণ্ড মহোৎসব (পানিহাটি)", paran: "-", dayNum: 27 }
@@ -959,7 +1007,7 @@
             "8": [
                 { e: "০৮ আগস্ট", b: "২৩ শ্রাবণ", bar: "শনিবার", name: "শ্রীকামদা একাদশী ব্রত", paran: "প্রাতঃ ০৫/৪২ হতে ০৯/৪৪", dayNum: 8 },
                 { e: "২৩ আগস্ট", b: "০৫ ভাদ্র", bar: "রবিবার", name: "শ্রীশ্রী রাধাকুঞ্জের গন্ধর্বাচিত প্রারম্ভ", paran: "প্রাতঃ ১০/০১ পর্যন্ত", dayNum: 23 },
-                { e: "২৪ আগস্ট", b: "০৬ ভাদ্র", bar: "সোমবার", name: "শ্রীব্যঞ্জন দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/৪৭ হতে ০৯/২১", dayNum: 24 },
+                { e: "২৪ আগস্ট", b: "০৬ ভাদ্র", bar: "সোমবার", name: "শ্রীব্যঞ্জন দ্বাদশী ব্রত", paran: "প্রাতঃ ০-৫/৪৭ হতে ০৯/২১", dayNum: 24 },
                 { e: "২৫ আগস্ট", b: "০৭ ভাদ্র", bar: "মঙ্গলবার", name: "সিদ্ধ মনোহর দাস বাবাজী মহারাজ তিরোভাব তিথি", paran: "-", dayNum: 25 },
                 { e: "২৮ আগস্ট", b: "১০ ভাদ্র", bar: "শুক্রবার", name: "শ্রীশ্রী বলদেব আবির্ভাব, রাখীবন্ধন", paran: "-", dayNum: 28 }
             ],
@@ -969,12 +1017,11 @@
                 { e: "০৮ সেপ্টেম্বর", b: "২১ ভাদ্র", bar: "মঙ্গলবার", name: "চৌরাশি ক্রোশ ব্রজমণ্ডল পরিক্রমা প্রারম্ভ", paran: "-", dayNum: 8 },
                 { e: "১৮ সেপ্টেম্বর", b: "৩১ ভাদ্র", bar: "শুক্রবার", name: "শ্রীললিতা সপ্তমী", paran: "-", dayNum: 18 },
                 { e: "১৯ সেপ্টেম্বর", b: "০১ আশ্বিন", bar: "শনিবার", name: "শ্রী রাধাষ্টমী ব্রত, মধ্যাহ্নে অভিষেক", paran: "প্রাতঃ ০৫/২৬ হতে ০৯/৫৮", dayNum: 19 },
-                { e: "২৩ সেপ্টেম্বর", b: "০৫ আশ্বিন", bar: "বুধবার", name: "শ্রীবিজয়ামহা দ্বাদশী ব্রত", paran: "প্রাতঃ ০-৫/২৭ হতে ০৯/৫৭", dayNum: 23 },
+                { e: "২৩ সেপ্টেম্বর", b: "০৫ আশ্বিন", bar: "বুধবার", name: "শ্রীবিজয়ামহা দ্বাদশী ব্রত", paran: "প্রাতঃ ০৫/২৭ হতে ০৯/৫৭", dayNum: 23 },
                 { e: "২৫ সেপ্টেম্বর", b: "০৭ আশ্বিন", bar: "শুক্রবার", name: "নামাচার্য শ্রীহরিদাস ঠাকুরের নির্যান মহোৎসব", paran: "-", dayNum: 25 }
             ]
         };
 
-        // নির্দিষ্ট তারিখ অনুযায়ী বিশেষ পারমার্থিক আলোচনা ও ভজন মহিমা ডেটাবেজ
         const specialDiscussions = {
             "2026-10-26": {
                 title: "🌕 শ্রী শ্রী কোজাগরী লক্ষ্মী পূর্ণিমা ও শারদ পূর্ণিমা আলোচনা",
@@ -1116,9 +1163,45 @@
             }
         };
 
+        // বহুভাষিক ডিকশনারি (বাংলা, ইংরেজি, হিন্দি)
+        const translations = {
+            bn: {
+                appTitle: "বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা",
+                navHome: "এক নজরে",
+                navPanjika: "পঞ্জিকা",
+                navBibidh: "বিবিধ",
+                navSettings: "সেটিংস",
+                offSite: "অফিশিয়াল ওয়েবসাইট:"
+            },
+            en: {
+                appTitle: "Pure Vaishnava Calendar",
+                navHome: "Overview",
+                navPanjika: "Calendar",
+                navBibidh: "Misc",
+                navSettings: "Settings",
+                offSite: "Official Website:"
+            },
+            hi: {
+                appTitle: "शुद्ध वैष्णव पंजिका",
+                navHome: "एक नज़र",
+                navPanjika: "पंजिका",
+                navBibidh: "विविध",
+                navSettings: "सेटिंग्स",
+                offSite: "आधिकारिक वेबसाइट:"
+            }
+        };
+
         function setLanguage(lang) {
             document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
+
+            const t = translations[lang] || translations['bn'];
+            document.getElementById('app-title').innerText = t.appTitle;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-panjika').innerText = t.navPanjika;
+            document.getElementById('nav-bibidh').innerText = t.navBibidh;
+            document.getElementById('nav-settings').innerText = t.navSettings;
+            document.getElementById('lbl-off-site').innerText = t.offSite;
         }
 
         function toggleDarkMode() {
@@ -1155,7 +1238,6 @@
             document.getElementById('dynamic-eng-date').innerText = engDateFormatted;
             document.getElementById('dynamic-bangla-date').innerText = banglaDateFormatted;
 
-            // আজকের বিশেষ ব্রত ও পূজা সেট করা
             const monthFestivals = engFestivalData[monthNum] || [];
             let matchedFestival = monthFestivals.find(f => f.dayNum === dayNum);
 
@@ -1168,7 +1250,6 @@
             }
             document.getElementById('tithi-badge').innerText = currentDayName.slice(0, 3);
 
-            // তারিখ অনুযায়ী নির্ভুল তিথি ও নক্ষত্র বসানো
             const dateKey = `${yearNum}-${String(monthNum).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
             const panjikaInfo = customDailyPanjika[dateKey] || {
                 tithi: "আজ সাধারণ তিথি ও নিত্যসেবা অহোরাত্র ব্যাপিনী।",
@@ -1178,20 +1259,17 @@
             document.getElementById('today-tithi').innerText = panjikaInfo.tithi;
             document.getElementById('today-nakshatra').innerText = panjikaInfo.nakshatra;
 
-            // বিশেষ আলোচনা ও ভজন মহিমা স্বয়ংক্রিয় লোড করা
             const specialDisc = specialDiscussions[dateKey];
             if (specialDisc) {
                 document.getElementById('special-discussion-card').style.display = "block";
                 document.getElementById('disc-title').innerHTML = specialDisc.title;
                 document.getElementById('disc-content').innerHTML = specialDisc.text;
             } else {
-                // যদি নির্দিষ্ট দিনে বিশেষ আলোচনা না থাকে, তবে পরবর্তী আসন্ন মহোৎসবের আলোচনা দেখাবে
                 document.getElementById('special-discussion-card').style.display = "block";
                 document.getElementById('disc-title').innerHTML = "📜 পারমার্থিক বাণী ও ভজন মহিমা";
                 document.getElementById('disc-content').innerHTML = "শ্রীকৃষ্ণচৈতন্য মহাপ্রভু ও নিত্যানন্দ প্রভুর চরণে শরণাগত হয়ে হরিনাম সংকীর্তন করুন। সাধুসঙ্গ ও নামরূচিই জীবের পরম ধর্ম।";
             }
 
-            // পরবর্তী আসন্ন পালনীয় তিথি/পূজা/ব্রত স্বয়ংক্রিয়ভাবে খুঁজে বের করা
             let nextFestivalFound = null;
             let checkMonth = monthNum;
             let checkDay = dayNum + 1;
@@ -1330,6 +1408,21 @@
             document.getElementById('current-method-text').innerText = val;
         }
 
+        // স্মার্ট সার্চ ফাংশন
+        function searchPanjika() {
+            let input = document.getElementById('search-input').value.toLowerCase();
+            if(input.length > 1) {
+                switchTab('panjika', document.querySelectorAll('.nav-item')[1]);
+            }
+        }
+
+        // হোয়াটসঅ্যাপ শেয়ার ফাংশন
+        function shareOnWhatsApp() {
+            let text = "বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা: ভিজিট করুন এবং আজকের তিথি, একাদশী ও ব্রত জানুন।";
+            let url = "https://wa.me/?text=" + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+
         window.onload = function() {
             loadRealtimeToday();
             changeBibidhEngMonth();
@@ -1337,9 +1430,9 @@
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Service Worker Registered!'))
-                    .catch(err => console.log('SW failed'));
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Offline Service Worker Registered Successfully!'))
+                    .catch(err => console.log('Service Worker registration failed', err));
             });
         }
     </script>
