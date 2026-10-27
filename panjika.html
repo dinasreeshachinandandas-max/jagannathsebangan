@@ -1630,7 +1630,18 @@ function loadAutomaticPanjika() {
 
 // ফাংশন কল করা
 loadAutomaticPanjika();
-      
+  // রেটিং পয়েন্ট সিস্টেম লজিক
+function rateApp(stars) {
+    const starsBox = document.getElementById('star-rating-box').children;
+    for (let i = 0; i < starsBox.length; i++) {
+        if (i < stars) {
+            starsBox[i].innerText = "★"; // পূর্ণ তারকা
+        } else {
+            starsBox[i].innerText = "☆"; // খালি তারকা
+        }
+    }
+    alert(`ধন্যবাদ! আপনি এই পঞ্জিকাকে ${stars} স্টার রেটিং দিয়েছেন।`);
+}    
     </script>
 </body>
 </html>
