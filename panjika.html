@@ -681,6 +681,19 @@
             <p><strong>💍 আজকের বিশেষ লগ্ন সময়:</strong> <span id="lagna-info">হিসাব করা হচ্ছে...</span></p>
         </div>
     </div>
+            <!-- জ্যোতিষশাস্ত্রীয় গভীর গণনা ও প্রতিকার কার্ড -->
+    <div class="card">
+        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+            📜 রাশি, বর্ণ, গণ, দশা ও দোষ বিচার
+        </h3>
+        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+            <p><strong>🌟 রাশি ও বর্ণ:</strong> <span id="rashi-info">হিসাব করা হচ্ছে...</span></p>
+            <p><strong>👥 গণ ও দশা:</strong> <span id="dasha-info">হিসাব করা হচ্ছে...</span></p>
+            <p style="color: #c0392b;"><strong>⚠️ মৃত/অন্যান্য দোষ:</strong> <span id="dosha-info">হিসাব করা হচ্ছে...</span></p>
+            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+            <p style="color: #27ae60;"><strong>🛡️ প্রতিকার ও বিধান:</strong> <span id="remedy-info">হিসাব করা হচ্ছে...</span></p>
+        </div>
+    </div>
         <div id="tab-panjika" class="tab-content">
             
             <div class="card">
@@ -1511,10 +1524,7 @@
             }
         }
         loadManagerBani();
-
-      // পঞ্জিকার নিখুঁত তারিখভিত্তিক ডেটাবেজ (মাসভিত্তিক যোগ করার নিয়ম)
 const panjikaDatabase = {
-    // অক্টোবর ২০২৬
     "2026-10-27": {
         amritaDay: "সকাল ০৭:৩৬ - ১০:৫০ এর মধ্যে",
         mahendraDay: "নির্দিষ্ট সময়ে প্রযোজ্য",
@@ -1525,6 +1535,12 @@ const panjikaDatabase = {
         yatra: "পূর্ব দিকে যাত্রা নিষেধ / শূল বিদ্যমান (দুপুর ৪:৪৫ পর উত্তর দিক)",
         yogini: "পূর্বে, দিবা ৪:৪৫ গতে উত্তরে",
         food: "বৃহতী ভক্ষণ নিষেধ",
+        rashiDetails: "মেষ রাশি (বৈশ্যবর্ণ, মতান্তরে ক্ষত্রিয়বর্ণ); পরবর্তীতে বৃষ রাশি (শূদ্রবর্ণ, মতান্তরে বৈশ্যবর্ণ)",
+        ganaDetails: "নরগণ (রাত্রি ৬:৪০:১৫ গতে রাক্ষসগণ)",
+        dashaDetails: "অষ্টোত্তর ও বিংশোত্তরী শুক্রের দশা, পরবর্তীতে রবির দশা",
+        doshaDetails: "একপাদ দোষ, দ্বিপাদ দোষ ও ত্রিপুষ্কর দোষ",
+        chandraTara: "নিয়ম অনুযায়ী চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিচার্য",
+        remedy: "শাস্ত্রীয় বিধান ও পঞ্জিকার নির্দেশনা অনুযায়ী নির্দিষ্ট দান বা জপ প্রতিকার",
         lagna: "আজ নির্ধারিত কোনো বিবাহ লগ্ন নেই।"
     },
     "2026-10-28": {
@@ -1537,23 +1553,17 @@ const panjikaDatabase = {
         yatra: "উত্তর দিকে যাত্রা নিষেধ",
         yogini: "অগ্নি কোণে যোগিনী বাস",
         food: "তিল খাওয়া নিষেধ",
+        rashiDetails: "বৃষ রাশি ও মিথুন রাশি সংশ্লিষ্ট গণনা",
+        ganaDetails: "মনুষ্য গণ",
+        dashaDetails: "চন্দ্র ও মঙ্গলের দশা",
+        doshaDetails: "বিশেষ কোনো দোষ নেই",
+        chandraTara: "শুভ চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিদ্যমান",
+        remedy: "নিয়মিত ইষ্টমন্ত্র জপ ও সাধুসেবা",
         lagna: "💍 বিবাহ লগ্ন: রাত্রি ০৮:১৫ গতে ১১:৩০ মধ্যে (পূর্ণিমা তিথি ও কোজাগরী লক্ষ্মীপূজা)"
-    },
-    "2026-10-29": {
-        amritaDay: "সকাল ০৬:২৩ - ০৭:১০, দুপুর ১২:১২ - ০২:৫৮",
-        mahendraDay: "সকাল ১০:৩৫ - ১১:২৩",
-        amritaNight: "রাত ০৭:২৯ - ০৯:০৬",
-        barBela: "দুপুর ৩:০০ - ৪:৩০",
-        kalBela: "দুপুর ১:৩০ - ৩:০০",
-        kalRatri: "রাত ১২:০০ - ১:৩০",
-        yatra: "দক্ষিণ ও পশ্চিম দিকে যাত্রা নিষেধ",
-        yogini: "দক্ষিণ কোণে যোগিনী বাস",
-        food: "হলুদ বা তৈলাক্ত বস্তু বর্জনীয়",
-        lagna: "সাধারণ লগ্ন সময় প্রযোজ্য"
     }
-    // এভাবে পর্যায়ক্রমে প্রতিটি মাসের ডেটা এই কমা (,) দিয়ে যুক্ত করতে পারবেন।
-};  
-        // অটোমেটিক তারিখ অনুযায়ী পঞ্জিকা লোড করার প্রধান ফাংশন
+};
+
+// অটোমেটিক ডেটা লোড করার ফাংশন
 function loadAutomaticPanjika() {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -1561,7 +1571,6 @@ function loadAutomaticPanjika() {
     const dd = String(today.getDate()).padStart(2, '0');
     const dateKey = `${yyyy}-${mm}-${dd}`;
 
-    // ডেটাবেজ থেকে আজকের তারিখের সঠিক তথ্য সংগ্রহ করা
     const data = panjikaDatabase[dateKey] || {
         amritaDay: "এই তারিখের পঞ্জিকা ডেটা এখনো যুক্ত করা হয়নি",
         mahendraDay: "তথ্য সংযোজন করা হচ্ছে",
@@ -1572,28 +1581,37 @@ function loadAutomaticPanjika() {
         yatra: "পঞ্জিকা অনুযায়ী সাধারণ নিয়ম প্রযোজ্য",
         yogini: "সাধারণ নিয়ম প্রযোজ্য",
         food: "কোনো বিশেষ নিষেধাজ্ঞা নেই",
+        rashiDetails: "তথ্য পঞ্জিকা অনুযায়ী নির্ধারিত হবে",
+        ganaDetails: "তথ্য পঞ্জিকা অনুযায়ী নির্ধারিত হবে",
+        dashaDetails: "তথ্য পঞ্জিকা অনুযায়ী নির্ধারিত হবে",
+        doshaDetails: "তথ্য পঞ্জিকা অনুযায়ী নির্ধারিত হবে",
+        chandraTara: "সাধারণ নিয়ম",
+        remedy: "প্রযোজ্য নয়",
         lagna: "সাধারণ লগ্ন"
     };
 
-    // HTML কার্ডের আইডিগুলোতে স্বয়ংক্রিয়ভাবে ডেটা বসিয়ে দেওয়া
     if (document.getElementById('bar-bela')) {
         document.getElementById('bar-bela').innerText = data.barBela;
         document.getElementById('kal-bela').innerText = data.kalBela;
         document.getElementById('kal-ratri').innerText = data.kalRatri;
-        
         document.getElementById('amrita-day').innerText = data.amritaDay;
         document.getElementById('mahendra-day').innerText = data.mahendraDay;
         document.getElementById('amrita-night').innerText = data.amritaNight;
-
         document.getElementById('yatra-info').innerText = data.yatra;
         document.getElementById('yogini-info').innerText = data.yogini;
         document.getElementById('prohibited-food').innerText = data.food;
         document.getElementById('lagna-info').innerText = data.lagna;
+        
+        if(document.getElementById('rashi-info')) document.getElementById('rashi-info').innerText = data.rashiDetails;
+        if(document.getElementById('dasha-info')) document.getElementById('dasha-info').innerText = data.dashaDetails;
+        if(document.getElementById('dosha-info')) document.getElementById('dosha-info').innerText = data.doshaDetails;
+        if(document.getElementById('remedy-info')) document.getElementById('remedy-info').innerText = data.remedy;
     }
 }
 
-// অ্যাপ ওপেন হওয়ার সাথে সাথেই সিস্টেমটি স্বয়ংক্রিয়ভাবে কাজ শুরু করবে
+// ফাংশন কল করা
 loadAutomaticPanjika();
+      
     </script>
 </body>
 </html>
