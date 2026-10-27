@@ -1136,9 +1136,31 @@
    const count = document.getElementById('b_count').value;
    const details = document.getElementById('b_details').value;
 
-   alert("🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nধন্যবাদ " + name + "!\nআপনার 'অনুষ্ঠান বুকিং আবেদন ফর্ম' সাবমিট হয়েছে। তথ্যগুলো মন্দির কর্তৃপক্ষের WhatsApp ও Telegram-এ স্বয়ংক্রিয়ভাবে পাঠানো হচ্ছে।");
+   // Make.com Webhook Integration
+   const webhookUrl = "https://hook.eu1.make.com/qe3unugmvrune6haah10w9b966bc411m";
+   const formData = {
+     name: name,
+     mobile: mobile,
+     address: address,
+     occasion: occasion,
+     type: type,
+     date: date,
+     time: time,
+     count: count,
+     details: details
+   };
 
-           const whatsappText = `🛕 নতুন অনুষ্ঠান বুকিং আবেদন
+   fetch(webhookUrl, {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(formData)
+   }).catch(error => console.error('Error:', error));
+
+   alert("🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nধন্যবাদ " + name + "!\nআপনার 'অনুষ্ঠান বুকিং আবেদন ফর্ম' সফলভাবে সাবমিট হয়েছে।");
+
+   const whatsappText = `🛕 নতুন অনুষ্ঠান বুকিং আবেদন
 *নাম:* ${name}
 *মোবাইল:* ${mobile}
 *ঠিকানা:* ${address}
