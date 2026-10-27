@@ -1511,89 +1511,74 @@
             }
         }
         loadManagerBani();
-       // বার অনুযায়ী স্বয়ংক্রিয় বারবেলা, কালবেলা ও অমৃতযোগ ক্যালকুলেটর
-function loadDailyYogAndBela() {
-    const today = new Date();
-    const dayOfWeek = today.getDay(); // 0 = রবি, 1 = সোম, ... 6 = শনি
+// পঞ্জিকার নিখুঁত তারিখভিত্তিক ডেটাবেজ (পঞ্জিকা বইয়ের সাথে সামঞ্জস্যপূর্ণ)
+const panjikaDatabase = {
+    "2026-10-27": {
+        amritaDay: "সকাল ০৭:৩৬ - ১০:৫০ এর মধ্যে",
+        mahendraDay: "নির্দিষ্ট সময়ে প্রযোজ্য",
+        amritaNight: "রাত ৭:১৩ - ৮:৩৯ এর মধ্যে",
+        barBela: "সকাল ০৭:৩৬ - ১০:৫০",
+        kalBela: "দুপুর ০১:১৪ - ০২:৩৯",
+        kalRatri: "সন্ধ্যা ০৭:১৩ - ০৮:৩৯",
+        yatra: "পূর্ব দিকে যাত্রা নিষেধ / শূল বিদ্যমান (দুপুর ৪:৪৫ পর উত্তর দিক)",
+        yogini: "পূর্বে, দিবা ৪:৪৫ গতে উত্তরে",
+        food: "বৃহতী ভক্ষণ নিষেধ",
+        lagna: "তিথি ও নক্ষত্রানুযায়ী নির্দিষ্ট লগ্ন সময়"
+    },
+    "2026-10-28": {
+        amritaDay: "সকাল ০৮:১৮ - ১০:৩৫ এর মধ্যে",
+        mahendraDay: "বিকেল ০৩:৪৮ - ০৪:৩৫",
+        amritaNight: "রাত ১২:২৮ - ০৩:০১ এর মধ্যে",
+        barBela: "সকাল ১০:৩০ - ১২:০০",
+        kalBela: "সকাল ৮:০০ - ৯:৩০",
+        kalRatri: "রাত ৩:০০ - ৪:৩০",
+        yatra: "উত্তর দিকে যাত্রা নিষেধ",
+        yogini: "অগ্নি কোণে যোগিনী বাস",
+        food: "তিল খাওয়া নিষেধ",
+        lagna: "তিথি অনুযায়ী লগ্ন নির্ধারিত"
+    }
+};
 
-    // বারবেলা ও কালবেলা তথ্য (৭ দিনের জন্য)
-    const belaData = [
-        { bar: "রবিবার", barBela: "সকাল ১০:৩০ - ১২:০০", kalBela: "দুপুর ১২:০০ - ১:৩০", kalRatri: "রাত ১:৩০ - ৩:০০" },
-        { bar: "সোমবার", barBela: "সকাল ৭:৩০ - ৯:০০", kalBela: "সকাল ৯:০০ - ১০:৩০", kalRatri: "রাত ১০:৩০ - ১২:০০" },
-        { bar: "মঙ্গলবার", barBela: "দুপুর ১:৩০ - ৩:০০", kalBela: "দুপুর ৩:০০ - ৪:৩০", kalRatri: "সন্ধ্যা ৬:০০ - ৭:৩০" },
-        { bar: "বুধবার", barBela: "সকাল ১০:৩০ - ১২:০০", kalBela: "সকাল ৮:০০ - ৯:৩০", kalRatri: "রাত ৩:০০ - ৪:৩০" },
-        { bar: "বৃহস্পতিবার", barBela: "দুপুর ৩:০০ - ৪:৩০", kalBela: "দুপুর ১:৩০ - ৩:০০", kalRatri: "রাত ১২:০০ - ১:৩০" },
-        { bar: "শুক্রবার", barBela: "সকাল ৯:০০ - ১০:৩০", kalBela: "সকাল ১০:৩০ - ১২:০০", kalRatri: "রাত ৭:৩০ - ৯:০০" },
-        { bar: "শনিবার", barBela: "দুপুর ১:৩০ - ৩:০০", kalBela: "সকাল ৬:০০ - ৭:৩০", kalRatri: "রাত ৯:০০ - ১০:৩০" }
-    ];
+// তারিখ অনুযায়ী পঞ্জিকা ডেটা লোড করার প্রধান ফাংশন
+function loadPanjikaByDate(selectedDateStr) {
+    const targetDate = selectedDateStr ? new Date(selectedDateStr) : new Date();
+    const yyyy = targetDate.getFullYear();
+    const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(targetDate.getDate()).padStart(2, '0');
+    const dateKey = `${yyyy}-${mm}-${dd}`;
 
-    // অমৃত যোগ ও মাহেন্দ্র যোগ তথ্য
-    const amritaData = [
-        { amritaDay: "সকাল ০৬:২৩ - ০৭:০৯, দুপুর ১২:১৪ - ০২:৩৩", mahendraDay: "সকাল ০৭:১০ - ০৭:৫৫", amritaNight: "রাত ০৭:২৯ - ০৯:৫৭" }, // রবি
-        { amritaDay: "সকাল ০৬:৫২ - ০৯:১০, দুপুর ০১:৪৫ - ০৩:১৮", mahendraDay: "দুপুর ১২:১২ - ০১:০০", amritaNight: "রাত ০৮:১৫ - ১০:৪৮" }, // সোম
-        { amritaDay: "সকাল ০৭:৩৫ - ০৯:৫২, বিকেল ০৩:০২ - ০৪:৩৫", mahendraDay: "সকাল ০৬:২৩ - ০৭:১০", amritaNight: "রাত ১১:৩৮ - ০২:১০" }, // মঙ্গল
-        { amritaDay: "সকাল ০৮:১৮ - ১০:৩৫, দুপুর ১২:১২ - ০২:৩০", mahendraDay: "বিকেল ০৩:৪৮ - ০৪:৩৫", amritaNight: "রাত ১২:২৮ - ০৩:০১" }, // বুধ
-        { amritaDay: "সকাল ০০:০০ - ০৭:১০, দুপুর ১২:১২ - ০২:৫৮", mahendraDay: "সকাল ১০:৩৫ - ১১:২৩", amritaNight: "রাত ০৭:২৯ - ০৯:০৬" }, // বৃহস্পতি
-        { amritaDay: "সকাল ০৭:৩৫ - ০৯:৫২, দুপুর ০১:৪৫ - ০৪:৩৫", mahendraDay: "দুপুর ১২:১২ - ০১:০০", amritaNight: "রাত ০৯:৫৭ - ১২:২৮" }, // শুক্র
-        { amritaDay: "সকাল ০৬:২৩ - ০৮:১৮, দুপুর ০২:৩০ - ০৪:৩৫", mahendraDay: "সকাল ০০:০০ - ০০:০০", amritaNight: "রাত ১০:৪৮ - ০১:৫৫" }  // শনি
-    ];
-
-    const currentBela = belaData[dayOfWeek];
-    const currentAmrita = amritaData[dayOfWeek];
+    const data = panjikaDatabase[dateKey] || {
+        amritaDay: "এই তারিখের পঞ্জিকা ডেটা যুক্ত করা হয়নি",
+        mahendraDay: "তথ্য উপলব্ধ নয়",
+        amritaNight: "তথ্য উপলব্ধ নয়",
+        barBela: "নির্ধারিত সময় নেই",
+        kalBela: "নির্ধারিত সময় নেই",
+        kalRatri: "নির্ধারিত সময় নেই",
+        yatra: "পঞ্জিকা অনুযায়ী সাধারণ নিয়ম",
+        yogini: "সাধারণ নিয়ম প্রযোজ্য",
+        food: "কোনো বিশেষ নিষেধাজ্ঞা নেই",
+        lagna: "সাধারণ লগ্ন"
+    };
 
     if (document.getElementById('bar-bela')) {
-        document.getElementById('bar-bela').innerText = currentBela.barBela;
-        document.getElementById('kal-bela').innerText = currentBela.kalBela;
-        document.getElementById('kal-ratri').innerText = currentBela.kalRatri;
+        document.getElementById('bar-bela').innerText = data.barBela;
+        document.getElementById('kal-bela').innerText = data.kalBela;
+        document.getElementById('kal-ratri').innerText = data.kalRatri;
         
-        document.getElementById('amrita-day').innerText = currentAmrita.amritaDay;
-        document.getElementById('mahendra-day').innerText = currentAmrita.mahendraDay;
-        document.getElementById('amrita-night').innerText = currentAmrita.amritaNight;
+        document.getElementById('amrita-day').innerText = data.amritaDay;
+        document.getElementById('mahendra-day').innerText = data.mahendraDay;
+        document.getElementById('amrita-night').innerText = data.amritaNight;
+
+        document.getElementById('yatra-info').innerText = data.yatra;
+        document.getElementById('yogini-info').innerText = data.yogini;
+        document.getElementById('prohibited-food').innerText = data.food;
+        document.getElementById('lagna-info').innerText = data.lagna;
     }
 }
 
-// ফাংশনটি কল করা
-loadDailyYogAndBela(); 
-        // বার অনুযায়ী স্বয়ংক্রিয় যাত্রা, যোগিনী, বর্জনীয় খাদ্য ও লগ্ন ক্যালকুলেটর
-function loadDailyYatraAndRules() {
-    const today = new Date();
-    const dayOfWeek = today.getDay(); // 0 = রবি, 1 = সোম, ... 6 = শনি
-
-    // যাত্রা, শূল, যোগিনী ও বর্জনীয় খাদ্য তথ্য (৭ দিনের জন্য)
-    const yatraData = [
-        { yatra: "পশ্চিম দিকে যাত্রা নিষেধ (শূল: পশ্চিম)", yogini: "পূর্ব দিকে যোগিনী বাস", food: "আজ রবিবার নির্দিষ্ট আমিষ বা বিশেষ বীজজাতীয় খাদ্য নিষেধ" },
-        { yatra: "পূর্ব ও উত্তর দিকে যাত্রা নিষেধ (শূল: পূর্ব)", yogini: "উত্তর দিকে যোগিনী বাস", food: "আজ সোমবার দই খাওয়া নিষেধ" },
-        { yatra: "উত্তর দিকে যাত্রা নিষেধ (শূল: উত্তর)", yogini: "অগ্নি কোণে যোগিনী বাস", food: "আজ মঙ্গলবার পুদিনা পাতা বা নির্দিষ্ট নিরামিষ দ্রব্য বর্জনীয়" },
-        { yatra: "দক্ষিণ দিকে যাত্রা নিষেধ (শূল: দক্ষিণ)", yogini: "দক্ষিণ দিকে যোগিনী বাস", food: "আজ বুধবার তিল খাওয়া নিষেধ" },
-        { yatra: "দক্ষিণ ও পশ্চিম দিকে যাত্রা নিষেধ (শূল: দক্ষিণ)", yogini: "পশ্চিম দিকে যোগিনী বাস", food: "আজ বৃহস্পতিবার হলুদ বা বিশেষ তৈলাক্ত দ্রব্য পরিহার্য" },
-        { yatra: "পশ্চিম দিকে যাত্রা নিষেধ (শূল: পশ্চিম)", yogini: "বায়ু কোণে যোগিনী বাস", food: "আজ শুক্রবার নির্দিষ্ট ফল বা তৈলাক্ত দ্রব্য নিষেধ" },
-        { yatra: "পূর্ব দিকে যাত্রা নিষেধ (শূল: পূর্ব)", yogini: "ঈশান কোণে যোগিনী বাস", food: "আজ শনিবার বেগুন খাওয়া নিষেধ" }
-    ];
-
-    // লগ্ন সময় তথ্য
-    const lagnaData = [
-        "সকাল ০৮:১৫ - ১০:৩০ এবং দুপুর ০১:২০ - ০৩:০০", // রবি
-        "সকাল ০৯:০০ - ১১:১৫ এবং দুপুর ০২:০০ - ০৪:১০", // সোম
-        "সকাল ০৭:৩০ - ০৯:৫০ এবং দুপুর ১২:৩০ - ০২:১৫", // মঙ্গল
-        "সকাল ০৮:৪৫ - ১০:৩০ এবং দুপুর ০১:০০ - ০৩:৩০", // বুধ
-        "সকাল ০৬:৩০ - ০৮:৪৫ এবং দুপুর ১২:১৫ - ০২:০০", // বৃহস্পতি
-        "সকাল ০৯:১৫ - ১১:৩০ এবং দুপুর ০২:৩০ - ০৪:৫০", // শুক্র
-        "সকাল ০৭:০০ - ০৯:১৫ এবং দুপুর ০১:১৫ - ০৩:১৫"  // শনি
-    ];
-
-    const currentYatra = yatraData[dayOfWeek];
-    const currentLagna = lagnaData[dayOfWeek];
-
-    if (document.getElementById('yatra-info')) {
-        document.getElementById('yatra-info').innerText = currentYatra.yatra;
-        document.getElementById('yogini-info').innerText = currentYatra.yogini;
-        document.getElementById('prohibited-food').innerText = currentYatra.food;
-        document.getElementById('lagna-info').innerText = currentLagna;
-    }
-}
-
-// ফাংশনটি কল করা
-loadDailyYatraAndRules(); কি 
+// পেজ লোড হওয়ার সাথে সাথে আজকের তারিখের পঞ্জিকা স্বয়ংক্রিয়ভাবে দেখাবে
+loadPanjikaByDate();
+        
     </script>
 </body>
 </html>
