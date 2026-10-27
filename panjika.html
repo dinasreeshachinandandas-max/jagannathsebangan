@@ -1446,6 +1446,32 @@
                     .catch(err => console.log('Service Worker registration failed', err));
             });
         }
+                const managerDailyBanis = {
+            "2026-10-25": "🙏 \"শ্রীকৃষ্ণ ও গৌরহরি ভজনই জীবনের একমাত্র মূলধন। অহেতুকী ভক্তিই জীবকে মায়া থেকে মুক্ত করে দিব্য ধামে পৌঁছে দেয়।\"",
+            "2026-10-26": "🌸 \"মহাপ্রভুর নাম সংকীর্তনে হৃদয়ের সমস্ত কালিমা ধুয়ে মুছে যায়। শ্রীচরণে শরণাগত হয়ে হরিনাম জপই জীবের পরম ধর্ম।\"",
+            "2026-10-27": "📿 \"আজ ২৭ অক্টোবর। বিষয়াসক্তি ত্যাগ করে শ্রীরাধা-কৃষ্ণের চরণে তুলসী অর্পণ ও ভক্তিভরে জপমালা পূর্ণ করাই সাধক জীবনের সর্বশ্রেষ্ঠ সার্থকতা।\"",
+            "2026-10-28": "🌿 \"ভক্তের হৃদয়ই স্বয়ং ভগবান শ্রীকৃষ্ণের নিত্য আসন। সাধুসঙ্গ ও নামরূচি ছাড়া জীবের অন্য কোনো গতি নাই।\"",
+            "2026-10-29": "✨ \"গৌর-নিত্যানন্দের করুণা ছাড়া বৃন্দাবন ভজন অসম্ভব। অহংকার বিসর্জন দিয়ে দীনহীনাভাবে হরিনাম করুন।\"",
+            "2026-10-30": "💫 \"শ্রীল নরোত্তম দাস ঠাকুরের কৃপায় ভক্তির উদয় হয়। রাধাকৃষ্ণের অহেতুকী কৃপা লাভের একমাত্র উপায় বিনম্র প্রার্থনা।\""
+        };
+
+        function loadManagerBani() {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const currentDateKey = `${yyyy}-${mm}-${dd}`;
+
+            const baniBox = document.getElementById('manager-daily-bani');
+            if (baniBox) {
+                if (managerDailyBanis[currentDateKey]) {
+                    baniBox.innerHTML = `<strong>বাণী:</strong> ${managerDailyBanis[currentDateKey]}`;
+                } else {
+                    baniBox.innerHTML = `<strong>বাণী:</strong> \"শ্রীকৃষ্ণচৈতন্য নিত্যানন্দ চাঁদ, জয় গৌর জয় নিত্যানন্দ। হরিনাম সংকীর্তনেই জীবের উদ্ধার ও পরম শান্তি নিহিত।\"`;
+                }
+            }
+        }
+        loadManagerBani();
     </script>
 </body>
 </html>
