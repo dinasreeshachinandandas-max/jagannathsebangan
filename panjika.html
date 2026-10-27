@@ -826,7 +826,26 @@
             </div>
 
         </div>
-
+    <!-- পঞ্জিকা রেটিং পয়েন্ট সিস্টেম কার্ড -->
+    <div class="card" style="text-align: center;">
+        <h3 style="margin: 0 0 10px 0; color: var(--primary-color);">
+            ⭐ এই পঞ্জিকা সম্পর্কে আপনার মতামত
+        </h3>
+        <div style="font-size: 14px; color: var(--text-color); margin-bottom: 10px;">
+            আমাদের এই সেবাটি আপনার কেমন লাগল? রেটিং দিন:
+        </div>
+        <!-- স্টার রেটিং বাটনগুলো -->
+        <div id="star-rating-box" style="font-size: 24px; cursor: pointer; margin-bottom: 8px;">
+            <span onclick="rateApp(1)" style="color: #f39c12;">☆</span>
+            <span onclick="rateApp(2)" style="color: #f39c12;">☆</span>
+            <span onclick="rateApp(3)" style="color: #f39c12;">☆</span>
+            <span onclick="rateApp(4)" style="color: #f39c12;">☆</span>
+            <span onclick="rateApp(5)" style="color: #f39c12;">☆</span>
+        </div>
+        <div style="font-size: 13px; color: var(--sub-text-color);">
+            গড় রেটিং: <span id="avg-rating" style="font-weight: bold; color: var(--primary-color);">4.9</span> / 5 (মোট <span id="total-votes">120</span> ভোট)
+        </div>
+    </div>
     </div>
 
     <div class="bottom-nav">
