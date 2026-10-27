@@ -668,7 +668,19 @@
             <p style="color: #c0392b;"><strong>⚠️ কাল রাত্রি:</strong> <span id="kal-ratri">হিসাব করা হচ্ছে...</span></p>
         </div>
     </div>
-
+    <!-- দৈনিক যাত্রা, যোগিনী, বর্জনীয় খাদ্য ও লগ্ন সময় কার্ড -->
+    <div class="card">
+        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+            🧭 দৈনিক যাত্রা, যোগিনী ও বর্জনীয় খাদ্য
+        </h3>
+        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+            <p><strong>🧭 যাত্রা দিক ও শূল:</strong> <span id="yatra-info">হিসাব করা হচ্ছে...</span></p>
+            <p><strong>📍 যোগিনী অবস্থান:</strong> <span id="yogini-info">হিসাব করা হচ্ছে...</span></p>
+            <p style="color: #c0392b;"><strong>🚫 বর্জনীয় খাদ্য (আজ):</strong> <span id="prohibited-food">হিসাব করা হচ্ছে...</span></p>
+            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+            <p><strong>💍 আজকের বিশেষ লগ্ন সময়:</strong> <span id="lagna-info">হিসাব করা হচ্ছে...</span></p>
+        </div>
+    </div>
         <div id="tab-panjika" class="tab-content">
             
             <div class="card">
@@ -1542,6 +1554,46 @@ function loadDailyYogAndBela() {
 
 // ফাংশনটি কল করা
 loadDailyYogAndBela(); 
+        // বার অনুযায়ী স্বয়ংক্রিয় যাত্রা, যোগিনী, বর্জনীয় খাদ্য ও লগ্ন ক্যালকুলেটর
+function loadDailyYatraAndRules() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = রবি, 1 = সোম, ... 6 = শনি
+
+    // যাত্রা, শূল, যোগিনী ও বর্জনীয় খাদ্য তথ্য (৭ দিনের জন্য)
+    const yatraData = [
+        { yatra: "পশ্চিম দিকে যাত্রা নিষেধ (শূল: পশ্চিম)", yogini: "পূর্ব দিকে যোগিনী বাস", food: "আজ রবিবার নির্দিষ্ট আমিষ বা বিশেষ বীজজাতীয় খাদ্য নিষেধ" },
+        { yatra: "পূর্ব ও উত্তর দিকে যাত্রা নিষেধ (শূল: পূর্ব)", yogini: "উত্তর দিকে যোগিনী বাস", food: "আজ সোমবার দই খাওয়া নিষেধ" },
+        { yatra: "উত্তর দিকে যাত্রা নিষেধ (শূল: উত্তর)", yogini: "অগ্নি কোণে যোগিনী বাস", food: "আজ মঙ্গলবার পুদিনা পাতা বা নির্দিষ্ট নিরামিষ দ্রব্য বর্জনীয়" },
+        { yatra: "দক্ষিণ দিকে যাত্রা নিষেধ (শূল: দক্ষিণ)", yogini: "দক্ষিণ দিকে যোগিনী বাস", food: "আজ বুধবার তিল খাওয়া নিষেধ" },
+        { yatra: "দক্ষিণ ও পশ্চিম দিকে যাত্রা নিষেধ (শূল: দক্ষিণ)", yogini: "পশ্চিম দিকে যোগিনী বাস", food: "আজ বৃহস্পতিবার হলুদ বা বিশেষ তৈলাক্ত দ্রব্য পরিহার্য" },
+        { yatra: "পশ্চিম দিকে যাত্রা নিষেধ (শূল: পশ্চিম)", yogini: "বায়ু কোণে যোগিনী বাস", food: "আজ শুক্রবার নির্দিষ্ট ফল বা তৈলাক্ত দ্রব্য নিষেধ" },
+        { yatra: "পূর্ব দিকে যাত্রা নিষেধ (শূল: পূর্ব)", yogini: "ঈশান কোণে যোগিনী বাস", food: "আজ শনিবার বেগুন খাওয়া নিষেধ" }
+    ];
+
+    // লগ্ন সময় তথ্য
+    const lagnaData = [
+        "সকাল ০৮:১৫ - ১০:৩০ এবং দুপুর ০১:২০ - ০৩:০০", // রবি
+        "সকাল ০৯:০০ - ১১:১৫ এবং দুপুর ০২:০০ - ০৪:১০", // সোম
+        "সকাল ০৭:৩০ - ০৯:৫০ এবং দুপুর ১২:৩০ - ০২:১৫", // মঙ্গল
+        "সকাল ০৮:৪৫ - ১০:৩০ এবং দুপুর ০১:০০ - ০৩:৩০", // বুধ
+        "সকাল ০৬:৩০ - ০৮:৪৫ এবং দুপুর ১২:১৫ - ০২:০০", // বৃহস্পতি
+        "সকাল ০৯:১৫ - ১১:৩০ এবং দুপুর ০২:৩০ - ০৪:৫০", // শুক্র
+        "সকাল ০৭:০০ - ০৯:১৫ এবং দুপুর ০১:১৫ - ০৩:১৫"  // শনি
+    ];
+
+    const currentYatra = yatraData[dayOfWeek];
+    const currentLagna = lagnaData[dayOfWeek];
+
+    if (document.getElementById('yatra-info')) {
+        document.getElementById('yatra-info').innerText = currentYatra.yatra;
+        document.getElementById('yogini-info').innerText = currentYatra.yogini;
+        document.getElementById('prohibited-food').innerText = currentYatra.food;
+        document.getElementById('lagna-info').innerText = currentLagna;
+    }
+}
+
+// ফাংশনটি কল করা
+loadDailyYatraAndRules(); কি 
     </script>
 </body>
 </html>
