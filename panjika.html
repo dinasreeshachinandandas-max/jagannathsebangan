@@ -653,6 +653,21 @@
             </div>
 
         </div>
+            <!-- দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা কার্ড -->
+    <div class="card">
+        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+            ⏱️ দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা
+        </h3>
+        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+            <p><strong>✨ অমৃত যোগ (দিন):</strong> <span id="amrita-day">হিসাব করা হচ্ছে...</span></p>
+            <p><strong>🌟 মাহেন্দ্র যোগ (দিন):</strong> <span id="mahendra-day">হিসাব করা হচ্ছে...</span></p>
+            <p><strong>✨ অমৃত যোগ (রাত্রি):</strong> <span id="amrita-night">হিসাব করা হচ্ছে...</span></p>
+            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+            <p style="color: #c0392b;"><strong>⚠️ বার বেলা:</strong> <span id="bar-bela">হিসাব করা হচ্ছে...</span></p>
+            <p style="color: #c0392b;"><strong>⚠️ কাল বেলা:</strong> <span id="kal-bela">হিসাব করা হচ্ছে...</span></p>
+            <p style="color: #c0392b;"><strong>⚠️ কাল রাত্রি:</strong> <span id="kal-ratri">হিসাব করা হচ্ছে...</span></p>
+        </div>
+    </div>
 
         <div id="tab-panjika" class="tab-content">
             
@@ -1484,6 +1499,49 @@
             }
         }
         loadManagerBani();
+       // বার অনুযায়ী স্বয়ংক্রিয় বারবেলা, কালবেলা ও অমৃতযোগ ক্যালকুলেটর
+function loadDailyYogAndBela() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = রবি, 1 = সোম, ... 6 = শনি
+
+    // বারবেলা ও কালবেলা তথ্য (৭ দিনের জন্য)
+    const belaData = [
+        { bar: "রবিবার", barBela: "সকাল ১০:৩০ - ১২:০০", kalBela: "দুপুর ১২:০০ - ১:৩০", kalRatri: "রাত ১:৩০ - ৩:০০" },
+        { bar: "সোমবার", barBela: "সকাল ৭:৩০ - ৯:০০", kalBela: "সকাল ৯:০০ - ১০:৩০", kalRatri: "রাত ১০:৩০ - ১২:০০" },
+        { bar: "মঙ্গলবার", barBela: "দুপুর ১:৩০ - ৩:০০", kalBela: "দুপুর ৩:০০ - ৪:৩০", kalRatri: "সন্ধ্যা ৬:০০ - ৭:৩০" },
+        { bar: "বুধবার", barBela: "সকাল ১০:৩০ - ১২:০০", kalBela: "সকাল ৮:০০ - ৯:৩০", kalRatri: "রাত ৩:০০ - ৪:৩০" },
+        { bar: "বৃহস্পতিবার", barBela: "দুপুর ৩:০০ - ৪:৩০", kalBela: "দুপুর ১:৩০ - ৩:০০", kalRatri: "রাত ১২:০০ - ১:৩০" },
+        { bar: "শুক্রবার", barBela: "সকাল ৯:০০ - ১০:৩০", kalBela: "সকাল ১০:৩০ - ১২:০০", kalRatri: "রাত ৭:৩০ - ৯:০০" },
+        { bar: "শনিবার", barBela: "দুপুর ১:৩০ - ৩:০০", kalBela: "সকাল ৬:০০ - ৭:৩০", kalRatri: "রাত ৯:০০ - ১০:৩০" }
+    ];
+
+    // অমৃত যোগ ও মাহেন্দ্র যোগ তথ্য
+    const amritaData = [
+        { amritaDay: "সকাল ০৬:২৩ - ০৭:০৯, দুপুর ১২:১৪ - ০২:৩৩", mahendraDay: "সকাল ০৭:১০ - ০৭:৫৫", amritaNight: "রাত ০৭:২৯ - ০৯:৫৭" }, // রবি
+        { amritaDay: "সকাল ০৬:৫২ - ০৯:১০, দুপুর ০১:৪৫ - ০৩:১৮", mahendraDay: "দুপুর ১২:১২ - ০১:০০", amritaNight: "রাত ০৮:১৫ - ১০:৪৮" }, // সোম
+        { amritaDay: "সকাল ০৭:৩৫ - ০৯:৫২, বিকেল ০৩:০২ - ০৪:৩৫", mahendraDay: "সকাল ০৬:২৩ - ০৭:১০", amritaNight: "রাত ১১:৩৮ - ০২:১০" }, // মঙ্গল
+        { amritaDay: "সকাল ০৮:১৮ - ১০:৩৫, দুপুর ১২:১২ - ০২:৩০", mahendraDay: "বিকেল ০৩:৪৮ - ০৪:৩৫", amritaNight: "রাত ১২:২৮ - ০৩:০১" }, // বুধ
+        { amritaDay: "সকাল ০০:০০ - ০৭:১০, দুপুর ১২:১২ - ০২:৫৮", mahendraDay: "সকাল ১০:৩৫ - ১১:২৩", amritaNight: "রাত ০৭:২৯ - ০৯:০৬" }, // বৃহস্পতি
+        { amritaDay: "সকাল ০৭:৩৫ - ০৯:৫২, দুপুর ০১:৪৫ - ০৪:৩৫", mahendraDay: "দুপুর ১২:১২ - ০১:০০", amritaNight: "রাত ০৯:৫৭ - ১২:২৮" }, // শুক্র
+        { amritaDay: "সকাল ০৬:২৩ - ০৮:১৮, দুপুর ০২:৩০ - ০৪:৩৫", mahendraDay: "সকাল ০০:০০ - ০০:০০", amritaNight: "রাত ১০:৪৮ - ০১:৫৫" }  // শনি
+    ];
+
+    const currentBela = belaData[dayOfWeek];
+    const currentAmrita = amritaData[dayOfWeek];
+
+    if (document.getElementById('bar-bela')) {
+        document.getElementById('bar-bela').innerText = currentBela.barBela;
+        document.getElementById('kal-bela').innerText = currentBela.kalBela;
+        document.getElementById('kal-ratri').innerText = currentBela.kalRatri;
+        
+        document.getElementById('amrita-day').innerText = currentAmrita.amritaDay;
+        document.getElementById('mahendra-day').innerText = currentAmrita.mahendraDay;
+        document.getElementById('amrita-night').innerText = currentAmrita.amritaNight;
+    }
+}
+
+// ফাংশনটি কল করা
+loadDailyYogAndBela(); 
     </script>
 </body>
 </html>
