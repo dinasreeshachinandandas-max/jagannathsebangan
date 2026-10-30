@@ -1581,68 +1581,56 @@ const panjikaDatabase = {
         lagna: "💍 বিবাহ লগ্ন: রাত্রি ০৮:১৫ গতে ১১:৩০ মধ্যে (পূর্ণিমা তিথি ও কোজাগরী লক্ষ্মীপূজা)"
     }
 };
-// মাস্টার JSON ফাইল থেকে স্বয়ংক্রিয়ভাবে পঞ্জিকা ডেটা লোড করার ফাংশন
-async function loadAutoDataFromDatabase() {
-    try {
-        const response = await fetch('panjika-data.json');
-        const panjikaDatabase = await response.json();
-
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        const dateKey = `${yyyy}-${mm}-${dd}`;
-
         const data = panjikaDatabase[dateKey] || {
-            amritaDay: `তারিখ (${dateKey}) এর পঞ্জিকা ডেটা ফাইলে যুক্ত করা হচ্ছে`,
-            mahendraDay: "স্বয়ংক্রিয় আপডেট সক্রিয়",
-            amritaNight: "স্বয়ংক্রিয় আপডেট সক্রিয়",
-            barBela: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
-            kalBela: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
-            kalRatri: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
-            yatra: "পঞ্জিকা নির্দেশিত সাধারণ নিয়ম",
-            yogini: "নিয়ম অনুযায়ী বিচার্য",
-            food: "কোনো বিশেষ নিষেধাজ্ঞা নেই",
-            rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            doshaDetails: "বিশেষ দোষ নেই",
-            chandraTara: "সাধারণ নিয়ম",
-            remedy: "প্রযোজ্য নয়",
-            lagna: "সাধারণ লগ্ন",
+            amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            yatra: "দক্ষিণ দিকে যাত্রা নিষেধ বা সাধারণ নিয়ম",
+            yogini: "সাধারণ নিয়ম প্রযোজ্য",
+            food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
+            rashiDetails: "মিথুন ও কর্কট রাশি",
+            ganaDetails: "দেবগণ",
+            dashaDetails: "শুভ দশা",
+            doshaDetails: "কোনো বিশেষ দোষ নেই",
+            chandraTara: "শুভ চন্দ্রশুদ্ধি",
+            remedy: "বিষ্ণু সহস্রনাম পাঠ",
+            lagna: "বিশেষ লগ্ন সময়",
             tithiName: "আজকের পঞ্জিকা তথ্য",
             paranTime: "নিয়ম অনুযায়ী পালনীয়",
-            tithiSchedule: "অহোরাত্র তিথি ও নক্ষত্র বলবৎ",
+            tithiSchedule: "অহোরাত্র তিথি বলবৎ",
             nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
         };
 
-        if (document.getElementById('bar-bela')) {
-            document.getElementById('bar-bela').innerText = data.barBela;
-            document.getElementById('kal-bela').innerText = data.kalBela;
-            document.getElementById('kal-ratri').innerText = data.kalRatri;
-            document.getElementById('amrita-day').innerText = data.amritaDay;
-            document.getElementById('mahendra-day').innerText = data.mahendraDay;
-            document.getElementById('amrita-night').innerText = data.amritaNight;
-            document.getElementById('yatra-info').innerText = data.yatra;
-            document.getElementById('yogini-info').innerText = data.yogini;
-            document.getElementById('prohibited-food').innerText = data.food;
-            document.getElementById('lagna-info').innerText = data.lagna;
-            
-            if(document.getElementById('rashi-info')) document.getElementById('rashi-info').innerText = data.rashiDetails;
-            if(document.getElementById('dasha-info')) document.getElementById('dasha-info').innerText = (data.ganaDetails || "") + " | " + (data.dashaDetails || "");
-            if(document.getElementById('dosha-info')) document.getElementById('dosha-info').innerText = data.doshaDetails;
-            if(document.getElementById('remedy-info')) document.getElementById('remedy-info').innerText = data.remedy;
-            
-            if(document.getElementById('tithi-title')) document.getElementById('tithi-title').innerText = data.tithiName;
-            if(document.getElementById('paran-time')) document.getElementById('paran-time').innerText = data.paranTime;
-            if(document.getElementById('tithi-schedule')) document.getElementById('tithi-schedule').innerText = data.tithiSchedule;
-            if(document.getElementById('nakshatra-schedule')) document.getElementById('nakshatra-schedule').innerText = data.nakshatraSchedule;
-        }
+        const setText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        };
+
+        setText('bar-bela', data.barBela);
+        setText('kal-bela', data.kalBela);
+        setText('kal-ratri', data.kalRatri);
+        setText('amrita-day', data.amritaDay);
+        setText('mahendra-day', data.mahendraDay);
+        setText('amrita-night', data.amritaNight);
+        setText('yatra-info', data.yatra);
+        setText('yogini-info', data.yogini);
+        setText('prohibited-food', data.food);
+        setText('lagna-info', data.lagna);
+        setText('rashi-info', data.rashiDetails);
+        setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
+        setText('dosha-info', data.doshaDetails);
+        setText('remedy-info', data.remedy);
+        setText('tithi-title', data.tithiName);
+        setText('paran-time', data.paranTime);
+        setText('tithi-schedule', data.tithiSchedule);
+        setText('nakshatra-schedule', data.nakshatraSchedule);
 
     } catch (error) {
         console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
     }
-}
 
 // অ্যাপ চালু হওয়ার সাথে সাথেই সিস্টেমটি সক্রিয় হবে
 loadAutoDataFromDatabase();
