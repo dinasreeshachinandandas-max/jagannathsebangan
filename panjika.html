@@ -1561,66 +1561,79 @@
         };
 
         async function loadAutoDataFromDatabase() {
-            try {
-                const today = new Date();
-                const yyyy = today.getFullYear();
-                const mm = String(today.getMonth() + 1).padStart(2, '0');
-                const dd = String(today.getDate()).padStart(2, '0');
-                const dateKey = `${yyyy}-${mm}-${dd}`;
-
-                const data = panjikaDatabase[dateKey] || {
-                    amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                    yatra: "দক্ষিণ দিকে যাত্রা নিষেধ বা সাধারণ নিয়ম",
-                    yogini: "সাধারণ নিয়ম প্রযোজ্য",
-                    food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
-                    rashiDetails: "মিথুন ও কর্কট রাশি",
-                    ganaDetails: "দেবগণ",
-                    dashaDetails: "শুভ দশা",
-                    doshaDetails: "কোনো বিশেষ দোষ নেই",
-                    chandraTara: "শুভ চন্দ্রশুদ্ধি",
-                    remedy: "বিষ্ণু সহস্রনাম পাঠ",
-                    lagna: "বিশেষ লগ্ন সময়",
-                    tithiName: "আজকের পঞ্জিকা তথ্য",
-                    paranTime: "নিয়ম অনুযায়ী পালনীয়",
-                    tithiSchedule: "অহোরাত্র তিথি বলবৎ",
-                    nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
-                };
-
-                const setText = (id, text) => {
-                    const el = document.getElementById(id);
-                    if (el) el.innerText = text;
-                };
-
-                setText('bar-bela', data.barBela);
-                setText('kal-bela', data.kalBela);
-                setText('kal-ratri', data.kalRatri);
-                setText('amrita-day', data.amritaDay);
-                setText('mahendra-day', data.mahendraDay);
-                setText('amrita-night', data.amritaNight);
-                setText('yatra-info', data.yatra);
-                setText('yogini-info', data.yogini);
-                setText('prohibited-food', data.food);
-                setText('lagna-info', data.lagna);
-                setText('rashi-info', data.rashiDetails);
-                setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
-                setText('dosha-info', data.doshaDetails);
-                setText('remedy-info', data.remedy);
-                
-                setText('today-vrat', data.tithiName);
-                setText('today-paran', data.paranTime);
-                setText('today-tithi', data.tithiSchedule);
-                setText('today-nakshatra', data.nakshatraSchedule);
-
-            } catch (error) {
-                console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
-            }
+    try {
+        const response = await fetch('panjika-data.json');
+        if (!response.ok) {
+            throw new Error('JSON file not found');
         }
+        const panjikaDatabase = await response.json();
 
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const dateKey = `${yyyy}-${mm}-${dd}`;
+
+        // আজকের তারিখের ডেটা JSON থেকে স্বয়ংক্রিয়ভাবে নেওয়া হবে
+        const data = panjikaDatabase[dateKey] || {
+            amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+            yatra: "সাধারণ নিয়ম প্রযোজ্য",
+            yogini: "সাধারণ নিয়ম প্রযোজ্য",
+            food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
+            rashiDetails: "রাশিফল পঞ্জিকা অনুযায়ী",
+            ganaDetails: "দেবগণ",
+            dashaDetails: "শুভ দশা",
+            doshaDetails: "কোনো বিশেষ দোষ নেই",
+            chandraTara: "শুভ চন্দ্রশুদ্ধি",
+            remedy: "বিষ্ণু সহস্রনাম পাঠ",
+            lagna: "বিশেষ লগ্ন সময়",
+            tithiName: "আজকের পঞ্জিকা তথ্য",
+            paranTime: "নিয়ম অনুযায়ী পালনীয়",
+            tithiSchedule: "অহোরাত্র তিথি বলবৎ",
+            nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
+        };
+
+        const setText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        };
+
+        setText('bar-bela', data.barBela);
+        setText('kal-bela', data.kalBela);
+        setText('kal-ratri', data.kalRatri);
+        setText('amrita-day', data.amritaDay);
+        setText('mahendra-day', data.mahendraDay);
+        setText('amrita-night', data.amritaNight);
+        setText('yatra-info', data.yatra);
+        setText('yogini-info', data.yogini);
+        setText('prohibited-food', data.food);
+        setText('lagna-info', data.lagna);
+        setText('rashi-info', data.rashiDetails);
+        setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
+        setText('dosha-info', data.doshaDetails);
+        setText('remedy-info', data.remedy);
+        setText('today-vrat', data.tithiName);
+        setText('today-paran', data.paranTime);
+        setText('today-tithi', data.tithiSchedule);
+        setText('today-nakshatra', data.nakshatraSchedule);
+
+    } catch (error) {
+        console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
+    }
+}
+
+// পেজ লোড হওয়ার সাথে সাথেই অটোমেটিক আজকের ডেটা স্ক্রিনে চলে আসবে
+window.onload = function() {
+    loadRealtimeToday();
+    changeBibidhEngMonth();
+    loadManagerBani();
+    loadAutoDataFromDatabase();
+};
         function rateApp(stars) {
             const starsBox = document.getElementById('star-rating-box').children;
             for (let i = 0; i < starsBox.length; i++) {
