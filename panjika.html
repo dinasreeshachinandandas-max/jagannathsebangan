@@ -1623,11 +1623,10 @@ const panjikaDatabase = {
         setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
         setText('dosha-info', data.doshaDetails);
         setText('remedy-info', data.remedy);
-        setText('tithi-title', data.tithiName);
-        setText('paran-time', data.paranTime);
-        setText('tithi-schedule', data.tithiSchedule);
-        setText('nakshatra-schedule', data.nakshatraSchedule);
-
+        setText('today-vrat', data.tithiName);
+        setText('today-paran', data.paranTime);
+        setText('today-tithi', data.tithiSchedule);
+        setText('today-nakshatra', data.nakshatraSchedule);
     } catch (error) {
         console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
     }
