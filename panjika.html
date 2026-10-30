@@ -1581,10 +1581,9 @@ const panjikaDatabase = {
         lagna: "💍 বিবাহ লগ্ন: রাত্রি ০৮:১৫ গতে ১১:৩০ মধ্যে (পূর্ণিমা তিথি ও কোজাগরী লক্ষ্মীপূজা)"
     }
 };
-// ফেচ (Fetch) এর মাধ্যমে এক্সটার্নাল পঞ্জিকা ডেটাবেজ থেকে স্বয়ংক্রিয় ডেটা লোড করার ফাংশন
+// মাস্টার JSON ফাইল থেকে স্বয়ংক্রিয়ভাবে পঞ্জিকা ডেটা লোড করার ফাংশন
 async function loadAutoDataFromDatabase() {
     try {
-        // panjika-data.json ফাইল থেকে ডেটা সংগ্রহ করা
         const response = await fetch('panjika-data.json');
         const panjikaDatabase = await response.json();
 
@@ -1594,11 +1593,10 @@ async function loadAutoDataFromDatabase() {
         const dd = String(today.getDate()).padStart(2, '0');
         const dateKey = `${yyyy}-${mm}-${dd}`;
 
-        // আজকের তারিখের ডেটা খোঁজা
         const data = panjikaDatabase[dateKey] || {
-            amritaDay: `তারিখ (${dateKey}) এর পঞ্জিকা ডেটা লোড করা হয়েছে`,
-            mahendraDay: "স্বয়ংক্রিয়ভাবে আপডেট সক্রিয়",
-            amritaNight: "স্বয়ংক্রিয়ভাবে আপডেট সক্রিয়",
+            amritaDay: `তারিখ (${dateKey}) এর পঞ্জিকা ডেটা ফাইলে যুক্ত করা হচ্ছে`,
+            mahendraDay: "স্বয়ংক্রিয় আপডেট সক্রিয়",
+            amritaNight: "স্বয়ংক্রিয় আপডেট সক্রিয়",
             barBela: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
             kalBela: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
             kalRatri: "নির্ধারিত সময় পঞ্জিকা অনুযায়ী",
@@ -1611,10 +1609,13 @@ async function loadAutoDataFromDatabase() {
             doshaDetails: "বিশেষ দোষ নেই",
             chandraTara: "সাধারণ নিয়ম",
             remedy: "প্রযোজ্য নয়",
-            lagna: "সাধারণ লগ্ন"
+            lagna: "সাধারণ লগ্ন",
+            tithiName: "আজকের পঞ্জিকা তথ্য",
+            paranTime: "নিয়ম অনুযায়ী পালনীয়",
+            tithiSchedule: "অহোরাত্র তিথি ও নক্ষত্র বলবৎ",
+            nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
         };
 
-        // HTML কার্ডের এলিমেন্টগুলোতে আজকের সঠিক তথ্য স্বয়ংক্রিয়ভাবে বসানো
         if (document.getElementById('bar-bela')) {
             document.getElementById('bar-bela').innerText = data.barBela;
             document.getElementById('kal-bela').innerText = data.kalBela;
@@ -1631,6 +1632,11 @@ async function loadAutoDataFromDatabase() {
             if(document.getElementById('dasha-info')) document.getElementById('dasha-info').innerText = (data.ganaDetails || "") + " | " + (data.dashaDetails || "");
             if(document.getElementById('dosha-info')) document.getElementById('dosha-info').innerText = data.doshaDetails;
             if(document.getElementById('remedy-info')) document.getElementById('remedy-info').innerText = data.remedy;
+            
+            if(document.getElementById('tithi-title')) document.getElementById('tithi-title').innerText = data.tithiName;
+            if(document.getElementById('paran-time')) document.getElementById('paran-time').innerText = data.paranTime;
+            if(document.getElementById('tithi-schedule')) document.getElementById('tithi-schedule').innerText = data.tithiSchedule;
+            if(document.getElementById('nakshatra-schedule')) document.getElementById('nakshatra-schedule').innerText = data.nakshatraSchedule;
         }
 
     } catch (error) {
@@ -1638,7 +1644,7 @@ async function loadAutoDataFromDatabase() {
     }
 }
 
-// অ্যাপ চালু হওয়ার সাথে সাথেই স্বয়ংক্রিয়ভাবে পুরো সিস্টেমটি সক্রিয় হবে
+// অ্যাপ চালু হওয়ার সাথে সাথেই সিস্টেমটি সক্রিয় হবে
 loadAutoDataFromDatabase();
   // রেটিং পয়েন্ট সিস্টেম লজিক
 function rateApp(stars) {
