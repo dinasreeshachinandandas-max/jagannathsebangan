@@ -463,7 +463,6 @@
             font-weight: bold;
         }
 
-        /* নতুন আধুনিক সংযোজন স্টাইল: সার্চ, শেয়ার ও প্রিন্ট বাটন */
         .search-container {
             margin-bottom: 12px;
         }
@@ -545,7 +544,6 @@
         
         <div id="tab-home" class="tab-content active">
             
-            <!-- স্মার্ট সার্চ বার সংযোজন -->
             <div class="search-container">
                 <input type="text" id="search-input" class="search-input" placeholder="🔍 যেকোনো ব্রত, একাদশী বা উৎসব সার্চ করুন..." onkeyup="searchPanjika()">
             </div>
@@ -565,7 +563,6 @@
                 </div>
             </div>
 
-            <!-- সোশ্যাল শেয়ার ও প্রিন্ট বাটন সংযোজন -->
             <div class="card" style="padding: 10px;">
                 <div class="action-buttons">
                     <button class="btn-action btn-share" onclick="shareOnWhatsApp()">📤 হোয়াটসঅ্যাপে শেয়ার</button>
@@ -573,7 +570,6 @@
                 </div>
             </div>
 
-            <!-- পরবর্তী পালনীয় তিথি/পূজা/ব্রত স্বয়ংক্রিয় কাউন্টডাউন ও কার্ড -->
             <div class="card" style="text-align: center; background: #fff8e7; border-color: var(--secondary-color);">
                 <h4 style="margin: 0; color: var(--primary-color);" id="lbl-next-ekadashi">⏳ পরবর্তী পালনীয় তিথি, পূজা ও ব্রত সমাগত</h4>
                 <div id="ekadashi-countdown" style="font-size: 16px; font-weight: bold; margin: 6px 0; color: #800020;">
@@ -584,7 +580,6 @@
                 </a>
             </div>
 
-            <!-- বিশেষ পারমার্থিক আলোচনা ও ভজন মহিমা (স্বয়ংক্রিয় আপডেট কলাম) -->
             <div class="card" id="special-discussion-card" style="background: linear-gradient(135deg, #fffdf5, #fff3d1); border: 2px solid var(--secondary-color);">
                 <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 16px; text-align: center;" id="disc-title">📜 বিশেষ তিথি ও মহোৎসবের পারমার্থিক আলোচনা</h3>
                 <div id="disc-content" style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
@@ -607,7 +602,7 @@
                     <strong>পারণের সময়:</strong> <span id="today-paran">লোড হচ্ছে...</span><br>
                     <strong>তিথি সময়সূচী:</strong> <span id="today-tithi">লোড হচ্ছে...</span><br>
                     <strong>নক্ষত্র সময়সূচী:</strong> <span id="today-nakshatra">লোড হচ্ছে...</span><br>
-                    <strong>গণনা পদ্ধতি:</strong> <span id="current-method-text">দৃক সিদ্ধান্ত (সক্রিয়)</span>
+                    <strong>গণনা পদ্ধতি:</strong> <span id="current-method-text">দৃক সিদ্ধান্ত (সক্রিয় বয়স)</span>
                 </div>   
             </div>
 
@@ -646,56 +641,59 @@
                     <p><strong>অধ্যক্ষ</strong></p>
                     <p>শ্রী শ্রী জগন্নাথ সেবাঙ্গন ও রাধাকৃষ্ণ গৌর নিত্যানন্দ প্রেম সেবাকুঞ্জ</p>
                     <p style="font-size: 11px; color: var(--sub-text);">উত্তর সাহাপুর, সেনবাগ, নোয়াখালী, বাংলাদেশ।</p>
-                        <div id="manager-daily-bani" class="manager-bani-box">
-        বাণী লোড হচ্ছে...
-    </div>
+                    <div id="manager-daily-bani" class="manager-bani-box">
+                        বাণী লোড হচ্ছে...
+                    </div>
                 </div>
             </div>
 
         </div>
-            <!-- দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা কার্ড -->
-    <div class="card">
-        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
-            ⏱️ দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা
-        </h3>
-        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
-            <p><strong>✨ অমৃত যোগ (দিন):</strong> <span id="amrita-day">হিসাব করা হচ্ছে...</span></p>
-            <p><strong>🌟 মাহেন্দ্র যোগ (দিন):</strong> <span id="mahendra-day">হিসাব করা হচ্ছে...</span></p>
-            <p><strong>✨ অমৃত যোগ (রাত্রি):</strong> <span id="amrita-night">হিসাব করা হচ্ছে...</span></p>
-            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
-            <p style="color: #c0392b;"><strong>⚠️ বার বেলা:</strong> <span id="bar-bela">হিসাব করা হচ্ছে...</span></p>
-            <p style="color: #c0392b;"><strong>⚠️ কাল বেলা:</strong> <span id="kal-bela">হিসাব করা হচ্ছে...</span></p>
-            <p style="color: #c0392b;"><strong>⚠️ কাল রাত্রি:</strong> <span id="kal-ratri">হিসাব করা হচ্ছে...</span></p>
+
+        <!-- দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা কার্ড -->
+        <div class="card">
+            <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+                ⏱️ দৈনিক অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা
+            </h3>
+            <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+                <p><strong>✨ অমৃত যোগ (দিন):</strong> <span id="amrita-day">হিসাব করা হচ্ছে...</span></p>
+                <p><strong>🌟 মাহেন্দ্র যোগ (দিন):</strong> <span id="mahendra-day">হিসাব করা হচ্ছে...</span></p>
+                <p><strong>✨ অমৃত যোগ (রাত্রি):</strong> <span id="amrita-night">হিসাব করা হচ্ছে...</span></p>
+                <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+                <p style="color: #c0392b;"><strong>⚠️ বার বেলা:</strong> <span id="bar-bela">হিসাব করা হচ্ছে...</span></p>
+                <p style="color: #c0392b;"><strong>⚠️ কাল বেলা:</strong> <span id="kal-bela">হিসাব করা হচ্ছে...</span></p>
+                <p style="color: #c0392b;"><strong>⚠️ কাল রাত্রি:</strong> <span id="kal-ratri">হিসাব করা হচ্ছে...</span></p>
+            </div>
         </div>
-    </div>
-    <!-- দৈনিক যাত্রা, যোগিনী, বর্জনীয় খাদ্য ও লগ্ন সময় কার্ড -->
-    <div class="card">
-        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
-            🧭 দৈনিক যাত্রা, যোগিনী ও বর্জনীয় খাদ্য
-        </h3>
-        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
-            <p><strong>🧭 যাত্রা দিক ও শূল:</strong> <span id="yatra-info">হিসাব করা হচ্ছে...</span></p>
-            <p><strong>📍 যোগিনী অবস্থান:</strong> <span id="yogini-info">হিসাব করা হচ্ছে...</span></p>
-            <p style="color: #c0392b;"><strong>🚫 বর্জনীয় খাদ্য (আজ):</strong> <span id="prohibited-food">হিসাব করা হচ্ছে...</span></p>
-            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
-            <p><strong>💍 আজকের বিশেষ লগ্ন সময়:</strong> <span id="lagna-info">হিসাব করা হচ্ছে...</span></p>
+
+        <!-- দৈনিক যাত্রা, যোগিনী, বর্জনীয় খাদ্য ও লগ্ন সময় কার্ড -->
+        <div class="card">
+            <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+                🧭 দৈনিক যাত্রা, যোগিনী ও বর্জনীয় খাদ্য
+            </h3>
+            <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+                <p><strong>🧭 যাত্রা দিক ও শূল:</strong> <span id="yatra-info">হিসাব করা হচ্ছে...</span></p>
+                <p><strong>📍 যোগিনী অবস্থান:</strong> <span id="yogini-info">হিসাব করা হচ্ছে...</span></p>
+                <p style="color: #c0392b;"><strong>🚫 বর্জনীয় খাদ্য (আজ):</strong> <span id="prohibited-food">হিসাব করা হচ্ছে...</span></p>
+                <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+                <p><strong>💍 আজকের বিশেষ লগ্ন সময়:</strong> <span id="lagna-info">হিসাব করা হচ্ছে...</span></p>
+            </div>
         </div>
-    </div>
-            <!-- জ্যোতিষশাস্ত্রীয় গভীর গণনা ও প্রতিকার কার্ড -->
-    <div class="card">
-        <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
-            📜 রাশি, বর্ণ, গণ, দশা ও দোষ বিচার
-        </h3>
-        <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
-            <p><strong>🌟 রাশি ও বর্ণ:</strong> <span id="rashi-info">হিসাব করা হচ্ছে...</span></p>
-            <p><strong>👥 গণ ও দশা:</strong> <span id="dasha-info">হিসাব করা হচ্ছে...</span></p>
-            <p style="color: #c0392b;"><strong>⚠️ মৃত/অন্যান্য দোষ:</strong> <span id="dosha-info">হিসাব করা হচ্ছে...</span></p>
-            <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
-            <p style="color: #27ae60;"><strong>🛡️ প্রতিকার ও বিধান:</strong> <span id="remedy-info">হিসাব করা হচ্ছে...</span></p>
+
+        <!-- জ্যোতিষশাস্ত্রীয় গভীর গণনা ও প্রতিকার কার্ড -->
+        <div class="card">
+            <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color);">
+                📜 রাশি, বর্ণ, গণ, দশা ও দোষ বিচার
+            </h3>
+            <div style="font-size: 13px; line-height: 1.6; color: var(--text-color);">
+                <p><strong>🌟 রাশি ও বর্ণ:</strong> <span id="rashi-info">হিসাব করা হচ্ছে...</span></p>
+                <p><strong>👥 গণ ও দশা:</strong> <span id="dasha-info">হিসাব করা হচ্ছে...</span></p>
+                <p style="color: #c0392b;"><strong>⚠️ মৃত/অন্যান্য দোষ:</strong> <span id="dosha-info">হিসাব করা হচ্ছে...</span></p>
+                <hr style="border: 0.5px solid var(--border-color); margin: 8px 0;">
+                <p style="color: #27ae60;"><strong>🛡️ প্রতিকার ও বিধান:</strong> <span id="remedy-info">হিসাব করা হচ্ছে...</span></p>
+            </div>
         </div>
-    </div>
+
         <div id="tab-panjika" class="tab-content">
-            
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; text-align: center; color: var(--primary-color); font-size: 16px;">
                     📅 আন্তর্জাতিক ইংরেজি মাসের বৈষ্ণবীয় পঞ্জিকা (২০২৬-২০২৭)
@@ -745,11 +743,9 @@
                     <tbody id="festival-table-body"></tbody>
                 </table>
             </div>
-
         </div>
 
         <div id="tab-bibidh" class="tab-content">
-            
             <div class="card">
                 <h3 style="margin: 0 0 10px 0; color: var(--primary-color); font-size: 15px;">ইংরেজি মাস অনুযায়ী শুভ দিনসূচী নির্বাচন করুন</h3>
                 <select id="bibidh-eng-month" class="month-selector" onchange="changeBibidhEngMonth()">
@@ -781,11 +777,9 @@
                 <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 15px;">🌌 চন্দ্র ও সূর্য গ্রহণ (সূতক কালসহ)</h3>
                 <p style="margin: 0; font-size: 13px; color: var(--sub-text);">চলতি বছরে কোনো গ্রহণ দৃশ্যমান নয়।</p>
             </div>
-
         </div>
 
         <div id="tab-settings" class="tab-content">
-            
             <div class="card">
                 <h3 style="margin: 0 0 12px 0; color: var(--primary-color); font-size: 16px;">পঞ্জিকা সেটিংস (Settings)</h3>
                 
@@ -824,28 +818,27 @@
                     <input type="checkbox" checked style="transform: scale(1.2);">
                 </div>
             </div>
+        </div>
 
+        <!-- পঞ্জিকা রেটিং পয়েন্ট সিস্টেম কার্ড -->
+        <div class="card" style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0; color: var(--primary-color);">
+                ⭐ এই পঞ্জিকা সম্পর্কে আপনার মতামত
+            </h3>
+            <div style="font-size: 14px; color: var(--text-color); margin-bottom: 10px;">
+                আমাদের এই সেবাটি আপনার কেমন লাগল? রেটিং দিন:
+            </div>
+            <div id="star-rating-box" style="font-size: 24px; cursor: pointer; margin-bottom: 8px;">
+                <span onclick="rateApp(1)" style="color: #f39c12;">☆</span>
+                <span onclick="rateApp(2)" style="color: #f39c12;">☆</span>
+                <span onclick="rateApp(3)" style="color: #f39c12;">☆</span>
+                <span onclick="rateApp(4)" style="color: #f39c12;">☆</span>
+                <span onclick="rateApp(5)" style="color: #f39c12;">☆</span>
+            </div>
+            <div style="font-size: 13px; color: var(--sub-text-color);">
+                গড় রেটিং: <span id="avg-rating" style="font-weight: bold; color: var(--primary-color);">4.9</span> / 5 (মোট <span id="total-votes">120</span> ভোট)
+            </div>
         </div>
-    <!-- পঞ্জিকা রেটিং পয়েন্ট সিস্টেম কার্ড -->
-    <div class="card" style="text-align: center;">
-        <h3 style="margin: 0 0 10px 0; color: var(--primary-color);">
-            ⭐ এই পঞ্জিকা সম্পর্কে আপনার মতামত
-        </h3>
-        <div style="font-size: 14px; color: var(--text-color); margin-bottom: 10px;">
-            আমাদের এই সেবাটি আপনার কেমন লাগল? রেটিং দিন:
-        </div>
-        <!-- স্টার রেটিং বাটনগুলো -->
-        <div id="star-rating-box" style="font-size: 24px; cursor: pointer; margin-bottom: 8px;">
-            <span onclick="rateApp(1)" style="color: #f39c12;">☆</span>
-            <span onclick="rateApp(2)" style="color: #f39c12;">☆</span>
-            <span onclick="rateApp(3)" style="color: #f39c12;">☆</span>
-            <span onclick="rateApp(4)" style="color: #f39c12;">☆</span>
-            <span onclick="rateApp(5)" style="color: #f39c12;">☆</span>
-        </div>
-        <div style="font-size: 13px; color: var(--sub-text-color);">
-            গড় রেটিং: <span id="avg-rating" style="font-weight: bold; color: var(--primary-color);">4.9</span> / 5 (মোট <span id="total-votes">120</span> ভোট)
-        </div>
-    </div>
     </div>
 
     <div class="bottom-nav">
@@ -1245,7 +1238,6 @@
             }
         };
 
-        // বহুভাষিক ডিকশনারি (বাংলা, ইংরেজি, হিন্দি)
         const translations = {
             bn: {
                 appTitle: "বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা",
@@ -1490,7 +1482,6 @@
             document.getElementById('current-method-text').innerText = val;
         }
 
-        // স্মার্ট সার্চ ফাংশন
         function searchPanjika() {
             let input = document.getElementById('search-input').value.toLowerCase();
             if(input.length > 1) {
@@ -1498,26 +1489,13 @@
             }
         }
 
-        // হোয়াটসঅ্যাপ শেয়ার ফাংশন
         function shareOnWhatsApp() {
             let text = "বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা: ভিজিট করুন এবং আজকের তিথি, একাদশী ও ব্রত জানুন।";
             let url = "https://wa.me/?text=" + encodeURIComponent(text);
             window.open(url, '_blank');
         }
 
-        window.onload = function() {
-            loadRealtimeToday();
-            changeBibidhEngMonth();
-        };
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Offline Service Worker Registered Successfully!'))
-                    .catch(err => console.log('Service Worker registration failed', err));
-            });
-        }
-                const managerDailyBanis = {
+        const managerDailyBanis = {
             "2026-10-25": "🙏 \"শ্রীকৃষ্ণ ও গৌরহরি ভজনই জীবনের একমাত্র মূলধন। অহেতুকী ভক্তিই জীবকে মায়া থেকে মুক্ত করে দিব্য ধামে পৌঁছে দেয়।\"",
             "2026-10-26": "🌸 \"মহাপ্রভুর নাম সংকীর্তনে হৃদয়ের সমস্ত কালিমা ধুয়ে মুছে যায়। শ্রীচরণে শরণাগত হয়ে হরিনাম জপই জীবের পরম ধর্ম।\"",
             "2026-10-27": "📿 \"আজ ২৭ অক্টোবর। বিষয়াসক্তি ত্যাগ করে শ্রীরাধা-কৃষ্ণের চরণে তুলসী অর্পণ ও ভক্তিভরে জপমালা পূর্ণ করাই সাধক জীবনের সর্বশ্রেষ্ঠ সার্থকতা।\"",
@@ -1542,122 +1520,137 @@
                 }
             }
         }
-        loadManagerBani();
-const panjikaDatabase = {
-    "2026-10-27": {
-        amritaDay: "সকাল ০৭:৩৬ - ১০:৫০ এর মধ্যে",
-        mahendraDay: "নির্দিষ্ট সময়ে প্রযোজ্য",
-        amritaNight: "রাত ৭:১৩ - ৮:৩৯ এর মধ্যে",
-        barBela: "সকাল ০৭:৩৬ - ১০:৫০",
-        kalBela: "দুপুর ০১:১৪ - ০২:৩৯",
-        kalRatri: "সন্ধ্যা ০৭:১৩ - ০৮:৩৯",
-        yatra: "পূর্ব দিকে যাত্রা নিষেধ / শূল বিদ্যমান (দুপুর ৪:৪৫ পর উত্তর দিক)",
-        yogini: "পূর্বে, দিবা ৪:৪৫ গতে উত্তরে",
-        food: "বৃহতী ভক্ষণ নিষেধ",
-        rashiDetails: "মেষ রাশি (বৈশ্যবর্ণ, মতান্তরে ক্ষত্রিয়বর্ণ); পরবর্তীতে বৃষ রাশি (শূদ্রবর্ণ, মতান্তরে বৈশ্যবর্ণ)",
-        ganaDetails: "নরগণ (রাত্রি ৬:৪০:১৫ গতে রাক্ষসগণ)",
-        dashaDetails: "অষ্টোত্তর ও বিংশোত্তরী শুক্রের দশা, পরবর্তীতে রবির দশা",
-        doshaDetails: "একপাদ দোষ, দ্বিপাদ দোষ ও ত্রিপুষ্কর দোষ",
-        chandraTara: "নিয়ম অনুযায়ী চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিচার্য",
-        remedy: "শাস্ত্রীয় বিধান ও পঞ্জিকার নির্দেশনা অনুযায়ী নির্দিষ্ট দান বা জপ প্রতিকার",
-        lagna: "আজ নির্ধারিত কোনো বিবাহ লগ্ন নেই।"
-    },
-    "2026-10-28": {
-        amritaDay: "সকাল ০৮:১৮ - ১০:৩৫ এর মধ্যে",
-        mahendraDay: "বিকেল ০৩:৪৮ - ০৪:৩৫",
-        amritaNight: "রাত ১২:২৮ - ০৩:০১ এর মধ্যে",
-        barBela: "সকাল ১০:৩০ - ১২:০০",
-        kalBela: "সকাল ৮:০০ - ৯:৩০",
-        kalRatri: "রাত ৩:০০ - ৪:৩০",
-        yatra: "উত্তর দিকে যাত্রা নিষেধ",
-        yogini: "অগ্নি কোণে যোগিনী বাস",
-        food: "তিল খাওয়া নিষেধ",
-        rashiDetails: "বৃষ রাশি ও মিথুন রাশি সংশ্লিষ্ট গণনা",
-        ganaDetails: "মনুষ্য গণ",
-        dashaDetails: "চন্দ্র ও মঙ্গলের দশা",
-        doshaDetails: "বিশেষ কোনো দোষ নেই",
-        chandraTara: "শুভ চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিদ্যমান",
-        remedy: "নিয়মিত ইষ্টমন্ত্র জপ ও সাধুসেবা",
-        lagna: "💍 বিবাহ লগ্ন: রাত্রি ০৮:১৫ গতে ১১:৩০ মধ্যে (পূর্ণিমা তিথি ও কোজাগরী লক্ষ্মীপূজা)"
-    }
-};
-        const data = panjikaDatabase[dateKey] || {
-            amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            yatra: "দক্ষিণ দিকে যাত্রা নিষেধ বা সাধারণ নিয়ম",
-            yogini: "সাধারণ নিয়ম প্রযোজ্য",
-            food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
-            rashiDetails: "মিথুন ও কর্কট রাশি",
-            ganaDetails: "দেবগণ",
-            dashaDetails: "শুভ দশা",
-            doshaDetails: "কোনো বিশেষ দোষ নেই",
-            chandraTara: "শুভ চন্দ্রশুদ্ধি",
-            remedy: "বিষ্ণু সহস্রনাম পাঠ",
-            lagna: "বিশেষ লগ্ন সময়",
-            tithiName: "আজকের পঞ্জিকা তথ্য",
-            paranTime: "নিয়ম অনুযায়ী পালনীয়",
-            tithiSchedule: "অহোরাত্র তিথি বলবৎ",
-            nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
+
+        const panjikaDatabase = {
+            "2026-10-27": {
+                amritaDay: "সকাল ০৭:৩৬ - ১০:৫০ এর মধ্যে",
+                mahendraDay: "নির্দিষ্ট সময়ে প্রযোজ্য",
+                amritaNight: "রাত ৭:১৩ - ৮:৩৯ এর মধ্যে",
+                barBela: "সকাল ০৭:৩৬ - ১০:৫০",
+                kalBela: "দুপুর ০১:১৪ - ০2:৩৯",
+                kalRatri: "সন্ধ্যা ০৭:১৩ - ০৮:৩৯",
+                yatra: "পূর্ব দিকে যাত্রা নিষেধ / শূল বিদ্যমান (দুপুর ৪:৪৫ পর উত্তর দিক)",
+                yogini: "পূর্বে, দিবা ৪:৪৫ গতে উত্তরে",
+                food: "বৃহতী ভক্ষণ নিষেধ",
+                rashiDetails: "মেষ রাশি (বৈশ্যবর্ণ, মতান্তরে ক্ষত্রিয়বর্ণ); পরবর্তীতে বৃষ রাশি (শূদ্রবর্ণ, মতান্তরে বৈশ্যবর্ণ)",
+                ganaDetails: "নরগণ (রাত্রি ৬:৪০:১৫ গতে রাক্ষসগণ)",
+                dashaDetails: "অষ্টোত্তর ও বিংশোত্তরী শুক্রের দশা, পরবর্তীতে রবির দশা",
+                doshaDetails: "একপাদ দোষ, দ্বিপাদ দোষ ও ত্রিপুষ্কর দোষ",
+                chandraTara: "নিয়ম অনুযায়ী চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিচার্য",
+                remedy: "শাস্ত্রীয় বিধান ও পঞ্জিকার নির্দেশনা অনুযায়ী নির্দিষ্ট দান বা জপ প্রতিকার",
+                lagna: "আজ নির্ধারিত কোনো বিবাহ লগ্ন নেই।"
+            },
+            "2026-10-28": {
+                amritaDay: "সকাল ০৮:১৮ - ১০:৩৫ এর মধ্যে",
+                mahendraDay: "বিকেল ০৩:৪৮ - ০৪:৩৫",
+                amritaNight: "রাত ১২:২৮ - ০৩:০১ এর মধ্যে",
+                barBela: "সকাল ১০:৩০ - ১২:০০",
+                kalBela: "সকাল ৮:০০ - ৯:৩০",
+                kalRatri: "রাত ৩:০০ - ৪:৩০",
+                yatra: "উত্তর দিকে যাত্রা নিষেধ",
+                yogini: "অগ্নি কোণে যোগিনী বাস",
+                food: "তিল খাওয়া নিষেধ",
+                rashiDetails: "বৃষ রাশি ও মিথুন রাশি সংশ্লিষ্ট গণনা",
+                ganaDetails: "মনুষ্য গণ",
+                dashaDetails: "চন্দ্র ও মঙ্গলের দশা",
+                doshaDetails: "বিশেষ কোনো দোষ নেই",
+                chandraTara: "শুভ চন্দ্রশুদ্ধি ও তারাশুদ্ধি বিদ্যমান",
+                remedy: "নিয়মিত ইষ্টমন্ত্র জপ ও সাধুসেবা",
+                lagna: "💍 বিবাহ লগ্ন: রাত্রি ০৮:১৫ গতে ১১:৩০ মধ্যে (পূর্ণিমা তিথি ও কোজাগরী লক্ষ্মীপূজা)"
+            }
         };
 
-        const setText = (id, text) => {
-            const el = document.getElementById(id);
-            if (el) el.innerText = text;
-        };
+        async function loadAutoDataFromDatabase() {
+            try {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                const dateKey = `${yyyy}-${mm}-${dd}`;
 
-        setText('bar-bela', data.barBela);
-        setText('kal-bela', data.kalBela);
-        setText('kal-ratri', data.kalRatri);
-        setText('amrita-day', data.amritaDay);
-        setText('mahendra-day', data.mahendraDay);
-        setText('amrita-night', data.amritaNight);
-        setText('yatra-info', data.yatra);
-        setText('yogini-info', data.yogini);
-        setText('prohibited-food', data.food);
-        setText('lagna-info', data.lagna);
-        setText('rashi-info', data.rashiDetails);
-        setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
-        setText('dosha-info', data.doshaDetails);
-        setText('remedy-info', data.remedy);
-        setText('today-vrat', data.tithiName);
-        setText('today-paran', data.paranTime);
-        setText('today-tithi', data.tithiSchedule);
-        setText('today-nakshatra', data.nakshatraSchedule);
-    } catch (error) {
-        console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
-    }
+                const data = panjikaDatabase[dateKey] || {
+                    amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                    yatra: "দক্ষিণ দিকে যাত্রা নিষেধ বা সাধারণ নিয়ম",
+                    yogini: "সাধারণ নিয়ম প্রযোজ্য",
+                    food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
+                    rashiDetails: "মিথুন ও কর্কট রাশি",
+                    ganaDetails: "দেবগণ",
+                    dashaDetails: "শুভ দশা",
+                    doshaDetails: "কোনো বিশেষ দোষ নেই",
+                    chandraTara: "শুভ চন্দ্রশুদ্ধি",
+                    remedy: "বিষ্ণু সহস্রনাম পাঠ",
+                    lagna: "বিশেষ লগ্ন সময়",
+                    tithiName: "আজকের পঞ্জিকা তথ্য",
+                    paranTime: "নিয়ম অনুযায়ী পালনীয়",
+                    tithiSchedule: "অহোরাত্র তিথি বলবৎ",
+                    nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
+                };
 
-// অ্যাপ চালু হওয়ার সাথে সাথেই সিস্টেমটি সক্রিয় হবে
-loadAutoDataFromDatabase();
-  // রেটিং পয়েন্ট সিস্টেম লজিক
-function rateApp(stars) {
-    const starsBox = document.getElementById('star-rating-box').children;
-    for (let i = 0; i < starsBox.length; i++) {
-        if (i < stars) {
-            starsBox[i].innerText = "★"; // পূর্ণ তারকা
-        } else {
-            starsBox[i].innerText = "☆"; // খালি তারকা
+                const setText = (id, text) => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerText = text;
+                };
+
+                setText('bar-bela', data.barBela);
+                setText('kal-bela', data.kalBela);
+                setText('kal-ratri', data.kalRatri);
+                setText('amrita-day', data.amritaDay);
+                setText('mahendra-day', data.mahendraDay);
+                setText('amrita-night', data.amritaNight);
+                setText('yatra-info', data.yatra);
+                setText('yogini-info', data.yogini);
+                setText('prohibited-food', data.food);
+                setText('lagna-info', data.lagna);
+                setText('rashi-info', data.rashiDetails);
+                setText('dasha-info', (data.ganaDetails || "") + " | " + (data.dashaDetails || ""));
+                setText('dosha-info', data.doshaDetails);
+                setText('remedy-info', data.remedy);
+                
+                setText('today-vrat', data.tithiName);
+                setText('today-paran', data.paranTime);
+                setText('today-tithi', data.tithiSchedule);
+                setText('today-nakshatra', data.nakshatraSchedule);
+
+            } catch (error) {
+                console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
+            }
         }
-    }
-    alert(`ধন্যবাদ! আপনি এই পঞ্জিকাকে ${stars} স্টার রেটিং দিয়েছেন।`);
-}  
-  <script>
-    // সার্ভিস ওয়ার্কার রেজিস্ট্রেশন (অফলাইন মোড চালুর জন্য)
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then((registration) => {
-                    console.log('ServiceWorker successfully registered: ', registration.scope);
-                })
-                .catch((error) => {
-                    console.log('ServiceWorker registration failed: ', error);
-                });
-        });
-    }    
+
+        function rateApp(stars) {
+            const starsBox = document.getElementById('star-rating-box').children;
+            for (let i = 0; i < starsBox.length; i++) {
+                if (i < stars) {
+                    starsBox[i].innerText = "★";
+                } else {
+                    starsBox[i].innerText = "☆";
+                }
+            }
+            alert(`ধন্যবাদ! আপনি এই পঞ্জিকাকে ${stars} স্টার রেটিং দিয়েছেন।`);
+        }
+
+        window.onload = function() {
+            loadRealtimeToday();
+            changeBibidhEngMonth();
+            loadManagerBani();
+            loadAutoDataFromDatabase();
+        };
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((registration) => {
+                        console.log('ServiceWorker successfully registered: ', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
