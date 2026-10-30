@@ -1657,7 +1657,20 @@ function rateApp(stars) {
         }
     }
     alert(`ধন্যবাদ! আপনি এই পঞ্জিকাকে ${stars} স্টার রেটিং দিয়েছেন।`);
-}    
+}  
+  <script>
+    // সার্ভিস ওয়ার্কার রেজিস্ট্রেশন (অফলাইন মোড চালুর জন্য)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then((registration) => {
+                    console.log('ServiceWorker successfully registered: ', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+        });
+    }    
     </script>
 </body>
 </html>
