@@ -1521,74 +1521,13 @@
             }
         }
 
-        const panjikaDatabase = {
-            
-        async function loadAutoDataFromDatabase() {
-    try {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        const dateKey = `${yyyy}-${mm}-${dd}`;
+        
+        
 
-        let panjikaDatabase = {};
-        try {
-            const response = await fetch('panjika-data.json');
-            if (response.ok) {
-                panjikaDatabase = await response.json();
-            }
-        } catch (e) {
-            console.log("JSON fetch failed, using fallback data.");
-        }
-
-        // ব্যাকআপ বা সরাসরি আজকের পঞ্জিকা ডেটা
-        const fallbackDatabase = {
-            "2026-10-31": {
-                amritaDay: "দিবা ৭:১৮ হতে ৯:১৪ মধ্যে ও ৯:৪৮ হতে ১০:১০ মধ্যে",
-                mahendraDay: "দুপুর ১২:০০ হতে ১:১৫ এর মধ্যে",
-                amritaNight: "রাত ৯:০০ হতে ১১:০০ এর মধ্যে",
-                barBela: "দুপুর ১:৩০ - ৩:০০",
-                kalBela: "সকাল ৯:০০ - ১০:৩০",
-                kalRatri: "রাত ১২:০০ - ১:৩০",
-                yatra: "পশ্চিম দিকে যাত্রা নিষেধ",
-                yogini: "উত্তর কোণে যোগিনী বাস",
-                food: "বিশেষ নিরামিষ নিয়ম পালনীয়",
-                rashiDetails: "কর্কট রাশি (বিপ্রবর্ণ, দেবগণ)",
-                ganaDetails: "দেবগণ",
-                dashaDetails: "বৃহস্পতির দশা, শনির দশা",
-                doshaDetails: "ত্রিপুষ্কর দোষ বিচার্য",
-                chandraTara: "নিয়ম অনুযায়ী চন্দ্রশুদ্ধি ও তারাশুদ্ধি",
-                remedy: "শান্তিমন্ত্র জপ ও সাধুসেবা",
-                lagna: "পঞ্জিকা অনুযায়ী লগ্ন নির্ধারিত",
-                tithiName: "ষষ্ঠী তিথি দিবা ৩৮:১৫:২৪ রাত্রি ঘ ৯:২৭:৪৭ পর্যন্ত পরে সপ্তমী",
-                paranTime: "নিয়মানুযায়ী পালনীয়",
-                tithiSchedule: "ষষ্ঠী তিথি দিবা ৩৮:১৫:২৪ রাত্রি ঘ ৯:২৭:৪৭ পর্যন্ত",
-                nakshatraSchedule: "পুনর্বসু নক্ষত্র দিবা ১১:১৫:১৪ গতে ১০:১৯:১৮ পর্যন্ত"
-            }
-        };
-
-        const data = panjikaDatabase[dateKey] || fallbackDatabase[dateKey] || {
-            amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-            yatra: "সাধারণ নিয়ম প্রযোজ্য",
-            yogini: "সাধারণ নিয়ম প্রযোজ্য",
-            food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
-            rashiDetails: "মূল পঞ্জিকা অনুযায়ী রাশিফল",
-            ganaDetails: "দেবগণ",
-            dashaDetails: "শুভ দশা",
-            doshaDetails: "কোনো বিশেষ দোষ নেই",
-            chandraTara: "শুভ চন্দ্রশুদ্ধি",
-            remedy: "নিয়মিত হরিনাম জপ",
-            lagna: "বিশেষ লগ্ন সময়",
-            tithiName: "আজকের পঞ্জিকা তথ্য",
-            paranTime: "নিয়ম অনুযায়ী পালনীয়",
-            tithiSchedule: "পঞ্জিকা অনুযায়ী বলবৎ",
-            nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
-        };
+    } catch (error) {
+        console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
+    }
+}
 
         const setText = (id, text) => {
             const el = document.getElementById(id);
@@ -1614,10 +1553,65 @@
         setText('today-tithi', data.tithiSchedule);
         setText('today-nakshatra', data.nakshatraSchedule);
 
-    } catch (error) {
-        console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
-    }
-}
+    async function loadAutoDataFromDatabase() {
+    try {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const dateKey = `${yyyy}-${mm}-${dd}`;
+
+        const fallbackDatabase = {
+            "2026-10-31": {
+                amritaDay: "দিবা ৭:১৮ হতে ৯:১৪ মধ্যে ও ৯:৪৮ হতে ১০:১০ মধ্যে",
+                mahendraDay: "দুপুর ১২:০০ হতে ১:১৫ এর মধ্যে",
+                amritaNight: "রাত ৯:০০ হতে ১১:০০ এর মধ্যে",
+                barBela: "দুপুর ১:৩০ - ৩:০০",
+                kalBela: "সকাল ৯:০০ - ১০:৩০",
+                kalRatri: "রাত ১২:০০ - ১:৩০",
+                yatra: "পশ্চিম দিকে যাত্রা নিষেধ",
+                yogini: "উত্তর কোণে যোগিনী বাস",
+                food: "বিশেষ নিরামিষ নিয়ম পালনীয়",
+                rashiDetails: "কর্কট রাশি (বিপ্রবর্ণ, দেবগণ)",
+                ganaDetails: "দেবগণ",
+                dashaDetails: "বৃহস্পতির দশা, শনির দশা",
+                doshaDetails: "ত্রিপুষ্কর দোষ বিচার্য",
+                chandraTara: "নিয়ম অনুযায়ী চন্দ্রশুদ্ধি ও তারাশুদ্ধি",
+                remedy: "শান্তিমন্ত্র জপ ও সাধুসেবা",
+                lagna: "পঞ্জিকা অনুযায়ী লগ্ন নির্ধারিত",
+                tithiName: "ষষ্ঠী তিথি দিবা ৩৮:১৫:২৪ রাত্রি ঘ ৯:২৭:৪৭ পর্যন্ত পরে সপ্তমী",
+                paranTime: "নিয়মানুযায়ী পালনীয়",
+                tithiSchedule: "ষষ্ঠী তিথি দিবা ৩৮:১৫:২৪ রাত্রি ঘ ৯:২৭:৪৭ পর্যন্ত",
+                nakshatraSchedule: "পুনর্বসু নক্ষত্র দিবা ১১:১৫:১৪ গতে ১০:১৯:১৮ পর্যন্ত"
+            }
+        };
+
+        let data = fallbackDatabase[dateKey];
+
+        if (!data) {
+            data = {
+                amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                yatra: "সাধারণ নিয়ম প্রযোজ্য",
+                yogini: "সাধারণ নিয়ম প্রযোজ্য",
+                food: "আজ নির্দিষ্ট কোনো নিষেধাজ্ঞা নেই",
+                rashiDetails: "মূল পঞ্জিকা অনুযায়ী রাশিফল",
+                ganaDetails: "দেবগণ",
+                dashaDetails: "শুভ দশা",
+                doshaDetails: "কোনো বিশেষ দোষ নেই",
+                chandraTara: "শুভ চন্দ্রশুদ্ধি",
+                remedy: "নিয়মিত হরিনাম জপ",
+                lagna: "বিশেষ লগ্ন সময়",
+                tithiName: "আজকের পঞ্জিকা তথ্য",
+                paranTime: "নিয়ম অনুযায়ী পালনীয়",
+                tithiSchedule: "পঞ্জিকা অনুযায়ী বলবৎ",
+                nakshatraSchedule: "দৃক সিদ্ধান্ত অনুযায়ী নির্ধারিত"
+            };
+        }
 
         const setText = (id, text) => {
             const el = document.getElementById(id);
