@@ -1,8 +1,11 @@
-const CACHE_NAME = 'vaishnava-panjika-cache-v2'; // ভার্সন v2 করে দিন
+const CACHE_NAME = 'vaishnava-panjika-v2';
 const assetsToCache = [
     './',
     './panjika.html',
-    './panjika-data.json'
+    './panjika-data.json',
+    './manifest-panjika.json',
+    './logo.png',
+    './profile.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -20,7 +23,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cache) => {
                     if (cache !== CACHE_NAME) {
-                        return caches.delete(cache); // পুরোনো ক্যাশ মুছে ফেলা
+                        return caches.delete(cache);
                     }
                 })
             );
