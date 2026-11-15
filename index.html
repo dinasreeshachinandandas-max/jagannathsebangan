@@ -82,7 +82,7 @@
  </p>  
  </div>  
    
- <!-- Quick Navigation Hub Links (বাটনগুলো ঠিক করা হয়েছে) -->  
+ <!-- Quick Navigation Hub Links -->  
  <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">  
  <a href="#chief-advisor" class="bg-amber-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-amber-950 transition">👑 প্রধান উপদেষ্টা</a>
  <a href="#guru-tribute" class="bg-rose-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-rose-900 transition">🙏 পরম আরাধ্য গুরুদেব</a>
@@ -201,7 +201,7 @@
     </div>
   </section>
 
-  <!-- 🚩 ভবিষ্যৎ ও চলমান সেবা প্রকল্প -->
+  <!-- 🚩 ভবিষ্যৎ ও চলমান সেবা প্রকল্প (সঠিক আইডি যুক্ত করা হলো) -->
   <section id="future-roadmap" class="py-6 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
     <div class="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-2 border-amber-300 rounded-2xl p-6 sm:p-8 shadow-xl">
       <div class="text-center mb-6">
@@ -336,7 +336,7 @@
     </div>
   </section>
 
-  <!-- ❤️ সহযোগিতার উদাত্ত আহ্বান -->
+  <!-- ❤️ সহযোগিতার উদাত্ত আহ্বান (সঠিক আইডি যুক্ত করা হলো) -->
   <section id="appeal-section" class="py-10 px-4 sm:px-6 max-w-5xl mx-auto w-full scroll-mt-20">
     <div class="bg-gradient-to-br from-rose-900 via-amber-950 to-rose-950 text-amber-50 p-6 sm:p-10 rounded-3xl shadow-2xl border-2 border-rose-400 text-center">
       <span class="bg-rose-700 text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block shadow-md">
@@ -725,103 +725,103 @@
        </div>`;
    });
 
-   content.innerHTML = html;
-   box.classList.remove("hidden");
- }
+    content.innerHTML = html;
+    box.classList.remove("hidden");
+  }
 
- function selectFreeDate(dateStr) {
-   document.getElementById("b_date").value = dateStr;
-   document.getElementById("booking-section").scrollIntoView({ behavior: "smooth" });
- }
+  function selectFreeDate(dateStr) {
+    document.getElementById("b_date").value = dateStr;
+    document.getElementById("booking-section").scrollIntoView({ behavior: "smooth" });
+  }
 
- function submitEventBooking(event) {
-   event.preventDefault();
-   const name = document.getElementById('b_name').value;
-   const mobile = document.getElementById('b_mobile').value;
-   const address = document.getElementById('b_address').value;
-   const occasion = document.getElementById('b_occasion').value;
-   const type = document.getElementById('b_type').value;
-   const date = document.getElementById('b_date').value;
-   const time = document.getElementById('b_time').value;
-   const count = document.getElementById('b_count').value;
-   const details = document.getElementById('b_details').value;
+  function submitEventBooking(event) {
+    event.preventDefault();
+    const name = document.getElementById('b_name').value;
+    const mobile = document.getElementById('b_mobile').value;
+    const address = document.getElementById('b_address').value;
+    const occasion = document.getElementById('b_occasion').value;
+    const type = document.getElementById('b_type').value;
+    const date = document.getElementById('b_date').value;
+    const time = document.getElementById('b_time').value;
+    const count = document.getElementById('b_count').value;
+    const details = document.getElementById('b_details').value;
 
-   const formData = {
-     fullName: name,
-     phone: mobile,
-     address: address,
-     occasion: occasion,
-     sevaType: type,
-     eventDate: date,
-     eventTime: time,
-     prasadamQty: count,
-     specialNotes: details
-   };
+    const formData = {
+      fullName: name,
+      phone: mobile,
+      address: address,
+      occasion: occasion,
+      sevaType: type,
+      eventDate: date,
+      eventTime: time,
+      prasadamQty: count,
+      specialNotes: details
+    };
 
-   fetch(SCRIPT_URL, {
-     method: 'POST',
-     mode: 'no-cors',
-     headers: {
-       'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(formData)
-   }).catch(error => console.error('Error:', error));
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    }).catch(error => console.error('Error:', error));
 
-   alert("🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nধন্যবাদ " + name + "!\nআপনার 'অনুষ্ঠান বুকিং আবেদন ফর্ম' সফলভাবে সাবমিট হয়েছে।");
+    alert("🌸 শ্রী শ্রী জগন্নাথ সেবাঙ্গন\n\nধন্যবাদ " + name + "!\nআপনার 'অনুষ্ঠান বুকিং আবেদন ফর্ম' সফলভাবে সাবমিট হয়েছে।");
 
-   const whatsappText = `🛕 নতুন অনুষ্ঠান বুকিং আবেদন\n` +
-   `*নাম:* ${name}\n` +
-   `*মোবাইল:* ${mobile}\n` +
-   `*ঠিকানা:* ${address}\n` +
-   `*উপলক্ষ:* ${occasion}\n` +
-   `*ধরন:* ${type}\n` +
-   `*তারিখ:* ${date}\n` +
-   `*সময়:* ${time}\n` +
-   `*ভক্ত সংখ্যা:* ${count}\n` +
-   `*বিবরণ:* ${details}`;
+    const whatsappText = `🛕 নতুন অনুষ্ঠান বুকিং আবেদন\n` +
+    `*নাম:* ${name}\n` +
+    `*মোবাইল:* ${mobile}\n` +
+    `*ঠিকানা:* ${address}\n` +
+    `*উপলক্ষ:* ${occasion}\n` +
+    `*ধরন:* ${type}\n` +
+    `*তারিখ:* ${date}\n` +
+    `*সময়:* ${time}\n` +
+    `*ভক্ত সংখ্যা:* ${count}\n` +
+    `*বিবরণ:* ${details}`;
 
-   const whatsappMsg = encodeURIComponent(whatsappText);
+    const whatsappMsg = encodeURIComponent(whatsappText);
 
-   window.open("https://wa.me/8801711369035?text=" + whatsappMsg);
-   document.getElementById('eventBookingForm').reset();
-   setTimeout(fetchBookedEvents, 1500);
- }
+    window.open("https://wa.me/8801711369035?text=" + whatsappMsg);
+    document.getElementById('eventBookingForm').reset();
+    setTimeout(fetchBookedEvents, 1500);
+  }
 
- function renderQRCode(elementId, text) {  
-   try {  
-     var container = document.getElementById(elementId);  
-     if (!container) return;  
-     
-     if (typeof qrcode !== 'undefined') {
-       var qr = qrcode(0, 'M');  
-       qr.addData(text);  
-       qr.make();  
-       container.innerHTML = qr.createSvgTag({cellSize: 3, margin: 1});  
-     } else {
-       var encodedText = encodeURIComponent(text);
-       container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodedText}" alt="QR Code" class="w-20 h-20">`;
-     }
-   } catch (e) {
-     var container = document.getElementById(elementId);
-     if (container) {
-       var encodedText = encodeURIComponent(text);
-       container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodedText}" alt="QR Code" class="w-20 h-20">`;
-     }
-   }  
- }  
-  
- window.addEventListener('DOMContentLoaded', function() {  
-   fetchBookedEvents();
-   setTimeout(function() {
-     renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com/?m=1');  
-     renderQRCode('qrcode-map', 'https://maps.app.goo.gl/eU7NkVTmxmCYjmuL8');  
-     renderQRCode('qrcode-youtube', 'https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared');
-     renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/');  
-     renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/');  
-     renderQRCode('qrcode-whatsapp', 'https://wa.me/8801711369035');  
-   }, 300);
- });  
- </script>  
+  function renderQRCode(elementId, text) {  
+    try {  
+      var container = document.getElementById(elementId);  
+      if (!container) return;  
+      
+      if (typeof qrcode !== 'undefined') {
+        var qr = qrcode(0, 'M');  
+        qr.addData(text);  
+        qr.make();  
+        container.innerHTML = qr.createSvgTag({cellSize: 3, margin: 1});  
+      } else {
+        var encodedText = encodeURIComponent(text);
+        container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodedText}" alt="QR Code" class="w-20 h-20">`;
+      }
+    } catch (e) {
+      var container = document.getElementById(elementId);
+      if (container) {
+        var encodedText = encodeURIComponent(text);
+        container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodedText}" alt="QR Code" class="w-20 h-20">`;
+      }
+    }  
+  }  
+   
+  window.addEventListener('DOMContentLoaded', function() {  
+    fetchBookedEvents();
+    setTimeout(function() {
+      renderQRCode('qrcode-website', 'https://jagannathsebangan.blogspot.com/?m=1');  
+      renderQRCode('qrcode-map', 'https://maps.app.goo.gl/eU7NkVTmxmCYjmuL8');  
+      renderQRCode('qrcode-youtube', 'https://youtube.com/channel/UCHzXDMo8dgIyJxTDExMwn5A?feature=shared');
+      renderQRCode('qrcode-fb-page', 'https://www.facebook.com/share/19z8Uqfrjr/');  
+      renderQRCode('qrcode-fb-profile', 'https://www.facebook.com/share/1GiyxxLy8W/');  
+      renderQRCode('qrcode-whatsapp', 'https://wa.me/8801711369035');  
+    }, 300);
+  });  
+  </script>  
 
 </body>  
 </html>
