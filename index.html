@@ -734,7 +734,7 @@
     document.getElementById("booking-section").scrollIntoView({ behavior: "smooth" });
   }
 
-    async function submitEventBooking(event) {
+  async function submitEventBooking(event) {
     event.preventDefault();
     const name = document.getElementById('b_name').value;
     const mobile = document.getElementById('b_mobile').value;
@@ -759,10 +759,12 @@
     };
 
     try {
+      // CORS ব্লক এড়ানোর জন্য প্লেইন টেক্সট মোডে ডেটা পাঠানো হচ্ছে
       await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
       });
