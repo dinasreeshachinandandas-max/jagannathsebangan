@@ -651,7 +651,7 @@
   
  <script>  
  // লাইভ রেলওয়ে ক্যালেন্ডার স্ক্রিপ্ট ও ফর্ম সাবমিশন
- const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-_Ym4AVtCft5S3rGbV3N8EMixCEUnOB4EEqJokodXrd9XRF-1V57zjMSzV7gy2UTi/exec";
+ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbym_i66Kpb72fFokrh_uuXoEUWfhr_bb7jPvYrhel8HoeEBth7s8KMwkDwI6Fpy6oHA/exec";
  let currentCalDate = new Date();
  let bookedEventsList = [];
 
@@ -733,6 +733,7 @@
     document.getElementById("b_date").value = dateStr;
     document.getElementById("booking-section").scrollIntoView({ behavior: "smooth" });
   }
+
   async function submitEventBooking(event) {
     event.preventDefault();
     const name = document.getElementById('b_name').value;
@@ -774,7 +775,6 @@
       alert("বুকিং সাবমিট করার সময় একটি সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।");
     }
   }
-  
 
   function renderQRCode(elementId, text) {  
     try {  
