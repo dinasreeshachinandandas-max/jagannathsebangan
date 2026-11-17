@@ -759,8 +759,10 @@
     };
 
     try {
+      // CORS সংক্রান্ত বাধা এড়াতে no-cors মোডে রিকোয়েস্ট পাঠানো হলো যাতে অ্যাপস স্ক্রিপ্টে ডেটা ও টেলিগ্রাম নোটিফিকেশন পৌঁছে যায়
       await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
