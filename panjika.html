@@ -198,6 +198,85 @@
             box-shadow: 0 4px 10px rgba(217, 43, 58, 0.28);
         }
 
+        /* আজকের সম্পূর্ণ পঞ্জিকা ফুল-স্ক্রিন / ওভারলে স্টাইল */
+        .today-full-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.72);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 8px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .today-full-modal.open {
+            display: block;
+        }
+
+        .today-full-sheet {
+            width: 100%;
+            max-width: 680px;
+            min-height: 94vh;
+            margin: 0 auto 24px auto;
+            background: var(--bg-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.42);
+            border: 1px solid var(--border-color);
+        }
+
+        .today-modal-header {
+            background: linear-gradient(135deg, #d92b3a, #9e1b26);
+            color: #ffffff;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .today-modal-header h2 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .close-modal-btn {
+            background: #ffffff;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .today-modal-body {
+            padding: 14px;
+        }
+
+        .summary-highlight-box {
+            background: var(--card-bg);
+            border: 1.5px solid var(--primary-color);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .summary-row {
+            padding: 7px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
         /* বৃত্তাকার তিথি প্রোগ্রেস কার্ড */
         .tithi-ring-card {
             display: flex;
@@ -592,7 +671,7 @@
 </head>
 <body>
     <div id="offline-status-bar" class="offline-status-bar">
-        ✓ অফলাইন ও অনলাইন উভয় মোডে প্রস্তুত (অফলাইন ক্যাশ সক্রিয়)
+        ✓ অনলাইন ও অফলাইন লোকাল ব্যাকআপ সক্রিয়
     </div>
 
     <div style="text-align: center; margin: 10px 12px; background: #fff8dc; padding: 10px; border-radius: 10px; border: 1px dashed #800000;">
@@ -628,7 +707,7 @@
     <!-- স্ক্রিনশটের মতো আধুনিক হিরো হেডার -->
     <header class="hero-header">
         <div class="hero-top-row">
-            <button class="hero-brand-btn" onclick="switchTab('home', document.querySelectorAll('.nav-item')[0])">
+            <button class="hero-brand-btn" onclick="openTodayCompletePanjika()">
                 <span>☰</span>
                 <span id="app-title">বিশুদ্ধ বৈষ্ণবীয় পঞ্জিকা</span>
             </button>
@@ -654,13 +733,13 @@
     </header>
     <div class="hero-wave-divider"></div>
 
-    <!-- দ্রুত নেভিগেশন সার্কল বাটন -->
+    <!-- দ্রুত নেভিগেশন সার্কল বাটন ('আজ' চাপলে আজকের সম্পূর্ণ পঞ্জিকা ওভারলে কার্ডে ভেসে উঠবে) -->
     <div class="quick-actions-row">
         <button class="quick-action-item" onclick="switchTab('panjika', document.querySelectorAll('.nav-item')[1])">
             <div class="quick-circle">📅</div>
             <span>ক্যালেন্ডার</span>
         </button>
-        <button class="quick-action-item" onclick="switchTab('home', document.querySelectorAll('.nav-item')[0])">
+        <button class="quick-action-item" onclick="openTodayCompletePanjika()">
             <div class="quick-circle">✓</div>
             <span>আজ</span>
         </button>
@@ -668,6 +747,19 @@
             <div class="quick-circle">🕒</div>
             <span>বিবিধ</span>
         </button>
+    </div>
+
+    <!-- আজকের সম্পূর্ণ পঞ্জিকা ফুল-স্ক্রিন / ভাসমান ওভারলে ভিউ -->
+    <div id="today-complete-modal" class="today-full-modal" onclick="handleModalBackdropClick(event)">
+        <div class="today-full-sheet">
+            <div class="today-modal-header">
+                <h2>📖 আজকের সম্পূর্ণ পঞ্জিকা</h2>
+                <button class="close-modal-btn" onclick="closeTodayCompletePanjika()">✕ বন্ধ করুন</button>
+            </div>
+            <div class="today-modal-body" id="today-complete-modal-body">
+                লোড হচ্ছে...
+            </div>
+        </div>
     </div>
 
     <div class="website-link-bar">
@@ -1109,13 +1201,29 @@
             "2026-11-24": {
                 title: "🌕 শ্রী শ্রী রাস পূর্ণিমা মহোৎসব",
                 text: "আজ কার্তিক/অগ্রহায়ণ পূর্ণিমা তথা শ্রী শ্রী রাস পূর্ণিমা। শ্রীশ্রী রাধাকৃষ্ণের রাসলীলা স্মরণে আজ বৈষ্ণব সমাজে বিশেষ কীর্তন ও উৎসব পালিত হয়।"
+            },
+            "2026-12-04": {
+                title: "🪔 শ্রী উৎপন্না একাদশী ব্রত মাহাত্ম্য",
+                text: "আজ অগ্রহায়ণ কৃষ্ণা একাদশী তথা শ্রী উৎপন্না একাদশী। গোস্বামীমতে অদ্য ও নিম্বার্কমতে পরাহ্নে একাদশীর উপবাস বিধেয়।"
+            },
+            "2026-12-20": {
+                title: "📖 শ্রী মোক্ষদা একাদশী ও ৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী",
+                text: "আজ মার্গশীর্ষ/পৌষ শুক্লা একাদশী তথা শ্রী মোক্ষদা একাদশী ও ৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী। হরিনাম ও গীতাপাঠে আজকের দিনটি বিশেষ পবিত্র।"
             }
         };
 
         const customDailyPanjika = {
             "2026-11-20": {
-                tithi: "দং ৫০।৩৬।৫০ রাত্রি ঘ ২।৪১।১০ পর্যন্ত, পরে দ্বাদশী।",
+                tithi: "একাদশী তিথি দং ৫০।৩৬।৫০ রাত্রি ঘ ২।৪১।১০ পর্যন্ত, পরে দ্বাদশী।",
                 nakshatra: "উত্তরভাদ্রপদ নক্ষত্র দং ৫৪।৩৩।১১ রাত্রি ঘ ৪।১৫।৪২ পর্যন্ত।"
+            },
+            "2026-12-04": {
+                tithi: "একাদশী তিথি দং ১৮।২০ পর্যন্ত, পরে দ্বাদশী।",
+                nakshatra: "চিত্রা / স্বাতী নক্ষত্র সময়সূচি পঞ্জিকা অনুযায়ী।"
+            },
+            "2026-12-20": {
+                tithi: "মোক্ষদা একাদশী তিথি ও গীতা জয়ন্তী।",
+                nakshatra: "ভরণী / কৃত্তিকা নক্ষত্র সময়সূচি পঞ্জিকা অনুযায়ী।"
             }
         };
 
@@ -1140,6 +1248,8 @@
             hi: { appTitle: "शुद्ध वैष्णव पंजिका", navHome: "एक नज़र", navPanjika: "पंजिका", navBibidh: "विविध", navSettings: "सेटिंग्स", offSite: "आधिकारिक वेबसाइट:" }
         };
 
+        let isSwRegistered = false;
+
         function setLanguage(lang) {
             document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
@@ -1162,10 +1272,144 @@
             if (!bar) return;
             if (navigator.onLine) {
                 bar.classList.remove('is-offline');
-                bar.innerText = "✓ অনলাইন ও অফলাইন লোকাল ব্যাকআপ সক্রিয়";
+                bar.innerText = isSwRegistered
+                    ? "✓ সার্ভিস ওয়ার্কার ও লোকাল অফলাইন ব্যাকআপ সক্রিয়"
+                    : "✓ অনলাইন ও লোকাল ব্যাকআপ সক্রিয় (sw.js চেক হচ্ছে)";
             } else {
                 bar.classList.add('is-offline');
-                bar.innerText = "⚡ অফলাইন মোড: সংরক্ষিত পঞ্জিকা ডাটা প্রদর্শিত হচ্ছে";
+                bar.innerText = isSwRegistered
+                    ? "⚡ অফলাইন মোড: সার্ভিস ওয়ার্কার ও সংরক্ষিত পঞ্জিকা সক্রিয়"
+                    : "⚡ অফলাইন মোড: সংরক্ষিত লোকাল ব্যাকআপ ডাটা প্রদর্শিত হচ্ছে";
+            }
+        }
+
+        function saveOfflineSnapshot() {
+            try {
+                const snapshot = {
+                    savedAt: new Date().toISOString(),
+                    engDate: document.getElementById('dynamic-eng-date')?.innerText || "",
+                    banglaDate: document.getElementById('dynamic-bangla-date')?.innerText || "",
+                    vrat: document.getElementById('today-vrat')?.innerText || "",
+                    paran: document.getElementById('today-paran')?.innerText || "",
+                    tithi: document.getElementById('today-tithi')?.innerText || "",
+                    nakshatra: document.getElementById('today-nakshatra')?.innerText || "",
+                    amritaDay: document.getElementById('amrita-day')?.innerText || "",
+                    mahendraDay: document.getElementById('mahendra-day')?.innerText || "",
+                    amritaNight: document.getElementById('amrita-night')?.innerText || "",
+                    barBela: document.getElementById('bar-bela')?.innerText || "",
+                    kalBela: document.getElementById('kal-bela')?.innerText || "",
+                    kalRatri: document.getElementById('kal-ratri')?.innerText || "",
+                    yatra: document.getElementById('yatra-info')?.innerText || "",
+                    yogini: document.getElementById('yogini-info')?.innerText || "",
+                    food: document.getElementById('prohibited-food')?.innerText || "",
+                    lagna: document.getElementById('lagna-info')?.innerText || "",
+                    rashi: document.getElementById('rashi-info')?.innerText || "",
+                    dasha: document.getElementById('dasha-info')?.innerText || "",
+                    dosha: document.getElementById('dosha-info')?.innerText || "",
+                    remedy: document.getElementById('remedy-info')?.innerText || "",
+                    discTitle: document.getElementById('disc-title')?.innerText || "",
+                    discText: document.getElementById('disc-content')?.innerText || "",
+                    rashifal: document.getElementById('rashi-box')?.innerText || "",
+                    bani: document.getElementById('manager-daily-bani')?.innerText || ""
+                };
+                localStorage.setItem('panjikaFullPageCache', JSON.stringify(snapshot));
+            } catch (e) {}
+        }
+
+        function openTodayCompletePanjika() {
+            let snap = null;
+            if (!navigator.onLine) {
+                try {
+                    const raw = localStorage.getItem('panjikaFullPageCache');
+                    if (raw) snap = JSON.parse(raw);
+                } catch (e) {}
+            }
+
+            const engDate = snap?.engDate || document.getElementById('dynamic-eng-date')?.innerText || "";
+            const banglaDate = snap?.banglaDate || document.getElementById('dynamic-bangla-date')?.innerText || "";
+            const vrat = snap?.vrat || document.getElementById('today-vrat')?.innerText || "";
+            const paran = snap?.paran || document.getElementById('today-paran')?.innerText || "";
+            const tithi = snap?.tithi || document.getElementById('today-tithi')?.innerText || "";
+            const nakshatra = snap?.nakshatra || document.getElementById('today-nakshatra')?.innerText || "";
+            const amritaDay = snap?.amritaDay || document.getElementById('amrita-day')?.innerText || "";
+            const mahendraDay = snap?.mahendraDay || document.getElementById('mahendra-day')?.innerText || "";
+            const amritaNight = snap?.amritaNight || document.getElementById('amrita-night')?.innerText || "";
+            const barBela = snap?.barBela || document.getElementById('bar-bela')?.innerText || "";
+            const kalBela = snap?.kalBela || document.getElementById('kal-bela')?.innerText || "";
+            const kalRatri = snap?.kalRatri || document.getElementById('kal-ratri')?.innerText || "";
+            const yatra = snap?.yatra || document.getElementById('yatra-info')?.innerText || "";
+            const yogini = snap?.yogini || document.getElementById('yogini-info')?.innerText || "";
+            const food = snap?.food || document.getElementById('prohibited-food')?.innerText || "";
+            const lagna = snap?.lagna || document.getElementById('lagna-info')?.innerText || "";
+            const rashi = snap?.rashi || document.getElementById('rashi-info')?.innerText || "";
+            const dasha = snap?.dasha || document.getElementById('dasha-info')?.innerText || "";
+            const dosha = snap?.dosha || document.getElementById('dosha-info')?.innerText || "";
+            const remedy = snap?.remedy || document.getElementById('remedy-info')?.innerText || "";
+            const discTitle = snap?.discTitle || document.getElementById('disc-title')?.innerText || "";
+            const discText = snap?.discText || document.getElementById('disc-content')?.innerText || "";
+            const rashifal = snap?.rashifal || document.getElementById('rashi-box')?.innerText || "";
+            const bani = snap?.bani || document.getElementById('manager-daily-bani')?.innerText || "";
+
+            const modalBody = document.getElementById('today-complete-modal-body');
+            modalBody.innerHTML = `
+                <div class="summary-highlight-box">
+                    <div style="font-size:15px;font-weight:bold;color:var(--primary-color);margin-bottom:4px;">${engDate}</div>
+                    <div style="font-size:13px;font-weight:bold;margin-bottom:10px;">${banglaDate}</div>
+                    <div class="summary-row"><strong>🪔 আজকের ব্রত ও উৎসব:</strong> ${vrat}</div>
+                    <div class="summary-row"><strong>🍽️ পারণের সময়:</strong> ${paran}</div>
+                    <div class="summary-row"><strong>🌙 তিথি সময়সূচী:</strong> ${tithi}</div>
+                    <div class="summary-row"><strong>⭐ নক্ষত্র সময়সূচী:</strong> ${nakshatra}</div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin:0 0 8px 0;color:var(--primary-color);font-size:15px;">⏱️ অমৃত যোগ, মাহেন্দ্র যোগ ও কালবেলা</h3>
+                    <div class="summary-row"><strong>✨ অমৃত যোগ (দিন):</strong> ${amritaDay}</div>
+                    <div class="summary-row"><strong>🌟 মাহেন্দ্র যোগ (দিন):</strong> ${mahendraDay}</div>
+                    <div class="summary-row"><strong>✨ অমৃত যোগ (রাত্রি):</strong> ${amritaNight}</div>
+                    <div class="summary-row" style="color:#c0392b;"><strong>⚠️ বার বেলা:</strong> ${barBela}</div>
+                    <div class="summary-row" style="color:#c0392b;"><strong>⚠️ কাল বেলা:</strong> ${kalBela}</div>
+                    <div class="summary-row" style="color:#c0392b;"><strong>⚠️ কাল রাত্রি:</strong> ${kalRatri}</div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin:0 0 8px 0;color:var(--primary-color);font-size:15px;">🧭 যাত্রা, যোগিনী, খাদ্য ও লগ্ন</h3>
+                    <div class="summary-row"><strong>🧭 যাত্রা দিক ও শূল:</strong> ${yatra}</div>
+                    <div class="summary-row"><strong>📍 যোগিনী অবস্থান:</strong> ${yogini}</div>
+                    <div class="summary-row" style="color:#c0392b;"><strong>🚫 বর্জনীয় খাদ্য:</strong> ${food}</div>
+                    <div class="summary-row"><strong>💍 বিশেষ লগ্ন সময়:</strong> ${lagna}</div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin:0 0 8px 0;color:var(--primary-color);font-size:15px;">📜 রাশি, বর্ণ, গণ, দশা ও প্রতিকার</h3>
+                    <div class="summary-row"><strong>🌟 রাশি ও বর্ণ:</strong> ${rashi}</div>
+                    <div class="summary-row"><strong>👥 গণ ও দশা:</strong> ${dasha}</div>
+                    <div class="summary-row" style="color:#c0392b;"><strong>⚠️ মৃত/অন্যান্য দোষ:</strong> ${dosha}</div>
+                    <div class="summary-row" style="color:#27ae60;"><strong>🛡️ প্রতিকার ও বিধান:</strong> ${remedy}</div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin:0 0 6px 0;color:var(--primary-color);font-size:15px;">⭐ আজকের রাশিফল ও বাণী</h3>
+                    <div class="summary-row"><strong>রাশিফল:</strong> ${rashifal}</div>
+                    <div class="summary-row"><strong>ব্যবস্থাপকের বাণী:</strong> ${bani}</div>
+                </div>
+
+                <div class="card" style="background:rgba(244,180,0,0.12);border-color:var(--secondary-color);">
+                    <h3 style="margin:0 0 6px 0;color:var(--primary-color);font-size:15px;">${discTitle}</h3>
+                    <div style="font-size:13px;line-height:1.6;">${discText}</div>
+                </div>
+            `;
+
+            document.getElementById('today-complete-modal').classList.add('open');
+            document.getElementById('today-complete-modal').scrollTop = 0;
+        }
+
+        function closeTodayCompletePanjika() {
+            document.getElementById('today-complete-modal').classList.remove('open');
+        }
+
+        function handleModalBackdropClick(event) {
+            if (event.target && event.target.id === 'today-complete-modal') {
+                closeTodayCompletePanjika();
             }
         }
 
@@ -1325,9 +1569,11 @@
         function updateRashifal() {
             const selected = document.getElementById('rashi-select').value;
             document.getElementById('rashi-box').innerText = rashifalData[selected];
+            saveOfflineSnapshot();
         }
 
         function switchTab(tabName, element) {
+            closeTodayCompletePanjika();
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             document.getElementById('tab-' + tabName).classList.add('active');
@@ -1354,7 +1600,9 @@
         }
 
         const managerDailyBanis = {
-            "2026-11-20": "🙏 \"শ্রী উত্থান একাদশীর পবিত্র তিথিতে হরিনাম সংকীর্তন ও সাধুসেবায় জীবনকে সার্থক করুন।\""
+            "2026-11-20": "🙏 \"শ্রী উত্থান একাদশীর পবিত্র তিথিতে হরিনাম সংকীর্তন ও সাধুসেবায় জীবনকে সার্থক করুন।\"",
+            "2026-12-04": "🙏 \"শ্রী উৎপন্না একাদশীর পবিত্র ব্রতে কৃষ্ণচরণে ভক্তি নিবেদন করুন।\"",
+            "2026-12-20": "🙏 \"শ্রী মোক্ষদা একাদশী ও গীতা জয়ন্তীর পবিত্র তিথিতে গীতা ও হরিনামের আশ্রয় নিন।\""
         };
 
         function loadManagerBani() {
@@ -1417,12 +1665,56 @@
                         dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
                         doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
                         chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                        remedy: "দ্বাদশী পারণ ও বৈষ্ণব পঞ্জিকা অনুযায়ী ব্রত/পূজা",
+                        remedy: "দ্বাদশী পারণ ও চাতুর্মাস্য সমাপন; বৈষ্ণব পঞ্জিকা অনুযায়ী ব্রত/পূজা",
                         lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                        tithiName: "দ্বাদশী তিথি",
+                        tithiName: "দ্বাদশী তিথি (৪ অগ্রহায়ণ, বাংলাদেশ)",
                         paranTime: "পঞ্জিকা অনুযায়ী নির্ধারিত পারণ সময়",
                         tithiSchedule: "পঞ্জিকা অনুযায়ী দ্বাদশী সময়সূচি",
-                        nakshatraSchedule: "রেবতী নক্ষত্র সময়সূচি"
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-22": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "রাজবিদেহী মহান্ত শ্রী (১০৮) সদাদাস বাবাজী মহারাজের তিরোভাব তিথি ও শ্রীশ্রীমদ্ বা ইষ্টপূজা",
+                        lagna: "বৃশ্চিক দং ৩।০।২৬ গতে উদয়, বৃষ ১।৪৭।১৯ বিঃ গতে অস্ত",
+                        tithiName: "ত্রয়োদশী / চতুর্থী সংশ্লিষ্ট তিথি (৫ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-23": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "সোমবার, চতুর্থী তিথি ও বৈষ্ণব নিত্যপূজা",
+                        lagna: "বৃশ্চিক দং ৭।৩।৪৩ গতে উদয়, বৃষ ১।২১।১২ বিঃ গতে অস্ত",
+                        tithiName: "চতুর্থী তিথি দং ৪।৫৯।৪০ গতে (৬ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "চতুর্থী তিথি দং ৪।৫৯।৪০ গতে",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
                     },
                     "2026-11-24": {
                         amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
@@ -1439,12 +1731,606 @@
                         dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
                         doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
                         chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                        remedy: "কার্তিক পূর্ণিমা, রাসপূর্ণিমা, গুরু নানক জয়ন্তী ও বৈষ্ণব উৎসব",
+                        remedy: "শ্রীশ্রী কৃষ্ণর রাসযাত্রা, কার্তিক ব্রত সমাপন ও আচার্য জগদীশ চন্দ্র বসুর তিরোধান দিবস",
                         lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
-                        tithiName: "পূর্ণিমা / কার্তিক পূর্ণিমা সংশ্লিষ্ট তিথি",
-                        paranTime: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "পূর্ণিমা / রাসযাত্রা তিথি (৭ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী পূর্ণিমা সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-25": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "বুধবার, বৈষ্ণব নিত্যপূজা ও নিয়মসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "প্রতিপদ / দ্বিতীয়া সংশ্লিষ্ট তিথি (৯/১০ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
                         tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
-                        nakshatraSchedule: "কৃত্তিকা / রোহিণী নক্ষত্র সময়সূচি"
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-26": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "বৃহস্পতিবার, বৈষ্ণব নিত্যসেবা ও হরিনাম সংকীর্তন",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "বৃহস্পতিবারের তিথি (১০ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-27": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "মেষ-বৃহস্পতি, বৃষ-রবি সংক্রান্ত পূর্বাভাস",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শুক্রবার, বৈষ্ণব নিত্যসেবা ও জপ-কীর্তন",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "শুক্রবারের তিথি (১১ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-28": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শনিবার, তৃতীয়া তিথি ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "তৃতীয়া তিথি দং ১।৪০।২৭ গতে (১২ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "তৃতীয়া তিথি দং ১।৪০।২৭ গতে",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-29": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "রবিবার ও শ্রীমতি সুচিতা ভট্টাচার্যের তিরোধান তিথি",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "রবিবারের তিথি (১৩ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-11-30": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "কিশোরীমোহন বাবাজির তিরোধান দিবস ও বৈষ্ণব স্মরণ",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "পঞ্চমী তিথি দং ৭।৪।১৯ গতে (১৪ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্চমী তিথি দং ৭।৪।১৯ গতে",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-01": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "কিশোরীমোহন বাবাজির ৯৫তম জন্মদিবস ও নবমীর একাদিন্দু ও সগিনুন",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "নবমী তিথি দং ২১।৪২ (১৫ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "নবমী তিথি দং ২১।৪২ পর্যন্ত",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-02": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "পরমপূজ্য শ্রীহরি সীতারামদাস ওঁকারনাথ ঠাকুরের তিরোভাব তিথি",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "দশমী / একাদশী সংশ্লিষ্ট তিথি (১৬ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-03": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শুক্রবার, একাদশী তিথি ও বৈষ্ণব ভজন",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "একাদশী তিথি দং ১৮।২০ (১৭ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "একাদশী তিথি দং ১৮।২০ পর্যন্ত",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-04": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "একাদশী উপবাসে নিরামিষ / নির্ধারিত নিয়ম প্রযোজ্য",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "উৎপন্না একাদশী ব্রত; গোস্বামীমতে অদ্য ও নিম্বার্কমতে পরাহ্নে একাদশীর উপবাস; আচার্য জগদীশ চন্দ্র বসুর জন্মদিবস",
+                        lagna: "বৃশ্চিক দং ২।১৭।৫৮ গতে উদয়",
+                        tithiName: "শ্রী উৎপন্না একাদশী ব্রত (১৮ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "প্রাতঃ ০৮/১২ হতে ১০/১৬",
+                        tithiSchedule: "অষ্টমী / একাদশী সংশ্লিষ্ট সময়সূচি পঞ্জিকা অনুযায়ী",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-05": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "উৎপন্না একাদশীর পারণ ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "দ্বাদশী তিথি দং ৪৪।১৫ (১৯ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "পঞ্জিকা অনুযায়ী দ্বাদশীর পারণ সময় নির্ধারিত",
+                        tithiSchedule: "দ্বাদশী তিথি দং ৪৪।১৫ পর্যন্ত",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-06": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "বৃহস্পতিবার ও শ্রী শ্রী বাগদিয়া কল্যানের ভৈরবের তিরোভাব দিবস",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "বৃহস্পতিবারের তিথি (২০ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-07": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "রবিবার, হরিনাম সংকীর্তন ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "রবিবারের তিথি (২১ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-08": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "সোমবার, চতুর্দশী তিথি ও বৈষ্ণব নিত্যপূজা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "চতুর্দশী তিথি (২২ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী চতুর্দশী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-09": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "মঙ্গলবার, আন্তর্জাতিক ভ্রাতৃত্ব দিবস ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "মঙ্গলবারের তিথি (২৩ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-10": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "অমাবস্যা তিথি ও বৈষ্ণব নিত্যপূজা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "অমাবস্যা তিথি (২৪ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী অমাবস্যা সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-11": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শুক্রবার ও বৈষ্ণব উৎসব/নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "শুক্রবারের তিথি (২৫ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-12": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শ্রীরাধা গোবিন্দ নাথজিউর তিরোভাব তিথি ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "শনিবারের তিথি (২৬ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী তিথি সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-13": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শ্রী বীরচন্দ্র প্রভুর আবির্ভাব তিথি, শ্রীশ্রী কপিলদেবের আবির্ভাব ও রবিবার চতুর্থী তিথি",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "চতুর্থী তিথি (২৬/২৭ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী চতুর্থী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-14": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "সিদ্ধ মনোহর দাস বাবাজী মহারাজজি শুভ আবির্ভাব তিথি ও পরিব্রাজকাচার্য ১০৮ স্বামী নিগমানন্দ সরস্বতীদেবের তিরোধান তিথি",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "পঞ্চমী তিথি (২৭ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী পঞ্চমী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-15": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শ্রীশ্রীকাত্যায়নী দেবী কালীমাতার বাৎসরিক মহাস্নান ও অন্নকূট মহোৎসব",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "ষষ্ঠী তিথি (২৮ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী ষষ্ঠী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-16": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "মহান বিজয় দিবস ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "সপ্তমী তিথি (২৯ অগ্রহায়ণ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী সপ্তমী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-17": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "বৃহস্পতিবার ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "অষ্টমী তিথি (১লা পৌষ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী অষ্টমী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-18": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "চন্দননগরের গোস্বামীঘাটে খুটির মেলা ও শ্রীশ্রীলক্ষ্মীপূজা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "নবমী তিথি (২ পৌষ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী নবমী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-19": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শ্রীশ্রীপাদ যাদবেন্দ্র নন্দন গোস্বামীর শুভ ৭৫-তম আবির্ভাব তিথি ও আন্তর্জাতিক অভিবাসী দিবস",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "দশমী তিথি (৩ পৌষ, বাংলাদেশ)",
+                        paranTime: "-",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী দশমী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-20": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "একাদশী উপবাসে নিরামিষ / নির্ধারিত নিয়ম প্রযোজ্য",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "শ্রী মোক্ষদা একাদশী ব্রত ও ৫১২৮ তম শ্রীমদ্ভগবদ্ গীতা জয়ন্তী",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "শ্রী মোক্ষদা একাদশী ও গীতা জয়ন্তী (৪ পৌষ, বাংলাদেশ)",
+                        paranTime: "প্রাতঃ ০৬/৪৭ হতে ১০/১৮",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী মোক্ষদা একাদশী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
+                    },
+                    "2026-12-21": {
+                        amritaDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        mahendraDay: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        amritaNight: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        barBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalBela: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        kalRatri: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yatra: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        yogini: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        food: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        rashiDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        ganaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        dashaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        doshaDetails: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        chandraTara: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        remedy: "দ্বাদশী পারণ, দেবর্ষি নারদ ভগবান স্মরণ ও বৈষ্ণব নিত্যসেবা",
+                        lagna: "পঞ্জিকা অনুযায়ী নির্ধারিত",
+                        tithiName: "দ্বাদশী তিথি (৫ পৌষ, বাংলাদেশ)",
+                        paranTime: "পঞ্জিকা অনুযায়ী দ্বাদশীর পারণ সময় নির্ধারিত",
+                        tithiSchedule: "পঞ্জিকা অনুযায়ী দ্বাদশী সময়সূচি",
+                        nakshatraSchedule: "পঞ্জিকা অনুযায়ী নক্ষত্র সময়সূচি"
                     }
                 };
 
@@ -1507,6 +2393,8 @@
                 setText('hero-festival-title', data.tithiName);
                 setText('ring-tithi-desc', `${data.tithiName}। ${data.tithiSchedule}`);
 
+                saveOfflineSnapshot();
+
             } catch (error) {
                 console.error("পঞ্জিকা ডেটা লোড করতে সমস্যা হয়েছে:", error);
             }
@@ -1540,9 +2428,13 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
                     .then((registration) => {
+                        isSwRegistered = true;
+                        updateConnectionStatus();
                         console.log('ServiceWorker registered: ', registration.scope);
                     })
                     .catch((error) => {
+                        isSwRegistered = false;
+                        updateConnectionStatus();
                         console.log('ServiceWorker registration failed: ', error);
                     });
             });
