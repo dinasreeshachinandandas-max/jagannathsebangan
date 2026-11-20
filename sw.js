@@ -1,40 +1,48 @@
-const CACHE_NAME = 'vaishnava-panjika-v2';
-const assetsToCache = [
+const CACHE_NAME = 'vaishnava-panjika-offline-v1';
+const OFFLINE_URLS = [
     './',
     './panjika.html',
-    './panjika-data.json',
     './manifest-panjika.json',
     './logo.png',
     './profile.png'
 ];
 
 self.addEventListener('install', (event) => {
-    self.skipWaiting();
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(assetsToCache);
-        })
+        caches.open(CACHE_NAME).then((cache) => cache.addAll(OFFLINE_URLS))
     );
+    self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cache) => {
-                    if (cache !== CACHE_NAME) {
-                        return caches.delete(cache);
-                    }
-                })
-            );
-        })
+        caches.keys().then((keys) =>
+            Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+        )
     );
+    self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
+    if (event.request.method !== 'GET') return;
+
     event.respondWith(
-        fetch(event.request).catch(() => {
-            return caches.match(event.request);
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                fetch(event.request).then((networkResponse) => {
+                    if (networkResponse && networkResponse.status === 200) {
+                        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse.clone()));
+                    }
+                }).catch(() => {});
+                return cachedResponse;
+            }
+            return fetch(event.request).then((networkResponse) => {
+                if (networkResponse && networkResponse.status === 200) {
+                    const clone = networkResponse.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+                }
+                return networkResponse;
+            }).catch(() => caches.match('./panjika.html'));
         })
     );
 });
